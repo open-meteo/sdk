@@ -23,7 +23,9 @@ jobs:
         with:
           node-version: 18
       - name: Install semantic-release
-        run: npm install
+        run: |
+          npm install
+          npm config set access public
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
