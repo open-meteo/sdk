@@ -1,3 +1,5 @@
 # Open-Meteo TypeScript SDK
 
-`npm install openmeteo_sdk`
+https://www.npmjs.com/package/@openmeteo/sdk
+
+`npm install @openmeteo/sdk`

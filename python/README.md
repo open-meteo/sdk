@@ -1,4 +1,6 @@
 
 # Open-Meteo Python SDK
 
-`pip install openmeteo_sdk`
+https://pypi.org/project/openmeteo-sdk/
+
+`pip install openmeteo-sdk`
