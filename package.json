@@ -41,7 +41,7 @@
         "conventional-changelog-conventionalcommits": "^7.0.2",
         "husky": "^8.0.3",
         "semantic-release": "^22.0.5",
-        "semantic-release-pypi": "^3.0.0-beta.1",
+        "semantic-release-pypi": "^3.0.0-beta.2",
         "ts-node": "^10.2.1",
         "typescript": "^5.2.2"
     },
