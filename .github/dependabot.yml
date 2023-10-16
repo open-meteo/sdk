@@ -7,7 +7,7 @@ updates:
     time: "13:00"
   open-pull-requests-limit: 10
   reviewers:
-  - dciborow
+  - patrick.zippenfenig
   allow:
   - dependency-type: direct
   - dependency-type: indirect
@@ -20,7 +20,7 @@ updates:
     time: "13:00"
   open-pull-requests-limit: 10
   reviewers:
-  - dciborow
+  - patrick.zippenfenig
   allow:
   - dependency-type: direct
   - dependency-type: indirect
@@ -33,7 +33,7 @@ updates:
     time: "13:00"
   open-pull-requests-limit: 10
   reviewers:
-  - dciborow
+  - patrick.zippenfenig
   allow:
   - dependency-type: direct
   - dependency-type: indirect

@@ -1,10 +1,55 @@
 {
+    "name": "openmeteo_sdk",
+    "version": "0.0.0",
+    "description": "Open-Meteo SDK",
+    "main": "./ts/index.js",
+    "files": [
+        "ts/**/*"
+    ],
+    "scripts": {
+        "build": "tsc --project tsconfig.build.json",
+        "clean": "rm -rf ./lib/",
+        "prepare": "husky install",
+        "semantic-release": "semantic-release",
+        "typecheck": "tsc --noEmit"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/open-meteo/sdk.git"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Open-Meteo",
+        "email": "info@open-meteo.com",
+        "url": "https://open-meteo.com"
+    },
+    "engines": {
+        "node": ">=12.0"
+    },
+    "keywords": [
+        "weather"
+    ],
+    "bugs": {
+        "url": "https://github.com/open-meteo/sdk/issues"
+    },
+    "homepage": "https://github.com/open-meteo/sdl#readme",
     "devDependencies": {
         "@semantic-release/commit-analyzer": "^11.0.0",
         "@semantic-release/git": "^10.0.1",
         "@semantic-release/github": "^9.2.1",
+        "@types/node": "^12.20.11",
+        "@typescript-eslint/eslint-plugin": "^4.22.0",
+        "@typescript-eslint/parser": "^4.22.0",
         "conventional-changelog-conventionalcommits": "^7.0.2",
+        "eslint": "^7.25.0",
+        "eslint-plugin-node": "^11.1.0",
+        "husky": "^6.0.0",
         "semantic-release": "^22.0.5",
-        "semantic-release-pypi": "^3.0.0-beta.2"
+        "semantic-release-pypi": "^3.0.0-beta.2",
+        "ts-node": "^10.2.1",
+        "typescript": "^4.2.4"
+    },
+    "dependencies": {
+        "flatbuffers": "^23.0.0"
     }
 }

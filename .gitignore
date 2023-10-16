@@ -7,8 +7,9 @@ __pycache__/
 *.so
 
 .build/
-.node_modules/
+node_modules/
 .swiftpm/
+.husky
 
 # Distribution / packaging
 .Python

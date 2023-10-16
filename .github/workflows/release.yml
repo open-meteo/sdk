@@ -1,9 +1,10 @@
 name: Release
 
 on:
-  workflow_dispatch:
+  workflow_run:
     branches:
-      - main
+      - 'main'
+  workflow_dispatch:
 
 jobs:
   release:
@@ -28,4 +29,5 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PYPI_TOKEN: ${{ secrets.PYPI_PASSWORD }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
