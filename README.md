@@ -22,5 +22,6 @@ flatc --ts -o ts/ flatbuffers/*.fbs
 ```
 
 
+
 # License
 MIT
