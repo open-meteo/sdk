@@ -2,7 +2,7 @@
     "name": "@openmeteo/sdk",
     "version": "0.0.0",
     "description": "Open-Meteo SDK",
-    "main": "./lib/index.js",
+    "main": "./lib/openmeteo-sdk.js",
     "files": [
         "lib/**/*"
     ],
