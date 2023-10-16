@@ -2,10 +2,10 @@
 
 import * as flatbuffers from 'flatbuffers';
 
-import { WeatherCurrent } from '../openmeteo-sdk/weather-current.js';
-import { WeatherDaily } from '../openmeteo-sdk/weather-daily.js';
-import { WeatherHourly } from '../openmeteo-sdk/weather-hourly.js';
-import { WeatherModel } from '../openmeteo-sdk/weather-model.js';
+import { WeatherCurrent } from './weather-current.js';
+import { WeatherDaily } from './weather-daily.js';
+import { WeatherHourly } from './weather-hourly.js';
+import { WeatherModel } from './weather-model.js';
 
 
 export class WeatherApiResponse {

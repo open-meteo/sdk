@@ -2,27 +2,27 @@
 
 import * as flatbuffers from 'flatbuffers';
 
-import { EnsembleDaily } from '../openmeteo-sdk/ensemble-daily.js';
-import { EnsembleHourly } from '../openmeteo-sdk/ensemble-hourly.js';
-import { EnsembleModel } from '../openmeteo-sdk/ensemble-model.js';
+import { FloodDaily } from './flood-daily.js';
+import { FloodModel } from './flood-model.js';
+import { TimeRange } from './time-range.js';
 
 
-export class EnsembleApiResponse {
+export class FloodApiResponse {
   bb: flatbuffers.ByteBuffer|null = null;
   bb_pos = 0;
-  __init(i:number, bb:flatbuffers.ByteBuffer):EnsembleApiResponse {
+  __init(i:number, bb:flatbuffers.ByteBuffer):FloodApiResponse {
   this.bb_pos = i;
   this.bb = bb;
   return this;
 }
 
-static getRootAsEnsembleApiResponse(bb:flatbuffers.ByteBuffer, obj?:EnsembleApiResponse):EnsembleApiResponse {
-  return (obj || new EnsembleApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+static getRootAsFloodApiResponse(bb:flatbuffers.ByteBuffer, obj?:FloodApiResponse):FloodApiResponse {
+  return (obj || new FloodApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-static getSizePrefixedRootAsEnsembleApiResponse(bb:flatbuffers.ByteBuffer, obj?:EnsembleApiResponse):EnsembleApiResponse {
+static getSizePrefixedRootAsFloodApiResponse(bb:flatbuffers.ByteBuffer, obj?:FloodApiResponse):FloodApiResponse {
   bb.setPosition(bb.position() + flatbuffers.SIZE_PREFIX_LENGTH);
-  return (obj || new EnsembleApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+  return (obj || new FloodApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
 latitude():number {
@@ -40,9 +40,9 @@ elevation():number {
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
-model():EnsembleModel {
+model():FloodModel {
   const offset = this.bb!.__offset(this.bb_pos, 10);
-  return offset ? this.bb!.readInt8(this.bb_pos + offset) : EnsembleModel.undefined;
+  return offset ? this.bb!.readInt8(this.bb_pos + offset) : FloodModel.best_match;
 }
 
 generationtimeMs():number {
@@ -69,23 +69,18 @@ timezoneAbbreviation(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-daily(obj?:EnsembleDaily):EnsembleDaily|null {
+time(obj?:TimeRange):TimeRange|null {
   const offset = this.bb!.__offset(this.bb_pos, 20);
-  return offset ? (obj || new EnsembleDaily()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new TimeRange()).__init(this.bb_pos + offset, this.bb!) : null;
 }
 
-hourly(obj?:EnsembleHourly):EnsembleHourly|null {
+daily(obj?:FloodDaily):FloodDaily|null {
   const offset = this.bb!.__offset(this.bb_pos, 22);
-  return offset ? (obj || new EnsembleHourly()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new FloodDaily()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-sixHourly(obj?:EnsembleHourly):EnsembleHourly|null {
-  const offset = this.bb!.__offset(this.bb_pos, 24);
-  return offset ? (obj || new EnsembleHourly()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
-}
-
-static startEnsembleApiResponse(builder:flatbuffers.Builder) {
-  builder.startObject(11);
+static startFloodApiResponse(builder:flatbuffers.Builder) {
+  builder.startObject(10);
 }
 
 static addLatitude(builder:flatbuffers.Builder, latitude:number) {
@@ -100,8 +95,8 @@ static addElevation(builder:flatbuffers.Builder, elevation:number) {
   builder.addFieldFloat32(2, elevation, 0.0);
 }
 
-static addModel(builder:flatbuffers.Builder, model:EnsembleModel) {
-  builder.addFieldInt8(3, model, EnsembleModel.undefined);
+static addModel(builder:flatbuffers.Builder, model:FloodModel) {
+  builder.addFieldInt8(3, model, FloodModel.best_match);
 }
 
 static addGenerationtimeMs(builder:flatbuffers.Builder, generationtimeMs:number) {
@@ -120,28 +115,24 @@ static addTimezoneAbbreviation(builder:flatbuffers.Builder, timezoneAbbreviation
   builder.addFieldOffset(7, timezoneAbbreviationOffset, 0);
 }
 
+static addTime(builder:flatbuffers.Builder, timeOffset:flatbuffers.Offset) {
+  builder.addFieldStruct(8, timeOffset, 0);
+}
+
 static addDaily(builder:flatbuffers.Builder, dailyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, dailyOffset, 0);
+  builder.addFieldOffset(9, dailyOffset, 0);
 }
 
-static addHourly(builder:flatbuffers.Builder, hourlyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, hourlyOffset, 0);
-}
-
-static addSixHourly(builder:flatbuffers.Builder, sixHourlyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(10, sixHourlyOffset, 0);
-}
-
-static endEnsembleApiResponse(builder:flatbuffers.Builder):flatbuffers.Offset {
+static endFloodApiResponse(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static finishEnsembleApiResponseBuffer(builder:flatbuffers.Builder, offset:flatbuffers.Offset) {
+static finishFloodApiResponseBuffer(builder:flatbuffers.Builder, offset:flatbuffers.Offset) {
   builder.finish(offset);
 }
 
-static finishSizePrefixedEnsembleApiResponseBuffer(builder:flatbuffers.Builder, offset:flatbuffers.Offset) {
+static finishSizePrefixedFloodApiResponseBuffer(builder:flatbuffers.Builder, offset:flatbuffers.Offset) {
   builder.finish(offset, undefined, true);
 }
 

@@ -2,10 +2,10 @@
 
 import * as flatbuffers from 'flatbuffers';
 
-import { TimeRange } from '../openmeteo-sdk/time-range.js';
-import { ValuesAndLevelAndMember } from '../openmeteo-sdk/values-and-level-and-member.js';
-import { ValuesUnitAndMember } from '../openmeteo-sdk/values-unit-and-member.js';
-import { ValuesUnitPressureLevelAndMember } from '../openmeteo-sdk/values-unit-pressure-level-and-member.js';
+import { TimeRange } from './time-range.js';
+import { ValuesAndLevelAndMember } from './values-and-level-and-member.js';
+import { ValuesUnitAndMember } from './values-unit-and-member.js';
+import { ValuesUnitPressureLevelAndMember } from './values-unit-pressure-level-and-member.js';
 
 
 export class EnsembleHourly {

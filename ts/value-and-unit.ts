@@ -2,7 +2,7 @@
 
 import * as flatbuffers from 'flatbuffers';
 
-import { SiUnit } from '../openmeteo-sdk/si-unit.js';
+import { SiUnit } from './si-unit.js';
 
 
 export class ValueAndUnit {

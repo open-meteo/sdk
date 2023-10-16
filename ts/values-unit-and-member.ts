@@ -2,30 +2,31 @@
 
 import * as flatbuffers from 'flatbuffers';
 
-import { ValuesAndMember } from '../openmeteo-sdk/values-and-member.js';
+import { SiUnit } from './si-unit.js';
+import { ValuesAndMember } from './values-and-member.js';
 
 
-export class ValuesAndLevelAndMember {
+export class ValuesUnitAndMember {
   bb: flatbuffers.ByteBuffer|null = null;
   bb_pos = 0;
-  __init(i:number, bb:flatbuffers.ByteBuffer):ValuesAndLevelAndMember {
+  __init(i:number, bb:flatbuffers.ByteBuffer):ValuesUnitAndMember {
   this.bb_pos = i;
   this.bb = bb;
   return this;
 }
 
-static getRootAsValuesAndLevelAndMember(bb:flatbuffers.ByteBuffer, obj?:ValuesAndLevelAndMember):ValuesAndLevelAndMember {
-  return (obj || new ValuesAndLevelAndMember()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+static getRootAsValuesUnitAndMember(bb:flatbuffers.ByteBuffer, obj?:ValuesUnitAndMember):ValuesUnitAndMember {
+  return (obj || new ValuesUnitAndMember()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-static getSizePrefixedRootAsValuesAndLevelAndMember(bb:flatbuffers.ByteBuffer, obj?:ValuesAndLevelAndMember):ValuesAndLevelAndMember {
+static getSizePrefixedRootAsValuesUnitAndMember(bb:flatbuffers.ByteBuffer, obj?:ValuesUnitAndMember):ValuesUnitAndMember {
   bb.setPosition(bb.position() + flatbuffers.SIZE_PREFIX_LENGTH);
-  return (obj || new ValuesAndLevelAndMember()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+  return (obj || new ValuesUnitAndMember()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-level():number {
+unit():SiUnit {
   const offset = this.bb!.__offset(this.bb_pos, 4);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+  return offset ? this.bb!.readInt8(this.bb_pos + offset) : SiUnit.undefined;
 }
 
 values(index: number, obj?:ValuesAndMember):ValuesAndMember|null {
@@ -38,12 +39,12 @@ valuesLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-static startValuesAndLevelAndMember(builder:flatbuffers.Builder) {
+static startValuesUnitAndMember(builder:flatbuffers.Builder) {
   builder.startObject(2);
 }
 
-static addLevel(builder:flatbuffers.Builder, level:number) {
-  builder.addFieldInt32(0, level, 0);
+static addUnit(builder:flatbuffers.Builder, unit:SiUnit) {
+  builder.addFieldInt8(0, unit, SiUnit.undefined);
 }
 
 static addValues(builder:flatbuffers.Builder, valuesOffset:flatbuffers.Offset) {
@@ -62,15 +63,15 @@ static startValuesVector(builder:flatbuffers.Builder, numElems:number) {
   builder.startVector(4, numElems, 4);
 }
 
-static endValuesAndLevelAndMember(builder:flatbuffers.Builder):flatbuffers.Offset {
+static endValuesUnitAndMember(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static createValuesAndLevelAndMember(builder:flatbuffers.Builder, level:number, valuesOffset:flatbuffers.Offset):flatbuffers.Offset {
-  ValuesAndLevelAndMember.startValuesAndLevelAndMember(builder);
-  ValuesAndLevelAndMember.addLevel(builder, level);
-  ValuesAndLevelAndMember.addValues(builder, valuesOffset);
-  return ValuesAndLevelAndMember.endValuesAndLevelAndMember(builder);
+static createValuesUnitAndMember(builder:flatbuffers.Builder, unit:SiUnit, valuesOffset:flatbuffers.Offset):flatbuffers.Offset {
+  ValuesUnitAndMember.startValuesUnitAndMember(builder);
+  ValuesUnitAndMember.addUnit(builder, unit);
+  ValuesUnitAndMember.addValues(builder, valuesOffset);
+  return ValuesUnitAndMember.endValuesUnitAndMember(builder);
 }
 }

@@ -2,28 +2,28 @@
 
 import * as flatbuffers from 'flatbuffers';
 
-import { MarineCurrent } from '../openmeteo-sdk/marine-current.js';
-import { MarineDaily } from '../openmeteo-sdk/marine-daily.js';
-import { MarineHourly } from '../openmeteo-sdk/marine-hourly.js';
-import { MarineModel } from '../openmeteo-sdk/marine-model.js';
+import { AirQualityCurrent } from './air-quality-current.js';
+import { AirQualityHourly } from './air-quality-hourly.js';
+import { AirQualityModel } from './air-quality-model.js';
+import { TimeRange } from './time-range.js';
 
 
-export class MarineApiResponse {
+export class AirQualityApiResponse {
   bb: flatbuffers.ByteBuffer|null = null;
   bb_pos = 0;
-  __init(i:number, bb:flatbuffers.ByteBuffer):MarineApiResponse {
+  __init(i:number, bb:flatbuffers.ByteBuffer):AirQualityApiResponse {
   this.bb_pos = i;
   this.bb = bb;
   return this;
 }
 
-static getRootAsMarineApiResponse(bb:flatbuffers.ByteBuffer, obj?:MarineApiResponse):MarineApiResponse {
-  return (obj || new MarineApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+static getRootAsAirQualityApiResponse(bb:flatbuffers.ByteBuffer, obj?:AirQualityApiResponse):AirQualityApiResponse {
+  return (obj || new AirQualityApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-static getSizePrefixedRootAsMarineApiResponse(bb:flatbuffers.ByteBuffer, obj?:MarineApiResponse):MarineApiResponse {
+static getSizePrefixedRootAsAirQualityApiResponse(bb:flatbuffers.ByteBuffer, obj?:AirQualityApiResponse):AirQualityApiResponse {
   bb.setPosition(bb.position() + flatbuffers.SIZE_PREFIX_LENGTH);
-  return (obj || new MarineApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+  return (obj || new AirQualityApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
 latitude():number {
@@ -41,9 +41,9 @@ elevation():number {
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
-model():MarineModel {
+model():AirQualityModel {
   const offset = this.bb!.__offset(this.bb_pos, 10);
-  return offset ? this.bb!.readInt8(this.bb_pos + offset) : MarineModel.best_match;
+  return offset ? this.bb!.readInt8(this.bb_pos + offset) : AirQualityModel.best_match;
 }
 
 generationtimeMs():number {
@@ -70,22 +70,22 @@ timezoneAbbreviation(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-daily(obj?:MarineDaily):MarineDaily|null {
+time(obj?:TimeRange):TimeRange|null {
   const offset = this.bb!.__offset(this.bb_pos, 20);
-  return offset ? (obj || new MarineDaily()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new TimeRange()).__init(this.bb_pos + offset, this.bb!) : null;
 }
 
-hourly(obj?:MarineHourly):MarineHourly|null {
+hourly(obj?:AirQualityHourly):AirQualityHourly|null {
   const offset = this.bb!.__offset(this.bb_pos, 22);
-  return offset ? (obj || new MarineHourly()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new AirQualityHourly()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-current(obj?:MarineCurrent):MarineCurrent|null {
+current(obj?:AirQualityCurrent):AirQualityCurrent|null {
   const offset = this.bb!.__offset(this.bb_pos, 24);
-  return offset ? (obj || new MarineCurrent()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new AirQualityCurrent()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-static startMarineApiResponse(builder:flatbuffers.Builder) {
+static startAirQualityApiResponse(builder:flatbuffers.Builder) {
   builder.startObject(11);
 }
 
@@ -101,8 +101,8 @@ static addElevation(builder:flatbuffers.Builder, elevation:number) {
   builder.addFieldFloat32(2, elevation, 0.0);
 }
 
-static addModel(builder:flatbuffers.Builder, model:MarineModel) {
-  builder.addFieldInt8(3, model, MarineModel.best_match);
+static addModel(builder:flatbuffers.Builder, model:AirQualityModel) {
+  builder.addFieldInt8(3, model, AirQualityModel.best_match);
 }
 
 static addGenerationtimeMs(builder:flatbuffers.Builder, generationtimeMs:number) {
@@ -121,8 +121,8 @@ static addTimezoneAbbreviation(builder:flatbuffers.Builder, timezoneAbbreviation
   builder.addFieldOffset(7, timezoneAbbreviationOffset, 0);
 }
 
-static addDaily(builder:flatbuffers.Builder, dailyOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, dailyOffset, 0);
+static addTime(builder:flatbuffers.Builder, timeOffset:flatbuffers.Offset) {
+  builder.addFieldStruct(8, timeOffset, 0);
 }
 
 static addHourly(builder:flatbuffers.Builder, hourlyOffset:flatbuffers.Offset) {
@@ -133,16 +133,16 @@ static addCurrent(builder:flatbuffers.Builder, currentOffset:flatbuffers.Offset)
   builder.addFieldOffset(10, currentOffset, 0);
 }
 
-static endMarineApiResponse(builder:flatbuffers.Builder):flatbuffers.Offset {
+static endAirQualityApiResponse(builder:flatbuffers.Builder):flatbuffers.Offset {
   const offset = builder.endObject();
   return offset;
 }
 
-static finishMarineApiResponseBuffer(builder:flatbuffers.Builder, offset:flatbuffers.Offset) {
+static finishAirQualityApiResponseBuffer(builder:flatbuffers.Builder, offset:flatbuffers.Offset) {
   builder.finish(offset);
 }
 
-static finishSizePrefixedMarineApiResponseBuffer(builder:flatbuffers.Builder, offset:flatbuffers.Offset) {
+static finishSizePrefixedAirQualityApiResponseBuffer(builder:flatbuffers.Builder, offset:flatbuffers.Offset) {
   builder.finish(offset, undefined, true);
 }
 
