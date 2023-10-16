@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+.build/
+.node_modules/
+.swiftpm/
+
 # Distribution / packaging
 .Python
 build/
