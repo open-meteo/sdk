@@ -26,6 +26,8 @@ jobs:
         run: |
           npm install
           npm config set access public
+      - name: Compile TypeScript
+        run: npm run build
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
