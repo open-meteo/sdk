@@ -2,9 +2,9 @@
     "name": "@openmeteo/sdk",
     "version": "0.0.0",
     "description": "Open-Meteo SDK",
-    "main": "./ts/index.js",
+    "main": "./lib/index.js",
     "files": [
-        "ts/**/*"
+        "lib/**/*"
     ],
     "scripts": {
         "build": "tsc --project tsconfig.build.json",
