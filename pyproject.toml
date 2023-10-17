@@ -62,7 +62,7 @@ name = "openmeteo_sdk"
 path = "python/openmeteo_sdk/__init__.py"
 
 [tool.hatch.build.targets.sdist]
-include = [
+packages = [
     "python/openmeteo_sdk",
 ]
 
