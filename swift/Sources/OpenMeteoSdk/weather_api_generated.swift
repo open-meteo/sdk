@@ -1848,14 +1848,8 @@ public struct openmeteo_sdk_WeatherDaily: FlatBufferObject, Verifiable {
   public var soilTemperature0To7cmMean: openmeteo_sdk_ValuesAndUnit? { let o = _accessor.offset(VTOFFSET.soilTemperature0To7cmMean.v); return o == 0 ? nil : openmeteo_sdk_ValuesAndUnit(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
   public var soilTemperature28To100cmMean: openmeteo_sdk_ValuesAndUnit? { let o = _accessor.offset(VTOFFSET.soilTemperature28To100cmMean.v); return o == 0 ? nil : openmeteo_sdk_ValuesAndUnit(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
   public var soilTemperature7To28cmMean: openmeteo_sdk_ValuesAndUnit? { let o = _accessor.offset(VTOFFSET.soilTemperature7To28cmMean.v); return o == 0 ? nil : openmeteo_sdk_ValuesAndUnit(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
-  public var hasSunrise: Bool { let o = _accessor.offset(VTOFFSET.sunrise.v); return o == 0 ? false : true }
-  public var sunriseCount: Int32 { let o = _accessor.offset(VTOFFSET.sunrise.v); return o == 0 ? 0 : _accessor.vector(count: o) }
-  public func sunrise(at index: Int32) -> Int64 { let o = _accessor.offset(VTOFFSET.sunrise.v); return o == 0 ? 0 : _accessor.directRead(of: Int64.self, offset: _accessor.vector(at: o) + index * 8) }
-  public var sunrise: [Int64] { return _accessor.getVector(at: VTOFFSET.sunrise.v) ?? [] }
-  public var hasSunset: Bool { let o = _accessor.offset(VTOFFSET.sunset.v); return o == 0 ? false : true }
-  public var sunsetCount: Int32 { let o = _accessor.offset(VTOFFSET.sunset.v); return o == 0 ? 0 : _accessor.vector(count: o) }
-  public func sunset(at index: Int32) -> Int64 { let o = _accessor.offset(VTOFFSET.sunset.v); return o == 0 ? 0 : _accessor.directRead(of: Int64.self, offset: _accessor.vector(at: o) + index * 8) }
-  public var sunset: [Int64] { return _accessor.getVector(at: VTOFFSET.sunset.v) ?? [] }
+  public var sunrise: openmeteo_sdk_ValuesInt64AndUnit? { let o = _accessor.offset(VTOFFSET.sunrise.v); return o == 0 ? nil : openmeteo_sdk_ValuesInt64AndUnit(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
+  public var sunset: openmeteo_sdk_ValuesInt64AndUnit? { let o = _accessor.offset(VTOFFSET.sunset.v); return o == 0 ? nil : openmeteo_sdk_ValuesInt64AndUnit(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
   public var surfacePressureMax: openmeteo_sdk_ValuesAndUnit? { let o = _accessor.offset(VTOFFSET.surfacePressureMax.v); return o == 0 ? nil : openmeteo_sdk_ValuesAndUnit(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
   public var surfacePressureMean: openmeteo_sdk_ValuesAndUnit? { let o = _accessor.offset(VTOFFSET.surfacePressureMean.v); return o == 0 ? nil : openmeteo_sdk_ValuesAndUnit(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
   public var surfacePressureMin: openmeteo_sdk_ValuesAndUnit? { let o = _accessor.offset(VTOFFSET.surfacePressureMin.v); return o == 0 ? nil : openmeteo_sdk_ValuesAndUnit(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
@@ -1928,8 +1922,8 @@ public struct openmeteo_sdk_WeatherDaily: FlatBufferObject, Verifiable {
   public static func add(soilTemperature0To7cmMean: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: soilTemperature0To7cmMean, at: VTOFFSET.soilTemperature0To7cmMean.p) }
   public static func add(soilTemperature28To100cmMean: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: soilTemperature28To100cmMean, at: VTOFFSET.soilTemperature28To100cmMean.p) }
   public static func add(soilTemperature7To28cmMean: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: soilTemperature7To28cmMean, at: VTOFFSET.soilTemperature7To28cmMean.p) }
-  public static func addVectorOf(sunrise: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: sunrise, at: VTOFFSET.sunrise.p) }
-  public static func addVectorOf(sunset: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: sunset, at: VTOFFSET.sunset.p) }
+  public static func add(sunrise: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: sunrise, at: VTOFFSET.sunrise.p) }
+  public static func add(sunset: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: sunset, at: VTOFFSET.sunset.p) }
   public static func add(surfacePressureMax: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: surfacePressureMax, at: VTOFFSET.surfacePressureMax.p) }
   public static func add(surfacePressureMean: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: surfacePressureMean, at: VTOFFSET.surfacePressureMean.p) }
   public static func add(surfacePressureMin: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: surfacePressureMin, at: VTOFFSET.surfacePressureMin.p) }
@@ -2004,8 +1998,8 @@ public struct openmeteo_sdk_WeatherDaily: FlatBufferObject, Verifiable {
     soilTemperature0To7cmMeanOffset soilTemperature0To7cmMean: Offset = Offset(),
     soilTemperature28To100cmMeanOffset soilTemperature28To100cmMean: Offset = Offset(),
     soilTemperature7To28cmMeanOffset soilTemperature7To28cmMean: Offset = Offset(),
-    sunriseVectorOffset sunrise: Offset = Offset(),
-    sunsetVectorOffset sunset: Offset = Offset(),
+    sunriseOffset sunrise: Offset = Offset(),
+    sunsetOffset sunset: Offset = Offset(),
     surfacePressureMaxOffset surfacePressureMax: Offset = Offset(),
     surfacePressureMeanOffset surfacePressureMean: Offset = Offset(),
     surfacePressureMinOffset surfacePressureMin: Offset = Offset(),
@@ -2079,8 +2073,8 @@ public struct openmeteo_sdk_WeatherDaily: FlatBufferObject, Verifiable {
     openmeteo_sdk_WeatherDaily.add(soilTemperature0To7cmMean: soilTemperature0To7cmMean, &fbb)
     openmeteo_sdk_WeatherDaily.add(soilTemperature28To100cmMean: soilTemperature28To100cmMean, &fbb)
     openmeteo_sdk_WeatherDaily.add(soilTemperature7To28cmMean: soilTemperature7To28cmMean, &fbb)
-    openmeteo_sdk_WeatherDaily.addVectorOf(sunrise: sunrise, &fbb)
-    openmeteo_sdk_WeatherDaily.addVectorOf(sunset: sunset, &fbb)
+    openmeteo_sdk_WeatherDaily.add(sunrise: sunrise, &fbb)
+    openmeteo_sdk_WeatherDaily.add(sunset: sunset, &fbb)
     openmeteo_sdk_WeatherDaily.add(surfacePressureMax: surfacePressureMax, &fbb)
     openmeteo_sdk_WeatherDaily.add(surfacePressureMean: surfacePressureMean, &fbb)
     openmeteo_sdk_WeatherDaily.add(surfacePressureMin: surfacePressureMin, &fbb)
@@ -2157,8 +2151,8 @@ public struct openmeteo_sdk_WeatherDaily: FlatBufferObject, Verifiable {
     try _v.visit(field: VTOFFSET.soilTemperature0To7cmMean.p, fieldName: "soilTemperature0To7cmMean", required: false, type: ForwardOffset<openmeteo_sdk_ValuesAndUnit>.self)
     try _v.visit(field: VTOFFSET.soilTemperature28To100cmMean.p, fieldName: "soilTemperature28To100cmMean", required: false, type: ForwardOffset<openmeteo_sdk_ValuesAndUnit>.self)
     try _v.visit(field: VTOFFSET.soilTemperature7To28cmMean.p, fieldName: "soilTemperature7To28cmMean", required: false, type: ForwardOffset<openmeteo_sdk_ValuesAndUnit>.self)
-    try _v.visit(field: VTOFFSET.sunrise.p, fieldName: "sunrise", required: false, type: ForwardOffset<Vector<Int64, Int64>>.self)
-    try _v.visit(field: VTOFFSET.sunset.p, fieldName: "sunset", required: false, type: ForwardOffset<Vector<Int64, Int64>>.self)
+    try _v.visit(field: VTOFFSET.sunrise.p, fieldName: "sunrise", required: false, type: ForwardOffset<openmeteo_sdk_ValuesInt64AndUnit>.self)
+    try _v.visit(field: VTOFFSET.sunset.p, fieldName: "sunset", required: false, type: ForwardOffset<openmeteo_sdk_ValuesInt64AndUnit>.self)
     try _v.visit(field: VTOFFSET.surfacePressureMax.p, fieldName: "surfacePressureMax", required: false, type: ForwardOffset<openmeteo_sdk_ValuesAndUnit>.self)
     try _v.visit(field: VTOFFSET.surfacePressureMean.p, fieldName: "surfacePressureMean", required: false, type: ForwardOffset<openmeteo_sdk_ValuesAndUnit>.self)
     try _v.visit(field: VTOFFSET.surfacePressureMin.p, fieldName: "surfacePressureMin", required: false, type: ForwardOffset<openmeteo_sdk_ValuesAndUnit>.self)

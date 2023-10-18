@@ -55,6 +55,11 @@ table ValuesAndUnit {
   unit: SiUnit;
 }
 
+table ValuesInt64AndUnit {
+  values: [int64] (required);
+  unit: SiUnit;
+}
+
 struct ValueAndUnit {
   value: float;
   unit: SiUnit;

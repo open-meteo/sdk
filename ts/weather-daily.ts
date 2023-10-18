@@ -4,6 +4,7 @@ import * as flatbuffers from 'flatbuffers';
 
 import { TimeRange } from './time-range.js';
 import { ValuesAndUnit } from './values-and-unit.js';
+import { ValuesInt64AndUnit } from './values-int64-and-unit.js';
 
 
 export class WeatherDaily {
@@ -259,24 +260,14 @@ soilTemperature7To28cmMean(obj?:ValuesAndUnit):ValuesAndUnit|null {
   return offset ? (obj || new ValuesAndUnit()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-sunrise(index: number):bigint|null {
+sunrise(obj?:ValuesInt64AndUnit):ValuesInt64AndUnit|null {
   const offset = this.bb!.__offset(this.bb_pos, 98);
-  return offset ? this.bb!.readInt64(this.bb!.__vector(this.bb_pos + offset) + index * 8) : BigInt(0);
+  return offset ? (obj || new ValuesInt64AndUnit()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-sunriseLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 98);
-  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
-}
-
-sunset(index: number):bigint|null {
+sunset(obj?:ValuesInt64AndUnit):ValuesInt64AndUnit|null {
   const offset = this.bb!.__offset(this.bb_pos, 100);
-  return offset ? this.bb!.readInt64(this.bb!.__vector(this.bb_pos + offset) + index * 8) : BigInt(0);
-}
-
-sunsetLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 100);
-  return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
+  return offset ? (obj || new ValuesInt64AndUnit()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 surfacePressureMax(obj?:ValuesAndUnit):ValuesAndUnit|null {
@@ -595,32 +586,8 @@ static addSunrise(builder:flatbuffers.Builder, sunriseOffset:flatbuffers.Offset)
   builder.addFieldOffset(47, sunriseOffset, 0);
 }
 
-static createSunriseVector(builder:flatbuffers.Builder, data:bigint[]):flatbuffers.Offset {
-  builder.startVector(8, data.length, 8);
-  for (let i = data.length - 1; i >= 0; i--) {
-    builder.addInt64(data[i]!);
-  }
-  return builder.endVector();
-}
-
-static startSunriseVector(builder:flatbuffers.Builder, numElems:number) {
-  builder.startVector(8, numElems, 8);
-}
-
 static addSunset(builder:flatbuffers.Builder, sunsetOffset:flatbuffers.Offset) {
   builder.addFieldOffset(48, sunsetOffset, 0);
-}
-
-static createSunsetVector(builder:flatbuffers.Builder, data:bigint[]):flatbuffers.Offset {
-  builder.startVector(8, data.length, 8);
-  for (let i = data.length - 1; i >= 0; i--) {
-    builder.addInt64(data[i]!);
-  }
-  return builder.endVector();
-}
-
-static startSunsetVector(builder:flatbuffers.Builder, numElems:number) {
-  builder.startVector(8, numElems, 8);
 }
 
 static addSurfacePressureMax(builder:flatbuffers.Builder, surfacePressureMaxOffset:flatbuffers.Offset) {

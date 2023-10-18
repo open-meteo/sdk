@@ -7,6 +7,7 @@ from flatbuffers.compat import import_numpy
 from typing import Any
 from openmeteo_sdk.TimeRange import TimeRange
 from openmeteo_sdk.ValuesAndUnit import ValuesAndUnit
+from openmeteo_sdk.ValuesInt64AndUnit import ValuesInt64AndUnit
 from typing import Optional
 np = import_numpy()
 
@@ -499,58 +500,24 @@ class WeatherDaily(object):
         return None
 
     # WeatherDaily
-    def Sunrise(self, j: int):
+    def Sunrise(self) -> Optional[ValuesInt64AndUnit]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(98))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
+            x = self._tab.Indirect(o + self._tab.Pos)
+            obj = ValuesInt64AndUnit()
+            obj.Init(self._tab.Bytes, x)
+            return obj
+        return None
 
     # WeatherDaily
-    def SunriseAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(98))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # WeatherDaily
-    def SunriseLength(self) -> int:
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(98))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # WeatherDaily
-    def SunriseIsNone(self) -> bool:
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(98))
-        return o == 0
-
-    # WeatherDaily
-    def Sunset(self, j: int):
+    def Sunset(self) -> Optional[ValuesInt64AndUnit]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(100))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # WeatherDaily
-    def SunsetAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(100))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # WeatherDaily
-    def SunsetLength(self) -> int:
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(100))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # WeatherDaily
-    def SunsetIsNone(self) -> bool:
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(100))
-        return o == 0
+            x = self._tab.Indirect(o + self._tab.Pos)
+            obj = ValuesInt64AndUnit()
+            obj.Init(self._tab.Bytes, x)
+            return obj
+        return None
 
     # WeatherDaily
     def SurfacePressureMax(self) -> Optional[ValuesAndUnit]:
@@ -1086,23 +1053,11 @@ def WeatherDailyAddSunrise(builder: flatbuffers.Builder, sunrise: int):
 def AddSunrise(builder: flatbuffers.Builder, sunrise: int):
     WeatherDailyAddSunrise(builder, sunrise)
 
-def WeatherDailyStartSunriseVector(builder, numElems: int) -> int:
-    return builder.StartVector(8, numElems, 8)
-
-def StartSunriseVector(builder, numElems: int) -> int:
-    return WeatherDailyStartSunriseVector(builder, numElems)
-
 def WeatherDailyAddSunset(builder: flatbuffers.Builder, sunset: int):
     builder.PrependUOffsetTRelativeSlot(48, flatbuffers.number_types.UOffsetTFlags.py_type(sunset), 0)
 
 def AddSunset(builder: flatbuffers.Builder, sunset: int):
     WeatherDailyAddSunset(builder, sunset)
-
-def WeatherDailyStartSunsetVector(builder, numElems: int) -> int:
-    return builder.StartVector(8, numElems, 8)
-
-def StartSunsetVector(builder, numElems: int) -> int:
-    return WeatherDailyStartSunsetVector(builder, numElems)
 
 def WeatherDailyAddSurfacePressureMax(builder: flatbuffers.Builder, surfacePressureMax: int):
     builder.PrependUOffsetTRelativeSlot(49, flatbuffers.number_types.UOffsetTFlags.py_type(surfacePressureMax), 0)

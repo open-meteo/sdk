@@ -698,8 +698,8 @@ table WeatherDaily {
   soil_temperature_0_to_7cm_mean: ValuesAndUnit;
   soil_temperature_28_to_100cm_mean: ValuesAndUnit;
   soil_temperature_7_to_28cm_mean: ValuesAndUnit;
-  sunrise: [int64];
-  sunset: [int64];
+  sunrise: ValuesInt64AndUnit;
+  sunset: ValuesInt64AndUnit;
   surface_pressure_max: ValuesAndUnit;
   surface_pressure_mean: ValuesAndUnit;
   surface_pressure_min: ValuesAndUnit;

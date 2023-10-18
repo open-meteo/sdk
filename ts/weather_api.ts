@@ -7,6 +7,7 @@ export { ValuesAndLevel } from './values-and-level.js';
 export { ValuesAndLevelAndMember } from './values-and-level-and-member.js';
 export { ValuesAndMember } from './values-and-member.js';
 export { ValuesAndUnit } from './values-and-unit.js';
+export { ValuesInt64AndUnit } from './values-int64-and-unit.js';
 export { ValuesUnitAndMember } from './values-unit-and-member.js';
 export { ValuesUnitPressureLevel } from './values-unit-pressure-level.js';
 export { ValuesUnitPressureLevelAndMember } from './values-unit-pressure-level-and-member.js';
