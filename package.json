@@ -2,12 +2,9 @@
     "name": "@openmeteo/sdk",
     "version": "0.0.0",
     "description": "Open-Meteo SDK",
-    "files": [
-        "./**/*"
-    ],
     "scripts": {
-        "build": "tsc --project tsconfig.build.json",
-        "clean": "rm -rf ./lib/",
+        "build": "rm -rf dist_ts && tsc --project tsconfig.build.json && mkdir dist_ts && cp package.json dist_ts/package.json",
+        "clean": "rm -rf ./dist_ts/",
         "prepare": "husky install",
         "semantic-release": "semantic-release",
         "typecheck": "tsc --noEmit"
