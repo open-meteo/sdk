@@ -5,7 +5,6 @@
     "scripts": {
         "build": "rm -rf dist_ts && tsc --project tsconfig.build.json && mkdir -p dist_ts && cp package.json dist_ts/package.json",
         "clean": "rm -rf ./dist_ts/",
-        "prepare": "husky install",
         "semantic-release": "semantic-release",
         "typecheck": "tsc --noEmit"
     },
@@ -33,12 +32,9 @@
         "@semantic-release/commit-analyzer": "^11.0.0",
         "@semantic-release/git": "^10.0.1",
         "@semantic-release/github": "^9.2.1",
-        "@types/node": "^20.8.6",
         "conventional-changelog-conventionalcommits": "^7.0.2",
-        "husky": "^8.0.3",
         "semantic-release": "^22.0.5",
         "semantic-release-pypi": "^3.0.0-beta.2",
-        "ts-node": "^10.2.1",
         "typescript": "^5.2.2"
     },
     "dependencies": {

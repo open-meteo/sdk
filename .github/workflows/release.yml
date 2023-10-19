@@ -26,8 +26,6 @@ jobs:
         run: |
           npm install
           npm config set access public
-      - name: Create dummy .git for husky #https://github.com/typicode/husky/issues/851
-        run: mkdir -p dist_ts/.git
       - name: Compile TypeScript
         run: npm run build
       - name: Set up Python
