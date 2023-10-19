@@ -65,6 +65,16 @@ struct ValueAndUnit {
   unit: SiUnit;
 }
 
+table ValuesAndLevel {
+  level: int32;
+  values: [float] (required);
+}
+
+table ValuesUnitPressureLevel {
+  unit: SiUnit;
+  values: [ValuesAndLevel];
+}
+
 table ValuesAndMember {
   member: int32;
   values: [float] (required);
