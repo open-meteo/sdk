@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "description": "Open-Meteo SDK",
     "scripts": {
-        "build": "rm -rf dist_ts && tsc --project tsconfig.build.json && mkdir dist_ts && cp package.json dist_ts/package.json",
+        "build": "rm -rf dist_ts && tsc --project tsconfig.build.json && mkdir -p dist_ts && cp package.json dist_ts/package.json",
         "clean": "rm -rf ./dist_ts/",
         "prepare": "husky install",
         "semantic-release": "semantic-release",
