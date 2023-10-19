@@ -57,6 +57,7 @@ table ValuesAtElevation {
   at_150m: [float];
   at_180m: [float];
   at_200m: [float];
+  at_level: [ValuesAndLevel];
 }
 
 table ValuesAtDepth {
@@ -92,6 +93,7 @@ table ValuesCloudCover {
   total: [float];
   low: [float];
   mid: [float];
+  at_level: [ValuesAndLevel];
 }
 
 table WeatherHourly {
@@ -144,14 +146,8 @@ table WeatherHourly {
   windgusts: ValuesAtElevation;
   windspeed: ValuesAtElevation;
 
-  pressure_level_temperature: ValuesUnitPressureLevel;
-  pressure_level_dewpoint: ValuesUnitPressureLevel;
-  pressure_level_relativehumidity: ValuesUnitPressureLevel;
-  pressure_level_cloudcover: ValuesUnitPressureLevel;
-  pressure_level_windspeed: ValuesUnitPressureLevel;
-  pressure_level_winddirection: ValuesUnitPressureLevel;
-  pressure_level_vertical_velocity: ValuesUnitPressureLevel;
-  pressure_level_geopotential_height: ValuesUnitPressureLevel;
+  vertical_velocity: ValuesUnitPressureLevel;
+  geopotential_height: ValuesUnitPressureLevel;
 
   wet_bulb_temperature: ValuesAtElevation;
 }
