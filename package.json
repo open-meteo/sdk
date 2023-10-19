@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "description": "Open-Meteo SDK",
     "files": [
-        "lib/**/*"
+        "./**/*"
     ],
     "scripts": {
         "build": "tsc --project tsconfig.build.json",

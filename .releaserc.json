@@ -1,7 +1,11 @@
 {
+    "pkgRoot": "lib",
     "branches": [
         "main"
     ],
+    "scripts": {
+        "postversion": "cp package.json lib/"
+    },
     "plugins": [
         [
             "@semantic-release/commit-analyzer",
