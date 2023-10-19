@@ -81,21 +81,28 @@ table ValuesAtDepth {
   from_9_to_27cm: [float];
 }
 
+table ValuesRadiation {
+  unit: SiUnit;
+  backwards: [float];
+  instant: [float];
+}
+
+table ValuesCloudCover {
+  unit: SiUnit;
+  total: [float];
+  low: [float];
+  mid: [float];
+}
+
 table WeatherHourly {
   time: TimeRange (required);
   apparent_temperature: ValuesAndUnit;
   cape: ValuesAndUnit;
-  cloudcover: ValuesAndUnit;
-  cloudcover_high: ValuesAndUnit;
-  cloudcover_low: ValuesAndUnit;
-  cloudcover_mid: ValuesAndUnit;
+  cloudcover: ValuesCloudCover;
   dewpoint: ValuesAtElevation;
-  diffuse_radiation: ValuesAndUnit;
-  diffuse_radiation_instant: ValuesAndUnit;
-  direct_normal_irradiance: ValuesAndUnit;
-  direct_normal_irradiance_instant: ValuesAndUnit;
-  direct_radiation: ValuesAndUnit;
-  direct_radiation_instant: ValuesAndUnit;
+  diffuse_radiation: ValuesRadiation;
+  direct_normal_irradiance: ValuesRadiation;
+  direct_radiation: ValuesRadiation;
   et0_fao_evapotranspiration: ValuesAndUnit;
   evapotranspiration: ValuesAndUnit;
   freezinglevel_height: ValuesAndUnit;
@@ -112,8 +119,7 @@ table WeatherHourly {
   relativehumidity: ValuesAtElevation;
   runoff: ValuesAndUnit;
   sensible_heatflux: ValuesAndUnit;
-  shortwave_radiation: ValuesAndUnit;
-  shortwave_radiation_instant: ValuesAndUnit;
+  shortwave_radiation: ValuesRadiation;
   showers: ValuesAndUnit;
   snow_depth: ValuesAndUnit;
   snow_height: ValuesAndUnit;
@@ -126,8 +132,7 @@ table WeatherHourly {
   surface_pressure: ValuesAndUnit;
   surface_temperature: ValuesAndUnit;
   temperature: ValuesAtElevation;
-  terrestrial_radiation: ValuesAndUnit;
-  terrestrial_radiation_instant: ValuesAndUnit;
+  terrestrial_radiation: ValuesRadiation;
   total_column_integrated_water_vapour: ValuesAndUnit;
   updraft: ValuesAndUnit;
   uv_index: ValuesAndUnit;
@@ -189,23 +194,30 @@ table ValueAtDepth {
   from_9_to_27cm: float;
 }
 
+table ValueCloudCover {
+  unit: SiUnit;
+  total: float;
+  low: float;
+  mid: float;
+}
+
+table ValueRadiation {
+  unit: SiUnit;
+  backwards: float;
+  instant: float;
+}
+
 table WeatherCurrent {
   time: int64;
   interval: int32;
 
   apparent_temperature: ValueAndUnit;
   cape: ValueAndUnit;
-  cloudcover: ValueAndUnit;
-  cloudcover_high: ValueAndUnit;
-  cloudcover_low: ValueAndUnit;
-  cloudcover_mid: ValueAndUnit;
+  cloudcover: ValueCloudCover;
   dewpoint: ValueAtElevation;
-  diffuse_radiation: ValueAndUnit;
-  diffuse_radiation_instant: ValueAndUnit;
-  direct_normal_irradiance: ValueAndUnit;
-  direct_normal_irradiance_instant: ValueAndUnit;
-  direct_radiation: ValueAndUnit;
-  direct_radiation_instant: ValueAndUnit;
+  diffuse_radiation: ValueRadiation;
+  direct_normal_irradiance: ValueRadiation;
+  direct_radiation: ValueRadiation;
   et0_fao_evapotranspiration: ValueAndUnit;
   evapotranspiration: ValueAndUnit;
   freezinglevel_height: ValueAndUnit;
@@ -222,8 +234,7 @@ table WeatherCurrent {
   relativehumidity: ValueAtElevation;
   runoff: ValueAndUnit;
   sensible_heatflux: ValueAndUnit;
-  shortwave_radiation: ValueAndUnit;
-  shortwave_radiation_instant: ValueAndUnit;
+  shortwave_radiation: ValueRadiation;
   showers: ValueAndUnit;
   snow_depth: ValueAndUnit;
   snow_height: ValueAndUnit;
@@ -236,8 +247,7 @@ table WeatherCurrent {
   surface_pressure: ValueAndUnit;
   surface_temperature: ValueAndUnit;
   temperature: ValueAtElevation;
-  terrestrial_radiation: ValueAndUnit;
-  terrestrial_radiation_instant: ValueAndUnit;
+  terrestrial_radiation: ValueRadiation;
   total_column_integrated_water_vapour: ValueAndUnit;
   updraft: ValueAndUnit;
   uv_index: ValueAndUnit;
