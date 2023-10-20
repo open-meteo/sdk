@@ -1,0 +1,280 @@
+// Flatbuffers API result format for open-meteo weather data
+// 
+// Generate swift code with: 
+// flatc -o Sources/OpenMeteo/FlatBuffers/ --swift flatbuffers/*.fbs
+//
+// Make sure flatbuffers is installed with `brew install flatbuffers`
+
+namespace openmeteo_sdk;
+
+enum SiUnit : byte {
+  undefined = 0,
+  celsius,
+  fahrenheit,
+  kelvin,
+  kmh,
+  mph,
+  knots,
+  ms,
+  ms_not_unit_converted,
+  millimeter,
+  centimeter,
+  inch,
+  feet,
+  meter,
+  gpm,
+  percent,
+  hectoPascal,
+  pascal,
+  degreeDirection,
+  wmoCode,
+  wattPerSquareMeter,
+  kilogramPerSquareMeter,
+  gramPerKilogram,
+  perSecond,
+  second,
+  qubicMeterPerQubicMeter,
+  qubicMeterPerSecond,
+  kiloPascal,
+  megaJoulesPerSquareMeter,
+  joulesPerKilogram,
+  hours,
+  iso8601,
+  unixtime,
+  microgramsPerQuibicMeter,
+  grainsPerQuibicMeter,
+  dimensionless,
+  dimensionless_integer,
+  eaqi,
+  usaqi,
+  gddCelsius,
+  fraction
+}
+
+struct TimeRange {
+  start: int64;
+  end: int64;
+  interval: int32;
+}
+
+enum Model: byte {
+  undefined = 0,
+  best_match,
+  gfs_seamless,
+  gfs_global,
+  gfs_hrrr,
+  meteofrance_seamless,
+  meteofrance_arpege_seamless,
+  meteofrance_arpege_world,
+  meteofrance_arpege_europe,
+  meteofrance_arome_seamless,
+  meteofrance_arome_france,
+  meteofrance_arome_france_hd,
+  jma_seamless,
+  jma_msm,
+  jms_gsm,
+  jma_gsm,
+  gem_seamless,
+  gem_global,
+  gem_regional,
+  gem_hrdps_continental,
+  icon_seamless,
+  icon_global,
+  icon_eu,
+  icon_d2,
+  ecmwf_ifs04,
+  metno_nordic,
+  era5_seamless,
+  era5,
+  cerra,
+  era5_land,
+  ecmwf_ifs,
+  gwam,
+  ewam,
+  glofas_seamless_v3,
+  glofas_forecast_v3,
+  glofas_consolidated_v3,
+  glofas_seamless_v4,
+  glofas_forecast_v4,
+  glofas_consolidated_v4,
+  gfs_seamless,
+  gfs025,
+  gfs05,
+  CMCC_CM2_VHR4,
+  FGOALS_f3_H_highresSST,
+  FGOALS_f3_H,
+  HiRAM_SIT_HR,
+  MRI_AGCM3_2_S,
+  EC_Earth3P_HR,
+  MPI_ESM1_2_XR,
+  NICAM16_8S,
+}
+
+enum Variable: byte {
+  undefined = 0,
+  apparent_temperature,
+  cape,
+  cloudcover,
+  cloudcover_high,
+  cloudcover_low,
+  cloudcover_mid,
+  dewpoint,
+  diffuse_radiation,
+  diffuse_radiation_instant,
+  direct_normal_irradiance,
+  direct_normal_irradiance_instant,
+  direct_radiation,
+  direct_radiation_instant,
+  et0_fao_evapotranspiration,
+  evapotranspiration,
+  freezinglevel_height,
+  growing_degree_days,
+  is_day,
+  latent_heatflux,
+  leaf_wetness_probability,
+  lifted_index,
+  lightning_potential,
+  precipitation,
+  precipitation_probability,
+  pressure_msl,
+  rain,
+  relativehumidity,
+  runoff,
+  sensible_heatflux,
+  shortwave_radiation,
+  shortwave_radiation_instant,
+  showers,
+  snow_depth,
+  snow_height,
+  snowfall,
+  snowfall_height,
+  snowfall_water_equivalent,
+  soil_moisture,
+  soil_moisture_index,
+  soil_temperature,
+  surface_pressure,
+  surface_temperature,
+  temperature,
+  terrestrial_radiation,
+  terrestrial_radiation_instant,
+  total_column_integrated_water_vapour,
+  updraft,
+  uv_index,
+  uv_index_clear_sky,
+  vapor_pressure_deficit,
+  visibility,
+  weathercode,
+  winddirection,
+  windgusts,
+  windspeed,
+  vertical_velocity,
+  geopotential_height,
+  wet_bulb_temperature,
+  river_discharge,
+  wave_height,
+  wave_period,
+  wave_direction,
+  wind_wave_height,
+  wind_wave_period,
+  wind_wave_peak_period,
+  wind_wave_direction,
+  swell_wave_height,
+  swell_wave_period,
+  swell_wave_peak_period,
+  swell_wave_direction,
+  pm10,
+  pm2_5,
+  dust,
+  aerosol_optical_depth,
+  carbon_monoxide,
+  nitrogen_dioxide,
+  ammonia,
+  ozone,
+  sulphur_dioxide,
+  uv_index,
+  uv_index_clear_sky,
+  alder_pollen,
+  birch_pollen,
+  grass_pollen,
+  mugwort_pollen,
+  olive_pollen,
+  ragweed_pollen,
+  european_aqi,
+  european_aqi_pm2_5,
+  european_aqi_pm10,
+  european_aqi_no2,
+  european_aqi_o3,
+  european_aqi_so2,
+  us_aqi,
+  us_aqi_pm2_5,
+  us_aqi_pm10,
+  us_aqi_no2,
+  us_aqi_o3,
+  us_aqi_so2,
+  us_aqi_co
+}
+
+enum Aggregation: byte {
+  none = 0
+  min,
+  max,
+  mean,
+  p10,
+  p25,
+  median,
+  p75,
+  p90,
+  dominant
+}
+
+table Series {
+  variable: Variable;
+  unit: SiUnit;
+  altitude: int16;
+  pressure_level: int16;
+  depth: int16;
+  depth_to: int16;
+  aggregation: Aggregation;
+  ensemble_member: int16;
+  values: [float];
+  valuesInt64: [int64]; // only for sunrise/set
+}
+
+table SingleValue {
+  variable: Variable;
+  unit: SiUnit;
+  altitude: int16;
+  pressure_level: int16;
+  value: float;
+}
+
+table SeriesAndTime {
+  time: TimeRange;
+  series: [Series];
+}
+
+table SingleValueAndTime {
+  time: int64;
+  interval: int32;
+  series: [SingleValue];
+}
+
+table ApiResponse {
+  latitude: float;
+  longitude: float;
+  elevation: float;
+  location_id: int32;
+  model: Model;
+  generationtime_ms: float;
+  utc_offset_seconds: int32;
+  timezone: string;
+  timezone_abbreviation: string;
+  current: SingleValueAndTime;
+  daily: SeriesAndTime;
+  hourly: SeriesAndTime;
+  six_hourly: SeriesAndTime;
+  minutely_15: SeriesAndTime;
+}
+
+root_type ApiResponse;
+
