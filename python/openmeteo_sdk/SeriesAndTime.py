@@ -6,6 +6,9 @@ import flatbuffers
 from flatbuffers.compat import import_numpy
 from typing import Any
 from openmeteo_sdk.Series import Series
+from Variable import Variable
+from Aggregation import Aggregation
+from typing import Generator
 from typing import Optional
 np = import_numpy()
 
@@ -72,4 +75,42 @@ class SeriesAndTime(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
 
-
+    # Manually added
+    def first(self, 
+            variable: Variable, 
+            altitude: int = None, 
+            pressure_level: int = None, 
+            depth: int = None,
+            depth_to: int = None,
+            aggregation: Aggregation = None
+            ) -> Series:
+        """Get a given data series by its variable name otherwise raise Error"""
+        for s in self.filter(variable, altitude=altitude, pressure_level=pressure_level, depth=depth, depth_to=depth_to, aggregation=aggregation):
+            return s
+        raise ReferenceError()
+    
+    # Manually added
+    def filter(self, 
+                variable: Variable, 
+                altitude: int = None, 
+                pressure_level: int = None, 
+                depth: int = None,
+                depth_to: int = None,
+                aggregation: Aggregation = None
+                ) -> Generator[Series, None, None]:
+        """Get all data series by its variable name"""
+        for i in range(0, self.SeriesLength):
+            s = self.Series(i)
+            if s.Variable() != variable:
+                continue
+            if altitude != None and s.Altitude() != altitude:
+                continue
+            if pressure_level != None and s.PressureLevel() != pressure_level:
+                continue
+            if depth != None and s.Depth() != depth:
+                continue
+            if depth_to != None and s.DepthTo() != depth_to:
+                continue
+            if aggregation != None and s.Aggregation() != aggregation:
+                continue
+            yield s
