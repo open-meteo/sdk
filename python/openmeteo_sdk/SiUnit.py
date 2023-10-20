@@ -2,7 +2,9 @@
 
 # namespace: openmeteo_sdk
 
-class SiUnit(object):
+from enum import Enum
+
+class SiUnit(Enum):
     undefined = 0
     celsius = 1
     fahrenheit = 2

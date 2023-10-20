@@ -2,7 +2,9 @@
 
 # namespace: openmeteo_sdk
 
-class Model(object):
+from enum import Enum
+
+class Model(Enum):
     undefined = 0
     best_match = 1
     gfs_seamless = 2

@@ -2,7 +2,9 @@
 
 # namespace: openmeteo_sdk
 
-class Variable(object):
+from enum import Enum
+
+class Variable(Enum):
     undefined = 0
     apparent_temperature = 1
     cape = 2
