@@ -60,44 +60,4 @@ class SingleValue(object):
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-def SingleValueStart(builder: flatbuffers.Builder):
-    builder.StartObject(5)
 
-def Start(builder: flatbuffers.Builder):
-    SingleValueStart(builder)
-
-def SingleValueAddVariable(builder: flatbuffers.Builder, variable: int):
-    builder.PrependInt8Slot(0, variable, 0)
-
-def AddVariable(builder: flatbuffers.Builder, variable: int):
-    SingleValueAddVariable(builder, variable)
-
-def SingleValueAddUnit(builder: flatbuffers.Builder, unit: int):
-    builder.PrependInt8Slot(1, unit, 0)
-
-def AddUnit(builder: flatbuffers.Builder, unit: int):
-    SingleValueAddUnit(builder, unit)
-
-def SingleValueAddAltitude(builder: flatbuffers.Builder, altitude: int):
-    builder.PrependInt16Slot(2, altitude, 0)
-
-def AddAltitude(builder: flatbuffers.Builder, altitude: int):
-    SingleValueAddAltitude(builder, altitude)
-
-def SingleValueAddPressureLevel(builder: flatbuffers.Builder, pressureLevel: int):
-    builder.PrependInt16Slot(3, pressureLevel, 0)
-
-def AddPressureLevel(builder: flatbuffers.Builder, pressureLevel: int):
-    SingleValueAddPressureLevel(builder, pressureLevel)
-
-def SingleValueAddValue(builder: flatbuffers.Builder, value: float):
-    builder.PrependFloat32Slot(4, value, 0.0)
-
-def AddValue(builder: flatbuffers.Builder, value: float):
-    SingleValueAddValue(builder, value)
-
-def SingleValueEnd(builder: flatbuffers.Builder) -> int:
-    return builder.EndObject()
-
-def End(builder: flatbuffers.Builder) -> int:
-    return SingleValueEnd(builder)

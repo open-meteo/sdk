@@ -72,44 +72,4 @@ class SeriesAndTime(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
 
-def SeriesAndTimeStart(builder: flatbuffers.Builder):
-    builder.StartObject(4)
 
-def Start(builder: flatbuffers.Builder):
-    SeriesAndTimeStart(builder)
-
-def SeriesAndTimeAddStart(builder: flatbuffers.Builder, start: int):
-    builder.PrependInt64Slot(0, start, 0)
-
-def AddStart(builder: flatbuffers.Builder, start: int):
-    SeriesAndTimeAddStart(builder, start)
-
-def SeriesAndTimeAddEnd(builder: flatbuffers.Builder, end: int):
-    builder.PrependInt64Slot(1, end, 0)
-
-def AddEnd(builder: flatbuffers.Builder, end: int):
-    SeriesAndTimeAddEnd(builder, end)
-
-def SeriesAndTimeAddInterval(builder: flatbuffers.Builder, interval: int):
-    builder.PrependInt32Slot(2, interval, 0)
-
-def AddInterval(builder: flatbuffers.Builder, interval: int):
-    SeriesAndTimeAddInterval(builder, interval)
-
-def SeriesAndTimeAddSeries(builder: flatbuffers.Builder, series: int):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(series), 0)
-
-def AddSeries(builder: flatbuffers.Builder, series: int):
-    SeriesAndTimeAddSeries(builder, series)
-
-def SeriesAndTimeStartSeriesVector(builder, numElems: int) -> int:
-    return builder.StartVector(4, numElems, 4)
-
-def StartSeriesVector(builder, numElems: int) -> int:
-    return SeriesAndTimeStartSeriesVector(builder, numElems)
-
-def SeriesAndTimeEnd(builder: flatbuffers.Builder) -> int:
-    return builder.EndObject()
-
-def End(builder: flatbuffers.Builder) -> int:
-    return SeriesAndTimeEnd(builder)
