@@ -51,12 +51,6 @@ enum SiUnit : byte {
   fraction
 }
 
-struct TimeRange {
-  start: int64;
-  end: int64;
-  interval: int32;
-}
-
 enum Model: byte {
   undefined = 0,
   best_match,
@@ -97,7 +91,6 @@ enum Model: byte {
   glofas_seamless_v4,
   glofas_forecast_v4,
   glofas_consolidated_v4,
-  gfs_seamless,
   gfs025,
   gfs05,
   CMCC_CM2_VHR4,
@@ -191,8 +184,6 @@ enum Variable: byte {
   ammonia,
   ozone,
   sulphur_dioxide,
-  uv_index,
-  uv_index_clear_sky,
   alder_pollen,
   birch_pollen,
   grass_pollen,
@@ -215,7 +206,7 @@ enum Variable: byte {
 }
 
 enum Aggregation: byte {
-  none = 0
+  none = 0,
   min,
   max,
   mean,
@@ -230,14 +221,15 @@ enum Aggregation: byte {
 table Series {
   variable: Variable;
   unit: SiUnit;
+  aggregation: Aggregation;
   altitude: int16;
   pressure_level: int16;
   depth: int16;
   depth_to: int16;
-  aggregation: Aggregation;
   ensemble_member: int16;
+
   values: [float];
-  valuesInt64: [int64]; // only for sunrise/set
+  values_int64: [int64]; // only for sunrise/set
 }
 
 table SingleValue {
@@ -245,11 +237,14 @@ table SingleValue {
   unit: SiUnit;
   altitude: int16;
   pressure_level: int16;
+
   value: float;
 }
 
 table SeriesAndTime {
-  time: TimeRange;
+  start: int64;
+  end: int64;
+  interval: int32;
   series: [Series];
 }
 
