@@ -207,8 +207,8 @@ enum Variable: byte {
 
 enum Aggregation: byte {
   none = 0,
-  min,
-  max,
+  minimum,
+  maximum,
   mean,
   p10,
   p25,

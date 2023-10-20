@@ -2,8 +2,8 @@
 
 export enum Aggregation {
   none = 0,
-  min = 1,
-  max = 2,
+  minimum = 1,
+  maximum = 2,
   mean = 3,
   p10 = 4,
   p25 = 5,

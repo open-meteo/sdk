@@ -228,8 +228,8 @@ public enum openmeteo_sdk_Aggregation: Int8, Enum, Verifiable {
   public static var byteSize: Int { return MemoryLayout<Int8>.size }
   public var value: Int8 { return self.rawValue }
   case none_ = 0
-  case min = 1
-  case max = 2
+  case minimum = 1
+  case maximum = 2
   case mean = 3
   case p10 = 4
   case p25 = 5
