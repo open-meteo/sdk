@@ -352,7 +352,9 @@ public struct openmeteo_sdk_SingleValue: FlatBufferObject, Verifiable {
     case unit = 6
     case altitude = 8
     case pressureLevel = 10
-    case value = 12
+    case depth = 12
+    case depthTo = 14
+    case value = 16
     var v: Int32 { Int32(self.rawValue) }
     var p: VOffset { self.rawValue }
   }
@@ -361,12 +363,16 @@ public struct openmeteo_sdk_SingleValue: FlatBufferObject, Verifiable {
   public var unit: openmeteo_sdk_SiUnit { let o = _accessor.offset(VTOFFSET.unit.v); return o == 0 ? .undefined : openmeteo_sdk_SiUnit(rawValue: _accessor.readBuffer(of: Int8.self, at: o)) ?? .undefined }
   public var altitude: Int16 { let o = _accessor.offset(VTOFFSET.altitude.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var pressureLevel: Int16 { let o = _accessor.offset(VTOFFSET.pressureLevel.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
+  public var depth: Int16 { let o = _accessor.offset(VTOFFSET.depth.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
+  public var depthTo: Int16 { let o = _accessor.offset(VTOFFSET.depthTo.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var value: Float32 { let o = _accessor.offset(VTOFFSET.value.v); return o == 0 ? 0.0 : _accessor.readBuffer(of: Float32.self, at: o) }
-  public static func startSingleValue(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 5) }
+  public static func startSingleValue(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 7) }
   public static func add(variable: openmeteo_sdk_Variable, _ fbb: inout FlatBufferBuilder) { fbb.add(element: variable.rawValue, def: 0, at: VTOFFSET.variable.p) }
   public static func add(unit: openmeteo_sdk_SiUnit, _ fbb: inout FlatBufferBuilder) { fbb.add(element: unit.rawValue, def: 0, at: VTOFFSET.unit.p) }
   public static func add(altitude: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: altitude, def: 0, at: VTOFFSET.altitude.p) }
   public static func add(pressureLevel: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: pressureLevel, def: 0, at: VTOFFSET.pressureLevel.p) }
+  public static func add(depth: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: depth, def: 0, at: VTOFFSET.depth.p) }
+  public static func add(depthTo: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: depthTo, def: 0, at: VTOFFSET.depthTo.p) }
   public static func add(value: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: value, def: 0.0, at: VTOFFSET.value.p) }
   public static func endSingleValue(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
   public static func createSingleValue(
@@ -375,6 +381,8 @@ public struct openmeteo_sdk_SingleValue: FlatBufferObject, Verifiable {
     unit: openmeteo_sdk_SiUnit = .undefined,
     altitude: Int16 = 0,
     pressureLevel: Int16 = 0,
+    depth: Int16 = 0,
+    depthTo: Int16 = 0,
     value: Float32 = 0.0
   ) -> Offset {
     let __start = openmeteo_sdk_SingleValue.startSingleValue(&fbb)
@@ -382,6 +390,8 @@ public struct openmeteo_sdk_SingleValue: FlatBufferObject, Verifiable {
     openmeteo_sdk_SingleValue.add(unit: unit, &fbb)
     openmeteo_sdk_SingleValue.add(altitude: altitude, &fbb)
     openmeteo_sdk_SingleValue.add(pressureLevel: pressureLevel, &fbb)
+    openmeteo_sdk_SingleValue.add(depth: depth, &fbb)
+    openmeteo_sdk_SingleValue.add(depthTo: depthTo, &fbb)
     openmeteo_sdk_SingleValue.add(value: value, &fbb)
     return openmeteo_sdk_SingleValue.endSingleValue(&fbb, start: __start)
   }
@@ -392,6 +402,8 @@ public struct openmeteo_sdk_SingleValue: FlatBufferObject, Verifiable {
     try _v.visit(field: VTOFFSET.unit.p, fieldName: "unit", required: false, type: openmeteo_sdk_SiUnit.self)
     try _v.visit(field: VTOFFSET.altitude.p, fieldName: "altitude", required: false, type: Int16.self)
     try _v.visit(field: VTOFFSET.pressureLevel.p, fieldName: "pressureLevel", required: false, type: Int16.self)
+    try _v.visit(field: VTOFFSET.depth.p, fieldName: "depth", required: false, type: Int16.self)
+    try _v.visit(field: VTOFFSET.depthTo.p, fieldName: "depthTo", required: false, type: Int16.self)
     try _v.visit(field: VTOFFSET.value.p, fieldName: "value", required: false, type: Float32.self)
     _v.finish()
   }

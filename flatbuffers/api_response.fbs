@@ -237,6 +237,8 @@ table SingleValue {
   unit: SiUnit;
   altitude: int16;
   pressure_level: int16;
+  depth: int16;
+  depth_to: int16;
 
   value: float;
 }

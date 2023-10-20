@@ -54,8 +54,22 @@ class SingleValue(object):
         return 0
 
     # SingleValue
-    def Value(self):
+    def Depth(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int16Flags, o + self._tab.Pos)
+        return 0
+
+    # SingleValue
+    def DepthTo(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int16Flags, o + self._tab.Pos)
+        return 0
+
+    # SingleValue
+    def Value(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0

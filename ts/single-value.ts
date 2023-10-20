@@ -44,13 +44,23 @@ pressureLevel():number {
   return offset ? this.bb!.readInt16(this.bb_pos + offset) : 0;
 }
 
-value():number {
+depth():number {
   const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? this.bb!.readInt16(this.bb_pos + offset) : 0;
+}
+
+depthTo():number {
+  const offset = this.bb!.__offset(this.bb_pos, 14);
+  return offset ? this.bb!.readInt16(this.bb_pos + offset) : 0;
+}
+
+value():number {
+  const offset = this.bb!.__offset(this.bb_pos, 16);
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
 static startSingleValue(builder:flatbuffers.Builder) {
-  builder.startObject(5);
+  builder.startObject(7);
 }
 
 static addVariable(builder:flatbuffers.Builder, variable:Variable) {
@@ -69,8 +79,16 @@ static addPressureLevel(builder:flatbuffers.Builder, pressureLevel:number) {
   builder.addFieldInt16(3, pressureLevel, 0);
 }
 
+static addDepth(builder:flatbuffers.Builder, depth:number) {
+  builder.addFieldInt16(4, depth, 0);
+}
+
+static addDepthTo(builder:flatbuffers.Builder, depthTo:number) {
+  builder.addFieldInt16(5, depthTo, 0);
+}
+
 static addValue(builder:flatbuffers.Builder, value:number) {
-  builder.addFieldFloat32(4, value, 0.0);
+  builder.addFieldFloat32(6, value, 0.0);
 }
 
 static endSingleValue(builder:flatbuffers.Builder):flatbuffers.Offset {
@@ -78,12 +96,14 @@ static endSingleValue(builder:flatbuffers.Builder):flatbuffers.Offset {
   return offset;
 }
 
-static createSingleValue(builder:flatbuffers.Builder, variable:Variable, unit:SiUnit, altitude:number, pressureLevel:number, value:number):flatbuffers.Offset {
+static createSingleValue(builder:flatbuffers.Builder, variable:Variable, unit:SiUnit, altitude:number, pressureLevel:number, depth:number, depthTo:number, value:number):flatbuffers.Offset {
   SingleValue.startSingleValue(builder);
   SingleValue.addVariable(builder, variable);
   SingleValue.addUnit(builder, unit);
   SingleValue.addAltitude(builder, altitude);
   SingleValue.addPressureLevel(builder, pressureLevel);
+  SingleValue.addDepth(builder, depth);
+  SingleValue.addDepthTo(builder, depthTo);
   SingleValue.addValue(builder, value);
   return SingleValue.endSingleValue(builder);
 }

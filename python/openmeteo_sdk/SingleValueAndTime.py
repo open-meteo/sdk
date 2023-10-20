@@ -77,7 +77,7 @@ class SingleValueAndTime(object):
             depth_to: int = None,
             ) -> SingleValue:
         """Get a given data series by its variable name otherwise raise Error"""
-        for s in self.filter(variable, altitude=altitude, pressure_level=pressure_level, depth=depth, depth_to=depth_to, aggregation=aggregation):
+        for s in self.filter(variable, altitude=altitude, pressure_level=pressure_level, depth=depth, depth_to=depth_to):
             return s
         raise ReferenceError()
     
