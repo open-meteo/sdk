@@ -48,49 +48,4 @@ seriesLength():number {
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
-static startSeriesAndTime(builder:flatbuffers.Builder) {
-  builder.startObject(4);
-}
-
-static addStart(builder:flatbuffers.Builder, start:bigint) {
-  builder.addFieldInt64(0, start, BigInt('0'));
-}
-
-static addEnd(builder:flatbuffers.Builder, end:bigint) {
-  builder.addFieldInt64(1, end, BigInt('0'));
-}
-
-static addInterval(builder:flatbuffers.Builder, interval:number) {
-  builder.addFieldInt32(2, interval, 0);
-}
-
-static addSeries(builder:flatbuffers.Builder, seriesOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(3, seriesOffset, 0);
-}
-
-static createSeriesVector(builder:flatbuffers.Builder, data:flatbuffers.Offset[]):flatbuffers.Offset {
-  builder.startVector(4, data.length, 4);
-  for (let i = data.length - 1; i >= 0; i--) {
-    builder.addOffset(data[i]!);
-  }
-  return builder.endVector();
-}
-
-static startSeriesVector(builder:flatbuffers.Builder, numElems:number) {
-  builder.startVector(4, numElems, 4);
-}
-
-static endSeriesAndTime(builder:flatbuffers.Builder):flatbuffers.Offset {
-  const offset = builder.endObject();
-  return offset;
-}
-
-static createSeriesAndTime(builder:flatbuffers.Builder, start:bigint, end:bigint, interval:number, seriesOffset:flatbuffers.Offset):flatbuffers.Offset {
-  SeriesAndTime.startSeriesAndTime(builder);
-  SeriesAndTime.addStart(builder, start);
-  SeriesAndTime.addEnd(builder, end);
-  SeriesAndTime.addInterval(builder, interval);
-  SeriesAndTime.addSeries(builder, seriesOffset);
-  return SeriesAndTime.endSeriesAndTime(builder);
-}
 }
