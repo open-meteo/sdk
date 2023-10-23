@@ -49,5 +49,7 @@ export enum Model {
   MRI_AGCM3_2_S = 45,
   EC_Earth3P_HR = 46,
   MPI_ESM1_2_XR = 47,
-  NICAM16_8S = 48
+  NICAM16_8S = 48,
+  cams_europe = 49,
+  cams_global = 50
 }

@@ -88,18 +88,13 @@ hourly(obj?:SeriesAndTime):SeriesAndTime|null {
   return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-threeHourly(obj?:SeriesAndTime):SeriesAndTime|null {
+sixHourly(obj?:SeriesAndTime):SeriesAndTime|null {
   const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-sixHourly(obj?:SeriesAndTime):SeriesAndTime|null {
-  const offset = this.bb!.__offset(this.bb_pos, 30);
-  return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
-}
-
 minutely15(obj?:SeriesAndTime):SeriesAndTime|null {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
+  const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
