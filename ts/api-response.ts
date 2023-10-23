@@ -4,7 +4,6 @@ import * as flatbuffers from 'flatbuffers';
 
 import { Model } from './model.js';
 import { SeriesAndTime } from './series-and-time.js';
-import { SingleValueAndTime } from './single-value-and-time.js';
 
 
 export class ApiResponse {
@@ -74,9 +73,9 @@ timezoneAbbreviation(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-current(obj?:SingleValueAndTime):SingleValueAndTime|null {
+current(obj?:SeriesAndTime):SeriesAndTime|null {
   const offset = this.bb!.__offset(this.bb_pos, 22);
-  return offset ? (obj || new SingleValueAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 daily(obj?:SeriesAndTime):SeriesAndTime|null {

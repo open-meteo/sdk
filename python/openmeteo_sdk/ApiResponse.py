@@ -6,7 +6,6 @@ import flatbuffers
 from flatbuffers.compat import import_numpy
 from typing import Any
 from openmeteo_sdk.SeriesAndTime import SeriesAndTime
-from openmeteo_sdk.SingleValueAndTime import SingleValueAndTime
 from typing import Optional
 np = import_numpy()
 
@@ -92,11 +91,11 @@ class ApiResponse(object):
         return None
 
     # ApiResponse
-    def Current(self) -> Optional[SingleValueAndTime]:
+    def Current(self) -> Optional[SeriesAndTime]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
-            obj = SingleValueAndTime()
+            obj = SeriesAndTime()
             obj.Init(self._tab.Bytes, x)
             return obj
         return None

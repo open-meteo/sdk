@@ -1,7 +1,8 @@
 // Flatbuffers API result format for open-meteo weather data
 // 
 // Generate swift code with: 
-// flatc -o Sources/OpenMeteo/FlatBuffers/ --swift flatbuffers/*.fbs
+// flatc --swift -o swift/Sources/OpenMeteoSdk/ flatbuffers/*.fbs
+// See DEVELOPMENT.md for more information
 //
 // Make sure flatbuffers is installed with `brew install flatbuffers`
 
@@ -228,19 +229,9 @@ table Series {
   depth_to: int16;
   ensemble_member: int16;
 
-  values: [float];
-  values_int64: [int64]; // only for sunrise/set
-}
-
-table SingleValue {
-  variable: Variable;
-  unit: SiUnit;
-  altitude: int16;
-  pressure_level: int16;
-  depth: int16;
-  depth_to: int16;
-
-  value: float;
+  value: float; // Only used for current conditions
+  values: [float]; // Contains a time series of data
+  values_int64: [int64];  // Only for sunrise/set as a unix timestamp
 }
 
 table SeriesAndTime {
@@ -248,12 +239,6 @@ table SeriesAndTime {
   end: int64;
   interval: int32;
   series: [Series];
-}
-
-table SingleValueAndTime {
-  time: int64;
-  interval: int32;
-  series: [SingleValue];
 }
 
 table ApiResponse {
@@ -266,7 +251,7 @@ table ApiResponse {
   utc_offset_seconds: int32;
   timezone: string;
   timezone_abbreviation: string;
-  current: SingleValueAndTime;
+  current: SeriesAndTime;
   daily: SeriesAndTime;
   hourly: SeriesAndTime;
   six_hourly: SeriesAndTime;

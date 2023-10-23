@@ -65,33 +65,38 @@ ensembleMember():number {
   return offset ? this.bb!.readInt16(this.bb_pos + offset) : 0;
 }
 
-values(index: number):number|null {
+value():number {
   const offset = this.bb!.__offset(this.bb_pos, 20);
+  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
+}
+
+values(index: number):number|null {
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.readFloat32(this.bb!.__vector(this.bb_pos + offset) + index * 4) : 0;
 }
 
 valuesLength():number {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 valuesArray():Float32Array|null {
-  const offset = this.bb!.__offset(this.bb_pos, 20);
+  const offset = this.bb!.__offset(this.bb_pos, 22);
   return offset ? new Float32Array(this.bb!.bytes().buffer, this.bb!.bytes().byteOffset + this.bb!.__vector(this.bb_pos + offset), this.bb!.__vector_len(this.bb_pos + offset)) : null;
 }
 
 valuesInt64(index: number):bigint|null {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.readInt64(this.bb!.__vector(this.bb_pos + offset) + index * 8) : BigInt(0);
 }
 
 valuesInt64Length():number {
-  const offset = this.bb!.__offset(this.bb_pos, 22);
+  const offset = this.bb!.__offset(this.bb_pos, 24);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }
 
 static startSeries(builder:flatbuffers.Builder) {
-  builder.startObject(10);
+  builder.startObject(11);
 }
 
 static addVariable(builder:flatbuffers.Builder, variable:Variable) {
@@ -126,8 +131,12 @@ static addEnsembleMember(builder:flatbuffers.Builder, ensembleMember:number) {
   builder.addFieldInt16(7, ensembleMember, 0);
 }
 
+static addValue(builder:flatbuffers.Builder, value:number) {
+  builder.addFieldFloat32(8, value, 0.0);
+}
+
 static addValues(builder:flatbuffers.Builder, valuesOffset:flatbuffers.Offset) {
-  builder.addFieldOffset(8, valuesOffset, 0);
+  builder.addFieldOffset(9, valuesOffset, 0);
 }
 
 static createValuesVector(builder:flatbuffers.Builder, data:number[]|Float32Array):flatbuffers.Offset;
@@ -148,7 +157,7 @@ static startValuesVector(builder:flatbuffers.Builder, numElems:number) {
 }
 
 static addValuesInt64(builder:flatbuffers.Builder, valuesInt64Offset:flatbuffers.Offset) {
-  builder.addFieldOffset(9, valuesInt64Offset, 0);
+  builder.addFieldOffset(10, valuesInt64Offset, 0);
 }
 
 static createValuesInt64Vector(builder:flatbuffers.Builder, data:bigint[]):flatbuffers.Offset {
@@ -168,7 +177,7 @@ static endSeries(builder:flatbuffers.Builder):flatbuffers.Offset {
   return offset;
 }
 
-static createSeries(builder:flatbuffers.Builder, variable:Variable, unit:SiUnit, aggregation:Aggregation, altitude:number, pressureLevel:number, depth:number, depthTo:number, ensembleMember:number, valuesOffset:flatbuffers.Offset, valuesInt64Offset:flatbuffers.Offset):flatbuffers.Offset {
+static createSeries(builder:flatbuffers.Builder, variable:Variable, unit:SiUnit, aggregation:Aggregation, altitude:number, pressureLevel:number, depth:number, depthTo:number, ensembleMember:number, value:number, valuesOffset:flatbuffers.Offset, valuesInt64Offset:flatbuffers.Offset):flatbuffers.Offset {
   Series.startSeries(builder);
   Series.addVariable(builder, variable);
   Series.addUnit(builder, unit);
@@ -178,6 +187,7 @@ static createSeries(builder:flatbuffers.Builder, variable:Variable, unit:SiUnit,
   Series.addDepth(builder, depth);
   Series.addDepthTo(builder, depthTo);
   Series.addEnsembleMember(builder, ensembleMember);
+  Series.addValue(builder, value);
   Series.addValues(builder, valuesOffset);
   Series.addValuesInt64(builder, valuesInt64Offset);
   return Series.endSeries(builder);
