@@ -239,8 +239,9 @@ public enum openmeteo_sdk_Aggregation: Int8, Enum, Verifiable {
   case p75 = 7
   case p90 = 8
   case dominant = 9
+  case sum = 10
 
-  public static var max: openmeteo_sdk_Aggregation { return .dominant }
+  public static var max: openmeteo_sdk_Aggregation { return .sum }
   public static var min: openmeteo_sdk_Aggregation { return .none_ }
 }
 

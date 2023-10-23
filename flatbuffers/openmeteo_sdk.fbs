@@ -218,7 +218,8 @@ enum Aggregation: byte {
   median,
   p75,
   p90,
-  dominant
+  dominant,
+  sum
 }
 
 table Series {

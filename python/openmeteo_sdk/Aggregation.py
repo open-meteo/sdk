@@ -15,3 +15,4 @@ class Aggregation(Enum):
     p75 = 7
     p90 = 8
     dominant = 9
+    sum = 10
