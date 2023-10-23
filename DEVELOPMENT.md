@@ -4,6 +4,8 @@
 
 AWK is used to remove create functions for flatbuffer messages
 
+Note: Python code is modified to add selector functions. Make sure to keep changes after compiling
+
 ```bash
 flatc --swift -o swift/Sources/OpenMeteoSdk/ flatbuffers/*.fbs
 

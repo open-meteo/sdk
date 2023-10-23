@@ -254,6 +254,7 @@ table ApiResponse {
   current: SeriesAndTime;
   daily: SeriesAndTime;
   hourly: SeriesAndTime;
+  three_hourly: SeriesAndTime;
   six_hourly: SeriesAndTime;
   minutely_15: SeriesAndTime;
 }

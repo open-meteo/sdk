@@ -421,8 +421,9 @@ public struct openmeteo_sdk_ApiResponse: FlatBufferObject, Verifiable {
     case current = 22
     case daily = 24
     case hourly = 26
-    case sixHourly = 28
-    case minutely15 = 30
+    case threeHourly = 28
+    case sixHourly = 30
+    case minutely15 = 32
     var v: Int32 { Int32(self.rawValue) }
     var p: VOffset { self.rawValue }
   }
@@ -441,9 +442,10 @@ public struct openmeteo_sdk_ApiResponse: FlatBufferObject, Verifiable {
   public var current: openmeteo_sdk_SeriesAndTime? { let o = _accessor.offset(VTOFFSET.current.v); return o == 0 ? nil : openmeteo_sdk_SeriesAndTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
   public var daily: openmeteo_sdk_SeriesAndTime? { let o = _accessor.offset(VTOFFSET.daily.v); return o == 0 ? nil : openmeteo_sdk_SeriesAndTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
   public var hourly: openmeteo_sdk_SeriesAndTime? { let o = _accessor.offset(VTOFFSET.hourly.v); return o == 0 ? nil : openmeteo_sdk_SeriesAndTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
+  public var threeHourly: openmeteo_sdk_SeriesAndTime? { let o = _accessor.offset(VTOFFSET.threeHourly.v); return o == 0 ? nil : openmeteo_sdk_SeriesAndTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
   public var sixHourly: openmeteo_sdk_SeriesAndTime? { let o = _accessor.offset(VTOFFSET.sixHourly.v); return o == 0 ? nil : openmeteo_sdk_SeriesAndTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
   public var minutely15: openmeteo_sdk_SeriesAndTime? { let o = _accessor.offset(VTOFFSET.minutely15.v); return o == 0 ? nil : openmeteo_sdk_SeriesAndTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
-  public static func startApiResponse(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 14) }
+  public static func startApiResponse(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 15) }
   public static func add(latitude: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: latitude, def: 0.0, at: VTOFFSET.latitude.p) }
   public static func add(longitude: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: longitude, def: 0.0, at: VTOFFSET.longitude.p) }
   public static func add(elevation: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: elevation, def: 0.0, at: VTOFFSET.elevation.p) }
@@ -456,6 +458,7 @@ public struct openmeteo_sdk_ApiResponse: FlatBufferObject, Verifiable {
   public static func add(current: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: current, at: VTOFFSET.current.p) }
   public static func add(daily: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: daily, at: VTOFFSET.daily.p) }
   public static func add(hourly: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: hourly, at: VTOFFSET.hourly.p) }
+  public static func add(threeHourly: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: threeHourly, at: VTOFFSET.threeHourly.p) }
   public static func add(sixHourly: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: sixHourly, at: VTOFFSET.sixHourly.p) }
   public static func add(minutely15: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: minutely15, at: VTOFFSET.minutely15.p) }
   public static func endApiResponse(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
@@ -473,6 +476,7 @@ public struct openmeteo_sdk_ApiResponse: FlatBufferObject, Verifiable {
     currentOffset current: Offset = Offset(),
     dailyOffset daily: Offset = Offset(),
     hourlyOffset hourly: Offset = Offset(),
+    threeHourlyOffset threeHourly: Offset = Offset(),
     sixHourlyOffset sixHourly: Offset = Offset(),
     minutely15Offset minutely15: Offset = Offset()
   ) -> Offset {
@@ -489,6 +493,7 @@ public struct openmeteo_sdk_ApiResponse: FlatBufferObject, Verifiable {
     openmeteo_sdk_ApiResponse.add(current: current, &fbb)
     openmeteo_sdk_ApiResponse.add(daily: daily, &fbb)
     openmeteo_sdk_ApiResponse.add(hourly: hourly, &fbb)
+    openmeteo_sdk_ApiResponse.add(threeHourly: threeHourly, &fbb)
     openmeteo_sdk_ApiResponse.add(sixHourly: sixHourly, &fbb)
     openmeteo_sdk_ApiResponse.add(minutely15: minutely15, &fbb)
     return openmeteo_sdk_ApiResponse.endApiResponse(&fbb, start: __start)
@@ -508,6 +513,7 @@ public struct openmeteo_sdk_ApiResponse: FlatBufferObject, Verifiable {
     try _v.visit(field: VTOFFSET.current.p, fieldName: "current", required: false, type: ForwardOffset<openmeteo_sdk_SeriesAndTime>.self)
     try _v.visit(field: VTOFFSET.daily.p, fieldName: "daily", required: false, type: ForwardOffset<openmeteo_sdk_SeriesAndTime>.self)
     try _v.visit(field: VTOFFSET.hourly.p, fieldName: "hourly", required: false, type: ForwardOffset<openmeteo_sdk_SeriesAndTime>.self)
+    try _v.visit(field: VTOFFSET.threeHourly.p, fieldName: "threeHourly", required: false, type: ForwardOffset<openmeteo_sdk_SeriesAndTime>.self)
     try _v.visit(field: VTOFFSET.sixHourly.p, fieldName: "sixHourly", required: false, type: ForwardOffset<openmeteo_sdk_SeriesAndTime>.self)
     try _v.visit(field: VTOFFSET.minutely15.p, fieldName: "minutely15", required: false, type: ForwardOffset<openmeteo_sdk_SeriesAndTime>.self)
     _v.finish()
