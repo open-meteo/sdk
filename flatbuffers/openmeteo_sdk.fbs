@@ -103,7 +103,8 @@ enum Model: byte {
   MPI_ESM1_2_XR,
   NICAM16_8S,
   cams_europe,
-  cams_global
+  cams_global,
+  cfsv2
 }
 
 enum Variable: byte {
@@ -114,6 +115,7 @@ enum Variable: byte {
   cloudcover_high,
   cloudcover_low,
   cloudcover_mid,
+  daylight_duration,
   dewpoint,
   diffuse_radiation,
   diffuse_radiation_instant,
@@ -131,6 +133,7 @@ enum Variable: byte {
   lifted_index,
   lightning_potential,
   precipitation,
+  precipitation_hours,
   precipitation_probability,
   pressure_msl,
   rain,
@@ -145,6 +148,8 @@ enum Variable: byte {
   snowfall,
   snowfall_height,
   snowfall_water_equivalent,
+  sunrise,
+  sunset,
   soil_moisture,
   soil_moisture_index,
   soil_temperature,

@@ -121,7 +121,7 @@ class ApiResponse(object):
         return None
 
     # ApiResponse
-    def ThreeHourly(self) -> Optional[SeriesAndTime]:
+    def SixHourly(self) -> Optional[SeriesAndTime]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
@@ -131,18 +131,8 @@ class ApiResponse(object):
         return None
 
     # ApiResponse
-    def SixHourly(self) -> Optional[SeriesAndTime]:
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            x = self._tab.Indirect(o + self._tab.Pos)
-            obj = SeriesAndTime()
-            obj.Init(self._tab.Bytes, x)
-            return obj
-        return None
-
-    # ApiResponse
     def Minutely15(self) -> Optional[SeriesAndTime]:
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
             obj = SeriesAndTime()

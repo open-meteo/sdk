@@ -56,3 +56,4 @@ class Model(Enum):
     NICAM16_8S = 48
     cams_europe = 49
     cams_global = 50
+    cfsv2 = 51
