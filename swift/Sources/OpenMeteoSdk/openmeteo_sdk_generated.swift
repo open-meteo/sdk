@@ -214,18 +214,18 @@ public enum openmeteo_sdk_Variable: Int8, Enum, Verifiable {
   case europeanAqi = 90
   case europeanAqiPm2p5 = 91
   case europeanAqiPm10 = 92
-  case europeanAqiNo2 = 93
-  case europeanAqiO3 = 94
-  case europeanAqiSo2 = 95
+  case europeanAqiNitrogenDioxide = 93
+  case europeanAqiOzone = 94
+  case europeanAqiSulphurDioxide = 95
   case usAqi = 96
   case usAqiPm2p5 = 97
   case usAqiPm10 = 98
-  case usAqiNo2 = 99
-  case usAqiO3 = 100
-  case usAqiSo2 = 101
-  case usAqiCo = 102
+  case usAqiNitrogenDioxide = 99
+  case usAqiOzone = 100
+  case usAqiSulphurDioxide = 101
+  case usAqiCarbonMonoxide = 102
 
-  public static var max: openmeteo_sdk_Variable { return .usAqiCo }
+  public static var max: openmeteo_sdk_Variable { return .usAqiCarbonMonoxide }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

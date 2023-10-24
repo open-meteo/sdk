@@ -94,14 +94,14 @@ export enum Variable {
   european_aqi = 90,
   european_aqi_pm2p5 = 91,
   european_aqi_pm10 = 92,
-  european_aqi_no2 = 93,
-  european_aqi_o3 = 94,
-  european_aqi_so2 = 95,
+  european_aqi_nitrogen_dioxide = 93,
+  european_aqi_ozone = 94,
+  european_aqi_sulphur_dioxide = 95,
   us_aqi = 96,
   us_aqi_pm2p5 = 97,
   us_aqi_pm10 = 98,
-  us_aqi_no2 = 99,
-  us_aqi_o3 = 100,
-  us_aqi_so2 = 101,
-  us_aqi_co = 102
+  us_aqi_nitrogen_dioxide = 99,
+  us_aqi_ozone = 100,
+  us_aqi_sulphur_dioxide = 101,
+  us_aqi_carbon_monoxide = 102
 }
