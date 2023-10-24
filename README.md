@@ -25,7 +25,7 @@ Depending on the programming language, you can use a HTTP client to fetch all da
 
 
 ## Structure
-Each response contains data for one location and one weather model. If multiple locations are requested, multiple ApiResponses will be returned as an array using `size prefixed` encoding (see below).
+Each response contains data for one location and one weather model. If multiple locations are requested, multiple ApiResponses will be returned as an array using `size-prefixed` encoding (see below).
 
 ### ApiResponse
 The main `ApiResponse` structure contains
@@ -88,7 +88,7 @@ The `Aggregation` enumeration contains all aggregations for daily variables like
 
 Data can be requested for multiple locations and multiple weather models in one API calls. E.g. `&latitude=47.1,49.7&longitude=8.6,9.4`. To return multiple locations at once, multiple FlatBuffers messages are send.
 
-To distinguish multiple messages, each message is prefixed by its length as a 32-bit integer (little endian). This is known as `size-prefixed`` FlatBuffer messages. Over the wire the messages look like this:
+To distinguish multiple messages, each message is prefixed by its length as a 32-bit integer (little endian). This is known as `size-prefixed` FlatBuffer messages. Over the wire the messages look like this:
 - Length: 4 byte, int32 (little endian) = 1284 byte
 - Message: 1284 byte
 - Length: 4 byte, int32 (little endian) = 1306 byte
