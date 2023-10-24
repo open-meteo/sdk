@@ -201,16 +201,16 @@ enum Variable: byte {
   european_aqi,
   european_aqi_pm2p5,
   european_aqi_pm10,
-  european_aqi_no2,
-  european_aqi_o3,
-  european_aqi_so2,
+  european_aqi_nitrogen_dioxide,
+  european_aqi_ozone,
+  european_aqi_sulphur_dioxide,
   us_aqi,
   us_aqi_pm2p5,
   us_aqi_pm10,
-  us_aqi_no2,
-  us_aqi_o3,
-  us_aqi_so2,
-  us_aqi_co
+  us_aqi_nitrogen_dioxide,
+  us_aqi_ozone,
+  us_aqi_sulphur_dioxide,
+  us_aqi_carbon_monoxide
 }
 
 enum Aggregation: byte {
