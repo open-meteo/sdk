@@ -10,47 +10,47 @@ public enum openmeteo_sdk_SiUnit: Int8, Enum, Verifiable {
   public var value: Int8 { return self.rawValue }
   case undefined = 0
   case celsius = 1
-  case fahrenheit = 2
-  case kelvin = 3
-  case kmh = 4
-  case mph = 5
-  case knots = 6
-  case ms = 7
-  case msNotUnitConverted = 8
-  case millimeter = 9
-  case centimeter = 10
-  case inch = 11
-  case feet = 12
-  case meter = 13
-  case gpm = 14
-  case percent = 15
-  case hectoPascal = 16
-  case pascal = 17
-  case degreeDirection = 18
-  case wmoCode = 19
-  case wattPerSquareMeter = 20
-  case kilogramPerSquareMeter = 21
-  case gramPerKilogram = 22
-  case perSecond = 23
-  case second = 24
-  case qubicMeterPerQubicMeter = 25
-  case qubicMeterPerSecond = 26
-  case kiloPascal = 27
-  case megaJoulesPerSquareMeter = 28
-  case joulesPerKilogram = 29
-  case hours = 30
-  case iso8601 = 31
-  case unixtime = 32
-  case microgramsPerQuibicMeter = 33
-  case grainsPerQuibicMeter = 34
-  case dimensionless = 35
-  case dimensionlessInteger = 36
-  case eaqi = 37
-  case usaqi = 38
-  case gddCelsius = 39
-  case fraction = 40
+  case centimetre = 2
+  case cubicMetrePerCubicMetre = 3
+  case cubicMetrePerSecond = 4
+  case degreeDirection = 5
+  case dimensionlessInteger = 6
+  case dimensionless = 7
+  case europeanAirQualityIndex = 8
+  case fahrenheit = 9
+  case feet = 10
+  case fraction = 11
+  case gddCelsius = 12
+  case geopotentialMetre = 13
+  case grainsPerCubicMetre = 14
+  case gramPerKilogram = 15
+  case hectopascal = 16
+  case hours = 17
+  case inch = 18
+  case iso8601 = 19
+  case joulePerKilogram = 20
+  case kelvin = 21
+  case kilopascal = 22
+  case kilogramPerSquareMetre = 23
+  case kilometresPerHour = 24
+  case knots = 25
+  case megajoulePerSquareMetre = 26
+  case metrePerSecondNotUnitConverted = 27
+  case metrePerSecond = 28
+  case metre = 29
+  case microgramsPerCubicMetre = 30
+  case milesPerHour = 31
+  case millimetre = 32
+  case pascal = 33
+  case perSecond = 34
+  case percent = 35
+  case seconds = 36
+  case unixTime = 37
+  case usAirQualityIndex = 38
+  case wattPerSquareMetre = 39
+  case wmoCode = 40
 
-  public static var max: openmeteo_sdk_SiUnit { return .fraction }
+  public static var max: openmeteo_sdk_SiUnit { return .wmoCode }
   public static var min: openmeteo_sdk_SiUnit { return .undefined }
 }
 

@@ -6,41 +6,41 @@ extension openmeteo_sdk_SiUnit {
         case .celsius: return "°C"
         case .fahrenheit: return "°F"
         case .kelvin: return "°K"
-        case .kmh: return "km/h"
-        case .mph: return "mp/h"
+        case .kilometresPerHour: return "km/h"
+        case .milesPerHour: return "mp/h"
         case .knots: return "kn"
-        case .ms: return "m/s"
-        case .msNotUnitConverted: return "m/s"
-        case .millimeter: return "mm"
-        case .centimeter: return "cm"
+        case .metrePerSecond: return "m/s"
+        case .metrePerSecondNotUnitConverted: return "m/s"
+        case .millimetre: return "mm"
+        case .centimetre: return "cm"
         case .inch: return "inch"
         case .feet: return "ft"
-        case .meter: return "m"
-        case .gpm: return "gpm"
+        case .metre: return "m"
+        case .geopotentialMetre: return "gpm"
         case .percent: return "%"
-        case .hectoPascal: return "hPa"
+        case .hectopascal: return "hPa"
         case .pascal: return "Pa"
         case .degreeDirection: return "°"
         case .wmoCode: return "wmo code"
-        case .wattPerSquareMeter: return "W/m²"
-        case .kilogramPerSquareMeter: return "kg/m²"
+        case .wattPerSquareMetre: return "W/m²"
+        case .kilogramPerSquareMetre: return "kg/m²"
         case .gramPerKilogram: return "g/kg"
         case .perSecond: return "s⁻¹"
-        case .second: return "s"
-        case .qubicMeterPerQubicMeter: return "m³/m³"
-        case .qubicMeterPerSecond: return "m³/s"
-        case .kiloPascal: return "kPa"
-        case .megaJoulesPerSquareMeter: return "MJ/m²"
-        case .joulesPerKilogram: return "J/kg"
+        case .seconds: return "s"
+        case .cubicMetrePerCubicMetre: return "m³/m³"
+        case .cubicMetrePerSecond: return "m³/s"
+        case .kilopascal: return "kPa"
+        case .megajoulePerSquareMetre: return "MJ/m²"
+        case .joulePerKilogram: return "J/kg"
         case .hours: return "h"
         case .iso8601: return "iso8601"
-        case .unixtime: return "unixtime"
-        case .microgramsPerQuibicMeter: return "μg/m³"
-        case .grainsPerQuibicMeter: return "grains/m³"
+        case .unixTime: return "unixtime"
+        case .microgramsPerCubicMetre: return "μg/m³"
+        case .grainsPerCubicMetre: return "grains/m³"
         case .dimensionless: return ""
         case .dimensionlessInteger: return ""
-        case .eaqi: return "EAQI"
-        case .usaqi: return "USAQI"
+        case .europeanAirQualityIndex: return "EAQI"
+        case .usAirQualityIndex: return "USAQI"
         case .gddCelsius: return "GGDc"
         case .fraction: return "fraction"
         }
@@ -53,41 +53,41 @@ extension openmeteo_sdk_SiUnit {
         case .celsius: return 1
         case .fahrenheit: return 1
         case .kelvin: return 1
-        case .kmh: return 1
-        case .mph: return 1
+        case .kilometresPerHour: return 1
+        case .milesPerHour: return 1
         case .knots: return 1
-        case .ms: return 2
-        case .msNotUnitConverted: return 2
-        case .millimeter: return 2
+        case .metrePerSecond: return 2
+        case .metrePerSecondNotUnitConverted: return 2
+        case .millimetre: return 2
         case .inch: return 3
         case .feet: return 3
-        case .meter: return 2
+        case .metre: return 2
         case .percent: return 0
-        case .hectoPascal: return 1
+        case .hectopascal: return 1
         case .degreeDirection: return 0
         case .wmoCode: return 0
-        case .wattPerSquareMeter: return 1
-        case .qubicMeterPerQubicMeter: return 3
-        case .kiloPascal: return 2
-        case .megaJoulesPerSquareMeter: return 2
+        case .wattPerSquareMetre: return 1
+        case .cubicMetrePerCubicMetre: return 3
+        case .kilopascal: return 2
+        case .megajoulePerSquareMetre: return 2
         case .hours: return 1
         case .iso8601: return 0
-        case .unixtime: return 0
-        case .gpm: return 0
-        case .kilogramPerSquareMeter: return 2
+        case .unixTime: return 0
+        case .geopotentialMetre: return 0
+        case .kilogramPerSquareMetre: return 2
         case .gramPerKilogram: return 2
         case .perSecond: return 2
         case .pascal: return 0
-        case .centimeter: return 2
-        case .second: return 2
-        case .microgramsPerQuibicMeter: return 1
-        case .grainsPerQuibicMeter: return 1
+        case .centimetre: return 2
+        case .seconds: return 2
+        case .microgramsPerCubicMetre: return 1
+        case .grainsPerCubicMetre: return 1
         case .dimensionless: return 2
         case .dimensionlessInteger: return 0
-        case .joulesPerKilogram: return 1
-        case .qubicMeterPerSecond: return 2
-        case .eaqi: return 0
-        case .usaqi: return 0
+        case .joulePerKilogram: return 1
+        case .cubicMetrePerSecond: return 2
+        case .europeanAirQualityIndex: return 0
+        case .usAirQualityIndex: return 0
         case .gddCelsius: return 2
         case .fraction: return 3
         }
