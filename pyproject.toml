@@ -42,7 +42,7 @@ test = [
     "pylint==3.0.2",
     "pylint_junit",
     "pytest-cov==4.1.0",
-    "pytest-mock<3.11.2",
+    "pytest-mock<3.12.1",
     "pytest-runner",
     "pytest==7.4.2",
     "pytest-asyncio",
