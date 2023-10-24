@@ -3,7 +3,7 @@
 import * as flatbuffers from 'flatbuffers';
 
 import { Aggregation } from './aggregation.js';
-import { SiUnit } from './si-unit.js';
+import { Unit } from './unit.js';
 import { Variable } from './variable.js';
 
 
@@ -30,9 +30,9 @@ variable():Variable {
   return offset ? this.bb!.readInt8(this.bb_pos + offset) : Variable.undefined;
 }
 
-unit():SiUnit {
+unit():Unit {
   const offset = this.bb!.__offset(this.bb_pos, 6);
-  return offset ? this.bb!.readInt8(this.bb_pos + offset) : SiUnit.undefined;
+  return offset ? this.bb!.readInt8(this.bb_pos + offset) : Unit.undefined;
 }
 
 value():number {

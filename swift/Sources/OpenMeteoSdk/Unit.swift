@@ -1,4 +1,4 @@
-extension openmeteo_sdk_SiUnit {
+extension openmeteo_sdk_Unit {
     /// Unit Abbreviation as string. Short form e.g. `°C`
     public var abbreviation: String {
         switch self {

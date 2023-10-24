@@ -4,7 +4,7 @@
 
 import FlatBuffers
 
-public enum openmeteo_sdk_SiUnit: Int8, Enum, Verifiable {
+public enum openmeteo_sdk_Unit: Int8, Enum, Verifiable {
   public typealias T = Int8
   public static var byteSize: Int { return MemoryLayout<Int8>.size }
   public var value: Int8 { return self.rawValue }
@@ -50,8 +50,8 @@ public enum openmeteo_sdk_SiUnit: Int8, Enum, Verifiable {
   case wattPerSquareMetre = 39
   case wmoCode = 40
 
-  public static var max: openmeteo_sdk_SiUnit { return .wmoCode }
-  public static var min: openmeteo_sdk_SiUnit { return .undefined }
+  public static var max: openmeteo_sdk_Unit { return .wmoCode }
+  public static var min: openmeteo_sdk_Unit { return .undefined }
 }
 
 
@@ -277,7 +277,7 @@ public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
   }
 
   public var variable: openmeteo_sdk_Variable { let o = _accessor.offset(VTOFFSET.variable.v); return o == 0 ? .undefined : openmeteo_sdk_Variable(rawValue: _accessor.readBuffer(of: Int8.self, at: o)) ?? .undefined }
-  public var unit: openmeteo_sdk_SiUnit { let o = _accessor.offset(VTOFFSET.unit.v); return o == 0 ? .undefined : openmeteo_sdk_SiUnit(rawValue: _accessor.readBuffer(of: Int8.self, at: o)) ?? .undefined }
+  public var unit: openmeteo_sdk_Unit { let o = _accessor.offset(VTOFFSET.unit.v); return o == 0 ? .undefined : openmeteo_sdk_Unit(rawValue: _accessor.readBuffer(of: Int8.self, at: o)) ?? .undefined }
   public var value: Float32 { let o = _accessor.offset(VTOFFSET.value.v); return o == 0 ? 0.0 : _accessor.readBuffer(of: Float32.self, at: o) }
   public var hasValues: Bool { let o = _accessor.offset(VTOFFSET.values.v); return o == 0 ? false : true }
   public var valuesCount: Int32 { let o = _accessor.offset(VTOFFSET.values.v); return o == 0 ? 0 : _accessor.vector(count: o) }
@@ -295,7 +295,7 @@ public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
   public var ensembleMember: Int16 { let o = _accessor.offset(VTOFFSET.ensembleMember.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public static func startSeries(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 11) }
   public static func add(variable: openmeteo_sdk_Variable, _ fbb: inout FlatBufferBuilder) { fbb.add(element: variable.rawValue, def: 0, at: VTOFFSET.variable.p) }
-  public static func add(unit: openmeteo_sdk_SiUnit, _ fbb: inout FlatBufferBuilder) { fbb.add(element: unit.rawValue, def: 0, at: VTOFFSET.unit.p) }
+  public static func add(unit: openmeteo_sdk_Unit, _ fbb: inout FlatBufferBuilder) { fbb.add(element: unit.rawValue, def: 0, at: VTOFFSET.unit.p) }
   public static func add(value: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: value, def: 0.0, at: VTOFFSET.value.p) }
   public static func addVectorOf(values: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: values, at: VTOFFSET.values.p) }
   public static func addVectorOf(valuesInt64: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: valuesInt64, at: VTOFFSET.valuesInt64.p) }
@@ -309,7 +309,7 @@ public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
   public static func createSeries(
     _ fbb: inout FlatBufferBuilder,
     variable: openmeteo_sdk_Variable = .undefined,
-    unit: openmeteo_sdk_SiUnit = .undefined,
+    unit: openmeteo_sdk_Unit = .undefined,
     value: Float32 = 0.0,
     valuesVectorOffset values: Offset = Offset(),
     valuesInt64VectorOffset valuesInt64: Offset = Offset(),
@@ -338,7 +338,7 @@ public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
   public static func verify<T>(_ verifier: inout Verifier, at position: Int, of type: T.Type) throws where T: Verifiable {
     var _v = try verifier.visitTable(at: position)
     try _v.visit(field: VTOFFSET.variable.p, fieldName: "variable", required: false, type: openmeteo_sdk_Variable.self)
-    try _v.visit(field: VTOFFSET.unit.p, fieldName: "unit", required: false, type: openmeteo_sdk_SiUnit.self)
+    try _v.visit(field: VTOFFSET.unit.p, fieldName: "unit", required: false, type: openmeteo_sdk_Unit.self)
     try _v.visit(field: VTOFFSET.value.p, fieldName: "value", required: false, type: Float32.self)
     try _v.visit(field: VTOFFSET.values.p, fieldName: "values", required: false, type: ForwardOffset<Vector<Float32, Float32>>.self)
     try _v.visit(field: VTOFFSET.valuesInt64.p, fieldName: "valuesInt64", required: false, type: ForwardOffset<Vector<Int64, Int64>>.self)

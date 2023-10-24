@@ -5,5 +5,5 @@ export { ApiResponse } from './api-response.js';
 export { Model } from './model.js';
 export { Series } from './series.js';
 export { SeriesAndTime } from './series-and-time.js';
-export { SiUnit } from './si-unit.js';
+export { Unit } from './unit.js';
 export { Variable } from './variable.js';

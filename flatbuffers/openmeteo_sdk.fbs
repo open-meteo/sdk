@@ -8,7 +8,7 @@
 
 namespace openmeteo_sdk;
 
-enum SiUnit : byte {
+enum Unit : byte {
   undefined = 0,
   celsius,
   centimetre,
@@ -229,7 +229,7 @@ enum Aggregation: byte {
 
 table Series {
   variable: Variable;
-  unit: SiUnit;
+  unit: Unit;
 
   value: float; // Only used for current conditions
   values: [float]; // Contains a time series of data

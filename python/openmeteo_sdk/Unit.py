@@ -4,7 +4,7 @@
 
 from enum import Enum
 
-class SiUnit(Enum):
+class Unit(Enum):
     undefined = 0
     celsius = 1
     centimetre = 2
