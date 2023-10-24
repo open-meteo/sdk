@@ -39,19 +39,19 @@ elevation():number {
   return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
 }
 
-locationId():number {
+generationTimeMilliseconds():number {
   const offset = this.bb!.__offset(this.bb_pos, 10);
-  return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
+  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
+}
+
+locationId():bigint {
+  const offset = this.bb!.__offset(this.bb_pos, 12);
+  return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
 model():Model {
-  const offset = this.bb!.__offset(this.bb_pos, 12);
-  return offset ? this.bb!.readInt8(this.bb_pos + offset) : Model.undefined;
-}
-
-generationtimeMs():number {
   const offset = this.bb!.__offset(this.bb_pos, 14);
-  return offset ? this.bb!.readFloat32(this.bb_pos + offset) : 0.0;
+  return offset ? this.bb!.readUint8(this.bb_pos + offset) : Model.undefined;
 }
 
 utcOffsetSeconds():number {
@@ -88,12 +88,12 @@ hourly(obj?:SeriesAndTime):SeriesAndTime|null {
   return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-sixHourly(obj?:SeriesAndTime):SeriesAndTime|null {
+minutely15(obj?:SeriesAndTime):SeriesAndTime|null {
   const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-minutely15(obj?:SeriesAndTime):SeriesAndTime|null {
+sixHourly(obj?:SeriesAndTime):SeriesAndTime|null {
   const offset = this.bb!.__offset(this.bb_pos, 30);
   return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }

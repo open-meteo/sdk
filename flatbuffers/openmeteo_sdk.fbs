@@ -8,7 +8,7 @@
 
 namespace openmeteo_sdk;
 
-enum Unit : byte {
+enum Unit : ubyte {
   undefined = 0,
   celsius,
   centimetre,
@@ -52,7 +52,7 @@ enum Unit : byte {
   wmo_code
 }
 
-enum Model: byte {
+enum Model: ubyte {
   undefined = 0,
   best_match,
   gfs_seamless,
@@ -107,7 +107,7 @@ enum Model: byte {
   cfsv2
 }
 
-enum Variable: byte {
+enum Variable: ubyte {
   undefined = 0,
   apparent_temperature,
   cape,
@@ -213,7 +213,7 @@ enum Variable: byte {
   us_aqi_carbon_monoxide
 }
 
-enum Aggregation: byte {
+enum Aggregation: ubyte {
   none = 0,
   minimum,
   maximum,
@@ -254,17 +254,17 @@ table ApiResponse {
   latitude: float;
   longitude: float;
   elevation: float;
-  location_id: int32;
+  generation_time_milliseconds: float;
+  location_id: int64;
   model: Model;
-  generationtime_ms: float;
   utc_offset_seconds: int32;
   timezone: string;
   timezone_abbreviation: string;
   current: SeriesAndTime;
   daily: SeriesAndTime;
   hourly: SeriesAndTime;
-  six_hourly: SeriesAndTime;
   minutely_15: SeriesAndTime;
+  six_hourly: SeriesAndTime;
 }
 
 root_type ApiResponse;

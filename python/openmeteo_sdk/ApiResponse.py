@@ -49,25 +49,25 @@ class ApiResponse(object):
         return 0.0
 
     # ApiResponse
-    def LocationId(self):
+    def GenerationTimeMilliseconds(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ApiResponse
+    def LocationId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ApiResponse
     def Model(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int8Flags, o + self._tab.Pos)
-        return 0
-
-    # ApiResponse
-    def GenerationtimeMs(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
+            return self._tab.Get(flatbuffers.number_types.Uint8Flags, o + self._tab.Pos)
+        return 0
 
     # ApiResponse
     def UtcOffsetSeconds(self):
@@ -121,7 +121,7 @@ class ApiResponse(object):
         return None
 
     # ApiResponse
-    def SixHourly(self) -> Optional[SeriesAndTime]:
+    def Minutely15(self) -> Optional[SeriesAndTime]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
@@ -131,7 +131,7 @@ class ApiResponse(object):
         return None
 
     # ApiResponse
-    def Minutely15(self) -> Optional[SeriesAndTime]:
+    def SixHourly(self) -> Optional[SeriesAndTime]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)

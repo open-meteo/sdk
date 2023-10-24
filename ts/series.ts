@@ -27,12 +27,12 @@ static getSizePrefixedRootAsSeries(bb:flatbuffers.ByteBuffer, obj?:Series):Serie
 
 variable():Variable {
   const offset = this.bb!.__offset(this.bb_pos, 4);
-  return offset ? this.bb!.readInt8(this.bb_pos + offset) : Variable.undefined;
+  return offset ? this.bb!.readUint8(this.bb_pos + offset) : Variable.undefined;
 }
 
 unit():Unit {
   const offset = this.bb!.__offset(this.bb_pos, 6);
-  return offset ? this.bb!.readInt8(this.bb_pos + offset) : Unit.undefined;
+  return offset ? this.bb!.readUint8(this.bb_pos + offset) : Unit.undefined;
 }
 
 value():number {
@@ -72,7 +72,7 @@ altitude():number {
 
 aggregation():Aggregation {
   const offset = this.bb!.__offset(this.bb_pos, 16);
-  return offset ? this.bb!.readInt8(this.bb_pos + offset) : Aggregation.none;
+  return offset ? this.bb!.readUint8(this.bb_pos + offset) : Aggregation.none;
 }
 
 pressureLevel():number {
