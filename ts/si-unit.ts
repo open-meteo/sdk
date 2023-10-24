@@ -36,7 +36,7 @@ export enum SiUnit {
   millimetre = 32,
   pascal = 33,
   per_second = 34,
-  percent = 35,
+  percentage = 35,
   seconds = 36,
   unix_time = 37,
   us_air_quality_index = 38,

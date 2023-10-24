@@ -44,7 +44,7 @@ enum SiUnit : byte {
   millimetre,
   pascal,
   per_second,
-  percent,
+  percentage,
   seconds,
   unix_time,
   us_air_quality_index,

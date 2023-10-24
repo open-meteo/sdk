@@ -17,7 +17,7 @@ extension openmeteo_sdk_SiUnit {
         case .feet: return "ft"
         case .metre: return "m"
         case .geopotentialMetre: return "gpm"
-        case .percent: return "%"
+        case .percentage: return "%"
         case .hectopascal: return "hPa"
         case .pascal: return "Pa"
         case .degreeDirection: return "°"
@@ -62,7 +62,7 @@ extension openmeteo_sdk_SiUnit {
         case .inch: return 3
         case .feet: return 3
         case .metre: return 2
-        case .percent: return 0
+        case .percentage: return 0
         case .hectopascal: return 1
         case .degreeDirection: return 0
         case .wmoCode: return 0

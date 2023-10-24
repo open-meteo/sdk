@@ -43,7 +43,7 @@ public enum openmeteo_sdk_SiUnit: Int8, Enum, Verifiable {
   case millimetre = 32
   case pascal = 33
   case perSecond = 34
-  case percent = 35
+  case percentage = 35
   case seconds = 36
   case unixTime = 37
   case usAirQualityIndex = 38
