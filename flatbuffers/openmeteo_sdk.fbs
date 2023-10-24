@@ -230,16 +230,17 @@ enum Aggregation: byte {
 table Series {
   variable: Variable;
   unit: SiUnit;
-  aggregation: Aggregation;
-  altitude: int16;
-  pressure_level: int16;
-  depth: int16;
-  depth_to: int16;
-  ensemble_member: int16;
 
   value: float; // Only used for current conditions
   values: [float]; // Contains a time series of data
   values_int64: [int64];  // Only for sunrise/set as a unix timestamp
+
+  altitude: int16;
+  aggregation: Aggregation;
+  pressure_level: int16;
+  depth: int16;
+  depth_to: int16;
+  ensemble_member: int16;
 }
 
 table SeriesAndTime {

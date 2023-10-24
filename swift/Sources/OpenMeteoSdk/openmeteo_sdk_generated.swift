@@ -263,27 +263,21 @@ public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
   private enum VTOFFSET: VOffset {
     case variable = 4
     case unit = 6
-    case aggregation = 8
-    case altitude = 10
-    case pressureLevel = 12
-    case depth = 14
-    case depthTo = 16
-    case ensembleMember = 18
-    case value = 20
-    case values = 22
-    case valuesInt64 = 24
+    case value = 8
+    case values = 10
+    case valuesInt64 = 12
+    case altitude = 14
+    case aggregation = 16
+    case pressureLevel = 18
+    case depth = 20
+    case depthTo = 22
+    case ensembleMember = 24
     var v: Int32 { Int32(self.rawValue) }
     var p: VOffset { self.rawValue }
   }
 
   public var variable: openmeteo_sdk_Variable { let o = _accessor.offset(VTOFFSET.variable.v); return o == 0 ? .undefined : openmeteo_sdk_Variable(rawValue: _accessor.readBuffer(of: Int8.self, at: o)) ?? .undefined }
   public var unit: openmeteo_sdk_SiUnit { let o = _accessor.offset(VTOFFSET.unit.v); return o == 0 ? .undefined : openmeteo_sdk_SiUnit(rawValue: _accessor.readBuffer(of: Int8.self, at: o)) ?? .undefined }
-  public var aggregation: openmeteo_sdk_Aggregation { let o = _accessor.offset(VTOFFSET.aggregation.v); return o == 0 ? .none_ : openmeteo_sdk_Aggregation(rawValue: _accessor.readBuffer(of: Int8.self, at: o)) ?? .none_ }
-  public var altitude: Int16 { let o = _accessor.offset(VTOFFSET.altitude.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
-  public var pressureLevel: Int16 { let o = _accessor.offset(VTOFFSET.pressureLevel.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
-  public var depth: Int16 { let o = _accessor.offset(VTOFFSET.depth.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
-  public var depthTo: Int16 { let o = _accessor.offset(VTOFFSET.depthTo.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
-  public var ensembleMember: Int16 { let o = _accessor.offset(VTOFFSET.ensembleMember.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var value: Float32 { let o = _accessor.offset(VTOFFSET.value.v); return o == 0 ? 0.0 : _accessor.readBuffer(of: Float32.self, at: o) }
   public var hasValues: Bool { let o = _accessor.offset(VTOFFSET.values.v); return o == 0 ? false : true }
   public var valuesCount: Int32 { let o = _accessor.offset(VTOFFSET.values.v); return o == 0 ? 0 : _accessor.vector(count: o) }
@@ -293,45 +287,51 @@ public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
   public var valuesInt64Count: Int32 { let o = _accessor.offset(VTOFFSET.valuesInt64.v); return o == 0 ? 0 : _accessor.vector(count: o) }
   public func valuesInt64(at index: Int32) -> Int64 { let o = _accessor.offset(VTOFFSET.valuesInt64.v); return o == 0 ? 0 : _accessor.directRead(of: Int64.self, offset: _accessor.vector(at: o) + index * 8) }
   public var valuesInt64: [Int64] { return _accessor.getVector(at: VTOFFSET.valuesInt64.v) ?? [] }
+  public var altitude: Int16 { let o = _accessor.offset(VTOFFSET.altitude.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
+  public var aggregation: openmeteo_sdk_Aggregation { let o = _accessor.offset(VTOFFSET.aggregation.v); return o == 0 ? .none_ : openmeteo_sdk_Aggregation(rawValue: _accessor.readBuffer(of: Int8.self, at: o)) ?? .none_ }
+  public var pressureLevel: Int16 { let o = _accessor.offset(VTOFFSET.pressureLevel.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
+  public var depth: Int16 { let o = _accessor.offset(VTOFFSET.depth.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
+  public var depthTo: Int16 { let o = _accessor.offset(VTOFFSET.depthTo.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
+  public var ensembleMember: Int16 { let o = _accessor.offset(VTOFFSET.ensembleMember.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public static func startSeries(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 11) }
   public static func add(variable: openmeteo_sdk_Variable, _ fbb: inout FlatBufferBuilder) { fbb.add(element: variable.rawValue, def: 0, at: VTOFFSET.variable.p) }
   public static func add(unit: openmeteo_sdk_SiUnit, _ fbb: inout FlatBufferBuilder) { fbb.add(element: unit.rawValue, def: 0, at: VTOFFSET.unit.p) }
-  public static func add(aggregation: openmeteo_sdk_Aggregation, _ fbb: inout FlatBufferBuilder) { fbb.add(element: aggregation.rawValue, def: 0, at: VTOFFSET.aggregation.p) }
+  public static func add(value: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: value, def: 0.0, at: VTOFFSET.value.p) }
+  public static func addVectorOf(values: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: values, at: VTOFFSET.values.p) }
+  public static func addVectorOf(valuesInt64: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: valuesInt64, at: VTOFFSET.valuesInt64.p) }
   public static func add(altitude: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: altitude, def: 0, at: VTOFFSET.altitude.p) }
+  public static func add(aggregation: openmeteo_sdk_Aggregation, _ fbb: inout FlatBufferBuilder) { fbb.add(element: aggregation.rawValue, def: 0, at: VTOFFSET.aggregation.p) }
   public static func add(pressureLevel: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: pressureLevel, def: 0, at: VTOFFSET.pressureLevel.p) }
   public static func add(depth: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: depth, def: 0, at: VTOFFSET.depth.p) }
   public static func add(depthTo: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: depthTo, def: 0, at: VTOFFSET.depthTo.p) }
   public static func add(ensembleMember: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: ensembleMember, def: 0, at: VTOFFSET.ensembleMember.p) }
-  public static func add(value: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: value, def: 0.0, at: VTOFFSET.value.p) }
-  public static func addVectorOf(values: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: values, at: VTOFFSET.values.p) }
-  public static func addVectorOf(valuesInt64: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: valuesInt64, at: VTOFFSET.valuesInt64.p) }
   public static func endSeries(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
   public static func createSeries(
     _ fbb: inout FlatBufferBuilder,
     variable: openmeteo_sdk_Variable = .undefined,
     unit: openmeteo_sdk_SiUnit = .undefined,
-    aggregation: openmeteo_sdk_Aggregation = .none_,
+    value: Float32 = 0.0,
+    valuesVectorOffset values: Offset = Offset(),
+    valuesInt64VectorOffset valuesInt64: Offset = Offset(),
     altitude: Int16 = 0,
+    aggregation: openmeteo_sdk_Aggregation = .none_,
     pressureLevel: Int16 = 0,
     depth: Int16 = 0,
     depthTo: Int16 = 0,
-    ensembleMember: Int16 = 0,
-    value: Float32 = 0.0,
-    valuesVectorOffset values: Offset = Offset(),
-    valuesInt64VectorOffset valuesInt64: Offset = Offset()
+    ensembleMember: Int16 = 0
   ) -> Offset {
     let __start = openmeteo_sdk_Series.startSeries(&fbb)
     openmeteo_sdk_Series.add(variable: variable, &fbb)
     openmeteo_sdk_Series.add(unit: unit, &fbb)
-    openmeteo_sdk_Series.add(aggregation: aggregation, &fbb)
+    openmeteo_sdk_Series.add(value: value, &fbb)
+    openmeteo_sdk_Series.addVectorOf(values: values, &fbb)
+    openmeteo_sdk_Series.addVectorOf(valuesInt64: valuesInt64, &fbb)
     openmeteo_sdk_Series.add(altitude: altitude, &fbb)
+    openmeteo_sdk_Series.add(aggregation: aggregation, &fbb)
     openmeteo_sdk_Series.add(pressureLevel: pressureLevel, &fbb)
     openmeteo_sdk_Series.add(depth: depth, &fbb)
     openmeteo_sdk_Series.add(depthTo: depthTo, &fbb)
     openmeteo_sdk_Series.add(ensembleMember: ensembleMember, &fbb)
-    openmeteo_sdk_Series.add(value: value, &fbb)
-    openmeteo_sdk_Series.addVectorOf(values: values, &fbb)
-    openmeteo_sdk_Series.addVectorOf(valuesInt64: valuesInt64, &fbb)
     return openmeteo_sdk_Series.endSeries(&fbb, start: __start)
   }
 
@@ -339,15 +339,15 @@ public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
     var _v = try verifier.visitTable(at: position)
     try _v.visit(field: VTOFFSET.variable.p, fieldName: "variable", required: false, type: openmeteo_sdk_Variable.self)
     try _v.visit(field: VTOFFSET.unit.p, fieldName: "unit", required: false, type: openmeteo_sdk_SiUnit.self)
-    try _v.visit(field: VTOFFSET.aggregation.p, fieldName: "aggregation", required: false, type: openmeteo_sdk_Aggregation.self)
+    try _v.visit(field: VTOFFSET.value.p, fieldName: "value", required: false, type: Float32.self)
+    try _v.visit(field: VTOFFSET.values.p, fieldName: "values", required: false, type: ForwardOffset<Vector<Float32, Float32>>.self)
+    try _v.visit(field: VTOFFSET.valuesInt64.p, fieldName: "valuesInt64", required: false, type: ForwardOffset<Vector<Int64, Int64>>.self)
     try _v.visit(field: VTOFFSET.altitude.p, fieldName: "altitude", required: false, type: Int16.self)
+    try _v.visit(field: VTOFFSET.aggregation.p, fieldName: "aggregation", required: false, type: openmeteo_sdk_Aggregation.self)
     try _v.visit(field: VTOFFSET.pressureLevel.p, fieldName: "pressureLevel", required: false, type: Int16.self)
     try _v.visit(field: VTOFFSET.depth.p, fieldName: "depth", required: false, type: Int16.self)
     try _v.visit(field: VTOFFSET.depthTo.p, fieldName: "depthTo", required: false, type: Int16.self)
     try _v.visit(field: VTOFFSET.ensembleMember.p, fieldName: "ensembleMember", required: false, type: Int16.self)
-    try _v.visit(field: VTOFFSET.value.p, fieldName: "value", required: false, type: Float32.self)
-    try _v.visit(field: VTOFFSET.values.p, fieldName: "values", required: false, type: ForwardOffset<Vector<Float32, Float32>>.self)
-    try _v.visit(field: VTOFFSET.valuesInt64.p, fieldName: "valuesInt64", required: false, type: ForwardOffset<Vector<Int64, Int64>>.self)
     _v.finish()
   }
 }
