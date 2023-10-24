@@ -9,7 +9,7 @@ export enum Variable {
   cloud_cover_low = 5,
   cloud_cover_mid = 6,
   daylight_duration = 7,
-  dewpoint = 8,
+  dew_point = 8,
   diffuse_radiation = 9,
   diffuse_radiation_instant = 10,
   direct_normal_irradiance = 11,

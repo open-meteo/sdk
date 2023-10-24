@@ -129,7 +129,7 @@ public enum openmeteo_sdk_Variable: Int8, Enum, Verifiable {
   case cloudCoverLow = 5
   case cloudCoverMid = 6
   case daylightDuration = 7
-  case dewpoint = 8
+  case dewPoint = 8
   case diffuseRadiation = 9
   case diffuseRadiationInstant = 10
   case directNormalIrradiance = 11

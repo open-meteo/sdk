@@ -116,7 +116,7 @@ enum Variable: byte {
   cloud_cover_low,
   cloud_cover_mid,
   daylight_duration,
-  dewpoint,
+  dew_point,
   diffuse_radiation,
   diffuse_radiation_instant,
   direct_normal_irradiance,
