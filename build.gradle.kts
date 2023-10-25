@@ -2,6 +2,7 @@ plugins {
     `java-library`
     `maven-publish`
     signing
+    //id("com.gradle.plugin-publish") version "1.1.0" https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
 }
 
 group = "com.openmeteo"
