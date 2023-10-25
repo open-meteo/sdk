@@ -1,0 +1,271 @@
+// Flatbuffers API result format for open-meteo weather data
+// 
+// Generate swift code with: 
+// flatc --swift -o swift/Sources/OpenMeteoSdk/ flatbuffers/*.fbs
+// See DEVELOPMENT.md for more information
+//
+// Make sure flatbuffers is installed with `brew install flatbuffers`
+
+namespace openmeteo_sdk;
+
+enum Unit : ubyte {
+  undefined = 0,
+  celsius,
+  centimetre,
+  cubic_metre_per_cubic_metre,
+  cubic_metre_per_second,
+  degree_direction,
+  dimensionless_integer,
+  dimensionless,
+  european_air_quality_index,
+  fahrenheit,
+  feet,
+  fraction,
+  gdd_celsius,
+  geopotential_metre,
+  grains_per_cubic_metre,
+  gram_per_kilogram,
+  hectopascal,
+  hours,
+  inch,
+  iso8601,
+  joule_per_kilogram,
+  kelvin,
+  kilopascal,
+  kilogram_per_square_metre,
+  kilometres_per_hour,
+  knots,
+  megajoule_per_square_metre,
+  metre_per_second_not_unit_converted,
+  metre_per_second,
+  metre,
+  micrograms_per_cubic_metre,
+  miles_per_hour,
+  millimetre,
+  pascal,
+  per_second,
+  percentage,
+  seconds,
+  unix_time,
+  us_air_quality_index,
+  watt_per_square_metre,
+  wmo_code
+}
+
+enum Model: ubyte {
+  undefined = 0,
+  best_match,
+  gfs_seamless,
+  gfs_global,
+  gfs_hrrr,
+  meteofrance_seamless,
+  meteofrance_arpege_seamless,
+  meteofrance_arpege_world,
+  meteofrance_arpege_europe,
+  meteofrance_arome_seamless,
+  meteofrance_arome_france,
+  meteofrance_arome_france_hd,
+  jma_seamless,
+  jma_msm,
+  jms_gsm,
+  jma_gsm,
+  gem_seamless,
+  gem_global,
+  gem_regional,
+  gem_hrdps_continental,
+  icon_seamless,
+  icon_global,
+  icon_eu,
+  icon_d2,
+  ecmwf_ifs04,
+  metno_nordic,
+  era5_seamless,
+  era5,
+  cerra,
+  era5_land,
+  ecmwf_ifs,
+  gwam,
+  ewam,
+  glofas_seamless_v3,
+  glofas_forecast_v3,
+  glofas_consolidated_v3,
+  glofas_seamless_v4,
+  glofas_forecast_v4,
+  glofas_consolidated_v4,
+  gfs025,
+  gfs05,
+  CMCC_CM2_VHR4,
+  FGOALS_f3_H_highresSST,
+  FGOALS_f3_H,
+  HiRAM_SIT_HR,
+  MRI_AGCM3_2_S,
+  EC_Earth3P_HR,
+  MPI_ESM1_2_XR,
+  NICAM16_8S,
+  cams_europe,
+  cams_global,
+  cfsv2
+}
+
+enum Variable: ubyte {
+  undefined = 0,
+  apparent_temperature,
+  cape,
+  cloud_cover,
+  cloud_cover_high,
+  cloud_cover_low,
+  cloud_cover_mid,
+  daylight_duration,
+  dew_point,
+  diffuse_radiation,
+  diffuse_radiation_instant,
+  direct_normal_irradiance,
+  direct_normal_irradiance_instant,
+  direct_radiation,
+  direct_radiation_instant,
+  et0_fao_evapotranspiration,
+  evapotranspiration,
+  freezing_level_height,
+  growing_degree_days,
+  is_day,
+  latent_heat_flux,
+  leaf_wetness_probability,
+  lifted_index,
+  lightning_potential,
+  precipitation,
+  precipitation_hours,
+  precipitation_probability,
+  pressure_msl,
+  rain,
+  relative_humidity,
+  runoff,
+  sensible_heat_flux,
+  shortwave_radiation,
+  shortwave_radiation_instant,
+  showers,
+  snow_depth,
+  snow_height,
+  snowfall,
+  snowfall_height,
+  snowfall_water_equivalent,
+  sunrise,
+  sunset,
+  soil_moisture,
+  soil_moisture_index,
+  soil_temperature,
+  surface_pressure,
+  surface_temperature,
+  temperature,
+  terrestrial_radiation,
+  terrestrial_radiation_instant,
+  total_column_integrated_water_vapour,
+  updraft,
+  uv_index,
+  uv_index_clear_sky,
+  vapour_pressure_deficit,
+  visibility,
+  weather_code,
+  wind_direction,
+  wind_gusts,
+  wind_speed,
+  vertical_velocity,
+  geopotential_height,
+  wet_bulb_temperature,
+  river_discharge,
+  wave_height,
+  wave_period,
+  wave_direction,
+  wind_wave_height,
+  wind_wave_period,
+  wind_wave_peak_period,
+  wind_wave_direction,
+  swell_wave_height,
+  swell_wave_period,
+  swell_wave_peak_period,
+  swell_wave_direction,
+  pm10,
+  pm2p5,
+  dust,
+  aerosol_optical_depth,
+  carbon_monoxide,
+  nitrogen_dioxide,
+  ammonia,
+  ozone,
+  sulphur_dioxide,
+  alder_pollen,
+  birch_pollen,
+  grass_pollen,
+  mugwort_pollen,
+  olive_pollen,
+  ragweed_pollen,
+  european_aqi,
+  european_aqi_pm2p5,
+  european_aqi_pm10,
+  european_aqi_nitrogen_dioxide,
+  european_aqi_ozone,
+  european_aqi_sulphur_dioxide,
+  us_aqi,
+  us_aqi_pm2p5,
+  us_aqi_pm10,
+  us_aqi_nitrogen_dioxide,
+  us_aqi_ozone,
+  us_aqi_sulphur_dioxide,
+  us_aqi_carbon_monoxide
+}
+
+enum Aggregation: ubyte {
+  none = 0,
+  minimum,
+  maximum,
+  mean,
+  p10,
+  p25,
+  median,
+  p75,
+  p90,
+  dominant,
+  sum
+}
+
+table Series {
+  variable: Variable;
+  unit: Unit;
+
+  value: float; // Only used for current conditions
+  values: [float]; // Contains a time series of data
+  values_int64: [int64];  // Only for sunrise/set as a unix timestamp
+
+  altitude: int16;
+  aggregation: Aggregation;
+  pressure_level: int16;
+  depth: int16;
+  depth_to: int16;
+  ensemble_member: int16;
+}
+
+table SeriesAndTime {
+  start: int64;
+  end: int64;
+  interval: int32;
+  series: [Series];
+}
+
+table ApiResponse {
+  latitude: float;
+  longitude: float;
+  elevation: float;
+  generation_time_milliseconds: float;
+  location_id: int64;
+  model: Model;
+  utc_offset_seconds: int32;
+  timezone: string;
+  timezone_abbreviation: string;
+  current: SeriesAndTime;
+  daily: SeriesAndTime;
+  hourly: SeriesAndTime;
+  minutely_15: SeriesAndTime;
+  six_hourly: SeriesAndTime;
+}
+
+root_type ApiResponse;
+
