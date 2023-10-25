@@ -99,7 +99,7 @@ class SeriesAndTime(object):
                 aggregation: Aggregation = None
                 ) -> Generator[Series, None, None]:
         """Get all data series by its variable name"""
-        for i in range(0, self.SeriesLength):
+        for i in range(0, self.SeriesLength()):
             s = self.Series(i)
             if s.Variable() != variable:
                 continue

@@ -74,6 +74,22 @@ Attributes:
 ### Model
 The `Model` enumeration contains all available models like `icon_global` or `best_match`.
 
+Depending on the programming language you will have to decode the model to a useable string. E.g. for Python
+
+```python
+from openmeteo_sdk import Model
+
+def model_to_name(code):
+    """convert Model to name"""
+    for name, value in Model.Model.__dict__.items():
+        if value == code:
+            return name
+    return None
+
+print(response.Model()) # 1
+print(model_to_name(result.Model())) # "best_match"
+```
+
 ### Variable
 The `Variable` enumeration contains all available variables like `temperature` or `wind_speed`. Please note that the altitude is not included in the variable name. `temperature_2m` is encoded as `variable=temperature` and `altitude=2`.
 
@@ -82,6 +98,41 @@ The `Unit` enumeration contains all available units like `celsius` or `metre_per
 
 ### Aggregation
 The `Aggregation` enumeration contains all aggregations for daily variables like `minimum` or `maximum`.
+
+
+## Selecting a single variable
+Multiple weather variables are encoded as a list. If you want to access a single variable, you will have to loop over the array and filter by variable name and altitude. Here is an example to get `temperature_2m` and `precipitation`.
+
+```python
+from openmeteo_sdk.Variable import Variable
+
+hourly = response.Hourly()
+hourly_series = map(lambda i: hourly.Series(i), range(0, hourly.SeriesLength()))
+
+temperature_2m = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2, hourly_series))
+precipitation = next(filter(lambda x: x.Variable() == Variable.precipitation, hourly_series))
+
+print(temperature_2m.ValuesAsNumpy())
+print(precipitation.ValuesAsNumpy())
+```
+
+Depending on the variable, you only have to filter by the variable name. Filtering by `altitude` is relevant if you select wind speed on multiple heights e.g. `wind_speed_10m` and `wind_speed_80m`. 
+
+If you select different daily aggregations, make sure to also check for the correct aggregation. Example:
+
+```python
+from openmeteo_sdk.Variable import Variable
+from openmeteo_sdk.Aggregation import Aggregation
+
+daily = response.Daily()
+daily_series = map(lambda i: daily.Series(i), range(0, daily.SeriesLength()))
+
+temperature_2m_max = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.maximum, hourly_series))
+temperature_2m_min = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.minimum, hourly_series))
+
+print(temperature_2m_max.ValuesAsNumpy())
+print(temperature_2m_min.ValuesAsNumpy())
+```
 
 
 ## Encoding with Size Prefixed FlatBuffers
