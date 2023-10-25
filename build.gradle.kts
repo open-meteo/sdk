@@ -28,8 +28,8 @@ dependencies {
     implementation("com.google.flatbuffers:flatbuffers-java:23.5.26")
 }
 
-val signingKey: String? = providers.environmentVariable("SIGNING_KEY").orNull
-val signingPassword: String? = providers.environmentVariable("SIGNING_PASSWORD").orNull
+val signingKey: String? = providers.environmentVariable("GRADLE_SIGNING_KEY").orNull
+val signingPassword: String? = providers.environmentVariable("GRADLE_SIGNING_PASSWORD").orNull
 
 signing {
     if (!signingKey.isNullOrBlank() && !signingPassword.isNullOrBlank()) {
