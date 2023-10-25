@@ -1,0 +1,22 @@
+group = 'com.openmeteo'
+
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['java']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.flatbuffers:flatbuffers-java:23.5.26'
+}
