@@ -1,7 +1,7 @@
 
 
 ```bash
-brew install java
+brew install gradle kotlin
 gradle wrapper build
 
 ```
