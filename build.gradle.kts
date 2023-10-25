@@ -84,7 +84,7 @@ gradlePlugin {
             displayName = "Open-Meteo SDK"
             description = "Compiled FlatBuffers schema files for the Open-Meteo Weather API"
             tags = listOf("open-meteo", "weather", "api")
-            implementationClass = "com.open_meteo.sdk"
+            implementationClass = "com.open_meteo.sdk.ApiResponse"
         }
     }
 }
