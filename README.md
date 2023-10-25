@@ -127,8 +127,8 @@ from openmeteo_sdk.Aggregation import Aggregation
 daily = response.Daily()
 daily_series = map(lambda i: daily.Series(i), range(0, daily.SeriesLength()))
 
-temperature_2m_max = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.maximum, hourly_series))
-temperature_2m_min = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.minimum, hourly_series))
+temperature_2m_max = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.maximum, daily_series))
+temperature_2m_min = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.minimum, daily_series))
 
 print(temperature_2m_max.ValuesAsNumpy())
 print(temperature_2m_min.ValuesAsNumpy())
