@@ -2,9 +2,9 @@
 
 # namespace: openmeteo_sdk
 
-from enum import Enum
+from enum import IntEnum
 
-class Unit(Enum):
+class Unit(IntEnum):
     undefined = 0
     celsius = 1
     centimetre = 2

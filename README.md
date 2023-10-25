@@ -105,9 +105,10 @@ Multiple weather variables are encoded as a list. If you want to access a single
 
 ```python
 from openmeteo_sdk.Variable import Variable
+response = ...
 
 hourly = response.Hourly()
-hourly_series = map(lambda i: hourly.Series(i), range(0, hourly.SeriesLength()))
+hourly_series = list(map(lambda i: hourly.Series(i), range(0, hourly.SeriesLength())))
 
 temperature_2m = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2, hourly_series))
 precipitation = next(filter(lambda x: x.Variable() == Variable.precipitation, hourly_series))
@@ -125,7 +126,7 @@ from openmeteo_sdk.Variable import Variable
 from openmeteo_sdk.Aggregation import Aggregation
 
 daily = response.Daily()
-daily_series = map(lambda i: daily.Series(i), range(0, daily.SeriesLength()))
+daily_series = list(map(lambda i: daily.Series(i), range(0, daily.SeriesLength())))
 
 temperature_2m_max = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.maximum, daily_series))
 temperature_2m_min = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.minimum, daily_series))
@@ -134,6 +135,15 @@ print(temperature_2m_max.ValuesAsNumpy())
 print(temperature_2m_min.ValuesAsNumpy())
 ```
 
+The order of requested variables will be preserved. E.g. `&current=temperature_2m,wind_speed_10m,weather_code` will stay exactly in this order. Therefore you could just use indices. Note: `current` only returns one variable encoded into the field `value`.
+
+```python
+current = response.Current()
+timestamp = current.start()
+temperature_2m = current.Series(0).value()
+wind_speed_10m = current.Series(1).value()
+weather_code = current.Series(2).value()
+```
 
 ## Encoding with Size Prefixed FlatBuffers
 

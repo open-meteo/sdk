@@ -6,8 +6,8 @@ import flatbuffers
 from flatbuffers.compat import import_numpy
 from typing import Any
 from openmeteo_sdk.Series import Series
-from Variable import Variable
-from Aggregation import Aggregation
+from openmeteo_sdk.Variable import Variable
+from openmeteo_sdk.Aggregation import Aggregation
 from typing import Generator
 from typing import Optional
 np = import_numpy()
