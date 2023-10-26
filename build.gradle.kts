@@ -67,7 +67,7 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/open-meteo/sdk")
             credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("GH_ACTOR")
+                username = project.findProperty("gpr.user") as String? ?: "open-meteo"
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("GH_TOKEN")
             }
         }

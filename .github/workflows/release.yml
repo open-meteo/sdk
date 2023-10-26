@@ -44,7 +44,6 @@ jobs:
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_ACTOR: ${{ secrets.GITHUB_ACTOR }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
           GRADLE_SIGNING_KEY: ${{ secrets.GRADLE_SIGNING_KEY }}
