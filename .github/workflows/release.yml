@@ -32,7 +32,7 @@ jobs:
         run: ./gradlew build
       - name: Install semantic-release
         run: |
-          npm install
+          npm install --force
           npm config set access public
       - name: Compile TypeScript
         run: npm run build
@@ -44,6 +44,7 @@ jobs:
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_ACTOR: ${{ secrets.GITHUB_ACTOR }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
           GRADLE_SIGNING_KEY: ${{ secrets.GRADLE_SIGNING_KEY }}

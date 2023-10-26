@@ -46,3 +46,16 @@ updates:
     time: "13:00"
   commit-message:
     prefix: "fix: "
+- package-ecosystem: gradle
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - patrick.zippenfenig
+  allow:
+  - dependency-type: direct
+  - dependency-type: indirect
+  commit-message:
+    prefix: "fix: "
