@@ -2,7 +2,7 @@ plugins {
     `java-library`
     `maven-publish`
     signing
-    id("com.gradle.plugin-publish") version "1.1.0" //https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
+    //id("com.gradle.plugin-publish") version "1.1.0" //https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
     //id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
@@ -30,7 +30,7 @@ dependencies {
     implementation("com.google.flatbuffers:flatbuffers-java:23.5.26")
 }
 
-publishing {
+/*publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
@@ -59,6 +59,24 @@ publishing {
             }
         }
     }
+}*/
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/open-meteo/sdk")
+            credentials {
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        register<MavenPublication>("gpr") {
+            from(components["java"])
+        }
+    }
 }
 
 val signingKey: String? = providers.environmentVariable("GRADLE_SIGNING_KEY").orNull
@@ -68,14 +86,15 @@ signing {
     if (!signingKey.isNullOrBlank() && !signingPassword.isNullOrBlank()) {
         useInMemoryPgpKeys(signingKey, signingPassword)
         sign(configurations.archives.get())
-        sign(publishing.publications["mavenJava"])
+        //sign(publishing.publications["mavenJava"])
+        sign(publishing.publications["gpr"])
     } else {
         logger.warn("The signing key and password are null. This can be ignored if this is a pull request.")
     }
 }
 
 // https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
-gradlePlugin { 
+/*gradlePlugin { 
     website = "https://open-meteo.com" 
     vcsUrl = "https://github.com/open-meteo/sdk"
     plugins { 
@@ -87,7 +106,7 @@ gradlePlugin {
             implementationClass = "com.open_meteo.sdk.ApiResponse"
         }
     }
-}
+}*/
 
 /*val sonatypeUsername: String? = providers.environmentVariable("SONATYPE_USERNAME").orNull
 val sonatypePassword: String? = providers.environmentVariable("SONATYPE_PASSWORD").orNull
