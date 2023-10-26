@@ -19,6 +19,8 @@ import com.google.flatbuffers.UnionVector;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import javax.annotation.Nullable;
+
 @SuppressWarnings("unused")
 public final class ApiResponse extends Table {
   public static void ValidateVersion() { Constants.FLATBUFFERS_23_5_26(); }
@@ -34,22 +36,22 @@ public final class ApiResponse extends Table {
   public long locationId() { int o = __offset(12); return o != 0 ? bb.getLong(o + bb_pos) : 0L; }
   public int model() { int o = __offset(14); return o != 0 ? bb.get(o + bb_pos) & 0xFF : 0; }
   public int utcOffsetSeconds() { int o = __offset(16); return o != 0 ? bb.getInt(o + bb_pos) : 0; }
-  public String timezone() { int o = __offset(18); return o != 0 ? __string(o + bb_pos) : null; }
+  public  @Nullable String timezone() { int o = __offset(18); return o != 0 ? __string(o + bb_pos) : null; }
   public ByteBuffer timezoneAsByteBuffer() { return __vector_as_bytebuffer(18, 1); }
   public ByteBuffer timezoneInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 18, 1); }
-  public String timezoneAbbreviation() { int o = __offset(20); return o != 0 ? __string(o + bb_pos) : null; }
+  public  @Nullable String timezoneAbbreviation() { int o = __offset(20); return o != 0 ? __string(o + bb_pos) : null; }
   public ByteBuffer timezoneAbbreviationAsByteBuffer() { return __vector_as_bytebuffer(20, 1); }
   public ByteBuffer timezoneAbbreviationInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 20, 1); }
-  public com.open_meteo.sdk.SeriesAndTime current() { return current(new com.open_meteo.sdk.SeriesAndTime()); }
-  public com.open_meteo.sdk.SeriesAndTime current(com.open_meteo.sdk.SeriesAndTime obj) { int o = __offset(22); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
-  public com.open_meteo.sdk.SeriesAndTime daily() { return daily(new com.open_meteo.sdk.SeriesAndTime()); }
-  public com.open_meteo.sdk.SeriesAndTime daily(com.open_meteo.sdk.SeriesAndTime obj) { int o = __offset(24); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
-  public com.open_meteo.sdk.SeriesAndTime hourly() { return hourly(new com.open_meteo.sdk.SeriesAndTime()); }
-  public com.open_meteo.sdk.SeriesAndTime hourly(com.open_meteo.sdk.SeriesAndTime obj) { int o = __offset(26); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
-  public com.open_meteo.sdk.SeriesAndTime minutely15() { return minutely15(new com.open_meteo.sdk.SeriesAndTime()); }
-  public com.open_meteo.sdk.SeriesAndTime minutely15(com.open_meteo.sdk.SeriesAndTime obj) { int o = __offset(28); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
-  public com.open_meteo.sdk.SeriesAndTime sixHourly() { return sixHourly(new com.open_meteo.sdk.SeriesAndTime()); }
-  public com.open_meteo.sdk.SeriesAndTime sixHourly(com.open_meteo.sdk.SeriesAndTime obj) { int o = __offset(30); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
+  public  @Nullable com.open_meteo.sdk.SeriesAndTime current() { return current(new com.open_meteo.sdk.SeriesAndTime()); }
+  public  @Nullable com.open_meteo.sdk.SeriesAndTime current(com.open_meteo.sdk.SeriesAndTime obj) { int o = __offset(22); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
+  public  @Nullable com.open_meteo.sdk.SeriesAndTime daily() { return daily(new com.open_meteo.sdk.SeriesAndTime()); }
+  public  @Nullable com.open_meteo.sdk.SeriesAndTime daily(com.open_meteo.sdk.SeriesAndTime obj) { int o = __offset(24); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
+  public  @Nullable com.open_meteo.sdk.SeriesAndTime hourly() { return hourly(new com.open_meteo.sdk.SeriesAndTime()); }
+  public  @Nullable com.open_meteo.sdk.SeriesAndTime hourly(com.open_meteo.sdk.SeriesAndTime obj) { int o = __offset(26); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
+  public  @Nullable com.open_meteo.sdk.SeriesAndTime minutely15() { return minutely15(new com.open_meteo.sdk.SeriesAndTime()); }
+  public  @Nullable com.open_meteo.sdk.SeriesAndTime minutely15(com.open_meteo.sdk.SeriesAndTime obj) { int o = __offset(28); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
+  public  @Nullable com.open_meteo.sdk.SeriesAndTime sixHourly() { return sixHourly(new com.open_meteo.sdk.SeriesAndTime()); }
+  public  @Nullable com.open_meteo.sdk.SeriesAndTime sixHourly(com.open_meteo.sdk.SeriesAndTime obj) { int o = __offset(30); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
 
   public static int createApiResponse(FlatBufferBuilder builder,
       float latitude,

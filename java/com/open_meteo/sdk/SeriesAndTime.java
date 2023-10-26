@@ -19,6 +19,8 @@ import com.google.flatbuffers.UnionVector;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import javax.annotation.Nullable;
+
 @SuppressWarnings("unused")
 public final class SeriesAndTime extends Table {
   public static void ValidateVersion() { Constants.FLATBUFFERS_23_5_26(); }
