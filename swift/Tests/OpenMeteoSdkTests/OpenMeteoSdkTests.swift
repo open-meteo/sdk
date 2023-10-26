@@ -47,8 +47,8 @@ final class OpenMeteoSdkTests: XCTestCase {
         // Note: Offsets to data do not contain any data, but just ensure the offset is at the right position
         let api = openmeteo_sdk_SeriesAndTime.createSeriesAndTime(
             &fbb,
-            start: 123123123,
-            end: 234235345,
+            time: 123123123,
+            timeEnd: 234235345,
             interval: 123123,
             seriesVectorOffset: Offset(offset: 7777)
         )
@@ -57,8 +57,8 @@ final class OpenMeteoSdkTests: XCTestCase {
         
         var bb = fbb.buffer
         let series = getRoot(byteBuffer: &bb) as openmeteo_sdk_SeriesAndTime
-        XCTAssertEqual(series.start, 123123123)
-        XCTAssertEqual(series.end, 234235345)
+        XCTAssertEqual(series.time, 123123123)
+        XCTAssertEqual(series.timeEnd, 234235345)
         XCTAssertEqual(series.interval, 123123)
     }
     
