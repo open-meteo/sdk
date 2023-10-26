@@ -1,5 +1,7 @@
 # Open-Meteo SDK Schema Files
 
+[![Test](https://github.com/open-meteo/sdk/actions/workflows/test.yml/badge.svg)](https://github.com/open-meteo/sdk/actions/workflows/test.yml) [![GitHub version](https://badge.fury.io/gh/open-meteo%2Fsdk.svg)](https://badge.fury.io/gh/open-meteo%2Fsdk) [![npm version](https://badge.fury.io/js/@openmeteo%2Fsdk.svg)](https://www.npmjs.com/package/@openmeteo/sdk) [![PyPI version](https://badge.fury.io/py/openmeteo-sdk.svg)](https://pypi.org/project/openmeteo-sdk/)
+
 The Open-Meteo weather API uses FlatBuffers to encode API responses efficiently. The compiled schema files for various programming languages can be found in this repository.
 
 The biggest advantage of FlatBuffers is that large floating point arrays can be encoded directly instead of expensive transformation to JSON ASCII. Especially for historical weather data processing is significantly faster. But also for displaying a regular weather forecast on low-power devices, binary data encoding saves energy.
