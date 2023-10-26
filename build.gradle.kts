@@ -2,7 +2,7 @@ plugins {
     `java-library`
     `maven-publish`
     signing
-    id("com.gradle.plugin-publish") version "1.1.0" //https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
+    id("com.gradle.plugin-publish") version "1.2.1" //https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
     //id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
