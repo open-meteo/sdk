@@ -6,7 +6,7 @@ plugins {
     //id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
-version = "1.0.0"
+//version = "1.0.0"
 group = "com.open-meteo"
 
 sourceSets {
