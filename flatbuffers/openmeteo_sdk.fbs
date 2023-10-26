@@ -244,8 +244,8 @@ table Series {
 }
 
 table SeriesAndTime {
-  start: int64;
-  end: int64;
+  time: int64;
+  time_end: int64;
   interval: int32;
   series: [Series];
 }

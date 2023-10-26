@@ -362,36 +362,36 @@ public struct openmeteo_sdk_SeriesAndTime: FlatBufferObject, Verifiable {
   public init(_ bb: ByteBuffer, o: Int32) { _accessor = Table(bb: bb, position: o) }
 
   private enum VTOFFSET: VOffset {
-    case start = 4
-    case end = 6
+    case time = 4
+    case timeEnd = 6
     case interval = 8
     case series = 10
     var v: Int32 { Int32(self.rawValue) }
     var p: VOffset { self.rawValue }
   }
 
-  public var start: Int64 { let o = _accessor.offset(VTOFFSET.start.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int64.self, at: o) }
-  public var end: Int64 { let o = _accessor.offset(VTOFFSET.end.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int64.self, at: o) }
+  public var time: Int64 { let o = _accessor.offset(VTOFFSET.time.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int64.self, at: o) }
+  public var timeEnd: Int64 { let o = _accessor.offset(VTOFFSET.timeEnd.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int64.self, at: o) }
   public var interval: Int32 { let o = _accessor.offset(VTOFFSET.interval.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int32.self, at: o) }
   public var hasSeries: Bool { let o = _accessor.offset(VTOFFSET.series.v); return o == 0 ? false : true }
   public var seriesCount: Int32 { let o = _accessor.offset(VTOFFSET.series.v); return o == 0 ? 0 : _accessor.vector(count: o) }
   public func series(at index: Int32) -> openmeteo_sdk_Series? { let o = _accessor.offset(VTOFFSET.series.v); return o == 0 ? nil : openmeteo_sdk_Series(_accessor.bb, o: _accessor.indirect(_accessor.vector(at: o) + index * 4)) }
   public static func startSeriesAndTime(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 4) }
-  public static func add(start: Int64, _ fbb: inout FlatBufferBuilder) { fbb.add(element: start, def: 0, at: VTOFFSET.start.p) }
-  public static func add(end: Int64, _ fbb: inout FlatBufferBuilder) { fbb.add(element: end, def: 0, at: VTOFFSET.end.p) }
+  public static func add(time: Int64, _ fbb: inout FlatBufferBuilder) { fbb.add(element: time, def: 0, at: VTOFFSET.time.p) }
+  public static func add(timeEnd: Int64, _ fbb: inout FlatBufferBuilder) { fbb.add(element: timeEnd, def: 0, at: VTOFFSET.timeEnd.p) }
   public static func add(interval: Int32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: interval, def: 0, at: VTOFFSET.interval.p) }
   public static func addVectorOf(series: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: series, at: VTOFFSET.series.p) }
   public static func endSeriesAndTime(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
   public static func createSeriesAndTime(
     _ fbb: inout FlatBufferBuilder,
-    start: Int64 = 0,
-    end: Int64 = 0,
+    time: Int64 = 0,
+    timeEnd: Int64 = 0,
     interval: Int32 = 0,
     seriesVectorOffset series: Offset = Offset()
   ) -> Offset {
     let __start = openmeteo_sdk_SeriesAndTime.startSeriesAndTime(&fbb)
-    openmeteo_sdk_SeriesAndTime.add(start: start, &fbb)
-    openmeteo_sdk_SeriesAndTime.add(end: end, &fbb)
+    openmeteo_sdk_SeriesAndTime.add(time: time, &fbb)
+    openmeteo_sdk_SeriesAndTime.add(timeEnd: timeEnd, &fbb)
     openmeteo_sdk_SeriesAndTime.add(interval: interval, &fbb)
     openmeteo_sdk_SeriesAndTime.addVectorOf(series: series, &fbb)
     return openmeteo_sdk_SeriesAndTime.endSeriesAndTime(&fbb, start: __start)
@@ -399,8 +399,8 @@ public struct openmeteo_sdk_SeriesAndTime: FlatBufferObject, Verifiable {
 
   public static func verify<T>(_ verifier: inout Verifier, at position: Int, of type: T.Type) throws where T: Verifiable {
     var _v = try verifier.visitTable(at: position)
-    try _v.visit(field: VTOFFSET.start.p, fieldName: "start", required: false, type: Int64.self)
-    try _v.visit(field: VTOFFSET.end.p, fieldName: "end", required: false, type: Int64.self)
+    try _v.visit(field: VTOFFSET.time.p, fieldName: "time", required: false, type: Int64.self)
+    try _v.visit(field: VTOFFSET.timeEnd.p, fieldName: "timeEnd", required: false, type: Int64.self)
     try _v.visit(field: VTOFFSET.interval.p, fieldName: "interval", required: false, type: Int32.self)
     try _v.visit(field: VTOFFSET.series.p, fieldName: "series", required: false, type: ForwardOffset<Vector<ForwardOffset<openmeteo_sdk_Series>, openmeteo_sdk_Series>>.self)
     _v.finish()

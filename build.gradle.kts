@@ -2,7 +2,7 @@ plugins {
     `java-library`
     `maven-publish`
     signing
-    id("com.gradle.plugin-publish") version "1.1.0" //https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
+    //id("com.gradle.plugin-publish") version "1.1.0" //https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
     //id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
@@ -96,7 +96,7 @@ signing {
 }
 
 // https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
-gradlePlugin { 
+/*gradlePlugin { 
     website = "https://open-meteo.com" 
     vcsUrl = "https://github.com/open-meteo/sdk"
     plugins { 
@@ -108,7 +108,7 @@ gradlePlugin {
             implementationClass = "com.open_meteo.sdk.ApiResponse"
         }
     }
-}
+}*/
 
 /*val sonatypeUsername: String? = providers.environmentVariable("SONATYPE_USERNAME").orNull
 val sonatypePassword: String? = providers.environmentVariable("SONATYPE_PASSWORD").orNull

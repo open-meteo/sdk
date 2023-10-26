@@ -28,12 +28,12 @@ class SeriesAndTime : Table() {
         __init(_i, _bb)
         return this
     }
-    val start : Long
+    val time : Long
         get() {
             val o = __offset(4)
             return if(o != 0) bb.getLong(o + bb_pos) else 0L
         }
-    val end : Long
+    val timeEnd : Long
         get() {
             val o = __offset(6)
             return if(o != 0) bb.getLong(o + bb_pos) else 0L
@@ -63,17 +63,17 @@ class SeriesAndTime : Table() {
             _bb.order(ByteOrder.LITTLE_ENDIAN)
             return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb))
         }
-        fun createSeriesAndTime(builder: FlatBufferBuilder, start: Long, end: Long, interval: Int, seriesOffset: Int) : Int {
+        fun createSeriesAndTime(builder: FlatBufferBuilder, time: Long, timeEnd: Long, interval: Int, seriesOffset: Int) : Int {
             builder.startTable(4)
-            addEnd(builder, end)
-            addStart(builder, start)
+            addTimeEnd(builder, timeEnd)
+            addTime(builder, time)
             addSeries(builder, seriesOffset)
             addInterval(builder, interval)
             return endSeriesAndTime(builder)
         }
         fun startSeriesAndTime(builder: FlatBufferBuilder) = builder.startTable(4)
-        fun addStart(builder: FlatBufferBuilder, start: Long) = builder.addLong(0, start, 0L)
-        fun addEnd(builder: FlatBufferBuilder, end: Long) = builder.addLong(1, end, 0L)
+        fun addTime(builder: FlatBufferBuilder, time: Long) = builder.addLong(0, time, 0L)
+        fun addTimeEnd(builder: FlatBufferBuilder, timeEnd: Long) = builder.addLong(1, timeEnd, 0L)
         fun addInterval(builder: FlatBufferBuilder, interval: Int) = builder.addInt(2, interval, 0)
         fun addSeries(builder: FlatBufferBuilder, series: Int) = builder.addOffset(3, series, 0)
         fun createSeriesVector(builder: FlatBufferBuilder, data: IntArray) : Int {

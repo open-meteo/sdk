@@ -2,9 +2,7 @@
 
 # namespace: openmeteo_sdk
 
-from enum import IntEnum
-
-class Aggregation(IntEnum):
+class Aggregation(object):
     none = 0
     minimum = 1
     maximum = 2

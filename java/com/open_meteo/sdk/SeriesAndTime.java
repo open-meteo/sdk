@@ -27,8 +27,8 @@ public final class SeriesAndTime extends Table {
   public void __init(int _i, ByteBuffer _bb) { __reset(_i, _bb); }
   public SeriesAndTime __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
-  public long start() { int o = __offset(4); return o != 0 ? bb.getLong(o + bb_pos) : 0L; }
-  public long end() { int o = __offset(6); return o != 0 ? bb.getLong(o + bb_pos) : 0L; }
+  public long time() { int o = __offset(4); return o != 0 ? bb.getLong(o + bb_pos) : 0L; }
+  public long timeEnd() { int o = __offset(6); return o != 0 ? bb.getLong(o + bb_pos) : 0L; }
   public int interval() { int o = __offset(8); return o != 0 ? bb.getInt(o + bb_pos) : 0; }
   public com.open_meteo.sdk.Series series(int j) { return series(new com.open_meteo.sdk.Series(), j); }
   public com.open_meteo.sdk.Series series(com.open_meteo.sdk.Series obj, int j) { int o = __offset(10); return o != 0 ? obj.__assign(__indirect(__vector(o) + j * 4), bb) : null; }
@@ -37,21 +37,21 @@ public final class SeriesAndTime extends Table {
   public com.open_meteo.sdk.Series.Vector seriesVector(com.open_meteo.sdk.Series.Vector obj) { int o = __offset(10); return o != 0 ? obj.__assign(__vector(o), 4, bb) : null; }
 
   public static int createSeriesAndTime(FlatBufferBuilder builder,
-      long start,
-      long end,
+      long time,
+      long timeEnd,
       int interval,
       int seriesOffset) {
     builder.startTable(4);
-    SeriesAndTime.addEnd(builder, end);
-    SeriesAndTime.addStart(builder, start);
+    SeriesAndTime.addTimeEnd(builder, timeEnd);
+    SeriesAndTime.addTime(builder, time);
     SeriesAndTime.addSeries(builder, seriesOffset);
     SeriesAndTime.addInterval(builder, interval);
     return SeriesAndTime.endSeriesAndTime(builder);
   }
 
   public static void startSeriesAndTime(FlatBufferBuilder builder) { builder.startTable(4); }
-  public static void addStart(FlatBufferBuilder builder, long start) { builder.addLong(0, start, 0L); }
-  public static void addEnd(FlatBufferBuilder builder, long end) { builder.addLong(1, end, 0L); }
+  public static void addTime(FlatBufferBuilder builder, long time) { builder.addLong(0, time, 0L); }
+  public static void addTimeEnd(FlatBufferBuilder builder, long timeEnd) { builder.addLong(1, timeEnd, 0L); }
   public static void addInterval(FlatBufferBuilder builder, int interval) { builder.addInt(2, interval, 0); }
   public static void addSeries(FlatBufferBuilder builder, int seriesOffset) { builder.addOffset(3, seriesOffset, 0); }
   public static int createSeriesVector(FlatBufferBuilder builder, int[] data) { builder.startVector(4, data.length, 4); for (int i = data.length - 1; i >= 0; i--) builder.addOffset(data[i]); return builder.endVector(); }

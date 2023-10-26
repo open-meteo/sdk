@@ -23,12 +23,12 @@ static getSizePrefixedRootAsSeriesAndTime(bb:flatbuffers.ByteBuffer, obj?:Series
   return (obj || new SeriesAndTime()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-start():bigint {
+time():bigint {
   const offset = this.bb!.__offset(this.bb_pos, 4);
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
 
-end():bigint {
+timeEnd():bigint {
   const offset = this.bb!.__offset(this.bb_pos, 6);
   return offset ? this.bb!.readInt64(this.bb_pos + offset) : BigInt('0');
 }
