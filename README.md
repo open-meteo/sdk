@@ -11,9 +11,10 @@ The FlatBuffers schema definition can be found in the [./flatbuffers](./flatbuff
 The compiled schema files do not contain any code to perform HTTP calls. They are intent to be used by developers to build client libraries.
 
 More information on how to use the compiled schema files can be found in the directories for each programming language
-- [Swift](./swift/)
-- [Python](./python/)
-- [TypeScript / JavaScript](./ts/)
+- [Swift](./swift/) via Swift Package Manager
+- [Python](./python/) via PIP
+- [TypeScript / JavaScript](./ts/) via NPM
+- [Java](./java/) via Gradle Plugin
 
 Not all programming languages are supported yet. It is a time-intensive process to validate all languages. Please open a issue ticket to ask for an additional language and/or package distribution system.
 
