@@ -5,7 +5,7 @@ plugins {
     //id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
-//version = "1.3.0"
+//version = "1.3.1"
 group = "com.open-meteo"
 
 sourceSets {
@@ -19,6 +19,9 @@ sourceSets {
 java {
     withJavadocJar()
     withSourcesJar()
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
 
 repositories {
@@ -35,7 +38,7 @@ publishing {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
             pom {
-                //name.set("com.open-meteo.sdk")
+                name.set("Open-Meteo Java SDK")
                 description.set("Compiled FlatBuffers schema files for the Open-Meteo Weather API")
                 url.set("https://open-meteo.com")
                 licenses {
@@ -65,7 +68,7 @@ publishing {
     - ./gradlew publishMavenJavaPublicationToLocalRepository
     - delete maven meta data
     - zip com directory in ~/Download/local_repo
-    - deployment name "com.open-meteo:sdk:1.3.0"
+    - deployment name "com.open-meteo:sdk:1.3.1"
     */
     /*repositories {
         maven {
