@@ -2,7 +2,6 @@ plugins {
     `java-library`
     `maven-publish`
     signing
-    id("com.gradle.plugin-publish") version "1.2.1" //https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
     //id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
@@ -92,22 +91,6 @@ signing {
         //sign(publishing.publications["gpr"])
     } else {
         logger.warn("The signing key and password are null. This can be ignored if this is a pull request.")
-    }
-}
-
-// https://docs.gradle.org/current/userguide/publishing_gradle_plugins.html
-// https://plugins.gradle.org/plugin/com.open-meteo.sdk
-gradlePlugin { 
-    website = "https://open-meteo.com" 
-    vcsUrl = "https://github.com/open-meteo/sdk"
-    plugins { 
-        create("sdk") { 
-            id = "com.open-meteo.sdk"
-            displayName = "Open-Meteo SDK"
-            description = "Compiled FlatBuffers schema files for the Open-Meteo Weather API"
-            tags = listOf("open-meteo", "weather", "api")
-            implementationClass = "com.open_meteo.sdk.ApiResponse"
-        }
     }
 }
 
