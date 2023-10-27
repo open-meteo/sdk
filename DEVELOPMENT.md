@@ -17,7 +17,7 @@ find ts/ -name "*.ts" -type f -exec sh -c "awk 'sub(/^static\ start.*/,\"}\"){f=
 rm -R flatbuffers_no_namespace
 
 cp -r flatbuffers/ flatbuffers_fqdn/
-find flatbuffers_fqdn -type f -exec sed -i '' -e "s/namespace\ openmeteo_sdk;/namespace\ com.open_meteo.sdk;/" {} \;
+find flatbuffers_fqdn -type f -exec sed -i '' -e "s/namespace\ openmeteo_sdk;/namespace\ com.openmeteo.sdk;/" {} \;
 flatc --kotlin -o kotlin/ flatbuffers_fqdn/*.fbs
 flatc --java --gen-nullable -o java/ flatbuffers_fqdn/*.fbs
 rm -R flatbuffers_fqdn
