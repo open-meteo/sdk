@@ -35,7 +35,7 @@ publishing {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
             pom {
-                name.set("com.open-meteo.sdk")
+                //name.set("com.open-meteo.sdk")
                 description.set("Compiled FlatBuffers schema files for the Open-Meteo Weather API")
                 url.set("https://open-meteo.com")
                 licenses {
@@ -59,6 +59,20 @@ publishing {
             }
         }
     }
+    /*
+    Manuel deploy to maven central
+    - Enable repo below, set version, enable nexus plugin
+    - ./gradlew publishMavenJavaPublicationToLocalRepository
+    - delete maven meta data
+    - zip com directory in ~/Download/local_repo
+    - deployment name "com.open-meteo:sdk:1.0.0"
+    */
+    /*repositories {
+        maven {
+            name = "local"
+            url = uri("file://Users/patrick/Downloads/local_repo/")
+        }
+    }*/
 }
 
 // GitHub packages requires a github token even to read packages
