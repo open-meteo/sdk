@@ -27,6 +27,7 @@ repositories {
 
 dependencies {
     implementation("com.google.flatbuffers:flatbuffers-java:23.5.26")
+    implementation("com.google.code.findbugs:jsr305:3.0.2")
 }
 
 publishing {
