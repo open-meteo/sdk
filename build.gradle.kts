@@ -5,7 +5,7 @@ plugins {
     //id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
-//version = "1.3.1"
+//version = "1.3.2"
 group = "com.open-meteo"
 
 sourceSets {
@@ -68,7 +68,7 @@ publishing {
     - ./gradlew publishMavenJavaPublicationToLocalRepository
     - delete maven meta data
     - zip com directory in ~/Download/local_repo
-    - deployment name "com.open-meteo:sdk:1.3.1"
+    - deployment name "com.open-meteo:sdk:1.3.2"
     */
     /*repositories {
         maven {
