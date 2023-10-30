@@ -180,7 +180,7 @@ flatc --json --size-prefixed --raw-binary weather_api.fbs -- data.bin
 cat data.json
 ```
 
-```json
+```javascript
 {
   latitude: 52.52,
   longitude: 13.419998,
