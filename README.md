@@ -163,5 +163,87 @@ While decoding the response you can loop over data and process one after another
 
 Up to 1000 locations can be requested at once. The Open-Meteo API prefetches data for all locations, but will process one location after another and "stream" the response. Therefore is it possible to decode the first message, while the next messages are still being processed on the server. This can be useful to ingest large amount of data, but is a rather complex approach. For simplicity, waiting for the entire response and then start processing data works well too.
 
+
+## Convert API Response to JSON
+
+If you would like to examine the data returned by the Open-Meteo API in binary FlatBuffers format, you can use the FlatBuffers schema compiler `flatc`. This can help to understand how the API response is structured. 
+
+First, you will have to install the FlatBuffers compile. Mac: `brew install flatbuffers`. Ubuntu `sudo apt install flatbuffers-compiler`.
+
+Get [`weather_api.fbs`](./flatbuffers/weather_api.fbs) from this repository. 
+
+```bash
+# Make sure the URL contains `&format=flatbuffers`
+wget -O data.bin https://api.open-meteo.com/v1/forecast\?latitude\=52.52\&longitude\=13.41\&daily\=weather_code,temperature_2m_max,temperature_2m_min\&timezone\=auto\&format\=flatbuffers
+
+flatc --json --size-prefixed --raw-binary weather_api.fbs -- data.bin
+cat data.json
+```
+
+```json
+{
+  latitude: 52.52,
+  longitude: 13.419998,
+  elevation: 38.0,
+  generation_time_milliseconds: 0.247002,
+  model: "best_match",
+  utc_offset_seconds: 3600,
+  timezone: "Europe/Berlin",
+  timezone_abbreviation: "CET",
+  daily: {
+    time: 1698620400,
+    time_end: 1699225200,
+    interval: 86400,
+    variables: [
+      {
+        variable: "weather_code",
+        unit: "wmo_code",
+        values: [
+          3.0,
+          80.0,
+          3.0,
+          61.0,
+          61.0,
+          61.0,
+          61.0
+        ]
+      },
+      {
+        variable: "temperature",
+        unit: "celsius",
+        values: [
+          14.8455,
+          12.7955,
+          14.0455,
+          13.938999,
+          12.389,
+          12.3695,
+          14.4695
+        ],
+        altitude: 2,
+        aggregation: "maximum"
+      },
+      {
+        variable: "temperature",
+        unit: "celsius",
+        values: [
+          11.1455,
+          8.1455,
+          7.4955,
+          8.488999,
+          8.188999,
+          6.389,
+          9.0195
+        ],
+        altitude: 2,
+        aggregation: "minimum"
+      }
+    ]
+  }
+}
+```
+
+Note: The values for `model`, `variable`, `unit` and `aggregation` are encoded into enumerations which use integers instead of strings. Only `timezone` and `timezone_abbreviation` are actual strings that are encoded in the binary API response.
+
 # License
 MIT
