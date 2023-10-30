@@ -22,7 +22,7 @@ Not all programming languages are supported yet. It is a time-intensive process 
 Open-Meteo offers various APIs. Each API endpoint is using different FlatBuffers schemas to encode its API response. This enables strict typing. E.g. Weather data APIs offer offers different variables while the Geocoding API returns a different structure. Per default, the Open-Meteo API returns JSON, but specifying `&format=flatbuffers` in the URL return FlatBuffers encoded data.
 
 Depending on the programming language, you can use a HTTP client to fetch all data and decode the response according to each API endpoint. The following API response schema files are available:
-- [Weather, Marine, Ensemble, Flood and Climate API](./flatbuffers/openmeteo_sdk.fbs): Used for forecast and historical data
+- [Weather, Marine, Ensemble, Flood and Climate API](./flatbuffers/weather_api.fbs): Used for forecast and historical data
 - Elevation API: Not yet available
 - Geocoding API: Not yet available
 
