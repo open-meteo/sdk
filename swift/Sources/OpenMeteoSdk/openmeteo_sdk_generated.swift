@@ -251,7 +251,7 @@ public enum openmeteo_sdk_Aggregation: UInt8, Enum, Verifiable {
 }
 
 
-public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
+public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
 
   static func validateVersion() { FlatBuffersVersion_23_5_26() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
@@ -293,7 +293,7 @@ public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
   public var depth: Int16 { let o = _accessor.offset(VTOFFSET.depth.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var depthTo: Int16 { let o = _accessor.offset(VTOFFSET.depthTo.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var ensembleMember: Int16 { let o = _accessor.offset(VTOFFSET.ensembleMember.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
-  public static func startSeries(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 11) }
+  public static func startVariableWithValues(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 11) }
   public static func add(variable: openmeteo_sdk_Variable, _ fbb: inout FlatBufferBuilder) { fbb.add(element: variable.rawValue, def: 0, at: VTOFFSET.variable.p) }
   public static func add(unit: openmeteo_sdk_Unit, _ fbb: inout FlatBufferBuilder) { fbb.add(element: unit.rawValue, def: 0, at: VTOFFSET.unit.p) }
   public static func add(value: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: value, def: 0.0, at: VTOFFSET.value.p) }
@@ -305,8 +305,8 @@ public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
   public static func add(depth: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: depth, def: 0, at: VTOFFSET.depth.p) }
   public static func add(depthTo: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: depthTo, def: 0, at: VTOFFSET.depthTo.p) }
   public static func add(ensembleMember: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: ensembleMember, def: 0, at: VTOFFSET.ensembleMember.p) }
-  public static func endSeries(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
-  public static func createSeries(
+  public static func endVariableWithValues(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
+  public static func createVariableWithValues(
     _ fbb: inout FlatBufferBuilder,
     variable: openmeteo_sdk_Variable = .undefined,
     unit: openmeteo_sdk_Unit = .undefined,
@@ -320,19 +320,19 @@ public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
     depthTo: Int16 = 0,
     ensembleMember: Int16 = 0
   ) -> Offset {
-    let __start = openmeteo_sdk_Series.startSeries(&fbb)
-    openmeteo_sdk_Series.add(variable: variable, &fbb)
-    openmeteo_sdk_Series.add(unit: unit, &fbb)
-    openmeteo_sdk_Series.add(value: value, &fbb)
-    openmeteo_sdk_Series.addVectorOf(values: values, &fbb)
-    openmeteo_sdk_Series.addVectorOf(valuesInt64: valuesInt64, &fbb)
-    openmeteo_sdk_Series.add(altitude: altitude, &fbb)
-    openmeteo_sdk_Series.add(aggregation: aggregation, &fbb)
-    openmeteo_sdk_Series.add(pressureLevel: pressureLevel, &fbb)
-    openmeteo_sdk_Series.add(depth: depth, &fbb)
-    openmeteo_sdk_Series.add(depthTo: depthTo, &fbb)
-    openmeteo_sdk_Series.add(ensembleMember: ensembleMember, &fbb)
-    return openmeteo_sdk_Series.endSeries(&fbb, start: __start)
+    let __start = openmeteo_sdk_VariableWithValues.startVariableWithValues(&fbb)
+    openmeteo_sdk_VariableWithValues.add(variable: variable, &fbb)
+    openmeteo_sdk_VariableWithValues.add(unit: unit, &fbb)
+    openmeteo_sdk_VariableWithValues.add(value: value, &fbb)
+    openmeteo_sdk_VariableWithValues.addVectorOf(values: values, &fbb)
+    openmeteo_sdk_VariableWithValues.addVectorOf(valuesInt64: valuesInt64, &fbb)
+    openmeteo_sdk_VariableWithValues.add(altitude: altitude, &fbb)
+    openmeteo_sdk_VariableWithValues.add(aggregation: aggregation, &fbb)
+    openmeteo_sdk_VariableWithValues.add(pressureLevel: pressureLevel, &fbb)
+    openmeteo_sdk_VariableWithValues.add(depth: depth, &fbb)
+    openmeteo_sdk_VariableWithValues.add(depthTo: depthTo, &fbb)
+    openmeteo_sdk_VariableWithValues.add(ensembleMember: ensembleMember, &fbb)
+    return openmeteo_sdk_VariableWithValues.endVariableWithValues(&fbb, start: __start)
   }
 
   public static func verify<T>(_ verifier: inout Verifier, at position: Int, of type: T.Type) throws where T: Verifiable {
@@ -352,7 +352,7 @@ public struct openmeteo_sdk_Series: FlatBufferObject, Verifiable {
   }
 }
 
-public struct openmeteo_sdk_SeriesAndTime: FlatBufferObject, Verifiable {
+public struct openmeteo_sdk_VariablesWithTime: FlatBufferObject, Verifiable {
 
   static func validateVersion() { FlatBuffersVersion_23_5_26() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
@@ -365,7 +365,7 @@ public struct openmeteo_sdk_SeriesAndTime: FlatBufferObject, Verifiable {
     case time = 4
     case timeEnd = 6
     case interval = 8
-    case series = 10
+    case variables = 10
     var v: Int32 { Int32(self.rawValue) }
     var p: VOffset { self.rawValue }
   }
@@ -373,28 +373,28 @@ public struct openmeteo_sdk_SeriesAndTime: FlatBufferObject, Verifiable {
   public var time: Int64 { let o = _accessor.offset(VTOFFSET.time.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int64.self, at: o) }
   public var timeEnd: Int64 { let o = _accessor.offset(VTOFFSET.timeEnd.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int64.self, at: o) }
   public var interval: Int32 { let o = _accessor.offset(VTOFFSET.interval.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int32.self, at: o) }
-  public var hasSeries: Bool { let o = _accessor.offset(VTOFFSET.series.v); return o == 0 ? false : true }
-  public var seriesCount: Int32 { let o = _accessor.offset(VTOFFSET.series.v); return o == 0 ? 0 : _accessor.vector(count: o) }
-  public func series(at index: Int32) -> openmeteo_sdk_Series? { let o = _accessor.offset(VTOFFSET.series.v); return o == 0 ? nil : openmeteo_sdk_Series(_accessor.bb, o: _accessor.indirect(_accessor.vector(at: o) + index * 4)) }
-  public static func startSeriesAndTime(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 4) }
+  public var hasVariables: Bool { let o = _accessor.offset(VTOFFSET.variables.v); return o == 0 ? false : true }
+  public var variablesCount: Int32 { let o = _accessor.offset(VTOFFSET.variables.v); return o == 0 ? 0 : _accessor.vector(count: o) }
+  public func variables(at index: Int32) -> openmeteo_sdk_VariableWithValues? { let o = _accessor.offset(VTOFFSET.variables.v); return o == 0 ? nil : openmeteo_sdk_VariableWithValues(_accessor.bb, o: _accessor.indirect(_accessor.vector(at: o) + index * 4)) }
+  public static func startVariablesWithTime(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 4) }
   public static func add(time: Int64, _ fbb: inout FlatBufferBuilder) { fbb.add(element: time, def: 0, at: VTOFFSET.time.p) }
   public static func add(timeEnd: Int64, _ fbb: inout FlatBufferBuilder) { fbb.add(element: timeEnd, def: 0, at: VTOFFSET.timeEnd.p) }
   public static func add(interval: Int32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: interval, def: 0, at: VTOFFSET.interval.p) }
-  public static func addVectorOf(series: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: series, at: VTOFFSET.series.p) }
-  public static func endSeriesAndTime(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
-  public static func createSeriesAndTime(
+  public static func addVectorOf(variables: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: variables, at: VTOFFSET.variables.p) }
+  public static func endVariablesWithTime(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
+  public static func createVariablesWithTime(
     _ fbb: inout FlatBufferBuilder,
     time: Int64 = 0,
     timeEnd: Int64 = 0,
     interval: Int32 = 0,
-    seriesVectorOffset series: Offset = Offset()
+    variablesVectorOffset variables: Offset = Offset()
   ) -> Offset {
-    let __start = openmeteo_sdk_SeriesAndTime.startSeriesAndTime(&fbb)
-    openmeteo_sdk_SeriesAndTime.add(time: time, &fbb)
-    openmeteo_sdk_SeriesAndTime.add(timeEnd: timeEnd, &fbb)
-    openmeteo_sdk_SeriesAndTime.add(interval: interval, &fbb)
-    openmeteo_sdk_SeriesAndTime.addVectorOf(series: series, &fbb)
-    return openmeteo_sdk_SeriesAndTime.endSeriesAndTime(&fbb, start: __start)
+    let __start = openmeteo_sdk_VariablesWithTime.startVariablesWithTime(&fbb)
+    openmeteo_sdk_VariablesWithTime.add(time: time, &fbb)
+    openmeteo_sdk_VariablesWithTime.add(timeEnd: timeEnd, &fbb)
+    openmeteo_sdk_VariablesWithTime.add(interval: interval, &fbb)
+    openmeteo_sdk_VariablesWithTime.addVectorOf(variables: variables, &fbb)
+    return openmeteo_sdk_VariablesWithTime.endVariablesWithTime(&fbb, start: __start)
   }
 
   public static func verify<T>(_ verifier: inout Verifier, at position: Int, of type: T.Type) throws where T: Verifiable {
@@ -402,12 +402,12 @@ public struct openmeteo_sdk_SeriesAndTime: FlatBufferObject, Verifiable {
     try _v.visit(field: VTOFFSET.time.p, fieldName: "time", required: false, type: Int64.self)
     try _v.visit(field: VTOFFSET.timeEnd.p, fieldName: "timeEnd", required: false, type: Int64.self)
     try _v.visit(field: VTOFFSET.interval.p, fieldName: "interval", required: false, type: Int32.self)
-    try _v.visit(field: VTOFFSET.series.p, fieldName: "series", required: false, type: ForwardOffset<Vector<ForwardOffset<openmeteo_sdk_Series>, openmeteo_sdk_Series>>.self)
+    try _v.visit(field: VTOFFSET.variables.p, fieldName: "variables", required: false, type: ForwardOffset<Vector<ForwardOffset<openmeteo_sdk_VariableWithValues>, openmeteo_sdk_VariableWithValues>>.self)
     _v.finish()
   }
 }
 
-public struct openmeteo_sdk_ApiResponse: FlatBufferObject, Verifiable {
+public struct openmeteo_sdk_WeatherApiResponse: FlatBufferObject, Verifiable {
 
   static func validateVersion() { FlatBuffersVersion_23_5_26() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
@@ -446,12 +446,12 @@ public struct openmeteo_sdk_ApiResponse: FlatBufferObject, Verifiable {
   public var timezoneSegmentArray: [UInt8]? { return _accessor.getVector(at: VTOFFSET.timezone.v) }
   public var timezoneAbbreviation: String? { let o = _accessor.offset(VTOFFSET.timezoneAbbreviation.v); return o == 0 ? nil : _accessor.string(at: o) }
   public var timezoneAbbreviationSegmentArray: [UInt8]? { return _accessor.getVector(at: VTOFFSET.timezoneAbbreviation.v) }
-  public var current: openmeteo_sdk_SeriesAndTime? { let o = _accessor.offset(VTOFFSET.current.v); return o == 0 ? nil : openmeteo_sdk_SeriesAndTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
-  public var daily: openmeteo_sdk_SeriesAndTime? { let o = _accessor.offset(VTOFFSET.daily.v); return o == 0 ? nil : openmeteo_sdk_SeriesAndTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
-  public var hourly: openmeteo_sdk_SeriesAndTime? { let o = _accessor.offset(VTOFFSET.hourly.v); return o == 0 ? nil : openmeteo_sdk_SeriesAndTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
-  public var minutely15: openmeteo_sdk_SeriesAndTime? { let o = _accessor.offset(VTOFFSET.minutely15.v); return o == 0 ? nil : openmeteo_sdk_SeriesAndTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
-  public var sixHourly: openmeteo_sdk_SeriesAndTime? { let o = _accessor.offset(VTOFFSET.sixHourly.v); return o == 0 ? nil : openmeteo_sdk_SeriesAndTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
-  public static func startApiResponse(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 14) }
+  public var current: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.current.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
+  public var daily: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.daily.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
+  public var hourly: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.hourly.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
+  public var minutely15: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.minutely15.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
+  public var sixHourly: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.sixHourly.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
+  public static func startWeatherApiResponse(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 14) }
   public static func add(latitude: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: latitude, def: 0.0, at: VTOFFSET.latitude.p) }
   public static func add(longitude: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: longitude, def: 0.0, at: VTOFFSET.longitude.p) }
   public static func add(elevation: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: elevation, def: 0.0, at: VTOFFSET.elevation.p) }
@@ -466,8 +466,8 @@ public struct openmeteo_sdk_ApiResponse: FlatBufferObject, Verifiable {
   public static func add(hourly: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: hourly, at: VTOFFSET.hourly.p) }
   public static func add(minutely15: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: minutely15, at: VTOFFSET.minutely15.p) }
   public static func add(sixHourly: Offset, _ fbb: inout FlatBufferBuilder) { fbb.add(offset: sixHourly, at: VTOFFSET.sixHourly.p) }
-  public static func endApiResponse(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
-  public static func createApiResponse(
+  public static func endWeatherApiResponse(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
+  public static func createWeatherApiResponse(
     _ fbb: inout FlatBufferBuilder,
     latitude: Float32 = 0.0,
     longitude: Float32 = 0.0,
@@ -484,22 +484,22 @@ public struct openmeteo_sdk_ApiResponse: FlatBufferObject, Verifiable {
     minutely15Offset minutely15: Offset = Offset(),
     sixHourlyOffset sixHourly: Offset = Offset()
   ) -> Offset {
-    let __start = openmeteo_sdk_ApiResponse.startApiResponse(&fbb)
-    openmeteo_sdk_ApiResponse.add(latitude: latitude, &fbb)
-    openmeteo_sdk_ApiResponse.add(longitude: longitude, &fbb)
-    openmeteo_sdk_ApiResponse.add(elevation: elevation, &fbb)
-    openmeteo_sdk_ApiResponse.add(generationTimeMilliseconds: generationTimeMilliseconds, &fbb)
-    openmeteo_sdk_ApiResponse.add(locationId: locationId, &fbb)
-    openmeteo_sdk_ApiResponse.add(model: model, &fbb)
-    openmeteo_sdk_ApiResponse.add(utcOffsetSeconds: utcOffsetSeconds, &fbb)
-    openmeteo_sdk_ApiResponse.add(timezone: timezone, &fbb)
-    openmeteo_sdk_ApiResponse.add(timezoneAbbreviation: timezoneAbbreviation, &fbb)
-    openmeteo_sdk_ApiResponse.add(current: current, &fbb)
-    openmeteo_sdk_ApiResponse.add(daily: daily, &fbb)
-    openmeteo_sdk_ApiResponse.add(hourly: hourly, &fbb)
-    openmeteo_sdk_ApiResponse.add(minutely15: minutely15, &fbb)
-    openmeteo_sdk_ApiResponse.add(sixHourly: sixHourly, &fbb)
-    return openmeteo_sdk_ApiResponse.endApiResponse(&fbb, start: __start)
+    let __start = openmeteo_sdk_WeatherApiResponse.startWeatherApiResponse(&fbb)
+    openmeteo_sdk_WeatherApiResponse.add(latitude: latitude, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(longitude: longitude, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(elevation: elevation, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(generationTimeMilliseconds: generationTimeMilliseconds, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(locationId: locationId, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(model: model, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(utcOffsetSeconds: utcOffsetSeconds, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(timezone: timezone, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(timezoneAbbreviation: timezoneAbbreviation, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(current: current, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(daily: daily, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(hourly: hourly, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(minutely15: minutely15, &fbb)
+    openmeteo_sdk_WeatherApiResponse.add(sixHourly: sixHourly, &fbb)
+    return openmeteo_sdk_WeatherApiResponse.endWeatherApiResponse(&fbb, start: __start)
   }
 
   public static func verify<T>(_ verifier: inout Verifier, at position: Int, of type: T.Type) throws where T: Verifiable {
@@ -513,11 +513,11 @@ public struct openmeteo_sdk_ApiResponse: FlatBufferObject, Verifiable {
     try _v.visit(field: VTOFFSET.utcOffsetSeconds.p, fieldName: "utcOffsetSeconds", required: false, type: Int32.self)
     try _v.visit(field: VTOFFSET.timezone.p, fieldName: "timezone", required: false, type: ForwardOffset<String>.self)
     try _v.visit(field: VTOFFSET.timezoneAbbreviation.p, fieldName: "timezoneAbbreviation", required: false, type: ForwardOffset<String>.self)
-    try _v.visit(field: VTOFFSET.current.p, fieldName: "current", required: false, type: ForwardOffset<openmeteo_sdk_SeriesAndTime>.self)
-    try _v.visit(field: VTOFFSET.daily.p, fieldName: "daily", required: false, type: ForwardOffset<openmeteo_sdk_SeriesAndTime>.self)
-    try _v.visit(field: VTOFFSET.hourly.p, fieldName: "hourly", required: false, type: ForwardOffset<openmeteo_sdk_SeriesAndTime>.self)
-    try _v.visit(field: VTOFFSET.minutely15.p, fieldName: "minutely15", required: false, type: ForwardOffset<openmeteo_sdk_SeriesAndTime>.self)
-    try _v.visit(field: VTOFFSET.sixHourly.p, fieldName: "sixHourly", required: false, type: ForwardOffset<openmeteo_sdk_SeriesAndTime>.self)
+    try _v.visit(field: VTOFFSET.current.p, fieldName: "current", required: false, type: ForwardOffset<openmeteo_sdk_VariablesWithTime>.self)
+    try _v.visit(field: VTOFFSET.daily.p, fieldName: "daily", required: false, type: ForwardOffset<openmeteo_sdk_VariablesWithTime>.self)
+    try _v.visit(field: VTOFFSET.hourly.p, fieldName: "hourly", required: false, type: ForwardOffset<openmeteo_sdk_VariablesWithTime>.self)
+    try _v.visit(field: VTOFFSET.minutely15.p, fieldName: "minutely15", required: false, type: ForwardOffset<openmeteo_sdk_VariablesWithTime>.self)
+    try _v.visit(field: VTOFFSET.sixHourly.p, fieldName: "sixHourly", required: false, type: ForwardOffset<openmeteo_sdk_VariablesWithTime>.self)
     _v.finish()
   }
 }

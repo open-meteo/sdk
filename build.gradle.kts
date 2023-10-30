@@ -5,7 +5,7 @@ plugins {
     //id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
-//version = "1.3.2"
+version = "1.4.0"
 group = "com.open-meteo"
 
 sourceSets {
@@ -29,8 +29,8 @@ repositories {
 }
 
 dependencies {
-    implementation("com.google.flatbuffers:flatbuffers-java:23.5.26")
-    implementation("com.google.code.findbugs:jsr305:3.0.2")
+    api("com.google.flatbuffers:flatbuffers-java:23.5.26")
+    compileOnly("com.google.code.findbugs:jsr305:3.0.2")
 }
 
 publishing {
@@ -68,14 +68,14 @@ publishing {
     - ./gradlew publishMavenJavaPublicationToLocalRepository
     - delete maven meta data
     - zip com directory in ~/Download/local_repo
-    - deployment name "com.open-meteo:sdk:1.3.2"
+    - deployment name "com.open-meteo:sdk:1.4.0"
     */
-    /*repositories {
+    repositories {
         maven {
             name = "local"
             url = uri("file://Users/patrick/Downloads/local_repo/")
         }
-    }*/
+    }
 }
 
 // GitHub packages requires a github token even to read packages

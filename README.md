@@ -30,8 +30,8 @@ Depending on the programming language, you can use a HTTP client to fetch all da
 ## Structure
 Each response contains data for one location and one weather model. If multiple locations are requested, multiple ApiResponses will be returned as an array using `size-prefixed` encoding (see below).
 
-### ApiResponse
-The main `ApiResponse` structure contains
+### WeatherApiResponse
+The main `WeatherApiResponse` structure contains
 - `latitude` & `longitude` float: Coordinate of the weather model grid-cell
 - `elevation` float: Terrain elevation of the requested coordinates
 - `generation_time_milliseconds` float
@@ -40,24 +40,24 @@ The main `ApiResponse` structure contains
 - `utc_offset_seconds` int32: Timezone offset from GMT time in seconds. e.g. `3600`
 - `timezone` string: Timezone name like `Europe/Berlin`
 - `timezone_abbreviation` string: Abbreviation like `CET`
-- `current` [SeriesAndTime](#SeriesAndTime): All variables requested with `&current=`
-- `daily` [SeriesAndTime](#SeriesAndTime): All variables requested with `&daily=`
-- `hourly` [SeriesAndTime](#SeriesAndTime): All variables requested with `&hourly=`
-- `minutely_15` [SeriesAndTime](#SeriesAndTime): All variables requested with `&minutely_15=`
-- `six_hourly` [SeriesAndTime](#SeriesAndTime): All variables requested with `&six_hourly=`
+- `current` [VariablesWithTime](#VariablesWithTime): All variables requested with `&current=`
+- `daily` [VariablesWithTime](#VariablesWithTime): All variables requested with `&daily=`
+- `hourly` [VariablesWithTime](#VariablesWithTime): All variables requested with `&hourly=`
+- `minutely_15` [VariablesWithTime](#VariablesWithTime): All variables requested with `&minutely_15=`
+- `six_hourly` [VariablesWithTime](#VariablesWithTime): All variables requested with `&six_hourly=`
 
-### SeriesAndTime
-All `hourly` or `daily` weather variables are grouped into the class `SeriesAndTime`. It contains the start and end time as well as the interval.
+### VariablesWithTime
+All `hourly` or `daily` weather variables are grouped into the class `VariablesWithTime`. It contains the start and end time as well as the interval.
 
 Attributes:
 - `start` int64: Unix timestamp of the first value in GMT
 - `end` int64: The last timestamp that is not included in the time-interval. Therefore one step after the last included timestep.
 - `interval` int32:  The number of seconds for each step. For hourly data this is `3600 seconds` and for daily data `86400 seconds`.
-- `series` [[Series](#Series)]: An array of weather variables
+- `variables` [[VariableWithValues](#VariableWithValues)]: An array of weather variables
 
 Timestamps always use unixtime in seconds. Time is always in GMT! If you want to display local time again, you can use the attribute `utc_offset_seconds` from the response structure
 
-### Series
+### VariableWithValues
 Each weather variable is accompanied by meta data like the name of the weather variable or unit.
 
 Attributes:
@@ -111,10 +111,10 @@ from openmeteo_sdk.Variable import Variable
 response = ...
 
 hourly = response.Hourly()
-hourly_series = list(map(lambda i: hourly.Series(i), range(0, hourly.SeriesLength())))
+hourly_variables = list(map(lambda i: hourly.Variables(i), range(0, hourly.VariablesLength())))
 
-temperature_2m = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2, hourly_series))
-precipitation = next(filter(lambda x: x.Variable() == Variable.precipitation, hourly_series))
+temperature_2m = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2, hourly_variables))
+precipitation = next(filter(lambda x: x.Variable() == Variable.precipitation, hourly_variables))
 
 print(temperature_2m.ValuesAsNumpy())
 print(precipitation.ValuesAsNumpy())
@@ -129,10 +129,10 @@ from openmeteo_sdk.Variable import Variable
 from openmeteo_sdk.Aggregation import Aggregation
 
 daily = response.Daily()
-daily_series = list(map(lambda i: daily.Series(i), range(0, daily.SeriesLength())))
+daily_variables = list(map(lambda i: daily.Variables(i), range(0, daily.VariablesLength())))
 
-temperature_2m_max = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.maximum, daily_series))
-temperature_2m_min = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.minimum, daily_series))
+temperature_2m_max = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.maximum, daily_variables))
+temperature_2m_min = next(filter(lambda x: x.Variable() == Variable.temperature and x.Altitude() == 2 and x.Aggregation() == Aggregation.minimum, daily_variables))
 
 print(temperature_2m_max.ValuesAsNumpy())
 print(temperature_2m_min.ValuesAsNumpy())
@@ -143,9 +143,9 @@ The order of requested variables will be preserved. E.g. `&current=temperature_2
 ```python
 current = response.Current()
 timestamp = current.start()
-temperature_2m = current.Series(0).value()
-wind_speed_10m = current.Series(1).value()
-weather_code = current.Series(2).value()
+temperature_2m = current.Variables(0).value()
+wind_speed_10m = current.Variables(1).value()
+weather_code = current.Variables(2).value()
 ```
 
 ## Encoding with Size Prefixed FlatBuffers

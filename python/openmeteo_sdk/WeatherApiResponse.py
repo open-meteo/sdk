@@ -5,137 +5,137 @@
 import flatbuffers
 from flatbuffers.compat import import_numpy
 from typing import Any
-from openmeteo_sdk.SeriesAndTime import SeriesAndTime
+from openmeteo_sdk.VariablesWithTime import VariablesWithTime
 from typing import Optional
 np = import_numpy()
 
-class ApiResponse(object):
+class WeatherApiResponse(object):
     __slots__ = ['_tab']
 
     @classmethod
     def GetRootAs(cls, buf, offset: int = 0):
         n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
-        x = ApiResponse()
+        x = WeatherApiResponse()
         x.Init(buf, n + offset)
         return x
 
     @classmethod
-    def GetRootAsApiResponse(cls, buf, offset=0):
+    def GetRootAsWeatherApiResponse(cls, buf, offset=0):
         """This method is deprecated. Please switch to GetRootAs."""
         return cls.GetRootAs(buf, offset)
-    # ApiResponse
+    # WeatherApiResponse
     def Init(self, buf: bytes, pos: int):
         self._tab = flatbuffers.table.Table(buf, pos)
 
-    # ApiResponse
+    # WeatherApiResponse
     def Latitude(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-    # ApiResponse
+    # WeatherApiResponse
     def Longitude(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-    # ApiResponse
+    # WeatherApiResponse
     def Elevation(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-    # ApiResponse
+    # WeatherApiResponse
     def GenerationTimeMilliseconds(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-    # ApiResponse
+    # WeatherApiResponse
     def LocationId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-    # ApiResponse
+    # WeatherApiResponse
     def Model(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint8Flags, o + self._tab.Pos)
         return 0
 
-    # ApiResponse
+    # WeatherApiResponse
     def UtcOffsetSeconds(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-    # ApiResponse
+    # WeatherApiResponse
     def Timezone(self) -> Optional[str]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
-    # ApiResponse
+    # WeatherApiResponse
     def TimezoneAbbreviation(self) -> Optional[str]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
-    # ApiResponse
-    def Current(self) -> Optional[SeriesAndTime]:
+    # WeatherApiResponse
+    def Current(self) -> Optional[VariablesWithTime]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
-            obj = SeriesAndTime()
+            obj = VariablesWithTime()
             obj.Init(self._tab.Bytes, x)
             return obj
         return None
 
-    # ApiResponse
-    def Daily(self) -> Optional[SeriesAndTime]:
+    # WeatherApiResponse
+    def Daily(self) -> Optional[VariablesWithTime]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
-            obj = SeriesAndTime()
+            obj = VariablesWithTime()
             obj.Init(self._tab.Bytes, x)
             return obj
         return None
 
-    # ApiResponse
-    def Hourly(self) -> Optional[SeriesAndTime]:
+    # WeatherApiResponse
+    def Hourly(self) -> Optional[VariablesWithTime]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
-            obj = SeriesAndTime()
+            obj = VariablesWithTime()
             obj.Init(self._tab.Bytes, x)
             return obj
         return None
 
-    # ApiResponse
-    def Minutely15(self) -> Optional[SeriesAndTime]:
+    # WeatherApiResponse
+    def Minutely15(self) -> Optional[VariablesWithTime]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
-            obj = SeriesAndTime()
+            obj = VariablesWithTime()
             obj.Init(self._tab.Bytes, x)
             return obj
         return None
 
-    # ApiResponse
-    def SixHourly(self) -> Optional[SeriesAndTime]:
+    # WeatherApiResponse
+    def SixHourly(self) -> Optional[VariablesWithTime]:
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
-            obj = SeriesAndTime()
+            obj = VariablesWithTime()
             obj.Init(self._tab.Bytes, x)
             return obj
         return None

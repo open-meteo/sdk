@@ -22,12 +22,12 @@ import java.nio.ByteOrder;
 import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
-public final class ApiResponse extends Table {
+public final class WeatherApiResponse extends Table {
   public static void ValidateVersion() { Constants.FLATBUFFERS_23_5_26(); }
-  public static ApiResponse getRootAsApiResponse(ByteBuffer _bb) { return getRootAsApiResponse(_bb, new ApiResponse()); }
-  public static ApiResponse getRootAsApiResponse(ByteBuffer _bb, ApiResponse obj) { _bb.order(ByteOrder.LITTLE_ENDIAN); return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb)); }
+  public static WeatherApiResponse getRootAsWeatherApiResponse(ByteBuffer _bb) { return getRootAsWeatherApiResponse(_bb, new WeatherApiResponse()); }
+  public static WeatherApiResponse getRootAsWeatherApiResponse(ByteBuffer _bb, WeatherApiResponse obj) { _bb.order(ByteOrder.LITTLE_ENDIAN); return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb)); }
   public void __init(int _i, ByteBuffer _bb) { __reset(_i, _bb); }
-  public ApiResponse __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
+  public WeatherApiResponse __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
   public float latitude() { int o = __offset(4); return o != 0 ? bb.getFloat(o + bb_pos) : 0.0f; }
   public float longitude() { int o = __offset(6); return o != 0 ? bb.getFloat(o + bb_pos) : 0.0f; }
@@ -42,18 +42,18 @@ public final class ApiResponse extends Table {
   public  @Nullable String timezoneAbbreviation() { int o = __offset(20); return o != 0 ? __string(o + bb_pos) : null; }
   public ByteBuffer timezoneAbbreviationAsByteBuffer() { return __vector_as_bytebuffer(20, 1); }
   public ByteBuffer timezoneAbbreviationInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 20, 1); }
-  public  @Nullable com.openmeteo.sdk.SeriesAndTime current() { return current(new com.openmeteo.sdk.SeriesAndTime()); }
-  public  @Nullable com.openmeteo.sdk.SeriesAndTime current(com.openmeteo.sdk.SeriesAndTime obj) { int o = __offset(22); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
-  public  @Nullable com.openmeteo.sdk.SeriesAndTime daily() { return daily(new com.openmeteo.sdk.SeriesAndTime()); }
-  public  @Nullable com.openmeteo.sdk.SeriesAndTime daily(com.openmeteo.sdk.SeriesAndTime obj) { int o = __offset(24); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
-  public  @Nullable com.openmeteo.sdk.SeriesAndTime hourly() { return hourly(new com.openmeteo.sdk.SeriesAndTime()); }
-  public  @Nullable com.openmeteo.sdk.SeriesAndTime hourly(com.openmeteo.sdk.SeriesAndTime obj) { int o = __offset(26); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
-  public  @Nullable com.openmeteo.sdk.SeriesAndTime minutely15() { return minutely15(new com.openmeteo.sdk.SeriesAndTime()); }
-  public  @Nullable com.openmeteo.sdk.SeriesAndTime minutely15(com.openmeteo.sdk.SeriesAndTime obj) { int o = __offset(28); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
-  public  @Nullable com.openmeteo.sdk.SeriesAndTime sixHourly() { return sixHourly(new com.openmeteo.sdk.SeriesAndTime()); }
-  public  @Nullable com.openmeteo.sdk.SeriesAndTime sixHourly(com.openmeteo.sdk.SeriesAndTime obj) { int o = __offset(30); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
+  public  @Nullable com.openmeteo.sdk.VariablesWithTime current() { return current(new com.openmeteo.sdk.VariablesWithTime()); }
+  public  @Nullable com.openmeteo.sdk.VariablesWithTime current(com.openmeteo.sdk.VariablesWithTime obj) { int o = __offset(22); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
+  public  @Nullable com.openmeteo.sdk.VariablesWithTime daily() { return daily(new com.openmeteo.sdk.VariablesWithTime()); }
+  public  @Nullable com.openmeteo.sdk.VariablesWithTime daily(com.openmeteo.sdk.VariablesWithTime obj) { int o = __offset(24); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
+  public  @Nullable com.openmeteo.sdk.VariablesWithTime hourly() { return hourly(new com.openmeteo.sdk.VariablesWithTime()); }
+  public  @Nullable com.openmeteo.sdk.VariablesWithTime hourly(com.openmeteo.sdk.VariablesWithTime obj) { int o = __offset(26); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
+  public  @Nullable com.openmeteo.sdk.VariablesWithTime minutely15() { return minutely15(new com.openmeteo.sdk.VariablesWithTime()); }
+  public  @Nullable com.openmeteo.sdk.VariablesWithTime minutely15(com.openmeteo.sdk.VariablesWithTime obj) { int o = __offset(28); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
+  public  @Nullable com.openmeteo.sdk.VariablesWithTime sixHourly() { return sixHourly(new com.openmeteo.sdk.VariablesWithTime()); }
+  public  @Nullable com.openmeteo.sdk.VariablesWithTime sixHourly(com.openmeteo.sdk.VariablesWithTime obj) { int o = __offset(30); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
 
-  public static int createApiResponse(FlatBufferBuilder builder,
+  public static int createWeatherApiResponse(FlatBufferBuilder builder,
       float latitude,
       float longitude,
       float elevation,
@@ -69,24 +69,24 @@ public final class ApiResponse extends Table {
       int minutely15Offset,
       int sixHourlyOffset) {
     builder.startTable(14);
-    ApiResponse.addLocationId(builder, locationId);
-    ApiResponse.addSixHourly(builder, sixHourlyOffset);
-    ApiResponse.addMinutely15(builder, minutely15Offset);
-    ApiResponse.addHourly(builder, hourlyOffset);
-    ApiResponse.addDaily(builder, dailyOffset);
-    ApiResponse.addCurrent(builder, currentOffset);
-    ApiResponse.addTimezoneAbbreviation(builder, timezoneAbbreviationOffset);
-    ApiResponse.addTimezone(builder, timezoneOffset);
-    ApiResponse.addUtcOffsetSeconds(builder, utcOffsetSeconds);
-    ApiResponse.addGenerationTimeMilliseconds(builder, generationTimeMilliseconds);
-    ApiResponse.addElevation(builder, elevation);
-    ApiResponse.addLongitude(builder, longitude);
-    ApiResponse.addLatitude(builder, latitude);
-    ApiResponse.addModel(builder, model);
-    return ApiResponse.endApiResponse(builder);
+    WeatherApiResponse.addLocationId(builder, locationId);
+    WeatherApiResponse.addSixHourly(builder, sixHourlyOffset);
+    WeatherApiResponse.addMinutely15(builder, minutely15Offset);
+    WeatherApiResponse.addHourly(builder, hourlyOffset);
+    WeatherApiResponse.addDaily(builder, dailyOffset);
+    WeatherApiResponse.addCurrent(builder, currentOffset);
+    WeatherApiResponse.addTimezoneAbbreviation(builder, timezoneAbbreviationOffset);
+    WeatherApiResponse.addTimezone(builder, timezoneOffset);
+    WeatherApiResponse.addUtcOffsetSeconds(builder, utcOffsetSeconds);
+    WeatherApiResponse.addGenerationTimeMilliseconds(builder, generationTimeMilliseconds);
+    WeatherApiResponse.addElevation(builder, elevation);
+    WeatherApiResponse.addLongitude(builder, longitude);
+    WeatherApiResponse.addLatitude(builder, latitude);
+    WeatherApiResponse.addModel(builder, model);
+    return WeatherApiResponse.endWeatherApiResponse(builder);
   }
 
-  public static void startApiResponse(FlatBufferBuilder builder) { builder.startTable(14); }
+  public static void startWeatherApiResponse(FlatBufferBuilder builder) { builder.startTable(14); }
   public static void addLatitude(FlatBufferBuilder builder, float latitude) { builder.addFloat(0, latitude, 0.0f); }
   public static void addLongitude(FlatBufferBuilder builder, float longitude) { builder.addFloat(1, longitude, 0.0f); }
   public static void addElevation(FlatBufferBuilder builder, float elevation) { builder.addFloat(2, elevation, 0.0f); }
@@ -101,18 +101,18 @@ public final class ApiResponse extends Table {
   public static void addHourly(FlatBufferBuilder builder, int hourlyOffset) { builder.addOffset(11, hourlyOffset, 0); }
   public static void addMinutely15(FlatBufferBuilder builder, int minutely15Offset) { builder.addOffset(12, minutely15Offset, 0); }
   public static void addSixHourly(FlatBufferBuilder builder, int sixHourlyOffset) { builder.addOffset(13, sixHourlyOffset, 0); }
-  public static int endApiResponse(FlatBufferBuilder builder) {
+  public static int endWeatherApiResponse(FlatBufferBuilder builder) {
     int o = builder.endTable();
     return o;
   }
-  public static void finishApiResponseBuffer(FlatBufferBuilder builder, int offset) { builder.finish(offset); }
-  public static void finishSizePrefixedApiResponseBuffer(FlatBufferBuilder builder, int offset) { builder.finishSizePrefixed(offset); }
+  public static void finishWeatherApiResponseBuffer(FlatBufferBuilder builder, int offset) { builder.finish(offset); }
+  public static void finishSizePrefixedWeatherApiResponseBuffer(FlatBufferBuilder builder, int offset) { builder.finishSizePrefixed(offset); }
 
   public static final class Vector extends BaseVector {
     public Vector __assign(int _vector, int _element_size, ByteBuffer _bb) { __reset(_vector, _element_size, _bb); return this; }
 
-    public ApiResponse get(int j) { return get(new ApiResponse(), j); }
-    public ApiResponse get(ApiResponse obj, int j) {  return obj.__assign(__indirect(__element(j), bb), bb); }
+    public WeatherApiResponse get(int j) { return get(new WeatherApiResponse(), j); }
+    public WeatherApiResponse get(WeatherApiResponse obj, int j) {  return obj.__assign(__indirect(__element(j), bb), bb); }
   }
 }
 

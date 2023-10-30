@@ -19,12 +19,12 @@ import java.nio.ByteOrder
 import kotlin.math.sign
 
 @Suppress("unused")
-class Series : Table() {
+class VariableWithValues : Table() {
 
     fun __init(_i: Int, _bb: ByteBuffer)  {
         __reset(_i, _bb)
     }
-    fun __assign(_i: Int, _bb: ByteBuffer) : Series {
+    fun __assign(_i: Int, _bb: ByteBuffer) : VariableWithValues {
         __init(_i, _bb)
         return this
     }
@@ -103,12 +103,12 @@ class Series : Table() {
         }
     companion object {
         fun validateVersion() = Constants.FLATBUFFERS_23_5_26()
-        fun getRootAsSeries(_bb: ByteBuffer): Series = getRootAsSeries(_bb, Series())
-        fun getRootAsSeries(_bb: ByteBuffer, obj: Series): Series {
+        fun getRootAsVariableWithValues(_bb: ByteBuffer): VariableWithValues = getRootAsVariableWithValues(_bb, VariableWithValues())
+        fun getRootAsVariableWithValues(_bb: ByteBuffer, obj: VariableWithValues): VariableWithValues {
             _bb.order(ByteOrder.LITTLE_ENDIAN)
             return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb))
         }
-        fun createSeries(builder: FlatBufferBuilder, variable: UByte, unit: UByte, value: Float, valuesOffset: Int, valuesInt64Offset: Int, altitude: Short, aggregation: UByte, pressureLevel: Short, depth: Short, depthTo: Short, ensembleMember: Short) : Int {
+        fun createVariableWithValues(builder: FlatBufferBuilder, variable: UByte, unit: UByte, value: Float, valuesOffset: Int, valuesInt64Offset: Int, altitude: Short, aggregation: UByte, pressureLevel: Short, depth: Short, depthTo: Short, ensembleMember: Short) : Int {
             builder.startTable(11)
             addValuesInt64(builder, valuesInt64Offset)
             addValues(builder, valuesOffset)
@@ -121,9 +121,9 @@ class Series : Table() {
             addAggregation(builder, aggregation)
             addUnit(builder, unit)
             addVariable(builder, variable)
-            return endSeries(builder)
+            return endVariableWithValues(builder)
         }
-        fun startSeries(builder: FlatBufferBuilder) = builder.startTable(11)
+        fun startVariableWithValues(builder: FlatBufferBuilder) = builder.startTable(11)
         fun addVariable(builder: FlatBufferBuilder, variable: UByte) = builder.addByte(0, variable.toByte(), 0)
         fun addUnit(builder: FlatBufferBuilder, unit: UByte) = builder.addByte(1, unit.toByte(), 0)
         fun addValue(builder: FlatBufferBuilder, value: Float) = builder.addFloat(2, value, 0.0)
@@ -151,7 +151,7 @@ class Series : Table() {
         fun addDepth(builder: FlatBufferBuilder, depth: Short) = builder.addShort(8, depth, 0)
         fun addDepthTo(builder: FlatBufferBuilder, depthTo: Short) = builder.addShort(9, depthTo, 0)
         fun addEnsembleMember(builder: FlatBufferBuilder, ensembleMember: Short) = builder.addShort(10, ensembleMember, 0)
-        fun endSeries(builder: FlatBufferBuilder) : Int {
+        fun endVariableWithValues(builder: FlatBufferBuilder) : Int {
             val o = builder.endTable()
             return o
         }

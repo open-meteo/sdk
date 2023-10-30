@@ -2,25 +2,25 @@
 
 import * as flatbuffers from 'flatbuffers';
 
-import { Series } from './series.js';
+import { VariableWithValues } from './variable-with-values.js';
 
 
-export class SeriesAndTime {
+export class VariablesWithTime {
   bb: flatbuffers.ByteBuffer|null = null;
   bb_pos = 0;
-  __init(i:number, bb:flatbuffers.ByteBuffer):SeriesAndTime {
+  __init(i:number, bb:flatbuffers.ByteBuffer):VariablesWithTime {
   this.bb_pos = i;
   this.bb = bb;
   return this;
 }
 
-static getRootAsSeriesAndTime(bb:flatbuffers.ByteBuffer, obj?:SeriesAndTime):SeriesAndTime {
-  return (obj || new SeriesAndTime()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+static getRootAsVariablesWithTime(bb:flatbuffers.ByteBuffer, obj?:VariablesWithTime):VariablesWithTime {
+  return (obj || new VariablesWithTime()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-static getSizePrefixedRootAsSeriesAndTime(bb:flatbuffers.ByteBuffer, obj?:SeriesAndTime):SeriesAndTime {
+static getSizePrefixedRootAsVariablesWithTime(bb:flatbuffers.ByteBuffer, obj?:VariablesWithTime):VariablesWithTime {
   bb.setPosition(bb.position() + flatbuffers.SIZE_PREFIX_LENGTH);
-  return (obj || new SeriesAndTime()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+  return (obj || new VariablesWithTime()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
 time():bigint {
@@ -38,12 +38,12 @@ interval():number {
   return offset ? this.bb!.readInt32(this.bb_pos + offset) : 0;
 }
 
-series(index: number, obj?:Series):Series|null {
+variables(index: number, obj?:VariableWithValues):VariableWithValues|null {
   const offset = this.bb!.__offset(this.bb_pos, 10);
-  return offset ? (obj || new Series()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
+  return offset ? (obj || new VariableWithValues()).__init(this.bb!.__indirect(this.bb!.__vector(this.bb_pos + offset) + index * 4), this.bb!) : null;
 }
 
-seriesLength():number {
+variablesLength():number {
   const offset = this.bb!.__offset(this.bb_pos, 10);
   return offset ? this.bb!.__vector_len(this.bb_pos + offset) : 0;
 }

@@ -19,12 +19,12 @@ import java.nio.ByteOrder
 import kotlin.math.sign
 
 @Suppress("unused")
-class SeriesAndTime : Table() {
+class VariablesWithTime : Table() {
 
     fun __init(_i: Int, _bb: ByteBuffer)  {
         __reset(_i, _bb)
     }
-    fun __assign(_i: Int, _bb: ByteBuffer) : SeriesAndTime {
+    fun __assign(_i: Int, _bb: ByteBuffer) : VariablesWithTime {
         __init(_i, _bb)
         return this
     }
@@ -43,8 +43,8 @@ class SeriesAndTime : Table() {
             val o = __offset(8)
             return if(o != 0) bb.getInt(o + bb_pos) else 0
         }
-    fun series(j: Int) : com.openmeteo.sdk.Series? = series(com.openmeteo.sdk.Series(), j)
-    fun series(obj: com.openmeteo.sdk.Series, j: Int) : com.openmeteo.sdk.Series? {
+    fun variables(j: Int) : com.openmeteo.sdk.VariableWithValues? = variables(com.openmeteo.sdk.VariableWithValues(), j)
+    fun variables(obj: com.openmeteo.sdk.VariableWithValues, j: Int) : com.openmeteo.sdk.VariableWithValues? {
         val o = __offset(10)
         return if (o != 0) {
             obj.__assign(__indirect(__vector(o) + j * 4), bb)
@@ -52,39 +52,39 @@ class SeriesAndTime : Table() {
             null
         }
     }
-    val seriesLength : Int
+    val variablesLength : Int
         get() {
             val o = __offset(10); return if (o != 0) __vector_len(o) else 0
         }
     companion object {
         fun validateVersion() = Constants.FLATBUFFERS_23_5_26()
-        fun getRootAsSeriesAndTime(_bb: ByteBuffer): SeriesAndTime = getRootAsSeriesAndTime(_bb, SeriesAndTime())
-        fun getRootAsSeriesAndTime(_bb: ByteBuffer, obj: SeriesAndTime): SeriesAndTime {
+        fun getRootAsVariablesWithTime(_bb: ByteBuffer): VariablesWithTime = getRootAsVariablesWithTime(_bb, VariablesWithTime())
+        fun getRootAsVariablesWithTime(_bb: ByteBuffer, obj: VariablesWithTime): VariablesWithTime {
             _bb.order(ByteOrder.LITTLE_ENDIAN)
             return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb))
         }
-        fun createSeriesAndTime(builder: FlatBufferBuilder, time: Long, timeEnd: Long, interval: Int, seriesOffset: Int) : Int {
+        fun createVariablesWithTime(builder: FlatBufferBuilder, time: Long, timeEnd: Long, interval: Int, variablesOffset: Int) : Int {
             builder.startTable(4)
             addTimeEnd(builder, timeEnd)
             addTime(builder, time)
-            addSeries(builder, seriesOffset)
+            addVariables(builder, variablesOffset)
             addInterval(builder, interval)
-            return endSeriesAndTime(builder)
+            return endVariablesWithTime(builder)
         }
-        fun startSeriesAndTime(builder: FlatBufferBuilder) = builder.startTable(4)
+        fun startVariablesWithTime(builder: FlatBufferBuilder) = builder.startTable(4)
         fun addTime(builder: FlatBufferBuilder, time: Long) = builder.addLong(0, time, 0L)
         fun addTimeEnd(builder: FlatBufferBuilder, timeEnd: Long) = builder.addLong(1, timeEnd, 0L)
         fun addInterval(builder: FlatBufferBuilder, interval: Int) = builder.addInt(2, interval, 0)
-        fun addSeries(builder: FlatBufferBuilder, series: Int) = builder.addOffset(3, series, 0)
-        fun createSeriesVector(builder: FlatBufferBuilder, data: IntArray) : Int {
+        fun addVariables(builder: FlatBufferBuilder, variables: Int) = builder.addOffset(3, variables, 0)
+        fun createVariablesVector(builder: FlatBufferBuilder, data: IntArray) : Int {
             builder.startVector(4, data.size, 4)
             for (i in data.size - 1 downTo 0) {
                 builder.addOffset(data[i])
             }
             return builder.endVector()
         }
-        fun startSeriesVector(builder: FlatBufferBuilder, numElems: Int) = builder.startVector(4, numElems, 4)
-        fun endSeriesAndTime(builder: FlatBufferBuilder) : Int {
+        fun startVariablesVector(builder: FlatBufferBuilder, numElems: Int) = builder.startVector(4, numElems, 4)
+        fun endVariablesWithTime(builder: FlatBufferBuilder) : Int {
             val o = builder.endTable()
             return o
         }

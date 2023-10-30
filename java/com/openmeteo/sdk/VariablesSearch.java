@@ -1,11 +1,9 @@
 package com.openmeteo.sdk;
 
-import com.openmeteo.sdk.SeriesAndTime;
-import com.openmeteo.sdk.Series;
 import javax.annotation.Nullable;
 
-public final class SeriesSearch {
-    public SeriesAndTime series;
+public final class VariablesSearch {
+    public VariablesWithTime VariableWithValues;
     public int variable;
     public int aggregation;
     public int altitude;
@@ -14,46 +12,46 @@ public final class SeriesSearch {
     public int depthTo;
     public int ensembleMember;
 
-    public SeriesSearch(SeriesAndTime series) {
-        this.series = series;
+    public VariablesSearch(VariablesWithTime VariableWithValues) {
+        this.VariableWithValues = VariableWithValues;
     }
 
-    public SeriesSearch variable(int variable) {
+    public VariablesSearch variable(int variable) {
         this.variable = variable;
         return this;
     }
 
-    public SeriesSearch aggregation(int aggregation) {
+    public VariablesSearch aggregation(int aggregation) {
         this.aggregation = aggregation;
         return this;
     }
 
-    public SeriesSearch altitude(int altitude) {
+    public VariablesSearch altitude(int altitude) {
         this.altitude = altitude;
         return this;
     }
 
-    public SeriesSearch pressureLevel(int pressureLevel) {
+    public VariablesSearch pressureLevel(int pressureLevel) {
         this.pressureLevel = pressureLevel;
         return this;
     }
 
-    public SeriesSearch depth(int depth) {
+    public VariablesSearch depth(int depth) {
         this.depth = depth;
         return this;
     }
 
-    public SeriesSearch depthTo(int depthTo) {
+    public VariablesSearch depthTo(int depthTo) {
         this.depthTo = depthTo;
         return this;
     }
 
-    public SeriesSearch ensembleMember(int ensembleMember) {
+    public VariablesSearch ensembleMember(int ensembleMember) {
         this.ensembleMember = ensembleMember;
         return this;
     }
 
-    private boolean match(Series s) {
+    private boolean match(VariableWithValues s) {
         if (this.variable != 0 && s.variable() != this.variable) {
             return false;
         }
@@ -80,8 +78,8 @@ public final class SeriesSearch {
 
     private int count() {
         int count = 0;
-        for (int i = 0; i < series.seriesLength(); i++) {
-            var s = series.series(i);
+        for (int i = 0; i < VariableWithValues.variablesLength(); i++) {
+            var s = VariableWithValues.variables(i);
             if (this.match(s)) {
                 count++;
             }
@@ -89,9 +87,9 @@ public final class SeriesSearch {
         return count;
     }
 
-    public @Nullable Series first() {
-        for (int i = 0; i < series.seriesLength(); i++) {
-            var s = series.series(i);
+    public @Nullable VariableWithValues first() {
+        for (int i = 0; i < VariableWithValues.variablesLength(); i++) {
+            var s = VariableWithValues.variables(i);
             if (this.match(s)) {
                 return s;
             }
@@ -99,11 +97,11 @@ public final class SeriesSearch {
         return null;
     }
 
-    public Series[] search() {
-        var result = new Series[this.count()];
+    public VariableWithValues[] search() {
+        var result = new VariableWithValues[this.count()];
         int pos = 0;
-        for (int i = 0; i < series.seriesLength(); i++) {
-            var s = series.series(i);
+        for (int i = 0; i < VariableWithValues.variablesLength(); i++) {
+            var s = VariableWithValues.variables(i);
             if (this.match(s)) {
                 result[pos] = s;
                 pos++;

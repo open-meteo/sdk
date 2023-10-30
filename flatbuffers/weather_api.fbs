@@ -227,7 +227,7 @@ enum Aggregation: ubyte {
   sum
 }
 
-table Series {
+table VariableWithValues {
   variable: Variable;
   unit: Unit;
 
@@ -243,14 +243,14 @@ table Series {
   ensemble_member: int16;
 }
 
-table SeriesAndTime {
+table VariablesWithTime {
   time: int64;
   time_end: int64;
   interval: int32;
-  series: [Series];
+  variables: [VariableWithValues];
 }
 
-table ApiResponse {
+table WeatherApiResponse {
   latitude: float;
   longitude: float;
   elevation: float;
@@ -260,12 +260,12 @@ table ApiResponse {
   utc_offset_seconds: int32;
   timezone: string;
   timezone_abbreviation: string;
-  current: SeriesAndTime;
-  daily: SeriesAndTime;
-  hourly: SeriesAndTime;
-  minutely_15: SeriesAndTime;
-  six_hourly: SeriesAndTime;
+  current: VariablesWithTime;
+  daily: VariablesWithTime;
+  hourly: VariablesWithTime;
+  minutely_15: VariablesWithTime;
+  six_hourly: VariablesWithTime;
 }
 
-root_type ApiResponse;
+root_type WeatherApiResponse;
 

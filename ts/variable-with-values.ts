@@ -7,22 +7,22 @@ import { Unit } from './unit.js';
 import { Variable } from './variable.js';
 
 
-export class Series {
+export class VariableWithValues {
   bb: flatbuffers.ByteBuffer|null = null;
   bb_pos = 0;
-  __init(i:number, bb:flatbuffers.ByteBuffer):Series {
+  __init(i:number, bb:flatbuffers.ByteBuffer):VariableWithValues {
   this.bb_pos = i;
   this.bb = bb;
   return this;
 }
 
-static getRootAsSeries(bb:flatbuffers.ByteBuffer, obj?:Series):Series {
-  return (obj || new Series()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+static getRootAsVariableWithValues(bb:flatbuffers.ByteBuffer, obj?:VariableWithValues):VariableWithValues {
+  return (obj || new VariableWithValues()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-static getSizePrefixedRootAsSeries(bb:flatbuffers.ByteBuffer, obj?:Series):Series {
+static getSizePrefixedRootAsVariableWithValues(bb:flatbuffers.ByteBuffer, obj?:VariableWithValues):VariableWithValues {
   bb.setPosition(bb.position() + flatbuffers.SIZE_PREFIX_LENGTH);
-  return (obj || new Series()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+  return (obj || new VariableWithValues()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
 variable():Variable {

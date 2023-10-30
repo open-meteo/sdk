@@ -22,12 +22,12 @@ import java.nio.ByteOrder;
 import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
-public final class Series extends Table {
+public final class VariableWithValues extends Table {
   public static void ValidateVersion() { Constants.FLATBUFFERS_23_5_26(); }
-  public static Series getRootAsSeries(ByteBuffer _bb) { return getRootAsSeries(_bb, new Series()); }
-  public static Series getRootAsSeries(ByteBuffer _bb, Series obj) { _bb.order(ByteOrder.LITTLE_ENDIAN); return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb)); }
+  public static VariableWithValues getRootAsVariableWithValues(ByteBuffer _bb) { return getRootAsVariableWithValues(_bb, new VariableWithValues()); }
+  public static VariableWithValues getRootAsVariableWithValues(ByteBuffer _bb, VariableWithValues obj) { _bb.order(ByteOrder.LITTLE_ENDIAN); return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb)); }
   public void __init(int _i, ByteBuffer _bb) { __reset(_i, _bb); }
-  public Series __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
+  public VariableWithValues __assign(int _i, ByteBuffer _bb) { __init(_i, _bb); return this; }
 
   public int variable() { int o = __offset(4); return o != 0 ? bb.get(o + bb_pos) & 0xFF : 0; }
   public int unit() { int o = __offset(6); return o != 0 ? bb.get(o + bb_pos) & 0xFF : 0; }
@@ -51,7 +51,7 @@ public final class Series extends Table {
   public short depthTo() { int o = __offset(22); return o != 0 ? bb.getShort(o + bb_pos) : 0; }
   public short ensembleMember() { int o = __offset(24); return o != 0 ? bb.getShort(o + bb_pos) : 0; }
 
-  public static int createSeries(FlatBufferBuilder builder,
+  public static int createVariableWithValues(FlatBufferBuilder builder,
       int variable,
       int unit,
       float value,
@@ -64,21 +64,21 @@ public final class Series extends Table {
       short depthTo,
       short ensembleMember) {
     builder.startTable(11);
-    Series.addValuesInt64(builder, valuesInt64Offset);
-    Series.addValues(builder, valuesOffset);
-    Series.addValue(builder, value);
-    Series.addEnsembleMember(builder, ensembleMember);
-    Series.addDepthTo(builder, depthTo);
-    Series.addDepth(builder, depth);
-    Series.addPressureLevel(builder, pressureLevel);
-    Series.addAltitude(builder, altitude);
-    Series.addAggregation(builder, aggregation);
-    Series.addUnit(builder, unit);
-    Series.addVariable(builder, variable);
-    return Series.endSeries(builder);
+    VariableWithValues.addValuesInt64(builder, valuesInt64Offset);
+    VariableWithValues.addValues(builder, valuesOffset);
+    VariableWithValues.addValue(builder, value);
+    VariableWithValues.addEnsembleMember(builder, ensembleMember);
+    VariableWithValues.addDepthTo(builder, depthTo);
+    VariableWithValues.addDepth(builder, depth);
+    VariableWithValues.addPressureLevel(builder, pressureLevel);
+    VariableWithValues.addAltitude(builder, altitude);
+    VariableWithValues.addAggregation(builder, aggregation);
+    VariableWithValues.addUnit(builder, unit);
+    VariableWithValues.addVariable(builder, variable);
+    return VariableWithValues.endVariableWithValues(builder);
   }
 
-  public static void startSeries(FlatBufferBuilder builder) { builder.startTable(11); }
+  public static void startVariableWithValues(FlatBufferBuilder builder) { builder.startTable(11); }
   public static void addVariable(FlatBufferBuilder builder, int variable) { builder.addByte(0, (byte) variable, (byte) 0); }
   public static void addUnit(FlatBufferBuilder builder, int unit) { builder.addByte(1, (byte) unit, (byte) 0); }
   public static void addValue(FlatBufferBuilder builder, float value) { builder.addFloat(2, value, 0.0f); }
@@ -94,7 +94,7 @@ public final class Series extends Table {
   public static void addDepth(FlatBufferBuilder builder, short depth) { builder.addShort(8, depth, 0); }
   public static void addDepthTo(FlatBufferBuilder builder, short depthTo) { builder.addShort(9, depthTo, 0); }
   public static void addEnsembleMember(FlatBufferBuilder builder, short ensembleMember) { builder.addShort(10, ensembleMember, 0); }
-  public static int endSeries(FlatBufferBuilder builder) {
+  public static int endVariableWithValues(FlatBufferBuilder builder) {
     int o = builder.endTable();
     return o;
   }
@@ -102,8 +102,8 @@ public final class Series extends Table {
   public static final class Vector extends BaseVector {
     public Vector __assign(int _vector, int _element_size, ByteBuffer _bb) { __reset(_vector, _element_size, _bb); return this; }
 
-    public Series get(int j) { return get(new Series(), j); }
-    public Series get(Series obj, int j) {  return obj.__assign(__indirect(__element(j), bb), bb); }
+    public VariableWithValues get(int j) { return get(new VariableWithValues(), j); }
+    public VariableWithValues get(VariableWithValues obj, int j) {  return obj.__assign(__indirect(__element(j), bb), bb); }
   }
 }
 

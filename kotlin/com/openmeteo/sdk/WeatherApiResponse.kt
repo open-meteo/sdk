@@ -19,12 +19,12 @@ import java.nio.ByteOrder
 import kotlin.math.sign
 
 @Suppress("unused")
-class ApiResponse : Table() {
+class WeatherApiResponse : Table() {
 
     fun __init(_i: Int, _bb: ByteBuffer)  {
         __reset(_i, _bb)
     }
-    fun __assign(_i: Int, _bb: ByteBuffer) : ApiResponse {
+    fun __assign(_i: Int, _bb: ByteBuffer) : WeatherApiResponse {
         __init(_i, _bb)
         return this
     }
@@ -85,8 +85,8 @@ class ApiResponse : Table() {
         }
     val timezoneAbbreviationAsByteBuffer : ByteBuffer get() = __vector_as_bytebuffer(20, 1)
     fun timezoneAbbreviationInByteBuffer(_bb: ByteBuffer) : ByteBuffer = __vector_in_bytebuffer(_bb, 20, 1)
-    val current : com.openmeteo.sdk.SeriesAndTime? get() = current(com.openmeteo.sdk.SeriesAndTime())
-    fun current(obj: com.openmeteo.sdk.SeriesAndTime) : com.openmeteo.sdk.SeriesAndTime? {
+    val current : com.openmeteo.sdk.VariablesWithTime? get() = current(com.openmeteo.sdk.VariablesWithTime())
+    fun current(obj: com.openmeteo.sdk.VariablesWithTime) : com.openmeteo.sdk.VariablesWithTime? {
         val o = __offset(22)
         return if (o != 0) {
             obj.__assign(__indirect(o + bb_pos), bb)
@@ -94,8 +94,8 @@ class ApiResponse : Table() {
             null
         }
     }
-    val daily : com.openmeteo.sdk.SeriesAndTime? get() = daily(com.openmeteo.sdk.SeriesAndTime())
-    fun daily(obj: com.openmeteo.sdk.SeriesAndTime) : com.openmeteo.sdk.SeriesAndTime? {
+    val daily : com.openmeteo.sdk.VariablesWithTime? get() = daily(com.openmeteo.sdk.VariablesWithTime())
+    fun daily(obj: com.openmeteo.sdk.VariablesWithTime) : com.openmeteo.sdk.VariablesWithTime? {
         val o = __offset(24)
         return if (o != 0) {
             obj.__assign(__indirect(o + bb_pos), bb)
@@ -103,8 +103,8 @@ class ApiResponse : Table() {
             null
         }
     }
-    val hourly : com.openmeteo.sdk.SeriesAndTime? get() = hourly(com.openmeteo.sdk.SeriesAndTime())
-    fun hourly(obj: com.openmeteo.sdk.SeriesAndTime) : com.openmeteo.sdk.SeriesAndTime? {
+    val hourly : com.openmeteo.sdk.VariablesWithTime? get() = hourly(com.openmeteo.sdk.VariablesWithTime())
+    fun hourly(obj: com.openmeteo.sdk.VariablesWithTime) : com.openmeteo.sdk.VariablesWithTime? {
         val o = __offset(26)
         return if (o != 0) {
             obj.__assign(__indirect(o + bb_pos), bb)
@@ -112,8 +112,8 @@ class ApiResponse : Table() {
             null
         }
     }
-    val minutely15 : com.openmeteo.sdk.SeriesAndTime? get() = minutely15(com.openmeteo.sdk.SeriesAndTime())
-    fun minutely15(obj: com.openmeteo.sdk.SeriesAndTime) : com.openmeteo.sdk.SeriesAndTime? {
+    val minutely15 : com.openmeteo.sdk.VariablesWithTime? get() = minutely15(com.openmeteo.sdk.VariablesWithTime())
+    fun minutely15(obj: com.openmeteo.sdk.VariablesWithTime) : com.openmeteo.sdk.VariablesWithTime? {
         val o = __offset(28)
         return if (o != 0) {
             obj.__assign(__indirect(o + bb_pos), bb)
@@ -121,8 +121,8 @@ class ApiResponse : Table() {
             null
         }
     }
-    val sixHourly : com.openmeteo.sdk.SeriesAndTime? get() = sixHourly(com.openmeteo.sdk.SeriesAndTime())
-    fun sixHourly(obj: com.openmeteo.sdk.SeriesAndTime) : com.openmeteo.sdk.SeriesAndTime? {
+    val sixHourly : com.openmeteo.sdk.VariablesWithTime? get() = sixHourly(com.openmeteo.sdk.VariablesWithTime())
+    fun sixHourly(obj: com.openmeteo.sdk.VariablesWithTime) : com.openmeteo.sdk.VariablesWithTime? {
         val o = __offset(30)
         return if (o != 0) {
             obj.__assign(__indirect(o + bb_pos), bb)
@@ -132,12 +132,12 @@ class ApiResponse : Table() {
     }
     companion object {
         fun validateVersion() = Constants.FLATBUFFERS_23_5_26()
-        fun getRootAsApiResponse(_bb: ByteBuffer): ApiResponse = getRootAsApiResponse(_bb, ApiResponse())
-        fun getRootAsApiResponse(_bb: ByteBuffer, obj: ApiResponse): ApiResponse {
+        fun getRootAsWeatherApiResponse(_bb: ByteBuffer): WeatherApiResponse = getRootAsWeatherApiResponse(_bb, WeatherApiResponse())
+        fun getRootAsWeatherApiResponse(_bb: ByteBuffer, obj: WeatherApiResponse): WeatherApiResponse {
             _bb.order(ByteOrder.LITTLE_ENDIAN)
             return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb))
         }
-        fun createApiResponse(builder: FlatBufferBuilder, latitude: Float, longitude: Float, elevation: Float, generationTimeMilliseconds: Float, locationId: Long, model: UByte, utcOffsetSeconds: Int, timezoneOffset: Int, timezoneAbbreviationOffset: Int, currentOffset: Int, dailyOffset: Int, hourlyOffset: Int, minutely15Offset: Int, sixHourlyOffset: Int) : Int {
+        fun createWeatherApiResponse(builder: FlatBufferBuilder, latitude: Float, longitude: Float, elevation: Float, generationTimeMilliseconds: Float, locationId: Long, model: UByte, utcOffsetSeconds: Int, timezoneOffset: Int, timezoneAbbreviationOffset: Int, currentOffset: Int, dailyOffset: Int, hourlyOffset: Int, minutely15Offset: Int, sixHourlyOffset: Int) : Int {
             builder.startTable(14)
             addLocationId(builder, locationId)
             addSixHourly(builder, sixHourlyOffset)
@@ -153,9 +153,9 @@ class ApiResponse : Table() {
             addLongitude(builder, longitude)
             addLatitude(builder, latitude)
             addModel(builder, model)
-            return endApiResponse(builder)
+            return endWeatherApiResponse(builder)
         }
-        fun startApiResponse(builder: FlatBufferBuilder) = builder.startTable(14)
+        fun startWeatherApiResponse(builder: FlatBufferBuilder) = builder.startTable(14)
         fun addLatitude(builder: FlatBufferBuilder, latitude: Float) = builder.addFloat(0, latitude, 0.0)
         fun addLongitude(builder: FlatBufferBuilder, longitude: Float) = builder.addFloat(1, longitude, 0.0)
         fun addElevation(builder: FlatBufferBuilder, elevation: Float) = builder.addFloat(2, elevation, 0.0)
@@ -170,11 +170,11 @@ class ApiResponse : Table() {
         fun addHourly(builder: FlatBufferBuilder, hourly: Int) = builder.addOffset(11, hourly, 0)
         fun addMinutely15(builder: FlatBufferBuilder, minutely15: Int) = builder.addOffset(12, minutely15, 0)
         fun addSixHourly(builder: FlatBufferBuilder, sixHourly: Int) = builder.addOffset(13, sixHourly, 0)
-        fun endApiResponse(builder: FlatBufferBuilder) : Int {
+        fun endWeatherApiResponse(builder: FlatBufferBuilder) : Int {
             val o = builder.endTable()
             return o
         }
-        fun finishApiResponseBuffer(builder: FlatBufferBuilder, offset: Int) = builder.finish(offset)
-        fun finishSizePrefixedApiResponseBuffer(builder: FlatBufferBuilder, offset: Int) = builder.finishSizePrefixed(offset)
+        fun finishWeatherApiResponseBuffer(builder: FlatBufferBuilder, offset: Int) = builder.finish(offset)
+        fun finishSizePrefixedWeatherApiResponseBuffer(builder: FlatBufferBuilder, offset: Int) = builder.finishSizePrefixed(offset)
     }
 }

@@ -3,25 +3,25 @@
 import * as flatbuffers from 'flatbuffers';
 
 import { Model } from './model.js';
-import { SeriesAndTime } from './series-and-time.js';
+import { VariablesWithTime } from './variables-with-time.js';
 
 
-export class ApiResponse {
+export class WeatherApiResponse {
   bb: flatbuffers.ByteBuffer|null = null;
   bb_pos = 0;
-  __init(i:number, bb:flatbuffers.ByteBuffer):ApiResponse {
+  __init(i:number, bb:flatbuffers.ByteBuffer):WeatherApiResponse {
   this.bb_pos = i;
   this.bb = bb;
   return this;
 }
 
-static getRootAsApiResponse(bb:flatbuffers.ByteBuffer, obj?:ApiResponse):ApiResponse {
-  return (obj || new ApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+static getRootAsWeatherApiResponse(bb:flatbuffers.ByteBuffer, obj?:WeatherApiResponse):WeatherApiResponse {
+  return (obj || new WeatherApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
-static getSizePrefixedRootAsApiResponse(bb:flatbuffers.ByteBuffer, obj?:ApiResponse):ApiResponse {
+static getSizePrefixedRootAsWeatherApiResponse(bb:flatbuffers.ByteBuffer, obj?:WeatherApiResponse):WeatherApiResponse {
   bb.setPosition(bb.position() + flatbuffers.SIZE_PREFIX_LENGTH);
-  return (obj || new ApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
+  return (obj || new WeatherApiResponse()).__init(bb.readInt32(bb.position()) + bb.position(), bb);
 }
 
 latitude():number {
@@ -73,29 +73,29 @@ timezoneAbbreviation(optionalEncoding?:any):string|Uint8Array|null {
   return offset ? this.bb!.__string(this.bb_pos + offset, optionalEncoding) : null;
 }
 
-current(obj?:SeriesAndTime):SeriesAndTime|null {
+current(obj?:VariablesWithTime):VariablesWithTime|null {
   const offset = this.bb!.__offset(this.bb_pos, 22);
-  return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new VariablesWithTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-daily(obj?:SeriesAndTime):SeriesAndTime|null {
+daily(obj?:VariablesWithTime):VariablesWithTime|null {
   const offset = this.bb!.__offset(this.bb_pos, 24);
-  return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new VariablesWithTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-hourly(obj?:SeriesAndTime):SeriesAndTime|null {
+hourly(obj?:VariablesWithTime):VariablesWithTime|null {
   const offset = this.bb!.__offset(this.bb_pos, 26);
-  return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new VariablesWithTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-minutely15(obj?:SeriesAndTime):SeriesAndTime|null {
+minutely15(obj?:VariablesWithTime):VariablesWithTime|null {
   const offset = this.bb!.__offset(this.bb_pos, 28);
-  return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new VariablesWithTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-sixHourly(obj?:SeriesAndTime):SeriesAndTime|null {
+sixHourly(obj?:VariablesWithTime):VariablesWithTime|null {
   const offset = this.bb!.__offset(this.bb_pos, 30);
-  return offset ? (obj || new SeriesAndTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new VariablesWithTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 }
