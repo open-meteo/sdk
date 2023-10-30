@@ -5,7 +5,7 @@ plugins {
     //id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
 }
 
-version = "1.4.0"
+//version = "1.4.0"
 group = "com.open-meteo"
 
 sourceSets {
@@ -70,12 +70,12 @@ publishing {
     - zip com directory in ~/Download/local_repo
     - deployment name "com.open-meteo:sdk:1.4.0"
     */
-    repositories {
+    /*repositories {
         maven {
             name = "local"
             url = uri("file://Users/patrick/Downloads/local_repo/")
         }
-    }
+    }*/
 }
 
 // GitHub packages requires a github token even to read packages
