@@ -30,7 +30,21 @@ repositories {
 
 dependencies {
     api("com.google.flatbuffers:flatbuffers-java:23.5.26")
-    compileOnly("com.google.code.findbugs:jsr305:3.0.2")
+    api("com.google.code.findbugs:jsr305:3.0.2")
+    constraints {
+        add("implementation", "com.google.flatbuffers:flatbuffers-java") {
+            version {
+                prefer("23.5.26")
+                require("22.10.0")
+            }
+        }
+        add("implementation", "com.google.code.findbugs:jsr305") {
+            version {
+                prefer("3.0.2")
+                require("3.0.0")
+            }
+        }
+    }
 }
 
 publishing {
