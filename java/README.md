@@ -107,7 +107,7 @@ VariableWithValues wmo = new VariablesSearch(minutely15)
                 .first();
 
 for ( int vl = 0; vl < temperature2m.valuesLength(); vl ++)
-    Log.d(TAG, "Temperature and wmo at index : " + z + " -> " + temperature2m.values(vl) + " / " + wmo.values(vl));
+    Log.d(TAG, "Temperature and wmo at index : " + vl + " -> " + temperature2m.values(vl) + " / " + wmo.values(vl));
 
 buffer.clear();
 ```
