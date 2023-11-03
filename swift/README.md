@@ -21,7 +21,7 @@ Fetch weather data and form a `WeatherData` structure that can be later used.
 ```swift
 import OpenMeteoSdk
 
-let url = URL(string: "https://api.open-meteo.com/v1/forecast?latitude=52.521&longitude=13.41&hourly=temperature_2m,precipitation&daily=temperature_2m_min,temperature_2m_max&timezone=auto&format=flatbuffers")!
+let url = URL(string: "https://api.open-meteo.com/v1/forecast?latitude=52.521&longitude=13.41&current=temperature_2m,weather_code&hourly=temperature_2m,precipitation&daily=temperature_2m_min,temperature_2m_max&timezone=auto&format=flatbuffers")!
 let responses = try await WeatherApiResponse.fetch(url: url)
 
 /// Process first location. Add a for-loop for multiple locations or weather models
