@@ -34,13 +34,20 @@ let timezoneAbbreviation = response.timezoneAbbreviation
 let latitude = response.latitude
 let longitude = response.longitude
 
+let current = response.current!
 let hourly = response.hourly!
 let daily = response.daily!
 
 struct WeatherData {
+  let current: Current
   let hourly: Hourly
   let daily: Daily
   
+  struct Current {
+    let time: Date
+    let temperature2m: Float
+    let weatherCode: Float
+  }
   struct Hourly {
     let time: [Date]
     let temperature2m: [Float]
@@ -55,6 +62,11 @@ struct WeatherData {
 
 /// Note: The order of weather variables in the URL query and the `at` indices below need to match!
 let data = WeatherData(
+  current: .init (
+    time: Date(timeIntervalSince1970: TimeInterval(current.time + Int64(utcOffsetSeconds))),
+    temperature2m: current.variables(at: 0)!.value,
+    weatherCode: current.variables(at: 1)!.value
+  ),
   hourly: .init(
     time: hourly.getDateTime(offset: utcOffsetSeconds),
     temperature2m: hourly.variables(at: 0)!.values,
