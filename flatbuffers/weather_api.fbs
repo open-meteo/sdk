@@ -104,7 +104,8 @@ enum Model: ubyte {
   NICAM16_8S,
   cams_europe,
   cams_global,
-  cfsv2
+  cfsv2,
+  era5_ocean
 }
 
 enum Variable: ubyte {

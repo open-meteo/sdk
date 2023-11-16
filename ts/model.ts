@@ -52,5 +52,6 @@ export enum Model {
   NICAM16_8S = 48,
   cams_europe = 49,
   cams_global = 50,
-  cfsv2 = 51
+  cfsv2 = 51,
+  era5_ocean = 52
 }

@@ -111,8 +111,9 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case camsEurope = 49
   case camsGlobal = 50
   case cfsv2 = 51
+  case era5Ocean = 52
 
-  public static var max: openmeteo_sdk_Model { return .cfsv2 }
+  public static var max: openmeteo_sdk_Model { return .era5Ocean }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 

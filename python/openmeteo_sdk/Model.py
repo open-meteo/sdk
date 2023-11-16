@@ -55,3 +55,4 @@ class Model(object):
     cams_europe = 49
     cams_global = 50
     cfsv2 = 51
+    era5_ocean = 52
