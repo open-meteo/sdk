@@ -212,7 +212,8 @@ enum Variable: ubyte {
   us_aqi_ozone,
   us_aqi_sulphur_dioxide,
   us_aqi_carbon_monoxide,
-  sunshine_duration
+  sunshine_duration,
+  convective_inhibition
 }
 
 enum Aggregation: ubyte {

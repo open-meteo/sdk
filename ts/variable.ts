@@ -104,5 +104,6 @@ export enum Variable {
   us_aqi_ozone = 100,
   us_aqi_sulphur_dioxide = 101,
   us_aqi_carbon_monoxide = 102,
-  sunshine_duration = 103
+  sunshine_duration = 103,
+  convective_inhibition = 104
 }

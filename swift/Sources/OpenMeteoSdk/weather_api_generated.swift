@@ -226,8 +226,9 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case usAqiSulphurDioxide = 101
   case usAqiCarbonMonoxide = 102
   case sunshineDuration = 103
+  case convectiveInhibition = 104
 
-  public static var max: openmeteo_sdk_Variable { return .sunshineDuration }
+  public static var max: openmeteo_sdk_Variable { return .convectiveInhibition }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

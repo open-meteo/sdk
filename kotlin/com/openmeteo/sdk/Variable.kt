@@ -109,5 +109,6 @@ class Variable private constructor() {
         const val us_aqi_sulphur_dioxide: UByte = 101u
         const val us_aqi_carbon_monoxide: UByte = 102u
         const val sunshine_duration: UByte = 103u
+        const val convective_inhibition: UByte = 104u
     }
 }
