@@ -53,5 +53,8 @@ export enum Model {
   cams_europe = 49,
   cams_global = 50,
   cfsv2 = 51,
-  era5_ocean = 52
+  era5_ocean = 52,
+  cma_grapes_global = 53,
+  bom_access_global = 54,
+  bom_access_global_ensemble = 55
 }

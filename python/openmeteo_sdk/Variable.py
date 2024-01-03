@@ -108,3 +108,4 @@ class Variable(object):
     us_aqi_carbon_monoxide = 102
     sunshine_duration = 103
     convective_inhibition = 104
+    shortwave_radiation_clear_sky = 105

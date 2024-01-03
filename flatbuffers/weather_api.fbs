@@ -105,7 +105,10 @@ enum Model: ubyte {
   cams_europe,
   cams_global,
   cfsv2,
-  era5_ocean
+  era5_ocean,
+  cma_grapes_global,
+  bom_access_global,
+  bom_access_global_ensemble
 }
 
 enum Variable: ubyte {
@@ -213,7 +216,8 @@ enum Variable: ubyte {
   us_aqi_sulphur_dioxide,
   us_aqi_carbon_monoxide,
   sunshine_duration,
-  convective_inhibition
+  convective_inhibition,
+  shortwave_radiation_clear_sky
 }
 
 enum Aggregation: ubyte {

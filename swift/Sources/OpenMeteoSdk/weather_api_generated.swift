@@ -112,8 +112,11 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case camsGlobal = 50
   case cfsv2 = 51
   case era5Ocean = 52
+  case cmaGrapesGlobal = 53
+  case bomAccessGlobal = 54
+  case bomAccessGlobalEnsemble = 55
 
-  public static var max: openmeteo_sdk_Model { return .era5Ocean }
+  public static var max: openmeteo_sdk_Model { return .bomAccessGlobalEnsemble }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -227,8 +230,9 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case usAqiCarbonMonoxide = 102
   case sunshineDuration = 103
   case convectiveInhibition = 104
+  case shortwaveRadiationClearSky = 105
 
-  public static var max: openmeteo_sdk_Variable { return .convectiveInhibition }
+  public static var max: openmeteo_sdk_Variable { return .shortwaveRadiationClearSky }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

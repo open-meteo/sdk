@@ -58,5 +58,8 @@ class Model private constructor() {
         const val cams_global: UByte = 50u
         const val cfsv2: UByte = 51u
         const val era5_ocean: UByte = 52u
+        const val cma_grapes_global: UByte = 53u
+        const val bom_access_global: UByte = 54u
+        const val bom_access_global_ensemble: UByte = 55u
     }
 }
