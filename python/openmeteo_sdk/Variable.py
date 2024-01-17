@@ -109,3 +109,5 @@ class Variable(object):
     sunshine_duration = 103
     convective_inhibition = 104
     shortwave_radiation_clear_sky = 105
+    global_tilted_irradiance = 106
+    global_tilted_irradiance_instant = 107

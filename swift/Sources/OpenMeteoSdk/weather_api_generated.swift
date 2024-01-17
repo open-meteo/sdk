@@ -231,8 +231,10 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case sunshineDuration = 103
   case convectiveInhibition = 104
   case shortwaveRadiationClearSky = 105
+  case globalTiltedIrradiance = 106
+  case globalTiltedIrradianceInstant = 107
 
-  public static var max: openmeteo_sdk_Variable { return .shortwaveRadiationClearSky }
+  public static var max: openmeteo_sdk_Variable { return .globalTiltedIrradianceInstant }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 
