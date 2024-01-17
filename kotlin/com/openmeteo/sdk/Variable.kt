@@ -111,5 +111,7 @@ class Variable private constructor() {
         const val sunshine_duration: UByte = 103u
         const val convective_inhibition: UByte = 104u
         const val shortwave_radiation_clear_sky: UByte = 105u
+        const val global_tilted_irradiance: UByte = 106u
+        const val global_tilted_irradiance_instant: UByte = 107u
     }
 }

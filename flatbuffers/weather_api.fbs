@@ -217,7 +217,9 @@ enum Variable: ubyte {
   us_aqi_carbon_monoxide,
   sunshine_duration,
   convective_inhibition,
-  shortwave_radiation_clear_sky
+  shortwave_radiation_clear_sky,
+  global_tilted_irradiance,
+  global_tilted_irradiance_instant
 }
 
 enum Aggregation: ubyte {
