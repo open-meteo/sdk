@@ -64,6 +64,9 @@ VariableWithValues[] allTemperatureVariables = new VariablesSearch(daily)
 private byte[] responseIN = null;
 
 // Step 1 : Request e.g.
+// Please observe the parameter format=flatbuffers in mUrl, as the 
+// WeatherApiResponse.getRootAsWeatherApiResponse((ByteBuffer) buffer.position(4));
+// further down expects a flatbuffer and not Json - which is the default format returned from the API
 String mUrl = "https://api.open-meteo.com/v1/forecast?latitude=49.70808&longitude=8.08829&timezone=Europe/Berlin&minutely_15=temperature_2m,weathercode&format=flatbuffers";
 
 okhttp3.Request request = new okhttp3.Request.Builder()
