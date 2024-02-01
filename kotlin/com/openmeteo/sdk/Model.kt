@@ -61,5 +61,9 @@ class Model private constructor() {
         const val cma_grapes_global: UByte = 53u
         const val bom_access_global: UByte = 54u
         const val bom_access_global_ensemble: UByte = 55u
+        const val arpae_cosmo_seamless: UByte = 56u
+        const val arpae_cosmo_2i: UByte = 57u
+        const val arpae_cosmo_2i_ruc: UByte = 58u
+        const val arpae_cosmo_5m: UByte = 59u
     }
 }
