@@ -115,8 +115,12 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case cmaGrapesGlobal = 53
   case bomAccessGlobal = 54
   case bomAccessGlobalEnsemble = 55
+  case arpaeCosmoSeamless = 56
+  case arpaeCosmo2i = 57
+  case arpaeCosmo2iRuc = 58
+  case arpaeCosmo5m = 59
 
-  public static var max: openmeteo_sdk_Model { return .bomAccessGlobalEnsemble }
+  public static var max: openmeteo_sdk_Model { return .arpaeCosmo5m }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 

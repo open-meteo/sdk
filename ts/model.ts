@@ -56,5 +56,9 @@ export enum Model {
   era5_ocean = 52,
   cma_grapes_global = 53,
   bom_access_global = 54,
-  bom_access_global_ensemble = 55
+  bom_access_global_ensemble = 55,
+  arpae_cosmo_seamless = 56,
+  arpae_cosmo_2i = 57,
+  arpae_cosmo_2i_ruc = 58,
+  arpae_cosmo_5m = 59
 }
