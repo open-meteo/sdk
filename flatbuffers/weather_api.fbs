@@ -112,7 +112,8 @@ enum Model: ubyte {
   arpae_cosmo_seamless,
   arpae_cosmo_2i,
   arpae_cosmo_2i_ruc,
-  arpae_cosmo_5m
+  arpae_cosmo_5m,
+  ecmwf_ifs025
 }
 
 enum Variable: ubyte {

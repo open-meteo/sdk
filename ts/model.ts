@@ -60,5 +60,6 @@ export enum Model {
   arpae_cosmo_seamless = 56,
   arpae_cosmo_2i = 57,
   arpae_cosmo_2i_ruc = 58,
-  arpae_cosmo_5m = 59
+  arpae_cosmo_5m = 59,
+  ecmwf_ifs025 = 60
 }

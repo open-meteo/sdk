@@ -119,8 +119,9 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case arpaeCosmo2i = 57
   case arpaeCosmo2iRuc = 58
   case arpaeCosmo5m = 59
+  case ecmwfIfs025 = 60
 
-  public static var max: openmeteo_sdk_Model { return .arpaeCosmo5m }
+  public static var max: openmeteo_sdk_Model { return .ecmwfIfs025 }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
