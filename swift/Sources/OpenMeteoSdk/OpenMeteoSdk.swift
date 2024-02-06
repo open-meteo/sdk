@@ -11,6 +11,7 @@ public enum OpenMeteoSdkError: Error {
 extension WeatherApiResponse {
     #if !os(Linux)
     /// Fetch data from a given URL and decode the Open-Meteo Weather API Flatbuffers structure
+    @available(iOS 13.0.0, *)
     @available(macOS 12.0, *)
     public static func fetch(url: URL, session: URLSession = URLSession.shared) async throws -> [WeatherApiResponse] {
         let (data, response) = try await session.data(from: url)
