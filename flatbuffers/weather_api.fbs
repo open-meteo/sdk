@@ -255,6 +255,7 @@ table VariableWithValues {
   depth: int16;
   depth_to: int16;
   ensemble_member: int16;
+  previous_day: int16;
 }
 
 table VariablesWithTime {

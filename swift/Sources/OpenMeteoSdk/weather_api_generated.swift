@@ -286,6 +286,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     case depth = 20
     case depthTo = 22
     case ensembleMember = 24
+    case previousDay = 26
     var v: Int32 { Int32(self.rawValue) }
     var p: VOffset { self.rawValue }
   }
@@ -307,7 +308,8 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
   public var depth: Int16 { let o = _accessor.offset(VTOFFSET.depth.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var depthTo: Int16 { let o = _accessor.offset(VTOFFSET.depthTo.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var ensembleMember: Int16 { let o = _accessor.offset(VTOFFSET.ensembleMember.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
-  public static func startVariableWithValues(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 11) }
+  public var previousDay: Int16 { let o = _accessor.offset(VTOFFSET.previousDay.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
+  public static func startVariableWithValues(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 12) }
   public static func add(variable: openmeteo_sdk_Variable, _ fbb: inout FlatBufferBuilder) { fbb.add(element: variable.rawValue, def: 0, at: VTOFFSET.variable.p) }
   public static func add(unit: openmeteo_sdk_Unit, _ fbb: inout FlatBufferBuilder) { fbb.add(element: unit.rawValue, def: 0, at: VTOFFSET.unit.p) }
   public static func add(value: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: value, def: 0.0, at: VTOFFSET.value.p) }
@@ -319,6 +321,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
   public static func add(depth: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: depth, def: 0, at: VTOFFSET.depth.p) }
   public static func add(depthTo: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: depthTo, def: 0, at: VTOFFSET.depthTo.p) }
   public static func add(ensembleMember: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: ensembleMember, def: 0, at: VTOFFSET.ensembleMember.p) }
+  public static func add(previousDay: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: previousDay, def: 0, at: VTOFFSET.previousDay.p) }
   public static func endVariableWithValues(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
   public static func createVariableWithValues(
     _ fbb: inout FlatBufferBuilder,
@@ -332,7 +335,8 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     pressureLevel: Int16 = 0,
     depth: Int16 = 0,
     depthTo: Int16 = 0,
-    ensembleMember: Int16 = 0
+    ensembleMember: Int16 = 0,
+    previousDay: Int16 = 0
   ) -> Offset {
     let __start = openmeteo_sdk_VariableWithValues.startVariableWithValues(&fbb)
     openmeteo_sdk_VariableWithValues.add(variable: variable, &fbb)
@@ -346,6 +350,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     openmeteo_sdk_VariableWithValues.add(depth: depth, &fbb)
     openmeteo_sdk_VariableWithValues.add(depthTo: depthTo, &fbb)
     openmeteo_sdk_VariableWithValues.add(ensembleMember: ensembleMember, &fbb)
+    openmeteo_sdk_VariableWithValues.add(previousDay: previousDay, &fbb)
     return openmeteo_sdk_VariableWithValues.endVariableWithValues(&fbb, start: __start)
   }
 
@@ -362,6 +367,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     try _v.visit(field: VTOFFSET.depth.p, fieldName: "depth", required: false, type: Int16.self)
     try _v.visit(field: VTOFFSET.depthTo.p, fieldName: "depthTo", required: false, type: Int16.self)
     try _v.visit(field: VTOFFSET.ensembleMember.p, fieldName: "ensembleMember", required: false, type: Int16.self)
+    try _v.visit(field: VTOFFSET.previousDay.p, fieldName: "previousDay", required: false, type: Int16.self)
     _v.finish()
   }
 }

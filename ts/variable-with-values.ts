@@ -95,4 +95,9 @@ ensembleMember():number {
   return offset ? this.bb!.readInt16(this.bb_pos + offset) : 0;
 }
 
+previousDay():number {
+  const offset = this.bb!.__offset(this.bb_pos, 26);
+  return offset ? this.bb!.readInt16(this.bb_pos + offset) : 0;
+}
+
 }

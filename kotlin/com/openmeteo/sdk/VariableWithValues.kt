@@ -101,6 +101,11 @@ class VariableWithValues : Table() {
             val o = __offset(24)
             return if(o != 0) bb.getShort(o + bb_pos) else 0
         }
+    val previousDay : Short
+        get() {
+            val o = __offset(26)
+            return if(o != 0) bb.getShort(o + bb_pos) else 0
+        }
     companion object {
         fun validateVersion() = Constants.FLATBUFFERS_23_5_26()
         fun getRootAsVariableWithValues(_bb: ByteBuffer): VariableWithValues = getRootAsVariableWithValues(_bb, VariableWithValues())
@@ -108,11 +113,12 @@ class VariableWithValues : Table() {
             _bb.order(ByteOrder.LITTLE_ENDIAN)
             return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb))
         }
-        fun createVariableWithValues(builder: FlatBufferBuilder, variable: UByte, unit: UByte, value: Float, valuesOffset: Int, valuesInt64Offset: Int, altitude: Short, aggregation: UByte, pressureLevel: Short, depth: Short, depthTo: Short, ensembleMember: Short) : Int {
-            builder.startTable(11)
+        fun createVariableWithValues(builder: FlatBufferBuilder, variable: UByte, unit: UByte, value: Float, valuesOffset: Int, valuesInt64Offset: Int, altitude: Short, aggregation: UByte, pressureLevel: Short, depth: Short, depthTo: Short, ensembleMember: Short, previousDay: Short) : Int {
+            builder.startTable(12)
             addValuesInt64(builder, valuesInt64Offset)
             addValues(builder, valuesOffset)
             addValue(builder, value)
+            addPreviousDay(builder, previousDay)
             addEnsembleMember(builder, ensembleMember)
             addDepthTo(builder, depthTo)
             addDepth(builder, depth)
@@ -123,7 +129,7 @@ class VariableWithValues : Table() {
             addVariable(builder, variable)
             return endVariableWithValues(builder)
         }
-        fun startVariableWithValues(builder: FlatBufferBuilder) = builder.startTable(11)
+        fun startVariableWithValues(builder: FlatBufferBuilder) = builder.startTable(12)
         fun addVariable(builder: FlatBufferBuilder, variable: UByte) = builder.addByte(0, variable.toByte(), 0)
         fun addUnit(builder: FlatBufferBuilder, unit: UByte) = builder.addByte(1, unit.toByte(), 0)
         fun addValue(builder: FlatBufferBuilder, value: Float) = builder.addFloat(2, value, 0.0)
@@ -151,6 +157,7 @@ class VariableWithValues : Table() {
         fun addDepth(builder: FlatBufferBuilder, depth: Short) = builder.addShort(8, depth, 0)
         fun addDepthTo(builder: FlatBufferBuilder, depthTo: Short) = builder.addShort(9, depthTo, 0)
         fun addEnsembleMember(builder: FlatBufferBuilder, ensembleMember: Short) = builder.addShort(10, ensembleMember, 0)
+        fun addPreviousDay(builder: FlatBufferBuilder, previousDay: Short) = builder.addShort(11, previousDay, 0)
         fun endVariableWithValues(builder: FlatBufferBuilder) : Int {
             val o = builder.endTable()
             return o

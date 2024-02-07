@@ -142,4 +142,11 @@ class VariableWithValues(object):
             return self._tab.Get(flatbuffers.number_types.Int16Flags, o + self._tab.Pos)
         return 0
 
+    # VariableWithValues
+    def PreviousDay(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int16Flags, o + self._tab.Pos)
+        return 0
+
 

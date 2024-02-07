@@ -50,6 +50,7 @@ public final class VariableWithValues extends Table {
   public short depth() { int o = __offset(20); return o != 0 ? bb.getShort(o + bb_pos) : 0; }
   public short depthTo() { int o = __offset(22); return o != 0 ? bb.getShort(o + bb_pos) : 0; }
   public short ensembleMember() { int o = __offset(24); return o != 0 ? bb.getShort(o + bb_pos) : 0; }
+  public short previousDay() { int o = __offset(26); return o != 0 ? bb.getShort(o + bb_pos) : 0; }
 
   public static int createVariableWithValues(FlatBufferBuilder builder,
       int variable,
@@ -62,11 +63,13 @@ public final class VariableWithValues extends Table {
       short pressureLevel,
       short depth,
       short depthTo,
-      short ensembleMember) {
-    builder.startTable(11);
+      short ensembleMember,
+      short previousDay) {
+    builder.startTable(12);
     VariableWithValues.addValuesInt64(builder, valuesInt64Offset);
     VariableWithValues.addValues(builder, valuesOffset);
     VariableWithValues.addValue(builder, value);
+    VariableWithValues.addPreviousDay(builder, previousDay);
     VariableWithValues.addEnsembleMember(builder, ensembleMember);
     VariableWithValues.addDepthTo(builder, depthTo);
     VariableWithValues.addDepth(builder, depth);
@@ -78,7 +81,7 @@ public final class VariableWithValues extends Table {
     return VariableWithValues.endVariableWithValues(builder);
   }
 
-  public static void startVariableWithValues(FlatBufferBuilder builder) { builder.startTable(11); }
+  public static void startVariableWithValues(FlatBufferBuilder builder) { builder.startTable(12); }
   public static void addVariable(FlatBufferBuilder builder, int variable) { builder.addByte(0, (byte) variable, (byte) 0); }
   public static void addUnit(FlatBufferBuilder builder, int unit) { builder.addByte(1, (byte) unit, (byte) 0); }
   public static void addValue(FlatBufferBuilder builder, float value) { builder.addFloat(2, value, 0.0f); }
@@ -94,6 +97,7 @@ public final class VariableWithValues extends Table {
   public static void addDepth(FlatBufferBuilder builder, short depth) { builder.addShort(8, depth, 0); }
   public static void addDepthTo(FlatBufferBuilder builder, short depthTo) { builder.addShort(9, depthTo, 0); }
   public static void addEnsembleMember(FlatBufferBuilder builder, short ensembleMember) { builder.addShort(10, ensembleMember, 0); }
+  public static void addPreviousDay(FlatBufferBuilder builder, short previousDay) { builder.addShort(11, previousDay, 0); }
   public static int endVariableWithValues(FlatBufferBuilder builder) {
     int o = builder.endTable();
     return o;
