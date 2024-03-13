@@ -19,4 +19,9 @@
   <ItemGroup>
     <PackageReference Include="Google.FlatBuffers" Version="24.*" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)LICENSE" Pack="true" PackagePath=""/>
+    <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath=""/>
+  </ItemGroup>
 </Project>
