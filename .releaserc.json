@@ -40,12 +40,12 @@
                 }
             }
         ],
+        "@droidsolutions-oss/semantic-release-nuget",
         "@semantic-release/git",
         "gradle-semantic-release-plugin",
         "@semantic-release/github",
         "@semantic-release/npm",
-        "semantic-release-pypi",
-        "@droidsolutions-oss/semantic-release-nuget"
+        "semantic-release-pypi"
     ],
     "includeSymbols": true,
     "includeSource": true,
