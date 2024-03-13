@@ -49,5 +49,6 @@
     ],
     "includeSymbols": true,
     "includeSource": true,
-    "projectPath": "csharp/openmeteo_sdk/openmeteo_sdk.csproj"
+    "projectPath": "csharp/openmeteo_sdk/openmeteo_sdk.csproj",
+    "usePackageVersion": true
 }
