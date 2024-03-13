@@ -14,7 +14,8 @@ More information on how to use the compiled schema files can be found in the dir
 - [Swift](./swift/) via Swift Package Manager
 - [Python](./python/) via PIP
 - [TypeScript / JavaScript](./ts/) via NPM
-- [Java](./java/) via Gradle Plugin
+- [Java](./java/) via Maven Central
+- [C#](./csharp/openmeteo_sdk/)
 
 Not all programming languages are supported yet. It is a time-intensive process to validate all languages. Please open a issue ticket to ask for an additional language and/or package distribution system.
 
