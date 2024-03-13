@@ -5,9 +5,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>openmeteo_sdk</PackageId>
-    <Version>1.10.0</Version>
+    <Description>Compiled FlatBuffer Schema for the Open-Meteo weather API</Description>
+    <!--<Version>1.10.0</Version>-->
     <Authors>Patrick Zippenfenig</Authors>
     <Company>Open-Meteo.com</Company>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/open-meteo/sdk.git</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
