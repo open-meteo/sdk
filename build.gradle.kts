@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    api("com.google.flatbuffers:flatbuffers-java:23.5.26")
+    api("com.google.flatbuffers:flatbuffers-java:24.3.7")
     api("com.google.code.findbugs:jsr305:3.0.2")
     constraints {
         add("implementation", "com.google.flatbuffers:flatbuffers-java") {
