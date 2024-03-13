@@ -68,6 +68,7 @@ public enum Model : byte
   arpae_cosmo_2i_ruc = 58,
   arpae_cosmo_5m = 59,
   ecmwf_ifs025 = 60,
+  ecmwf_aifs025 = 61,
 };
 
 

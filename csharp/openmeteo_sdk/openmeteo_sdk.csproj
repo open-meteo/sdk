@@ -17,6 +17,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.FlatBuffers" Version="23.*" />
+    <PackageReference Include="Google.FlatBuffers" Version="24.*" />
   </ItemGroup>
 </Project>
