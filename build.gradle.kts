@@ -34,7 +34,7 @@ dependencies {
     constraints {
         add("implementation", "com.google.flatbuffers:flatbuffers-java") {
             version {
-                prefer("23.5.26")
+                prefer("24.3.7")
                 require("22.10.0")
             }
         }
