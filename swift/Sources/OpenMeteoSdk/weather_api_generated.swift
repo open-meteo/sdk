@@ -270,7 +270,7 @@ public enum openmeteo_sdk_Aggregation: UInt8, Enum, Verifiable {
 
 public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_24_3_7() }
+  static func validateVersion() { FlatBuffersVersion_24_3_25() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 
@@ -377,7 +377,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
 
 public struct openmeteo_sdk_VariablesWithTime: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_24_3_7() }
+  static func validateVersion() { FlatBuffersVersion_24_3_25() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 
@@ -432,7 +432,7 @@ public struct openmeteo_sdk_VariablesWithTime: FlatBufferObject, Verifiable {
 
 public struct openmeteo_sdk_WeatherApiResponse: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_24_3_7() }
+  static func validateVersion() { FlatBuffersVersion_24_3_25() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 

@@ -15,7 +15,7 @@ let package = Package(
             targets: ["OpenMeteoSdk"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/google/flatbuffers.git", from: "24.3.7")
+        .package(url: "https://github.com/google/flatbuffers.git", from: "24.3.25")
     ],
     targets: [
         .target(
