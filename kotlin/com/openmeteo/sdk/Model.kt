@@ -67,5 +67,7 @@ class Model private constructor() {
         const val arpae_cosmo_5m: UByte = 59u
         const val ecmwf_ifs025: UByte = 60u
         const val ecmwf_aifs025: UByte = 61u
+        const val gfs013: UByte = 62u
+        const val gfs_graphcast025: UByte = 63u
     }
 }

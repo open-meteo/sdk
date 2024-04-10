@@ -114,7 +114,9 @@ enum Model: ubyte {
   arpae_cosmo_2i_ruc,
   arpae_cosmo_5m,
   ecmwf_ifs025,
-  ecmwf_aifs025
+  ecmwf_aifs025,
+  gfs013,
+  gfs_graphcast025
 }
 
 enum Variable: ubyte {
