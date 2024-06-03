@@ -38,6 +38,16 @@ updates:
   - dependency-type: direct
   commit-message:
     prefix: "fix: "
+    groups:
+      semantic:
+        patterns:
+          - "@semantic-release/*"
+          - "semantic-release"
+          - "semantic-release-pypi"
+          - "conventional-changelog-conventionalcommits"
+          - "typescript"
+          - "gradle-semantic-release-plugin"
+          - "@droidsolutions-oss/semantic-release-nuget"
 - package-ecosystem: "github-actions"
   directory: "/"
   schedule:
