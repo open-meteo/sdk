@@ -116,7 +116,8 @@ enum Model: ubyte {
   ecmwf_ifs025,
   ecmwf_aifs025,
   gfs013,
-  gfs_graphcast025
+  gfs_graphcast025,
+  ecmwf_wam025
 }
 
 enum Variable: ubyte {
