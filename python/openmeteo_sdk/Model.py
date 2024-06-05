@@ -67,3 +67,4 @@ class Model(object):
     ecmwf_aifs025 = 61
     gfs013 = 62
     gfs_graphcast025 = 63
+    ecmwf_wam025 = 64

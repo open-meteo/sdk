@@ -123,8 +123,9 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfAifs025 = 61
   case gfs013 = 62
   case gfsGraphcast025 = 63
+  case ecmwfWam025 = 64
 
-  public static var max: openmeteo_sdk_Model { return .gfsGraphcast025 }
+  public static var max: openmeteo_sdk_Model { return .ecmwfWam025 }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
