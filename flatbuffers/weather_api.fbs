@@ -117,7 +117,9 @@ enum Model: ubyte {
   ecmwf_aifs025,
   gfs013,
   gfs_graphcast025,
-  ecmwf_wam025
+  ecmwf_wam025,
+  meteofrance_wave,
+  meteofrance_currents
 }
 
 enum Variable: ubyte {
@@ -228,7 +230,9 @@ enum Variable: ubyte {
   convective_inhibition,
   shortwave_radiation_clear_sky,
   global_tilted_irradiance,
-  global_tilted_irradiance_instant
+  global_tilted_irradiance_instant,
+  ocean_current_velocity,
+  ocean_current_direction
 }
 
 enum Aggregation: ubyte {

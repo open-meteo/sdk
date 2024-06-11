@@ -111,3 +111,5 @@ class Variable(object):
     shortwave_radiation_clear_sky = 105
     global_tilted_irradiance = 106
     global_tilted_irradiance_instant = 107
+    ocean_current_velocity = 108
+    ocean_current_direction = 109

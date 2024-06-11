@@ -113,5 +113,7 @@ class Variable private constructor() {
         const val shortwave_radiation_clear_sky: UByte = 105u
         const val global_tilted_irradiance: UByte = 106u
         const val global_tilted_irradiance_instant: UByte = 107u
+        const val ocean_current_velocity: UByte = 108u
+        const val ocean_current_direction: UByte = 109u
     }
 }

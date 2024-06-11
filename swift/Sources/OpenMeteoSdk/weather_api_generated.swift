@@ -124,8 +124,10 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case gfs013 = 62
   case gfsGraphcast025 = 63
   case ecmwfWam025 = 64
+  case meteofranceWave = 65
+  case meteofranceCurrents = 66
 
-  public static var max: openmeteo_sdk_Model { return .ecmwfWam025 }
+  public static var max: openmeteo_sdk_Model { return .meteofranceCurrents }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -242,8 +244,10 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case shortwaveRadiationClearSky = 105
   case globalTiltedIrradiance = 106
   case globalTiltedIrradianceInstant = 107
+  case oceanCurrentVelocity = 108
+  case oceanCurrentDirection = 109
 
-  public static var max: openmeteo_sdk_Variable { return .globalTiltedIrradianceInstant }
+  public static var max: openmeteo_sdk_Variable { return .oceanCurrentDirection }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

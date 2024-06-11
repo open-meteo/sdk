@@ -110,5 +110,7 @@ export enum Variable {
   convective_inhibition = 104,
   shortwave_radiation_clear_sky = 105,
   global_tilted_irradiance = 106,
-  global_tilted_irradiance_instant = 107
+  global_tilted_irradiance_instant = 107,
+  ocean_current_velocity = 108,
+  ocean_current_direction = 109
 }
