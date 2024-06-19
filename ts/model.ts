@@ -69,5 +69,8 @@ export enum Model {
   gfs_graphcast025 = 63,
   ecmwf_wam025 = 64,
   meteofrance_wave = 65,
-  meteofrance_currents = 66
+  meteofrance_currents = 66,
+  ecmwf_wam025_ensemble = 67,
+  ncep_gfswave025 = 68,
+  ncep_gefswave025 = 69
 }

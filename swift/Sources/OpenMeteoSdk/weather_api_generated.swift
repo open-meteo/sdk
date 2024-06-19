@@ -126,8 +126,11 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfWam025 = 64
   case meteofranceWave = 65
   case meteofranceCurrents = 66
+  case ecmwfWam025Ensemble = 67
+  case ncepGfswave025 = 68
+  case ncepGefswave025 = 69
 
-  public static var max: openmeteo_sdk_Model { return .meteofranceCurrents }
+  public static var max: openmeteo_sdk_Model { return .ncepGefswave025 }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 

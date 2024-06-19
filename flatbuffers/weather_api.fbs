@@ -119,7 +119,10 @@ enum Model: ubyte {
   gfs_graphcast025,
   ecmwf_wam025,
   meteofrance_wave,
-  meteofrance_currents
+  meteofrance_currents,
+  ecmwf_wam025_ensemble,
+  ncep_gfswave025,
+  ncep_gefswave025
 }
 
 enum Variable: ubyte {

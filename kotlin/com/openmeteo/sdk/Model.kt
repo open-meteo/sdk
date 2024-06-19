@@ -72,5 +72,8 @@ class Model private constructor() {
         const val ecmwf_wam025: UByte = 64u
         const val meteofrance_wave: UByte = 65u
         const val meteofrance_currents: UByte = 66u
+        const val ecmwf_wam025_ensemble: UByte = 67u
+        const val ncep_gfswave025: UByte = 68u
+        const val ncep_gefswave025: UByte = 69u
     }
 }
