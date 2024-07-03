@@ -75,5 +75,8 @@ class Model private constructor() {
         const val ecmwf_wam025_ensemble: UByte = 67u
         const val ncep_gfswave025: UByte = 68u
         const val ncep_gefswave025: UByte = 69u
+        const val knmi_harmonie_arome_europe: UByte = 70u
+        const val knmi_harmonie_arome_netherlands: UByte = 71u
+        const val dmi_harmonie_arome_europe: UByte = 72u
     }
 }

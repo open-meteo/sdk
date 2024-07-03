@@ -73,3 +73,6 @@ class Model(object):
     ecmwf_wam025_ensemble = 67
     ncep_gfswave025 = 68
     ncep_gefswave025 = 69
+    knmi_harmonie_arome_europe = 70
+    knmi_harmonie_arome_netherlands = 71
+    dmi_harmonie_arome_europe = 72

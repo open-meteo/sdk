@@ -129,8 +129,11 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfWam025Ensemble = 67
   case ncepGfswave025 = 68
   case ncepGefswave025 = 69
+  case knmiHarmonieAromeEurope = 70
+  case knmiHarmonieAromeNetherlands = 71
+  case dmiHarmonieAromeEurope = 72
 
-  public static var max: openmeteo_sdk_Model { return .ncepGefswave025 }
+  public static var max: openmeteo_sdk_Model { return .dmiHarmonieAromeEurope }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -249,8 +252,9 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case globalTiltedIrradianceInstant = 107
   case oceanCurrentVelocity = 108
   case oceanCurrentDirection = 109
+  case cloudCover2m = 110
 
-  public static var max: openmeteo_sdk_Variable { return .oceanCurrentDirection }
+  public static var max: openmeteo_sdk_Variable { return .cloudCover2m }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

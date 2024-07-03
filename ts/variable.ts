@@ -112,5 +112,6 @@ export enum Variable {
   global_tilted_irradiance = 106,
   global_tilted_irradiance_instant = 107,
   ocean_current_velocity = 108,
-  ocean_current_direction = 109
+  ocean_current_direction = 109,
+  cloud_cover_2m = 110
 }
