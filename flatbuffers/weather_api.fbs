@@ -241,7 +241,9 @@ enum Variable: ubyte {
   global_tilted_irradiance,
   global_tilted_irradiance_instant,
   ocean_current_velocity,
-  ocean_current_direction
+  ocean_current_direction,
+  cloud_base,
+  cloud_top
 }
 
 enum Aggregation: ubyte {

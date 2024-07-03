@@ -115,5 +115,7 @@ class Variable private constructor() {
         const val global_tilted_irradiance_instant: UByte = 107u
         const val ocean_current_velocity: UByte = 108u
         const val ocean_current_direction: UByte = 109u
+        const val cloud_base: UByte = 110u
+        const val cloud_top: UByte = 111u
     }
 }

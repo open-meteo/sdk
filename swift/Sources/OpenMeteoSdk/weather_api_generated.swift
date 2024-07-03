@@ -255,8 +255,10 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case globalTiltedIrradianceInstant = 107
   case oceanCurrentVelocity = 108
   case oceanCurrentDirection = 109
+  case cloudBase = 110
+  case cloudTop = 111
 
-  public static var max: openmeteo_sdk_Variable { return .oceanCurrentDirection }
+  public static var max: openmeteo_sdk_Variable { return .cloudTop }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 
