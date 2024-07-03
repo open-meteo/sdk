@@ -75,11 +75,14 @@ public final class Model {
   public static final int ecmwf_wam025_ensemble = 67;
   public static final int ncep_gfswave025 = 68;
   public static final int ncep_gefswave025 = 69;
-  public static final int knmi_harmonie_arome_europe = 70;
-  public static final int knmi_harmonie_arome_netherlands = 71;
-  public static final int dmi_harmonie_arome_europe = 72;
+  public static final int knmi_seamless = 70;
+  public static final int knmi_harmonie_arome_europe = 71;
+  public static final int knmi_harmonie_arome_netherlands = 72;
+  public static final int dmi_seamless = 73;
+  public static final int dmi_harmonie_arome_europe = 74;
+  public static final int metno_seamless = 75;
 
-  public static final String[] names = { "undefined", "best_match", "gfs_seamless", "gfs_global", "gfs_hrrr", "meteofrance_seamless", "meteofrance_arpege_seamless", "meteofrance_arpege_world", "meteofrance_arpege_europe", "meteofrance_arome_seamless", "meteofrance_arome_france", "meteofrance_arome_france_hd", "jma_seamless", "jma_msm", "jms_gsm", "jma_gsm", "gem_seamless", "gem_global", "gem_regional", "gem_hrdps_continental", "icon_seamless", "icon_global", "icon_eu", "icon_d2", "ecmwf_ifs04", "metno_nordic", "era5_seamless", "era5", "cerra", "era5_land", "ecmwf_ifs", "gwam", "ewam", "glofas_seamless_v3", "glofas_forecast_v3", "glofas_consolidated_v3", "glofas_seamless_v4", "glofas_forecast_v4", "glofas_consolidated_v4", "gfs025", "gfs05", "CMCC_CM2_VHR4", "FGOALS_f3_H_highresSST", "FGOALS_f3_H", "HiRAM_SIT_HR", "MRI_AGCM3_2_S", "EC_Earth3P_HR", "MPI_ESM1_2_XR", "NICAM16_8S", "cams_europe", "cams_global", "cfsv2", "era5_ocean", "cma_grapes_global", "bom_access_global", "bom_access_global_ensemble", "arpae_cosmo_seamless", "arpae_cosmo_2i", "arpae_cosmo_2i_ruc", "arpae_cosmo_5m", "ecmwf_ifs025", "ecmwf_aifs025", "gfs013", "gfs_graphcast025", "ecmwf_wam025", "meteofrance_wave", "meteofrance_currents", "ecmwf_wam025_ensemble", "ncep_gfswave025", "ncep_gefswave025", "knmi_harmonie_arome_europe", "knmi_harmonie_arome_netherlands", "dmi_harmonie_arome_europe", };
+  public static final String[] names = { "undefined", "best_match", "gfs_seamless", "gfs_global", "gfs_hrrr", "meteofrance_seamless", "meteofrance_arpege_seamless", "meteofrance_arpege_world", "meteofrance_arpege_europe", "meteofrance_arome_seamless", "meteofrance_arome_france", "meteofrance_arome_france_hd", "jma_seamless", "jma_msm", "jms_gsm", "jma_gsm", "gem_seamless", "gem_global", "gem_regional", "gem_hrdps_continental", "icon_seamless", "icon_global", "icon_eu", "icon_d2", "ecmwf_ifs04", "metno_nordic", "era5_seamless", "era5", "cerra", "era5_land", "ecmwf_ifs", "gwam", "ewam", "glofas_seamless_v3", "glofas_forecast_v3", "glofas_consolidated_v3", "glofas_seamless_v4", "glofas_forecast_v4", "glofas_consolidated_v4", "gfs025", "gfs05", "CMCC_CM2_VHR4", "FGOALS_f3_H_highresSST", "FGOALS_f3_H", "HiRAM_SIT_HR", "MRI_AGCM3_2_S", "EC_Earth3P_HR", "MPI_ESM1_2_XR", "NICAM16_8S", "cams_europe", "cams_global", "cfsv2", "era5_ocean", "cma_grapes_global", "bom_access_global", "bom_access_global_ensemble", "arpae_cosmo_seamless", "arpae_cosmo_2i", "arpae_cosmo_2i_ruc", "arpae_cosmo_5m", "ecmwf_ifs025", "ecmwf_aifs025", "gfs013", "gfs_graphcast025", "ecmwf_wam025", "meteofrance_wave", "meteofrance_currents", "ecmwf_wam025_ensemble", "ncep_gfswave025", "ncep_gefswave025", "knmi_seamless", "knmi_harmonie_arome_europe", "knmi_harmonie_arome_netherlands", "dmi_seamless", "dmi_harmonie_arome_europe", "metno_seamless", };
 
   public static String name(int e) { return names[e]; }
 }

@@ -123,9 +123,12 @@ enum Model: ubyte {
   ecmwf_wam025_ensemble,
   ncep_gfswave025,
   ncep_gefswave025,
+  knmi_seamless,
   knmi_harmonie_arome_europe,
   knmi_harmonie_arome_netherlands,
-  dmi_harmonie_arome_europe
+  dmi_seamless,
+  dmi_harmonie_arome_europe,
+  metno_seamless
 }
 
 enum Variable: ubyte {
@@ -238,8 +241,7 @@ enum Variable: ubyte {
   global_tilted_irradiance,
   global_tilted_irradiance_instant,
   ocean_current_velocity,
-  ocean_current_direction,
-  cloud_cover_2m
+  ocean_current_direction
 }
 
 enum Aggregation: ubyte {
