@@ -79,3 +79,7 @@ class Model(object):
     dmi_seamless = 73
     dmi_harmonie_arome_europe = 74
     metno_seamless = 75
+    era5_ensemble = 76
+    ecmwf_ifs_analysis = 77
+    ecmwf_ifs_long_window = 78
+    ecmwf_ifs_analysis_long_window = 79

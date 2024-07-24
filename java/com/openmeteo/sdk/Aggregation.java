@@ -16,8 +16,9 @@ public final class Aggregation {
   public static final int p90 = 8;
   public static final int dominant = 9;
   public static final int sum = 10;
+  public static final int spread = 11;
 
-  public static final String[] names = { "none", "minimum", "maximum", "mean", "p10", "p25", "median", "p75", "p90", "dominant", "sum", };
+  public static final String[] names = { "none", "minimum", "maximum", "mean", "p10", "p25", "median", "p75", "p90", "dominant", "sum", "spread", };
 
   public static String name(int e) { return names[e]; }
 }

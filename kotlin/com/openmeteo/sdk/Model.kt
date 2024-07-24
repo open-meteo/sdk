@@ -81,5 +81,9 @@ class Model private constructor() {
         const val dmi_seamless: UByte = 73u
         const val dmi_harmonie_arome_europe: UByte = 74u
         const val metno_seamless: UByte = 75u
+        const val era5_ensemble: UByte = 76u
+        const val ecmwf_ifs_analysis: UByte = 77u
+        const val ecmwf_ifs_long_window: UByte = 78u
+        const val ecmwf_ifs_analysis_long_window: UByte = 79u
     }
 }
