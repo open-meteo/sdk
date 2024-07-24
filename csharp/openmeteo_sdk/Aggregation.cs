@@ -18,6 +18,7 @@ public enum Aggregation : byte
   p90 = 8,
   dominant = 9,
   sum = 10,
+  spread = 11,
 };
 
 

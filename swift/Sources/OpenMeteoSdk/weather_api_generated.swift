@@ -135,8 +135,12 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case dmiSeamless = 73
   case dmiHarmonieAromeEurope = 74
   case metnoSeamless = 75
+  case era5Ensemble = 76
+  case ecmwfIfsAnalysis = 77
+  case ecmwfIfsLongWindow = 78
+  case ecmwfIfsAnalysisLongWindow = 79
 
-  public static var max: openmeteo_sdk_Model { return .metnoSeamless }
+  public static var max: openmeteo_sdk_Model { return .ecmwfIfsAnalysisLongWindow }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -278,8 +282,9 @@ public enum openmeteo_sdk_Aggregation: UInt8, Enum, Verifiable {
   case p90 = 8
   case dominant = 9
   case sum = 10
+  case spread = 11
 
-  public static var max: openmeteo_sdk_Aggregation { return .sum }
+  public static var max: openmeteo_sdk_Aggregation { return .spread }
   public static var min: openmeteo_sdk_Aggregation { return .none_ }
 }
 

@@ -13,5 +13,6 @@ export enum Aggregation {
   p75 = 7,
   p90 = 8,
   dominant = 9,
-  sum = 10
+  sum = 10,
+  spread = 11
 }
