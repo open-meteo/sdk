@@ -141,8 +141,9 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfIfsAnalysisLongWindow = 79
   case ukmoGlobalDeterministic10km = 80
   case ukmoUkDeterministic2km = 81
+  case ukmoSeamless = 82
 
-  public static var max: openmeteo_sdk_Model { return .ukmoUkDeterministic2km }
+  public static var max: openmeteo_sdk_Model { return .ukmoSeamless }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
