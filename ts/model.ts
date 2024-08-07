@@ -82,5 +82,7 @@ export enum Model {
   era5_ensemble = 76,
   ecmwf_ifs_analysis = 77,
   ecmwf_ifs_long_window = 78,
-  ecmwf_ifs_analysis_long_window = 79
+  ecmwf_ifs_analysis_long_window = 79,
+  ukmo_global_deterministic_10km = 80,
+  ukmo_uk_deterministic_2km = 81
 }

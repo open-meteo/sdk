@@ -85,5 +85,7 @@ class Model private constructor() {
         const val ecmwf_ifs_analysis: UByte = 77u
         const val ecmwf_ifs_long_window: UByte = 78u
         const val ecmwf_ifs_analysis_long_window: UByte = 79u
+        const val ukmo_global_deterministic_10km: UByte = 80u
+        const val ukmo_uk_deterministic_2km: UByte = 81u
     }
 }

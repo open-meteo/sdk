@@ -132,7 +132,9 @@ enum Model: ubyte {
   era5_ensemble,
   ecmwf_ifs_analysis,
   ecmwf_ifs_long_window,
-  ecmwf_ifs_analysis_long_window
+  ecmwf_ifs_analysis_long_window,
+  ukmo_global_deterministic_10km,
+  ukmo_uk_deterministic_2km
 }
 
 enum Variable: ubyte {
