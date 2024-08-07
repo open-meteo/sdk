@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
 public final class WeatherApiResponse extends Table {
-  public static void ValidateVersion() { Constants.FLATBUFFERS_24_3_25(); }
+  public static void ValidateVersion() { Constants.FLATBUFFERS_23_5_26(); }
   public static WeatherApiResponse getRootAsWeatherApiResponse(ByteBuffer _bb) { return getRootAsWeatherApiResponse(_bb, new WeatherApiResponse()); }
   public static WeatherApiResponse getRootAsWeatherApiResponse(ByteBuffer _bb, WeatherApiResponse obj) { _bb.order(ByteOrder.LITTLE_ENDIAN); return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb)); }
   public void __init(int _i, ByteBuffer _bb) { __reset(_i, _bb); }

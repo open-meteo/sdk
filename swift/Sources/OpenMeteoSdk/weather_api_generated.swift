@@ -139,8 +139,10 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfIfsAnalysis = 77
   case ecmwfIfsLongWindow = 78
   case ecmwfIfsAnalysisLongWindow = 79
+  case ukmoGlobalDeterministic10km = 80
+  case ukmoUkDeterministic2km = 81
 
-  public static var max: openmeteo_sdk_Model { return .ecmwfIfsAnalysisLongWindow }
+  public static var max: openmeteo_sdk_Model { return .ukmoUkDeterministic2km }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -291,7 +293,7 @@ public enum openmeteo_sdk_Aggregation: UInt8, Enum, Verifiable {
 
 public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_24_3_25() }
+  static func validateVersion() { FlatBuffersVersion_23_5_26() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 
@@ -398,7 +400,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
 
 public struct openmeteo_sdk_VariablesWithTime: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_24_3_25() }
+  static func validateVersion() { FlatBuffersVersion_23_5_26() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 
@@ -453,7 +455,7 @@ public struct openmeteo_sdk_VariablesWithTime: FlatBufferObject, Verifiable {
 
 public struct openmeteo_sdk_WeatherApiResponse: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_24_3_25() }
+  static func validateVersion() { FlatBuffersVersion_23_5_26() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 
