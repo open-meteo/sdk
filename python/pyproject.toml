@@ -29,15 +29,3 @@ dependencies = [
 Documentation = "https://github.com/open-meteo/sdk/tree/main#readme"
 Source = "https://github.com/open-meteo/sdk"
 Tracker = "https://github.com/open-meteo/sdk/issues"
-
-[tool.flit.module]
-name = "openmeteo_sdk"
-
-[tool.hatch.version]
-path = "python/openmeteo_sdk/__init__.py"
-
-[tool.hatch.build.targets.sdist]
-packages = ["python/openmeteo_sdk"]
-
-[tool.hatch.build.targets.wheel]
-packages = ["python/openmeteo_sdk"]
