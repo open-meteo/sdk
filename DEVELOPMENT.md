@@ -9,6 +9,8 @@ flatc --swift -o swift/Sources/OpenMeteoSdk/ flatbuffers/*.fbs
 
 flatc --csharp -o csharp/ flatbuffers/*.fbs
 
+flatc --rust -o rust/ flatbuffers/*.fbs
+
 flatc --python --python-typing -o python/ flatbuffers/*.fbs
 find python/ -name "*.py" -type f -exec sh -c "awk 'sub(/^def.*/,\"\"){f=1} {print} f{exit}' {} > {}_tmp; mv -f {}_tmp {}" \;
 
