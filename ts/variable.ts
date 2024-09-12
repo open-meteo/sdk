@@ -114,5 +114,6 @@ export enum Variable {
   ocean_current_velocity = 108,
   ocean_current_direction = 109,
   cloud_base = 110,
-  cloud_top = 111
+  cloud_top = 111,
+  mass_density = 112
 }

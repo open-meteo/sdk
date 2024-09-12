@@ -264,8 +264,9 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case oceanCurrentDirection = 109
   case cloudBase = 110
   case cloudTop = 111
+  case massDensity = 112
 
-  public static var max: openmeteo_sdk_Variable { return .cloudTop }
+  public static var max: openmeteo_sdk_Variable { return .massDensity }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 
