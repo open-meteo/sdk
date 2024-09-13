@@ -117,5 +117,6 @@ class Variable private constructor() {
         const val ocean_current_direction: UByte = 109u
         const val cloud_base: UByte = 110u
         const val cloud_top: UByte = 111u
+        const val mass_density: UByte = 112u
     }
 }

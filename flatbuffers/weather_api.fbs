@@ -250,7 +250,8 @@ enum Variable: ubyte {
   ocean_current_velocity,
   ocean_current_direction,
   cloud_base,
-  cloud_top
+  cloud_top,
+  mass_density
 }
 
 enum Aggregation: ubyte {
