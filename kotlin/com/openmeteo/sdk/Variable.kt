@@ -118,5 +118,6 @@ class Variable private constructor() {
         const val cloud_base: UByte = 110u
         const val cloud_top: UByte = 111u
         const val mass_density: UByte = 112u
+        const val boundary_layer_height: UByte = 113u
     }
 }

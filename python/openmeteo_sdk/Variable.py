@@ -116,3 +116,4 @@ class Variable(object):
     cloud_base = 110
     cloud_top = 111
     mass_density = 112
+    boundary_layer_height = 113
