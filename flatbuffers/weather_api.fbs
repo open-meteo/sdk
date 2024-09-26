@@ -252,7 +252,18 @@ enum Variable: ubyte {
   cloud_base,
   cloud_top,
   mass_density,
-  boundary_layer_height
+  boundary_layer_height,
+  formaldehyde,
+  glyoxal,
+  non_methane_volatile_organic_compounds,
+  pm10_wildfires,
+  peroxyacyl_nitrates,
+  secondary_inorganic_aerosol,
+  residential_elementary_carbon,
+  total_elementary_carbon,
+  pm2_5_total_organic_matter,
+  sea_salt_aerosol,
+  nitrogen_monoxide
 }
 
 enum Aggregation: ubyte {
