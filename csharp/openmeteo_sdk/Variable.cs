@@ -121,6 +121,17 @@ public enum Variable : byte
   cloud_top = 111,
   mass_density = 112,
   boundary_layer_height = 113,
+  formaldehyde = 114,
+  glyoxal = 115,
+  non_methane_volatile_organic_compounds = 116,
+  pm10_wildfires = 117,
+  peroxyacyl_nitrates = 118,
+  secondary_inorganic_aerosol = 119,
+  residential_elementary_carbon = 120,
+  total_elementary_carbon = 121,
+  pm2_5_total_organic_matter = 122,
+  sea_salt_aerosol = 123,
+  nitrogen_monoxide = 124,
 };
 
 

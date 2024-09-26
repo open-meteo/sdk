@@ -266,8 +266,19 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case cloudTop = 111
   case massDensity = 112
   case boundaryLayerHeight = 113
+  case formaldehyde = 114
+  case glyoxal = 115
+  case nonMethaneVolatileOrganicCompounds = 116
+  case pm10Wildfires = 117
+  case peroxyacylNitrates = 118
+  case secondaryInorganicAerosol = 119
+  case residentialElementaryCarbon = 120
+  case totalElementaryCarbon = 121
+  case pm25TotalOrganicMatter = 122
+  case seaSaltAerosol = 123
+  case nitrogenMonoxide = 124
 
-  public static var max: openmeteo_sdk_Variable { return .boundaryLayerHeight }
+  public static var max: openmeteo_sdk_Variable { return .nitrogenMonoxide }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

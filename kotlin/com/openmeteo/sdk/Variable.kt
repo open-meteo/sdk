@@ -119,5 +119,16 @@ class Variable private constructor() {
         const val cloud_top: UByte = 111u
         const val mass_density: UByte = 112u
         const val boundary_layer_height: UByte = 113u
+        const val formaldehyde: UByte = 114u
+        const val glyoxal: UByte = 115u
+        const val non_methane_volatile_organic_compounds: UByte = 116u
+        const val pm10_wildfires: UByte = 117u
+        const val peroxyacyl_nitrates: UByte = 118u
+        const val secondary_inorganic_aerosol: UByte = 119u
+        const val residential_elementary_carbon: UByte = 120u
+        const val total_elementary_carbon: UByte = 121u
+        const val pm2_5_total_organic_matter: UByte = 122u
+        const val sea_salt_aerosol: UByte = 123u
+        const val nitrogen_monoxide: UByte = 124u
     }
 }
