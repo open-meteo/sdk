@@ -135,7 +135,9 @@ enum Model: ubyte {
   ecmwf_ifs_analysis_long_window,
   ukmo_global_deterministic_10km,
   ukmo_uk_deterministic_2km,
-  ukmo_seamless
+  ukmo_seamless,
+  ncep_gfswave016,
+  ncep_nbm_conus
 }
 
 enum Variable: ubyte {
@@ -263,7 +265,13 @@ enum Variable: ubyte {
   total_elementary_carbon,
   pm2_5_total_organic_matter,
   sea_salt_aerosol,
-  nitrogen_monoxide
+  nitrogen_monoxide,
+  boundary_layer_height,
+  thunderstorm_probability,
+  rain_probability,
+  freezing_rain_probability,
+  ice_pellets_probability,
+  snowfall_probability
 }
 
 enum Aggregation: ubyte {
