@@ -142,8 +142,10 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ukmoGlobalDeterministic10km = 80
   case ukmoUkDeterministic2km = 81
   case ukmoSeamless = 82
+  case ncepGfswave016 = 83
+  case ncepNbmConus = 84
 
-  public static var max: openmeteo_sdk_Model { return .ukmoSeamless }
+  public static var max: openmeteo_sdk_Model { return .ncepNbmConus }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -277,8 +279,13 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case pm25TotalOrganicMatter = 122
   case seaSaltAerosol = 123
   case nitrogenMonoxide = 124
+  case thunderstormProbability = 125
+  case rainProbability = 126
+  case freezingRainProbability = 127
+  case icePelletsProbability = 128
+  case snowfallProbability = 129
 
-  public static var max: openmeteo_sdk_Variable { return .nitrogenMonoxide }
+  public static var max: openmeteo_sdk_Variable { return .snowfallProbability }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

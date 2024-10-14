@@ -85,5 +85,7 @@ export enum Model {
   ecmwf_ifs_analysis_long_window = 79,
   ukmo_global_deterministic_10km = 80,
   ukmo_uk_deterministic_2km = 81,
-  ukmo_seamless = 82
+  ukmo_seamless = 82,
+  ncep_gfswave016 = 83,
+  ncep_nbm_conus = 84
 }

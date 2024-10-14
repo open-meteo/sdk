@@ -266,7 +266,6 @@ enum Variable: ubyte {
   pm2_5_total_organic_matter,
   sea_salt_aerosol,
   nitrogen_monoxide,
-  boundary_layer_height,
   thunderstorm_probability,
   rain_probability,
   freezing_rain_probability,
