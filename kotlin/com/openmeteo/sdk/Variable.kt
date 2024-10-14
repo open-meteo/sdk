@@ -130,5 +130,10 @@ class Variable private constructor() {
         const val pm2_5_total_organic_matter: UByte = 122u
         const val sea_salt_aerosol: UByte = 123u
         const val nitrogen_monoxide: UByte = 124u
+        const val thunderstorm_probability: UByte = 125u
+        const val rain_probability: UByte = 126u
+        const val freezing_rain_probability: UByte = 127u
+        const val ice_pellets_probability: UByte = 128u
+        const val snowfall_probability: UByte = 129u
     }
 }

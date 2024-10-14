@@ -127,5 +127,10 @@ export enum Variable {
   total_elementary_carbon = 121,
   pm2_5_total_organic_matter = 122,
   sea_salt_aerosol = 123,
-  nitrogen_monoxide = 124
+  nitrogen_monoxide = 124,
+  thunderstorm_probability = 125,
+  rain_probability = 126,
+  freezing_rain_probability = 127,
+  ice_pellets_probability = 128,
+  snowfall_probability = 129
 }

@@ -88,5 +88,7 @@ class Model private constructor() {
         const val ukmo_global_deterministic_10km: UByte = 80u
         const val ukmo_uk_deterministic_2km: UByte = 81u
         const val ukmo_seamless: UByte = 82u
+        const val ncep_gfswave016: UByte = 83u
+        const val ncep_nbm_conus: UByte = 84u
     }
 }
