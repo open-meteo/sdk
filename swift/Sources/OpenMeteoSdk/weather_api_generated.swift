@@ -49,8 +49,9 @@ public enum openmeteo_sdk_Unit: UInt8, Enum, Verifiable {
   case usAirQualityIndex = 38
   case wattPerSquareMetre = 39
   case wmoCode = 40
+  case partsPerMillion = 41
 
-  public static var max: openmeteo_sdk_Unit { return .wmoCode }
+  public static var max: openmeteo_sdk_Unit { return .partsPerMillion }
   public static var min: openmeteo_sdk_Unit { return .undefined }
 }
 
@@ -284,8 +285,10 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case freezingRainProbability = 127
   case icePelletsProbability = 128
   case snowfallProbability = 129
+  case carbonDioxide = 130
+  case methane = 131
 
-  public static var max: openmeteo_sdk_Variable { return .snowfallProbability }
+  public static var max: openmeteo_sdk_Variable { return .methane }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

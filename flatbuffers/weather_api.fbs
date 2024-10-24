@@ -49,7 +49,8 @@ enum Unit : ubyte {
   unix_time,
   us_air_quality_index,
   watt_per_square_metre,
-  wmo_code
+  wmo_code,
+  parts_per_million
 }
 
 enum Model: ubyte {
@@ -270,7 +271,9 @@ enum Variable: ubyte {
   rain_probability,
   freezing_rain_probability,
   ice_pellets_probability,
-  snowfall_probability
+  snowfall_probability,
+  carbon_dioxide,
+  methane
 }
 
 enum Aggregation: ubyte {

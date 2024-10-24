@@ -135,5 +135,7 @@ class Variable private constructor() {
         const val freezing_rain_probability: UByte = 127u
         const val ice_pellets_probability: UByte = 128u
         const val snowfall_probability: UByte = 129u
+        const val carbon_dioxide: UByte = 130u
+        const val methane: UByte = 131u
     }
 }

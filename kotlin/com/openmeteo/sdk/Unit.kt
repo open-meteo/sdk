@@ -46,5 +46,6 @@ class Unit private constructor() {
         const val us_air_quality_index: UByte = 38u
         const val watt_per_square_metre: UByte = 39u
         const val wmo_code: UByte = 40u
+        const val parts_per_million: UByte = 41u
     }
 }
