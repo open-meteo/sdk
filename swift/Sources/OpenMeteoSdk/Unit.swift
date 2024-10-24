@@ -43,6 +43,7 @@ extension openmeteo_sdk_Unit {
         case .usAirQualityIndex: return "USAQI"
         case .gddCelsius: return "GGDc"
         case .fraction: return "fraction"
+        case .partsPerMillion: return "ppm"
         }
     }
     
@@ -90,6 +91,7 @@ extension openmeteo_sdk_Unit {
         case .usAirQualityIndex: return 0
         case .gddCelsius: return 2
         case .fraction: return 3
+        case .partsPerMillion: return 0
         }
     }
 }

@@ -132,5 +132,7 @@ export enum Variable {
   rain_probability = 126,
   freezing_rain_probability = 127,
   ice_pellets_probability = 128,
-  snowfall_probability = 129
+  snowfall_probability = 129,
+  carbon_dioxide = 130,
+  methane = 131
 }
