@@ -36,7 +36,7 @@
         "conventional-changelog-conventionalcommits": "^8.0.0",
         "gradle-semantic-release-plugin": "^1.7.7",
         "semantic-release": "^24.0.0",
-        "semantic-release-pypi": "^3.0.0-beta.2",
+        "semantic-release-pypi": "^4.0.3",
         "typescript": "^5.2.2"
     },
     "dependencies": {
