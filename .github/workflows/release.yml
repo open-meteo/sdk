@@ -28,7 +28,7 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v3
+        uses: gradle/actions/setup-gradle@v4
       - name: Execute Gradle build
         run: ./gradlew build
       - uses: actions/setup-dotnet@v4.2.0
