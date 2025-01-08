@@ -45,7 +45,8 @@
             "semantic-release-pypi",
             {
                 "srcDir": "python",
-                "installDeps": false
+                "installDeps": false,
+                "envDir": false
             }
         ],
         "@droidsolutions-oss/semantic-release-nuget",
