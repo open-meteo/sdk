@@ -1,11 +1,11 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 5.9
 
 import PackageDescription
 
 let package = Package(
     name: "OpenMeteoSdk",
     platforms: [
-        .iOS(.v11),
+        .iOS(.v12),
         .macOS(.v10_14),
         .watchOS(.v8),
     ],
