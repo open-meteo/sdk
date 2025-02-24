@@ -317,7 +317,7 @@ public enum openmeteo_sdk_Aggregation: UInt8, Enum, Verifiable {
 
 public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_24_3_25() }
+  static func validateVersion() { FlatBuffersVersion_25_2_10() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 
@@ -424,7 +424,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
 
 public struct openmeteo_sdk_VariablesWithTime: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_24_3_25() }
+  static func validateVersion() { FlatBuffersVersion_25_2_10() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 
@@ -479,7 +479,7 @@ public struct openmeteo_sdk_VariablesWithTime: FlatBufferObject, Verifiable {
 
 public struct openmeteo_sdk_WeatherApiResponse: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_24_3_25() }
+  static func validateVersion() { FlatBuffersVersion_25_2_10() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 
@@ -516,11 +516,11 @@ public struct openmeteo_sdk_WeatherApiResponse: FlatBufferObject, Verifiable {
   public var timezoneSegmentArray: [UInt8]? { return _accessor.getVector(at: VTOFFSET.timezone.v) }
   public var timezoneAbbreviation: String? { let o = _accessor.offset(VTOFFSET.timezoneAbbreviation.v); return o == 0 ? nil : _accessor.string(at: o) }
   public var timezoneAbbreviationSegmentArray: [UInt8]? { return _accessor.getVector(at: VTOFFSET.timezoneAbbreviation.v) }
-  public var current: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.current.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
-  public var daily: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.daily.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
-  public var hourly: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.hourly.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
-  public var minutely15: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.minutely15.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
-  public var sixHourly: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.sixHourly.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.postion)) }
+  public var current: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.current.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.position)) }
+  public var daily: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.daily.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.position)) }
+  public var hourly: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.hourly.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.position)) }
+  public var minutely15: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.minutely15.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.position)) }
+  public var sixHourly: openmeteo_sdk_VariablesWithTime? { let o = _accessor.offset(VTOFFSET.sixHourly.v); return o == 0 ? nil : openmeteo_sdk_VariablesWithTime(_accessor.bb, o: _accessor.indirect(o + _accessor.position)) }
   public static func startWeatherApiResponse(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 14) }
   public static func add(latitude: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: latitude, def: 0.0, at: VTOFFSET.latitude.p) }
   public static func add(longitude: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: longitude, def: 0.0, at: VTOFFSET.longitude.p) }
