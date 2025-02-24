@@ -95,3 +95,5 @@ class Model(object):
     eumetsat_lsa_saf_msg = 89
     eumetsat_lsa_saf_iodc = 90
     satellite_radiation_seamless = 91
+    kma_gdps = 92
+    kma_ldps = 93

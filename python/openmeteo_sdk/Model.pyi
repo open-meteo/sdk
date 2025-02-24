@@ -101,4 +101,6 @@ class Model(object):
   eumetsat_lsa_saf_msg: int
   eumetsat_lsa_saf_iodc: int
   satellite_radiation_seamless: int
+  kma_gdps: int
+  kma_ldps: int
 

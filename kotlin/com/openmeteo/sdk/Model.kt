@@ -97,5 +97,7 @@ class Model private constructor() {
         const val eumetsat_lsa_saf_msg: UByte = 89u
         const val eumetsat_lsa_saf_iodc: UByte = 90u
         const val satellite_radiation_seamless: UByte = 91u
+        const val kma_gdps: UByte = 92u
+        const val kma_ldps: UByte = 93u
     }
 }

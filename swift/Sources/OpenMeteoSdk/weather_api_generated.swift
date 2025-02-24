@@ -152,8 +152,10 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case eumetsatLsaSafMsg = 89
   case eumetsatLsaSafIodc = 90
   case satelliteRadiationSeamless = 91
+  case kmaGdps = 92
+  case kmaLdps = 93
 
-  public static var max: openmeteo_sdk_Model { return .satelliteRadiationSeamless }
+  public static var max: openmeteo_sdk_Model { return .kmaLdps }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
