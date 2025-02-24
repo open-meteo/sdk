@@ -138,7 +138,16 @@ enum Model: ubyte {
   ukmo_uk_deterministic_2km,
   ukmo_seamless,
   ncep_gfswave016,
-  ncep_nbm_conus
+  ncep_nbm_conus,
+  ukmo_global_ensemble_20km,
+  ecmwf_aifs025_single,
+  jma_jaxa_himawari,
+  eumetsat_sarah3,
+  eumetsat_lsa_saf_msg,
+  eumetsat_lsa_saf_iodc,
+  satellite_radiation_seamless,
+  kma_gdps,
+  kma_ldps
 }
 
 enum Variable: ubyte {
@@ -273,7 +282,16 @@ enum Variable: ubyte {
   ice_pellets_probability,
   snowfall_probability,
   carbon_dioxide,
-  methane
+  methane,
+  sea_level_height_msl,
+  sea_surface_temperature,
+  invert_barometer_height,
+  hail,
+  albedo,
+  precipitation_type,
+  convective_cloud_base,
+  convective_cloud_top,
+  snow_depth_water_equivalent
 }
 
 enum Aggregation: ubyte {

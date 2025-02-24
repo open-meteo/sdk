@@ -94,4 +94,13 @@ class Model(object):
   ukmo_seamless: int
   ncep_gfswave016: int
   ncep_nbm_conus: int
+  ukmo_global_ensemble_20km: int
+  ecmwf_aifs025_single: int
+  jma_jaxa_himawari: int
+  eumetsat_sarah3: int
+  eumetsat_lsa_saf_msg: int
+  eumetsat_lsa_saf_iodc: int
+  satellite_radiation_seamless: int
+  kma_gdps: int
+  kma_ldps: int
 

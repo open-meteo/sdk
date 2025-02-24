@@ -139,6 +139,15 @@ public enum Variable : byte
   snowfall_probability = 129,
   carbon_dioxide = 130,
   methane = 131,
+  sea_level_height_msl = 132,
+  sea_surface_temperature = 133,
+  invert_barometer_height = 134,
+  hail = 135,
+  albedo = 136,
+  precipitation_type = 137,
+  convective_cloud_base = 138,
+  convective_cloud_top = 139,
+  snow_depth_water_equivalent = 140,
 };
 
 
