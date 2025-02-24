@@ -141,4 +141,13 @@ class Variable(object):
   snowfall_probability: int
   carbon_dioxide: int
   methane: int
+  sea_level_height_msl: int
+  sea_surface_temperature: int
+  invert_barometer_height: int
+  hail: int
+  albedo: int
+  precipitation_type: int
+  convective_cloud_base: int
+  convective_cloud_top: int
+  snow_depth_water_equivalent: int
 

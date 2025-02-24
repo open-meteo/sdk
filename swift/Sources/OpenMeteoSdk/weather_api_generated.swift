@@ -145,8 +145,15 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ukmoSeamless = 82
   case ncepGfswave016 = 83
   case ncepNbmConus = 84
+  case ukmoGlobalEnsemble20km = 85
+  case ecmwfAifs025Single = 86
+  case jmaJaxaHimawari = 87
+  case eumetsatSarah3 = 88
+  case eumetsatLsaSafMsg = 89
+  case eumetsatLsaSafIodc = 90
+  case satelliteRadiationSeamless = 91
 
-  public static var max: openmeteo_sdk_Model { return .ncepNbmConus }
+  public static var max: openmeteo_sdk_Model { return .satelliteRadiationSeamless }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -287,8 +294,17 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case snowfallProbability = 129
   case carbonDioxide = 130
   case methane = 131
+  case seaLevelHeightMsl = 132
+  case seaSurfaceTemperature = 133
+  case invertBarometerHeight = 134
+  case hail = 135
+  case albedo = 136
+  case precipitationType = 137
+  case convectiveCloudBase = 138
+  case convectiveCloudTop = 139
+  case snowDepthWaterEquivalent = 140
 
-  public static var max: openmeteo_sdk_Variable { return .methane }
+  public static var max: openmeteo_sdk_Variable { return .snowDepthWaterEquivalent }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

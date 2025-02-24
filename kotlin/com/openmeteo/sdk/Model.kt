@@ -90,5 +90,12 @@ class Model private constructor() {
         const val ukmo_seamless: UByte = 82u
         const val ncep_gfswave016: UByte = 83u
         const val ncep_nbm_conus: UByte = 84u
+        const val ukmo_global_ensemble_20km: UByte = 85u
+        const val ecmwf_aifs025_single: UByte = 86u
+        const val jma_jaxa_himawari: UByte = 87u
+        const val eumetsat_sarah3: UByte = 88u
+        const val eumetsat_lsa_saf_msg: UByte = 89u
+        const val eumetsat_lsa_saf_iodc: UByte = 90u
+        const val satellite_radiation_seamless: UByte = 91u
     }
 }

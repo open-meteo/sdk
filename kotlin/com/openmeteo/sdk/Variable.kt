@@ -137,5 +137,14 @@ class Variable private constructor() {
         const val snowfall_probability: UByte = 129u
         const val carbon_dioxide: UByte = 130u
         const val methane: UByte = 131u
+        const val sea_level_height_msl: UByte = 132u
+        const val sea_surface_temperature: UByte = 133u
+        const val invert_barometer_height: UByte = 134u
+        const val hail: UByte = 135u
+        const val albedo: UByte = 136u
+        const val precipitation_type: UByte = 137u
+        const val convective_cloud_base: UByte = 138u
+        const val convective_cloud_top: UByte = 139u
+        const val snow_depth_water_equivalent: UByte = 140u
     }
 }

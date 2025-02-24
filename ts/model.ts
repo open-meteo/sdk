@@ -87,5 +87,12 @@ export enum Model {
   ukmo_uk_deterministic_2km = 81,
   ukmo_seamless = 82,
   ncep_gfswave016 = 83,
-  ncep_nbm_conus = 84
+  ncep_nbm_conus = 84,
+  ukmo_global_ensemble_20km = 85,
+  ecmwf_aifs025_single = 86,
+  jma_jaxa_himawari = 87,
+  eumetsat_sarah3 = 88,
+  eumetsat_lsa_saf_msg = 89,
+  eumetsat_lsa_saf_iodc = 90,
+  satellite_radiation_seamless = 91
 }
