@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
 public final class VariablesWithTime extends Table {
-  public static void ValidateVersion() { Constants.FLATBUFFERS_24_3_25(); }
+  public static void ValidateVersion() { Constants.FLATBUFFERS_25_2_10(); }
   public static VariablesWithTime getRootAsVariablesWithTime(ByteBuffer _bb) { return getRootAsVariablesWithTime(_bb, new VariablesWithTime()); }
   public static VariablesWithTime getRootAsVariablesWithTime(ByteBuffer _bb, VariablesWithTime obj) { _bb.order(ByteOrder.LITTLE_ENDIAN); return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb)); }
   public void __init(int _i, ByteBuffer _bb) { __reset(_i, _bb); }

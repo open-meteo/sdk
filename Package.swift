@@ -1,11 +1,11 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 5.9
 
 import PackageDescription
 
 let package = Package(
     name: "OpenMeteoSdk",
     platforms: [
-        .iOS(.v11),
+        .iOS(.v12),
         .macOS(.v10_14),
         .watchOS(.v8),
     ],
@@ -15,7 +15,7 @@ let package = Package(
             targets: ["OpenMeteoSdk"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/google/flatbuffers.git", exact: "24.3.25")
+        .package(url: "https://github.com/google/flatbuffers.git", exact: "25.2.10")
     ],
     targets: [
         .target(

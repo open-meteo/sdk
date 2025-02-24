@@ -14,7 +14,7 @@ extension WeatherApiResponse {
     @available(iOS 13.0.0, *)
     @available(macOS 12.0, *)
     public static func fetch(url: URL, session: URLSession = URLSession.shared) async throws -> [WeatherApiResponse] {
-        var request = URLRequest(url: url)
+        let request = URLRequest(url: url)
         return try await fetch(request: request, session: session)
     }
 
