@@ -21,10 +21,10 @@ pub mod openmeteo_sdk {
 #[deprecated(since = "2.0.0", note = "Use associated constants instead. This will no longer be generated in 2021.")]
 pub const ENUM_MIN_UNIT: u8 = 0;
 #[deprecated(since = "2.0.0", note = "Use associated constants instead. This will no longer be generated in 2021.")]
-pub const ENUM_MAX_UNIT: u8 = 40;
+pub const ENUM_MAX_UNIT: u8 = 41;
 #[deprecated(since = "2.0.0", note = "Use associated constants instead. This will no longer be generated in 2021.")]
 #[allow(non_camel_case_types)]
-pub const ENUM_VALUES_UNIT: [Unit; 41] = [
+pub const ENUM_VALUES_UNIT: [Unit; 42] = [
   Unit::undefined,
   Unit::celsius,
   Unit::centimetre,
@@ -66,6 +66,7 @@ pub const ENUM_VALUES_UNIT: [Unit; 41] = [
   Unit::us_air_quality_index,
   Unit::watt_per_square_metre,
   Unit::wmo_code,
+  Unit::parts_per_million,
 ];
 
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
@@ -114,9 +115,10 @@ impl Unit {
   pub const us_air_quality_index: Self = Self(38);
   pub const watt_per_square_metre: Self = Self(39);
   pub const wmo_code: Self = Self(40);
+  pub const parts_per_million: Self = Self(41);
 
   pub const ENUM_MIN: u8 = 0;
-  pub const ENUM_MAX: u8 = 40;
+  pub const ENUM_MAX: u8 = 41;
   pub const ENUM_VALUES: &'static [Self] = &[
     Self::undefined,
     Self::celsius,
@@ -159,6 +161,7 @@ impl Unit {
     Self::us_air_quality_index,
     Self::watt_per_square_metre,
     Self::wmo_code,
+    Self::parts_per_million,
   ];
   /// Returns the variant's name or "" if unknown.
   pub fn variant_name(self) -> Option<&'static str> {
@@ -204,6 +207,7 @@ impl Unit {
       Self::us_air_quality_index => Some("us_air_quality_index"),
       Self::watt_per_square_metre => Some("watt_per_square_metre"),
       Self::wmo_code => Some("wmo_code"),
+      Self::parts_per_million => Some("parts_per_million"),
       _ => None,
     }
   }
@@ -262,10 +266,10 @@ impl flatbuffers::SimpleToVerifyInSlice for Unit {}
 #[deprecated(since = "2.0.0", note = "Use associated constants instead. This will no longer be generated in 2021.")]
 pub const ENUM_MIN_MODEL: u8 = 0;
 #[deprecated(since = "2.0.0", note = "Use associated constants instead. This will no longer be generated in 2021.")]
-pub const ENUM_MAX_MODEL: u8 = 82;
+pub const ENUM_MAX_MODEL: u8 = 93;
 #[deprecated(since = "2.0.0", note = "Use associated constants instead. This will no longer be generated in 2021.")]
 #[allow(non_camel_case_types)]
-pub const ENUM_VALUES_MODEL: [Model; 83] = [
+pub const ENUM_VALUES_MODEL: [Model; 94] = [
   Model::undefined,
   Model::best_match,
   Model::gfs_seamless,
@@ -349,6 +353,17 @@ pub const ENUM_VALUES_MODEL: [Model; 83] = [
   Model::ukmo_global_deterministic_10km,
   Model::ukmo_uk_deterministic_2km,
   Model::ukmo_seamless,
+  Model::ncep_gfswave016,
+  Model::ncep_nbm_conus,
+  Model::ukmo_global_ensemble_20km,
+  Model::ecmwf_aifs025_single,
+  Model::jma_jaxa_himawari,
+  Model::eumetsat_sarah3,
+  Model::eumetsat_lsa_saf_msg,
+  Model::eumetsat_lsa_saf_iodc,
+  Model::satellite_radiation_seamless,
+  Model::kma_gdps,
+  Model::kma_ldps,
 ];
 
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
@@ -439,9 +454,20 @@ impl Model {
   pub const ukmo_global_deterministic_10km: Self = Self(80);
   pub const ukmo_uk_deterministic_2km: Self = Self(81);
   pub const ukmo_seamless: Self = Self(82);
+  pub const ncep_gfswave016: Self = Self(83);
+  pub const ncep_nbm_conus: Self = Self(84);
+  pub const ukmo_global_ensemble_20km: Self = Self(85);
+  pub const ecmwf_aifs025_single: Self = Self(86);
+  pub const jma_jaxa_himawari: Self = Self(87);
+  pub const eumetsat_sarah3: Self = Self(88);
+  pub const eumetsat_lsa_saf_msg: Self = Self(89);
+  pub const eumetsat_lsa_saf_iodc: Self = Self(90);
+  pub const satellite_radiation_seamless: Self = Self(91);
+  pub const kma_gdps: Self = Self(92);
+  pub const kma_ldps: Self = Self(93);
 
   pub const ENUM_MIN: u8 = 0;
-  pub const ENUM_MAX: u8 = 82;
+  pub const ENUM_MAX: u8 = 93;
   pub const ENUM_VALUES: &'static [Self] = &[
     Self::undefined,
     Self::best_match,
@@ -526,6 +552,17 @@ impl Model {
     Self::ukmo_global_deterministic_10km,
     Self::ukmo_uk_deterministic_2km,
     Self::ukmo_seamless,
+    Self::ncep_gfswave016,
+    Self::ncep_nbm_conus,
+    Self::ukmo_global_ensemble_20km,
+    Self::ecmwf_aifs025_single,
+    Self::jma_jaxa_himawari,
+    Self::eumetsat_sarah3,
+    Self::eumetsat_lsa_saf_msg,
+    Self::eumetsat_lsa_saf_iodc,
+    Self::satellite_radiation_seamless,
+    Self::kma_gdps,
+    Self::kma_ldps,
   ];
   /// Returns the variant's name or "" if unknown.
   pub fn variant_name(self) -> Option<&'static str> {
@@ -613,6 +650,17 @@ impl Model {
       Self::ukmo_global_deterministic_10km => Some("ukmo_global_deterministic_10km"),
       Self::ukmo_uk_deterministic_2km => Some("ukmo_uk_deterministic_2km"),
       Self::ukmo_seamless => Some("ukmo_seamless"),
+      Self::ncep_gfswave016 => Some("ncep_gfswave016"),
+      Self::ncep_nbm_conus => Some("ncep_nbm_conus"),
+      Self::ukmo_global_ensemble_20km => Some("ukmo_global_ensemble_20km"),
+      Self::ecmwf_aifs025_single => Some("ecmwf_aifs025_single"),
+      Self::jma_jaxa_himawari => Some("jma_jaxa_himawari"),
+      Self::eumetsat_sarah3 => Some("eumetsat_sarah3"),
+      Self::eumetsat_lsa_saf_msg => Some("eumetsat_lsa_saf_msg"),
+      Self::eumetsat_lsa_saf_iodc => Some("eumetsat_lsa_saf_iodc"),
+      Self::satellite_radiation_seamless => Some("satellite_radiation_seamless"),
+      Self::kma_gdps => Some("kma_gdps"),
+      Self::kma_ldps => Some("kma_ldps"),
       _ => None,
     }
   }
@@ -671,10 +719,10 @@ impl flatbuffers::SimpleToVerifyInSlice for Model {}
 #[deprecated(since = "2.0.0", note = "Use associated constants instead. This will no longer be generated in 2021.")]
 pub const ENUM_MIN_VARIABLE: u8 = 0;
 #[deprecated(since = "2.0.0", note = "Use associated constants instead. This will no longer be generated in 2021.")]
-pub const ENUM_MAX_VARIABLE: u8 = 111;
+pub const ENUM_MAX_VARIABLE: u8 = 140;
 #[deprecated(since = "2.0.0", note = "Use associated constants instead. This will no longer be generated in 2021.")]
 #[allow(non_camel_case_types)]
-pub const ENUM_VALUES_VARIABLE: [Variable; 112] = [
+pub const ENUM_VALUES_VARIABLE: [Variable; 141] = [
   Variable::undefined,
   Variable::apparent_temperature,
   Variable::cape,
@@ -787,6 +835,35 @@ pub const ENUM_VALUES_VARIABLE: [Variable; 112] = [
   Variable::ocean_current_direction,
   Variable::cloud_base,
   Variable::cloud_top,
+  Variable::mass_density,
+  Variable::boundary_layer_height,
+  Variable::formaldehyde,
+  Variable::glyoxal,
+  Variable::non_methane_volatile_organic_compounds,
+  Variable::pm10_wildfires,
+  Variable::peroxyacyl_nitrates,
+  Variable::secondary_inorganic_aerosol,
+  Variable::residential_elementary_carbon,
+  Variable::total_elementary_carbon,
+  Variable::pm2_5_total_organic_matter,
+  Variable::sea_salt_aerosol,
+  Variable::nitrogen_monoxide,
+  Variable::thunderstorm_probability,
+  Variable::rain_probability,
+  Variable::freezing_rain_probability,
+  Variable::ice_pellets_probability,
+  Variable::snowfall_probability,
+  Variable::carbon_dioxide,
+  Variable::methane,
+  Variable::sea_level_height_msl,
+  Variable::sea_surface_temperature,
+  Variable::invert_barometer_height,
+  Variable::hail,
+  Variable::albedo,
+  Variable::precipitation_type,
+  Variable::convective_cloud_base,
+  Variable::convective_cloud_top,
+  Variable::snow_depth_water_equivalent,
 ];
 
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
@@ -906,9 +983,38 @@ impl Variable {
   pub const ocean_current_direction: Self = Self(109);
   pub const cloud_base: Self = Self(110);
   pub const cloud_top: Self = Self(111);
+  pub const mass_density: Self = Self(112);
+  pub const boundary_layer_height: Self = Self(113);
+  pub const formaldehyde: Self = Self(114);
+  pub const glyoxal: Self = Self(115);
+  pub const non_methane_volatile_organic_compounds: Self = Self(116);
+  pub const pm10_wildfires: Self = Self(117);
+  pub const peroxyacyl_nitrates: Self = Self(118);
+  pub const secondary_inorganic_aerosol: Self = Self(119);
+  pub const residential_elementary_carbon: Self = Self(120);
+  pub const total_elementary_carbon: Self = Self(121);
+  pub const pm2_5_total_organic_matter: Self = Self(122);
+  pub const sea_salt_aerosol: Self = Self(123);
+  pub const nitrogen_monoxide: Self = Self(124);
+  pub const thunderstorm_probability: Self = Self(125);
+  pub const rain_probability: Self = Self(126);
+  pub const freezing_rain_probability: Self = Self(127);
+  pub const ice_pellets_probability: Self = Self(128);
+  pub const snowfall_probability: Self = Self(129);
+  pub const carbon_dioxide: Self = Self(130);
+  pub const methane: Self = Self(131);
+  pub const sea_level_height_msl: Self = Self(132);
+  pub const sea_surface_temperature: Self = Self(133);
+  pub const invert_barometer_height: Self = Self(134);
+  pub const hail: Self = Self(135);
+  pub const albedo: Self = Self(136);
+  pub const precipitation_type: Self = Self(137);
+  pub const convective_cloud_base: Self = Self(138);
+  pub const convective_cloud_top: Self = Self(139);
+  pub const snow_depth_water_equivalent: Self = Self(140);
 
   pub const ENUM_MIN: u8 = 0;
-  pub const ENUM_MAX: u8 = 111;
+  pub const ENUM_MAX: u8 = 140;
   pub const ENUM_VALUES: &'static [Self] = &[
     Self::undefined,
     Self::apparent_temperature,
@@ -1022,6 +1128,35 @@ impl Variable {
     Self::ocean_current_direction,
     Self::cloud_base,
     Self::cloud_top,
+    Self::mass_density,
+    Self::boundary_layer_height,
+    Self::formaldehyde,
+    Self::glyoxal,
+    Self::non_methane_volatile_organic_compounds,
+    Self::pm10_wildfires,
+    Self::peroxyacyl_nitrates,
+    Self::secondary_inorganic_aerosol,
+    Self::residential_elementary_carbon,
+    Self::total_elementary_carbon,
+    Self::pm2_5_total_organic_matter,
+    Self::sea_salt_aerosol,
+    Self::nitrogen_monoxide,
+    Self::thunderstorm_probability,
+    Self::rain_probability,
+    Self::freezing_rain_probability,
+    Self::ice_pellets_probability,
+    Self::snowfall_probability,
+    Self::carbon_dioxide,
+    Self::methane,
+    Self::sea_level_height_msl,
+    Self::sea_surface_temperature,
+    Self::invert_barometer_height,
+    Self::hail,
+    Self::albedo,
+    Self::precipitation_type,
+    Self::convective_cloud_base,
+    Self::convective_cloud_top,
+    Self::snow_depth_water_equivalent,
   ];
   /// Returns the variant's name or "" if unknown.
   pub fn variant_name(self) -> Option<&'static str> {
@@ -1138,6 +1273,35 @@ impl Variable {
       Self::ocean_current_direction => Some("ocean_current_direction"),
       Self::cloud_base => Some("cloud_base"),
       Self::cloud_top => Some("cloud_top"),
+      Self::mass_density => Some("mass_density"),
+      Self::boundary_layer_height => Some("boundary_layer_height"),
+      Self::formaldehyde => Some("formaldehyde"),
+      Self::glyoxal => Some("glyoxal"),
+      Self::non_methane_volatile_organic_compounds => Some("non_methane_volatile_organic_compounds"),
+      Self::pm10_wildfires => Some("pm10_wildfires"),
+      Self::peroxyacyl_nitrates => Some("peroxyacyl_nitrates"),
+      Self::secondary_inorganic_aerosol => Some("secondary_inorganic_aerosol"),
+      Self::residential_elementary_carbon => Some("residential_elementary_carbon"),
+      Self::total_elementary_carbon => Some("total_elementary_carbon"),
+      Self::pm2_5_total_organic_matter => Some("pm2_5_total_organic_matter"),
+      Self::sea_salt_aerosol => Some("sea_salt_aerosol"),
+      Self::nitrogen_monoxide => Some("nitrogen_monoxide"),
+      Self::thunderstorm_probability => Some("thunderstorm_probability"),
+      Self::rain_probability => Some("rain_probability"),
+      Self::freezing_rain_probability => Some("freezing_rain_probability"),
+      Self::ice_pellets_probability => Some("ice_pellets_probability"),
+      Self::snowfall_probability => Some("snowfall_probability"),
+      Self::carbon_dioxide => Some("carbon_dioxide"),
+      Self::methane => Some("methane"),
+      Self::sea_level_height_msl => Some("sea_level_height_msl"),
+      Self::sea_surface_temperature => Some("sea_surface_temperature"),
+      Self::invert_barometer_height => Some("invert_barometer_height"),
+      Self::hail => Some("hail"),
+      Self::albedo => Some("albedo"),
+      Self::precipitation_type => Some("precipitation_type"),
+      Self::convective_cloud_base => Some("convective_cloud_base"),
+      Self::convective_cloud_top => Some("convective_cloud_top"),
+      Self::snow_depth_water_equivalent => Some("snow_depth_water_equivalent"),
       _ => None,
     }
   }
@@ -1352,8 +1516,8 @@ impl<'a> VariableWithValues<'a> {
     VariableWithValues { _tab: table }
   }
   #[allow(unused_mut)]
-  pub fn create<'bldr: 'args, 'args: 'mut_bldr, 'mut_bldr, A: flatbuffers::Allocator + 'bldr>(
-    _fbb: &'mut_bldr mut flatbuffers::FlatBufferBuilder<'bldr, A>,
+  pub fn create<'bldr: 'args, 'args: 'mut_bldr, 'mut_bldr>(
+    _fbb: &'mut_bldr mut flatbuffers::FlatBufferBuilder<'bldr>,
     args: &'args VariableWithValuesArgs<'args>
   ) -> flatbuffers::WIPOffset<VariableWithValues<'bldr>> {
     let mut builder = VariableWithValuesBuilder::new(_fbb);
@@ -1516,11 +1680,11 @@ impl<'a> Default for VariableWithValuesArgs<'a> {
   }
 }
 
-pub struct VariableWithValuesBuilder<'a: 'b, 'b, A: flatbuffers::Allocator + 'a> {
-  fbb_: &'b mut flatbuffers::FlatBufferBuilder<'a, A>,
+pub struct VariableWithValuesBuilder<'a: 'b, 'b> {
+  fbb_: &'b mut flatbuffers::FlatBufferBuilder<'a>,
   start_: flatbuffers::WIPOffset<flatbuffers::TableUnfinishedWIPOffset>,
 }
-impl<'a: 'b, 'b, A: flatbuffers::Allocator + 'a> VariableWithValuesBuilder<'a, 'b, A> {
+impl<'a: 'b, 'b> VariableWithValuesBuilder<'a, 'b> {
   #[inline]
   pub fn add_variable(&mut self, variable: Variable) {
     self.fbb_.push_slot::<Variable>(VariableWithValues::VT_VARIABLE, variable, Variable::undefined);
@@ -1570,7 +1734,7 @@ impl<'a: 'b, 'b, A: flatbuffers::Allocator + 'a> VariableWithValuesBuilder<'a, '
     self.fbb_.push_slot::<i16>(VariableWithValues::VT_PREVIOUS_DAY, previous_day, 0);
   }
   #[inline]
-  pub fn new(_fbb: &'b mut flatbuffers::FlatBufferBuilder<'a, A>) -> VariableWithValuesBuilder<'a, 'b, A> {
+  pub fn new(_fbb: &'b mut flatbuffers::FlatBufferBuilder<'a>) -> VariableWithValuesBuilder<'a, 'b> {
     let start = _fbb.start_table();
     VariableWithValuesBuilder {
       fbb_: _fbb,
@@ -1628,8 +1792,8 @@ impl<'a> VariablesWithTime<'a> {
     VariablesWithTime { _tab: table }
   }
   #[allow(unused_mut)]
-  pub fn create<'bldr: 'args, 'args: 'mut_bldr, 'mut_bldr, A: flatbuffers::Allocator + 'bldr>(
-    _fbb: &'mut_bldr mut flatbuffers::FlatBufferBuilder<'bldr, A>,
+  pub fn create<'bldr: 'args, 'args: 'mut_bldr, 'mut_bldr>(
+    _fbb: &'mut_bldr mut flatbuffers::FlatBufferBuilder<'bldr>,
     args: &'args VariablesWithTimeArgs<'args>
   ) -> flatbuffers::WIPOffset<VariablesWithTime<'bldr>> {
     let mut builder = VariablesWithTimeBuilder::new(_fbb);
@@ -1704,11 +1868,11 @@ impl<'a> Default for VariablesWithTimeArgs<'a> {
   }
 }
 
-pub struct VariablesWithTimeBuilder<'a: 'b, 'b, A: flatbuffers::Allocator + 'a> {
-  fbb_: &'b mut flatbuffers::FlatBufferBuilder<'a, A>,
+pub struct VariablesWithTimeBuilder<'a: 'b, 'b> {
+  fbb_: &'b mut flatbuffers::FlatBufferBuilder<'a>,
   start_: flatbuffers::WIPOffset<flatbuffers::TableUnfinishedWIPOffset>,
 }
-impl<'a: 'b, 'b, A: flatbuffers::Allocator + 'a> VariablesWithTimeBuilder<'a, 'b, A> {
+impl<'a: 'b, 'b> VariablesWithTimeBuilder<'a, 'b> {
   #[inline]
   pub fn add_time(&mut self, time: i64) {
     self.fbb_.push_slot::<i64>(VariablesWithTime::VT_TIME, time, 0);
@@ -1726,7 +1890,7 @@ impl<'a: 'b, 'b, A: flatbuffers::Allocator + 'a> VariablesWithTimeBuilder<'a, 'b
     self.fbb_.push_slot_always::<flatbuffers::WIPOffset<_>>(VariablesWithTime::VT_VARIABLES, variables);
   }
   #[inline]
-  pub fn new(_fbb: &'b mut flatbuffers::FlatBufferBuilder<'a, A>) -> VariablesWithTimeBuilder<'a, 'b, A> {
+  pub fn new(_fbb: &'b mut flatbuffers::FlatBufferBuilder<'a>) -> VariablesWithTimeBuilder<'a, 'b> {
     let start = _fbb.start_table();
     VariablesWithTimeBuilder {
       fbb_: _fbb,
@@ -1786,8 +1950,8 @@ impl<'a> WeatherApiResponse<'a> {
     WeatherApiResponse { _tab: table }
   }
   #[allow(unused_mut)]
-  pub fn create<'bldr: 'args, 'args: 'mut_bldr, 'mut_bldr, A: flatbuffers::Allocator + 'bldr>(
-    _fbb: &'mut_bldr mut flatbuffers::FlatBufferBuilder<'bldr, A>,
+  pub fn create<'bldr: 'args, 'args: 'mut_bldr, 'mut_bldr>(
+    _fbb: &'mut_bldr mut flatbuffers::FlatBufferBuilder<'bldr>,
     args: &'args WeatherApiResponseArgs<'args>
   ) -> flatbuffers::WIPOffset<WeatherApiResponse<'bldr>> {
     let mut builder = WeatherApiResponseBuilder::new(_fbb);
@@ -1972,11 +2136,11 @@ impl<'a> Default for WeatherApiResponseArgs<'a> {
   }
 }
 
-pub struct WeatherApiResponseBuilder<'a: 'b, 'b, A: flatbuffers::Allocator + 'a> {
-  fbb_: &'b mut flatbuffers::FlatBufferBuilder<'a, A>,
+pub struct WeatherApiResponseBuilder<'a: 'b, 'b> {
+  fbb_: &'b mut flatbuffers::FlatBufferBuilder<'a>,
   start_: flatbuffers::WIPOffset<flatbuffers::TableUnfinishedWIPOffset>,
 }
-impl<'a: 'b, 'b, A: flatbuffers::Allocator + 'a> WeatherApiResponseBuilder<'a, 'b, A> {
+impl<'a: 'b, 'b> WeatherApiResponseBuilder<'a, 'b> {
   #[inline]
   pub fn add_latitude(&mut self, latitude: f32) {
     self.fbb_.push_slot::<f32>(WeatherApiResponse::VT_LATITUDE, latitude, 0.0);
@@ -2034,7 +2198,7 @@ impl<'a: 'b, 'b, A: flatbuffers::Allocator + 'a> WeatherApiResponseBuilder<'a, '
     self.fbb_.push_slot_always::<flatbuffers::WIPOffset<VariablesWithTime>>(WeatherApiResponse::VT_SIX_HOURLY, six_hourly);
   }
   #[inline]
-  pub fn new(_fbb: &'b mut flatbuffers::FlatBufferBuilder<'a, A>) -> WeatherApiResponseBuilder<'a, 'b, A> {
+  pub fn new(_fbb: &'b mut flatbuffers::FlatBufferBuilder<'a>) -> WeatherApiResponseBuilder<'a, 'b> {
     let start = _fbb.start_table();
     WeatherApiResponseBuilder {
       fbb_: _fbb,
@@ -2129,14 +2293,14 @@ pub unsafe fn size_prefixed_root_as_weather_api_response_unchecked(buf: &[u8]) -
   flatbuffers::size_prefixed_root_unchecked::<WeatherApiResponse>(buf)
 }
 #[inline]
-pub fn finish_weather_api_response_buffer<'a, 'b, A: flatbuffers::Allocator + 'a>(
-    fbb: &'b mut flatbuffers::FlatBufferBuilder<'a, A>,
+pub fn finish_weather_api_response_buffer<'a, 'b>(
+    fbb: &'b mut flatbuffers::FlatBufferBuilder<'a>,
     root: flatbuffers::WIPOffset<WeatherApiResponse<'a>>) {
   fbb.finish(root, None);
 }
 
 #[inline]
-pub fn finish_size_prefixed_weather_api_response_buffer<'a, 'b, A: flatbuffers::Allocator + 'a>(fbb: &'b mut flatbuffers::FlatBufferBuilder<'a, A>, root: flatbuffers::WIPOffset<WeatherApiResponse<'a>>) {
+pub fn finish_size_prefixed_weather_api_response_buffer<'a, 'b>(fbb: &'b mut flatbuffers::FlatBufferBuilder<'a>, root: flatbuffers::WIPOffset<WeatherApiResponse<'a>>) {
   fbb.finish_size_prefixed(root, None);
 }
 }  // pub mod openmeteo_sdk

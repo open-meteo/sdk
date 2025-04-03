@@ -1,0 +1,4 @@
+[workspace]
+members = ["rust/open-meteo-sdk", "rust/open-meteo-client"]
+
+resolver = "2"

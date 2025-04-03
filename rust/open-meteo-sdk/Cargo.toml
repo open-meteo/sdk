@@ -1,0 +1,13 @@
+[package]
+name = "open-meteo-sdk"
+version = "0.1.0"
+edition = "2021"
+description = "Rust SDK for Open-Meteo Weather API"
+license = "MIT"
+
+[dependencies]
+flatbuffers = "^25.1"
+chrono = { version = "^0.4", optional = true }
+
+[features]
+extensions = ["dep:chrono"]
