@@ -154,8 +154,10 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case satelliteRadiationSeamless = 91
   case kmaGdps = 92
   case kmaLdps = 93
+  case kmaSeamless = 94
+  case italiaMeteoArpaeIcon2i = 95
 
-  public static var max: openmeteo_sdk_Model { return .kmaLdps }
+  public static var max: openmeteo_sdk_Model { return .italiaMeteoArpaeIcon2i }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -305,8 +307,16 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case convectiveCloudBase = 138
   case convectiveCloudTop = 139
   case snowDepthWaterEquivalent = 140
+  case secondarySwellWaveHeight = 141
+  case secondarySwellWavePeriod = 142
+  case secondarySwellWavePeakPeriod = 143
+  case secondarySwellWaveDirection = 144
+  case tertiarySwellWaveHeight = 145
+  case tertiarySwellWavePeriod = 146
+  case tertiarySwellWavePeakPeriod = 147
+  case tertiarySwellWaveDirection = 148
 
-  public static var max: openmeteo_sdk_Variable { return .snowDepthWaterEquivalent }
+  public static var max: openmeteo_sdk_Variable { return .tertiarySwellWaveDirection }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

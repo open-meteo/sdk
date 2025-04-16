@@ -143,5 +143,13 @@ export enum Variable {
   precipitation_type = 137,
   convective_cloud_base = 138,
   convective_cloud_top = 139,
-  snow_depth_water_equivalent = 140
+  snow_depth_water_equivalent = 140,
+  secondary_swell_wave_height = 141,
+  secondary_swell_wave_period = 142,
+  secondary_swell_wave_peak_period = 143,
+  secondary_swell_wave_direction = 144,
+  tertiary_swell_wave_height = 145,
+  tertiary_swell_wave_period = 146,
+  tertiary_swell_wave_peak_period = 147,
+  tertiary_swell_wave_direction = 148
 }

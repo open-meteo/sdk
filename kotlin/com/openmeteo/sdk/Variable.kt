@@ -146,5 +146,13 @@ class Variable private constructor() {
         const val convective_cloud_base: UByte = 138u
         const val convective_cloud_top: UByte = 139u
         const val snow_depth_water_equivalent: UByte = 140u
+        const val secondary_swell_wave_height: UByte = 141u
+        const val secondary_swell_wave_period: UByte = 142u
+        const val secondary_swell_wave_peak_period: UByte = 143u
+        const val secondary_swell_wave_direction: UByte = 144u
+        const val tertiary_swell_wave_height: UByte = 145u
+        const val tertiary_swell_wave_period: UByte = 146u
+        const val tertiary_swell_wave_peak_period: UByte = 147u
+        const val tertiary_swell_wave_direction: UByte = 148u
     }
 }
