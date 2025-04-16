@@ -103,4 +103,6 @@ class Model(object):
   satellite_radiation_seamless: int
   kma_gdps: int
   kma_ldps: int
+  kma_seamless: int
+  italia_meteo_arpae_icon_2i: int
 

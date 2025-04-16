@@ -147,7 +147,9 @@ enum Model: ubyte {
   eumetsat_lsa_saf_iodc,
   satellite_radiation_seamless,
   kma_gdps,
-  kma_ldps
+  kma_ldps,
+  kma_seamless,
+  italia_meteo_arpae_icon_2i
 }
 
 enum Variable: ubyte {
@@ -291,7 +293,15 @@ enum Variable: ubyte {
   precipitation_type,
   convective_cloud_base,
   convective_cloud_top,
-  snow_depth_water_equivalent
+  snow_depth_water_equivalent,
+  secondary_swell_wave_height,
+  secondary_swell_wave_period,
+  secondary_swell_wave_peak_period,
+  secondary_swell_wave_direction,
+  tertiary_swell_wave_height,
+  tertiary_swell_wave_period,
+  tertiary_swell_wave_peak_period,
+  tertiary_swell_wave_direction,
 }
 
 enum Aggregation: ubyte {

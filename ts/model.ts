@@ -96,5 +96,7 @@ export enum Model {
   eumetsat_lsa_saf_iodc = 90,
   satellite_radiation_seamless = 91,
   kma_gdps = 92,
-  kma_ldps = 93
+  kma_ldps = 93,
+  kma_seamless = 94,
+  italia_meteo_arpae_icon_2i = 95
 }

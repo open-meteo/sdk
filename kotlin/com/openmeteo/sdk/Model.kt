@@ -99,5 +99,7 @@ class Model private constructor() {
         const val satellite_radiation_seamless: UByte = 91u
         const val kma_gdps: UByte = 92u
         const val kma_ldps: UByte = 93u
+        const val kma_seamless: UByte = 94u
+        const val italia_meteo_arpae_icon_2i: UByte = 95u
     }
 }

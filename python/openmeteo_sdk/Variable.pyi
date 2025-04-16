@@ -150,4 +150,12 @@ class Variable(object):
   convective_cloud_base: int
   convective_cloud_top: int
   snow_depth_water_equivalent: int
+  secondary_swell_wave_height: int
+  secondary_swell_wave_period: int
+  secondary_swell_wave_peak_period: int
+  secondary_swell_wave_direction: int
+  tertiary_swell_wave_height: int
+  tertiary_swell_wave_period: int
+  tertiary_swell_wave_peak_period: int
+  tertiary_swell_wave_direction: int
 

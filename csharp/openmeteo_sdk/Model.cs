@@ -101,6 +101,8 @@ public enum Model : byte
   satellite_radiation_seamless = 91,
   kma_gdps = 92,
   kma_ldps = 93,
+  kma_seamless = 94,
+  italia_meteo_arpae_icon_2i = 95,
 };
 
 
