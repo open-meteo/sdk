@@ -17,7 +17,7 @@ More information on how to use the compiled schema files can be found in the dir
 - [Java](./java/) via Maven Central
 - [C#](./csharp/openmeteo_sdk/)
 
-Not all programming languages are supported yet. It is a time-intensive process to validate all languages. Please open a issue ticket to ask for an additional language and/or package distribution system.
+Not all programming languages are supported yet. It is a time-intensive process to validate all languages. Please open an issue ticket to ask for an additional language and/or package distribution system.
 
 ## Usage
 Open-Meteo offers various APIs. Each API endpoint is using different FlatBuffers schemas to encode its API response. This enables strict typing. E.g. Weather data APIs offer offers different variables while the Geocoding API returns a different structure. Per default, the Open-Meteo API returns JSON, but specifying `&format=flatbuffers` in the URL return FlatBuffers encoded data.
