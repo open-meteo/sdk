@@ -72,7 +72,7 @@ Attributes:
 - `pressure_level` int16: If a weather variable in the upper atmosphere is requested, this field contains the pressure level in hectopascal. E.g. `850` for 850 hPa.
 - `depth` int16: For soil variables this defined the upper limit. E.g. `7` in `soil_moisture_7_to_28`
 - `depth_to` int16: The lower limit. E.g. `28` in `soil_moisture_7_to_28`
-- `ensemble_member` int16: For ensemble data, the member of each ensemble is set here. `0` is mostly the control run. 
+- `ensemble_member` int16: For ensemble data, the member of each ensemble is set here. `0` is mostly the control run.
 
 
 ### Model
@@ -121,7 +121,7 @@ print(temperature_2m.ValuesAsNumpy())
 print(precipitation.ValuesAsNumpy())
 ```
 
-Depending on the variable, you only have to filter by the variable name. Filtering by `altitude` is relevant if you select wind speed on multiple heights e.g. `wind_speed_10m` and `wind_speed_80m`. 
+Depending on the variable, you only have to filter by the variable name. Filtering by `altitude` is relevant if you select wind speed on multiple heights e.g. `wind_speed_10m` and `wind_speed_80m`.
 
 If you select different daily aggregations, make sure to also check for the correct aggregation. Example:
 
@@ -151,7 +151,7 @@ weather_code = current.Variables(2).value()
 
 ## Encoding with Size Prefixed FlatBuffers
 
-Data can be requested for multiple locations and multiple weather models in one API calls. E.g. `&latitude=47.1,49.7&longitude=8.6,9.4`. To return multiple locations at once, multiple FlatBuffers messages are send.
+Data can be requested for multiple locations and multiple weather models in one API calls. E.g. `&latitude=47.1,49.7&longitude=8.6,9.4`. To return multiple locations at once, multiple FlatBuffers messages are sent.
 
 To distinguish multiple messages, each message is prefixed by its length as a 32-bit integer (little endian). This is known as `size-prefixed` FlatBuffer messages. Over the wire the messages look like this:
 - Length: 4 byte, int32 (little endian) = 1284 byte
@@ -167,11 +167,11 @@ Up to 1000 locations can be requested at once. The Open-Meteo API prefetches dat
 
 ## Convert API Response to JSON
 
-If you would like to examine the data returned by the Open-Meteo API in binary FlatBuffers format, you can use the FlatBuffers schema compiler `flatc`. This can help to understand how the API response is structured. 
+If you would like to examine the data returned by the Open-Meteo API in binary FlatBuffers format, you can use the FlatBuffers schema compiler `flatc`. This can help to understand how the API response is structured.
 
 First, you will have to install the FlatBuffers compile. Mac: `brew install flatbuffers`. Ubuntu `sudo apt install flatbuffers-compiler`.
 
-Get [`weather_api.fbs`](./flatbuffers/weather_api.fbs) from this repository. 
+Get [`weather_api.fbs`](./flatbuffers/weather_api.fbs) from this repository.
 
 ```bash
 # Make sure the URL contains `&format=flatbuffers`
