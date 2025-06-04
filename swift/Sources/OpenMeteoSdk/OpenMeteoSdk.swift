@@ -13,6 +13,7 @@ extension WeatherApiResponse {
     /// Fetch data from a given URL and decode the Open-Meteo Weather API Flatbuffers structure
     @available(iOS 13.0.0, *)
     @available(macOS 12.0, *)
+    @available(watchOS 10.0, *)
     public static func fetch(url: URL, session: URLSession = URLSession.shared) async throws -> [WeatherApiResponse] {
         let request = URLRequest(url: url)
         return try await fetch(request: request, session: session)
@@ -20,6 +21,7 @@ extension WeatherApiResponse {
 
     @available(iOS 13.0.0, *)
     @available(macOS 12.0, *)
+    @available(watchOS 10.0, *)
     /// Fetch data using a given URLRequest and decode the Open-Meteo Weather API Flatbuffers structure
     public static func fetch(request: URLRequest, session: URLSession = URLSession.shared) async throws -> [WeatherApiResponse] {
         let (data, response) = try await session.data(for: request)
