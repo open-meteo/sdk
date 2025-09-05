@@ -41,7 +41,7 @@ jobs:
       - name: Compile TypeScript
         run: npm run build
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: 3.11
       - run: pip install --upgrade tomlkit hatchling build pkginfo twine setuptools
