@@ -1,4 +1,4 @@
-extension openmeteo_sdk_Aggregation {
+public extension openmeteo_sdk_Aggregation {
     var string: String {
         switch self {
         case .none_:
@@ -25,6 +25,37 @@ extension openmeteo_sdk_Aggregation {
             return "sum"
         case .spread:
             return "spread"
+        }
+    }
+
+    init?(rawValue: String) {
+        switch rawValue {
+        case "none":
+            self = .none_
+        case "minimum":
+            self = .minimum
+        case "maximum":
+            self = .maximum
+        case "mean":
+            self = .mean
+        case "p10":
+            self = .p10
+        case "p25":
+            self = .p25
+        case "median":
+            self = .median
+        case "p75":
+            self = .p75
+        case "p90":
+            self = .p90
+        case "dominant":
+            self = .dominant
+        case "sum":
+            self = .sum
+        case "spread":
+            self = .spread
+        default:
+            return nil
         }
     }
 }

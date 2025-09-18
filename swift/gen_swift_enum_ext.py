@@ -30,18 +30,33 @@ def parse_enum(schema: str, enum_name: str):
 
 def generate_swift(enum_name: str, entries):
     swift_enum_name = f"openmeteo_sdk_{enum_name}"
-    result = [f"extension {swift_enum_name} {{",
-              "    var string: String {",
-              "        switch self {"]
+    lines = [f"public extension {swift_enum_name} {{"]
 
+    # string computed property
+    lines.append("    var string: String {")
+    lines.append("        switch self {")
     for entry in entries:
         swift_case = sanitize_case(entry)
-        result.append(f"        case .{swift_case}:\n            return \"{entry}\"")
+        lines.append(f"        case .{swift_case}:")
+        lines.append(f"            return \"{entry}\"")
+    lines.append("        }")
+    lines.append("    }")
+    lines.append("")
 
-    result.append("        }")
-    result.append("    }")
-    result.append("}")
-    return "\n".join(result)
+    # initializer from string
+    lines.append("    init?(rawValue: String) {")
+    lines.append("        switch rawValue {")
+    for entry in entries:
+        swift_case = sanitize_case(entry)
+        lines.append(f"        case \"{entry}\":")
+        lines.append(f"            self = .{swift_case}")
+    lines.append("        default:")
+    lines.append("            return nil")
+    lines.append("        }")
+    lines.append("    }")
+
+    lines.append("}")
+    return "\n".join(lines)
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
