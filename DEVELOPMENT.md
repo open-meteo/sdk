@@ -6,6 +6,8 @@ AWK is used to remove create functions for flatbuffer messages
 
 ```bash
 flatc --swift -o swift/Sources/OpenMeteoSdk/ flatbuffers/*.fbs
+python3 /Users/patrick/Documents/openmeteo-sdk/swift/gen_swift_enum_ext.py flatbuffers/weather_api.fbs Variable > swift/Sources/OpenMeteoSdk/Variable+String.swift
+python3 /Users/patrick/Documents/openmeteo-sdk/swift/gen_swift_enum_ext.py flatbuffers/weather_api.fbs Aggregation > swift/Sources/OpenMeteoSdk/Aggregation+String.swift
 
 flatc --csharp -o csharp/ flatbuffers/*.fbs
 
