@@ -156,6 +156,12 @@ public enum Variable : byte
   tertiary_swell_wave_period = 146,
   tertiary_swell_wave_peak_period = 147,
   tertiary_swell_wave_direction = 148,
+  wind_u_component = 149,
+  wind_v_component = 150,
+  temperature_max24h = 151,
+  temperature_min24h = 152,
+  temperature_mean24h = 153,
+  snow_density = 154,
 };
 
 

@@ -158,4 +158,10 @@ class Variable(object):
   tertiary_swell_wave_period: int
   tertiary_swell_wave_peak_period: int
   tertiary_swell_wave_direction: int
+  wind_u_component: int
+  wind_v_component: int
+  temperature_max24h: int
+  temperature_min24h: int
+  temperature_mean24h: int
+  snow_density: int
 

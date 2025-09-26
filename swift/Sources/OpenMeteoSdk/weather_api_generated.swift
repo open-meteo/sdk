@@ -326,8 +326,14 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case tertiarySwellWavePeriod = 146
   case tertiarySwellWavePeakPeriod = 147
   case tertiarySwellWaveDirection = 148
+  case windUComponent = 149
+  case windVComponent = 150
+  case temperatureMax24h = 151
+  case temperatureMin24h = 152
+  case temperatureMean24h = 153
+  case snowDensity = 154
 
-  public static var max: openmeteo_sdk_Variable { return .tertiarySwellWaveDirection }
+  public static var max: openmeteo_sdk_Variable { return .snowDensity }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

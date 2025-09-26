@@ -154,5 +154,11 @@ class Variable private constructor() {
         const val tertiary_swell_wave_period: UByte = 146u
         const val tertiary_swell_wave_peak_period: UByte = 147u
         const val tertiary_swell_wave_direction: UByte = 148u
+        const val wind_u_component: UByte = 149u
+        const val wind_v_component: UByte = 150u
+        const val temperature_max24h: UByte = 151u
+        const val temperature_min24h: UByte = 152u
+        const val temperature_mean24h: UByte = 153u
+        const val snow_density: UByte = 154u
     }
 }

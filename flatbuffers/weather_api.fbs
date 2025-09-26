@@ -313,6 +313,12 @@ enum Variable: ubyte {
   tertiary_swell_wave_period,
   tertiary_swell_wave_peak_period,
   tertiary_swell_wave_direction,
+  wind_u_component,
+  wind_v_component,
+  temperature_max24h,
+  temperature_min24h,
+  temperature_mean24h,
+  snow_density
 }
 
 enum Aggregation: ubyte {
