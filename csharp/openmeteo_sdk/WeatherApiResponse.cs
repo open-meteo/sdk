@@ -46,6 +46,7 @@ public struct WeatherApiResponse : IFlatbufferObject
   public openmeteo_sdk.VariablesWithTime? Hourly { get { int o = __p.__offset(26); return o != 0 ? (openmeteo_sdk.VariablesWithTime?)(new openmeteo_sdk.VariablesWithTime()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
   public openmeteo_sdk.VariablesWithTime? Minutely15 { get { int o = __p.__offset(28); return o != 0 ? (openmeteo_sdk.VariablesWithTime?)(new openmeteo_sdk.VariablesWithTime()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
   public openmeteo_sdk.VariablesWithTime? SixHourly { get { int o = __p.__offset(30); return o != 0 ? (openmeteo_sdk.VariablesWithTime?)(new openmeteo_sdk.VariablesWithTime()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
+  public openmeteo_sdk.VariablesWithTime? Monthly { get { int o = __p.__offset(32); return o != 0 ? (openmeteo_sdk.VariablesWithTime?)(new openmeteo_sdk.VariablesWithTime()).__assign(__p.__indirect(o + __p.bb_pos), __p.bb) : null; } }
 
   public static Offset<openmeteo_sdk.WeatherApiResponse> CreateWeatherApiResponse(FlatBufferBuilder builder,
       float latitude = 0.0f,
@@ -61,9 +62,11 @@ public struct WeatherApiResponse : IFlatbufferObject
       Offset<openmeteo_sdk.VariablesWithTime> dailyOffset = default(Offset<openmeteo_sdk.VariablesWithTime>),
       Offset<openmeteo_sdk.VariablesWithTime> hourlyOffset = default(Offset<openmeteo_sdk.VariablesWithTime>),
       Offset<openmeteo_sdk.VariablesWithTime> minutely_15Offset = default(Offset<openmeteo_sdk.VariablesWithTime>),
-      Offset<openmeteo_sdk.VariablesWithTime> six_hourlyOffset = default(Offset<openmeteo_sdk.VariablesWithTime>)) {
-    builder.StartTable(14);
+      Offset<openmeteo_sdk.VariablesWithTime> six_hourlyOffset = default(Offset<openmeteo_sdk.VariablesWithTime>),
+      Offset<openmeteo_sdk.VariablesWithTime> monthlyOffset = default(Offset<openmeteo_sdk.VariablesWithTime>)) {
+    builder.StartTable(15);
     WeatherApiResponse.AddLocationId(builder, location_id);
+    WeatherApiResponse.AddMonthly(builder, monthlyOffset);
     WeatherApiResponse.AddSixHourly(builder, six_hourlyOffset);
     WeatherApiResponse.AddMinutely15(builder, minutely_15Offset);
     WeatherApiResponse.AddHourly(builder, hourlyOffset);
@@ -80,7 +83,7 @@ public struct WeatherApiResponse : IFlatbufferObject
     return WeatherApiResponse.EndWeatherApiResponse(builder);
   }
 
-  public static void StartWeatherApiResponse(FlatBufferBuilder builder) { builder.StartTable(14); }
+  public static void StartWeatherApiResponse(FlatBufferBuilder builder) { builder.StartTable(15); }
   public static void AddLatitude(FlatBufferBuilder builder, float latitude) { builder.AddFloat(0, latitude, 0.0f); }
   public static void AddLongitude(FlatBufferBuilder builder, float longitude) { builder.AddFloat(1, longitude, 0.0f); }
   public static void AddElevation(FlatBufferBuilder builder, float elevation) { builder.AddFloat(2, elevation, 0.0f); }
@@ -95,6 +98,7 @@ public struct WeatherApiResponse : IFlatbufferObject
   public static void AddHourly(FlatBufferBuilder builder, Offset<openmeteo_sdk.VariablesWithTime> hourlyOffset) { builder.AddOffset(11, hourlyOffset.Value, 0); }
   public static void AddMinutely15(FlatBufferBuilder builder, Offset<openmeteo_sdk.VariablesWithTime> minutely15Offset) { builder.AddOffset(12, minutely15Offset.Value, 0); }
   public static void AddSixHourly(FlatBufferBuilder builder, Offset<openmeteo_sdk.VariablesWithTime> sixHourlyOffset) { builder.AddOffset(13, sixHourlyOffset.Value, 0); }
+  public static void AddMonthly(FlatBufferBuilder builder, Offset<openmeteo_sdk.VariablesWithTime> monthlyOffset) { builder.AddOffset(14, monthlyOffset.Value, 0); }
   public static Offset<openmeteo_sdk.WeatherApiResponse> EndWeatherApiResponse(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<openmeteo_sdk.WeatherApiResponse>(o);
@@ -123,6 +127,7 @@ static public class WeatherApiResponseVerify
       && verifier.VerifyTable(tablePos, 26 /*Hourly*/, openmeteo_sdk.VariablesWithTimeVerify.Verify, false)
       && verifier.VerifyTable(tablePos, 28 /*Minutely15*/, openmeteo_sdk.VariablesWithTimeVerify.Verify, false)
       && verifier.VerifyTable(tablePos, 30 /*SixHourly*/, openmeteo_sdk.VariablesWithTimeVerify.Verify, false)
+      && verifier.VerifyTable(tablePos, 32 /*Monthly*/, openmeteo_sdk.VariablesWithTimeVerify.Verify, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }
