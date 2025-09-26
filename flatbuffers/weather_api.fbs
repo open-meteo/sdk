@@ -159,7 +159,8 @@ enum Model: ubyte {
   meteoswiss_icon_ch2_ensemble,
   meteoswiss_icon_seamless,
   ncep_nam_conus,
-  icon_d2_ruc
+  icon_d2_ruc,
+  ecmwf_seas5
 }
 
 enum Variable: ubyte {
@@ -369,6 +370,7 @@ table WeatherApiResponse {
   hourly: VariablesWithTime;
   minutely_15: VariablesWithTime;
   six_hourly: VariablesWithTime;
+  monthly: VariablesWithTime;
 }
 
 root_type WeatherApiResponse;
