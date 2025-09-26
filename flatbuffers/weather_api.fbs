@@ -149,7 +149,17 @@ enum Model: ubyte {
   kma_gdps,
   kma_ldps,
   kma_seamless,
-  italia_meteo_arpae_icon_2i
+  italia_meteo_arpae_icon_2i,
+  ukmo_uk_ensemble_2km,
+  meteofrance_arome_france_hd_15min,
+  meteofrance_arome_france_15min,
+  meteoswiss_icon_ch1,
+  meteoswiss_icon_ch2,
+  meteoswiss_icon_ch1_ensemble,
+  meteoswiss_icon_ch2_ensemble,
+  meteoswiss_icon_seamless,
+  ncep_nam_conus,
+  icon_d2_ruc
 }
 
 enum Variable: ubyte {
@@ -316,7 +326,8 @@ enum Aggregation: ubyte {
   p90,
   dominant,
   sum,
-  spread
+  spread,
+  anomaly
 }
 
 table VariableWithValues {

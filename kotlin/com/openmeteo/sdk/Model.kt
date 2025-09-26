@@ -101,5 +101,16 @@ class Model private constructor() {
         const val kma_ldps: UByte = 93u
         const val kma_seamless: UByte = 94u
         const val italia_meteo_arpae_icon_2i: UByte = 95u
+        const val ukmo_uk_ensemble_2km: UByte = 96u
+        const val meteofrance_arome_france_hd_15min: UByte = 97u
+        const val meteofrance_arome_france_15min: UByte = 98u
+        const val meteoswiss_icon_ch1: UByte = 99u
+        const val meteoswiss_icon_ch2: UByte = 100u
+        const val meteoswiss_icon_ch1_ensemble: UByte = 101u
+        const val meteoswiss_icon_ch2_ensemble: UByte = 102u
+        const val meteoswiss_icon_seamless: UByte = 103u
+        const val ecmwf_seas5: UByte = 104u
+        const val ncep_nam_conus: UByte = 105u
+        const val icon_d2_ruc: UByte = 106u
     }
 }
