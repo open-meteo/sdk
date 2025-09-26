@@ -105,4 +105,14 @@ class Model(object):
   kma_ldps: int
   kma_seamless: int
   italia_meteo_arpae_icon_2i: int
+  ukmo_uk_ensemble_2km: int
+  meteofrance_arome_france_hd_15min: int
+  meteofrance_arome_france_15min: int
+  meteoswiss_icon_ch1: int
+  meteoswiss_icon_ch2: int
+  meteoswiss_icon_ch1_ensemble: int
+  meteoswiss_icon_ch2_ensemble: int
+  meteoswiss_icon_seamless: int
+  ncep_nam_conus: int
+  icon_d2_ruc: int
 

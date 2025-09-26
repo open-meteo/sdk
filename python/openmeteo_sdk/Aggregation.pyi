@@ -21,4 +21,5 @@ class Aggregation(object):
   dominant: int
   sum: int
   spread: int
+  anomaly: int
 

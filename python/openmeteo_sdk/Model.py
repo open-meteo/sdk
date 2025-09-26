@@ -99,3 +99,13 @@ class Model(object):
     kma_ldps = 93
     kma_seamless = 94
     italia_meteo_arpae_icon_2i = 95
+    ukmo_uk_ensemble_2km = 96
+    meteofrance_arome_france_hd_15min = 97
+    meteofrance_arome_france_15min = 98
+    meteoswiss_icon_ch1 = 99
+    meteoswiss_icon_ch2 = 100
+    meteoswiss_icon_ch1_ensemble = 101
+    meteoswiss_icon_ch2_ensemble = 102
+    meteoswiss_icon_seamless = 103
+    ncep_nam_conus = 104
+    icon_d2_ruc = 105

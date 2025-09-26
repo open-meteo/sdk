@@ -17,5 +17,6 @@ class Aggregation private constructor() {
         const val dominant: UByte = 9u
         const val sum: UByte = 10u
         const val spread: UByte = 11u
+        const val anomaly: UByte = 12u
     }
 }

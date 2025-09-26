@@ -156,8 +156,18 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case kmaLdps = 93
   case kmaSeamless = 94
   case italiaMeteoArpaeIcon2i = 95
+  case ukmoUkEnsemble2km = 96
+  case meteofranceAromeFranceHd15min = 97
+  case meteofranceAromeFrance15min = 98
+  case meteoswissIconCh1 = 99
+  case meteoswissIconCh2 = 100
+  case meteoswissIconCh1Ensemble = 101
+  case meteoswissIconCh2Ensemble = 102
+  case meteoswissIconSeamless = 103
+  case ncepNamConus = 104
+  case iconD2Ruc = 105
 
-  public static var max: openmeteo_sdk_Model { return .italiaMeteoArpaeIcon2i }
+  public static var max: openmeteo_sdk_Model { return .iconD2Ruc }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -337,8 +347,9 @@ public enum openmeteo_sdk_Aggregation: UInt8, Enum, Verifiable {
   case dominant = 9
   case sum = 10
   case spread = 11
+  case anomaly = 12
 
-  public static var max: openmeteo_sdk_Aggregation { return .spread }
+  public static var max: openmeteo_sdk_Aggregation { return .anomaly }
   public static var min: openmeteo_sdk_Aggregation { return .none_ }
 }
 

@@ -19,6 +19,7 @@ public enum Aggregation : byte
   dominant = 9,
   sum = 10,
   spread = 11,
+  anomaly = 12,
 };
 
 
