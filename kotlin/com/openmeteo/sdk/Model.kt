@@ -109,8 +109,7 @@ class Model private constructor() {
         const val meteoswiss_icon_ch1_ensemble: UByte = 101u
         const val meteoswiss_icon_ch2_ensemble: UByte = 102u
         const val meteoswiss_icon_seamless: UByte = 103u
-        const val ecmwf_seas5: UByte = 104u
-        const val ncep_nam_conus: UByte = 105u
-        const val icon_d2_ruc: UByte = 106u
+        const val ncep_nam_conus: UByte = 104u
+        const val icon_d2_ruc: UByte = 105u
     }
 }

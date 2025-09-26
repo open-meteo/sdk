@@ -164,9 +164,8 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case meteoswissIconCh1Ensemble = 101
   case meteoswissIconCh2Ensemble = 102
   case meteoswissIconSeamless = 103
-  case ecmwfSeas5 = 104
-  case ncepNamConus = 105
-  case iconD2Ruc = 106
+  case ncepNamConus = 104
+  case iconD2Ruc = 105
 
   public static var max: openmeteo_sdk_Model { return .iconD2Ruc }
   public static var min: openmeteo_sdk_Model { return .undefined }

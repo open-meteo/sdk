@@ -107,6 +107,5 @@ class Model(object):
     meteoswiss_icon_ch1_ensemble = 101
     meteoswiss_icon_ch2_ensemble = 102
     meteoswiss_icon_seamless = 103
-    ecmwf_seas5 = 104
-    ncep_nam_conus = 105
-    icon_d2_ruc = 106
+    ncep_nam_conus = 104
+    icon_d2_ruc = 105
