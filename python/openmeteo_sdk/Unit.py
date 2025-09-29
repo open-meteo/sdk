@@ -45,3 +45,4 @@ class Unit(object):
     watt_per_square_metre = 39
     wmo_code = 40
     parts_per_million = 41
+    kilogram_per_cubic_metre = 42

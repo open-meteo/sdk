@@ -51,4 +51,5 @@ class Unit(object):
   watt_per_square_metre: int
   wmo_code: int
   parts_per_million: int
+  kilogram_per_cubic_metre: int
 

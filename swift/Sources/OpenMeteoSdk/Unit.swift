@@ -5,7 +5,7 @@ extension openmeteo_sdk_Unit {
         case .undefined: return "undefined"
         case .celsius: return "°C"
         case .fahrenheit: return "°F"
-        case .kelvin: return "°K"
+        case .kelvin: return "K"
         case .kilometresPerHour: return "km/h"
         case .milesPerHour: return "mp/h"
         case .knots: return "kn"
@@ -44,6 +44,7 @@ extension openmeteo_sdk_Unit {
         case .gddCelsius: return "GGDc"
         case .fraction: return "fraction"
         case .partsPerMillion: return "ppm"
+        case .kilogramPerCubicMetre: return "kg/m³"
         }
     }
     
@@ -92,6 +93,7 @@ extension openmeteo_sdk_Unit {
         case .gddCelsius: return 2
         case .fraction: return 3
         case .partsPerMillion: return 0
+        case .kilogramPerCubicMetre: return 2
         }
     }
 }

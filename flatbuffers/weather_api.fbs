@@ -50,7 +50,8 @@ enum Unit : ubyte {
   us_air_quality_index,
   watt_per_square_metre,
   wmo_code,
-  parts_per_million
+  parts_per_million,
+  kilogram_per_cubic_metre
 }
 
 enum Model: ubyte {

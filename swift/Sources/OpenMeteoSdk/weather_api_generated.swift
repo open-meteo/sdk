@@ -50,8 +50,9 @@ public enum openmeteo_sdk_Unit: UInt8, Enum, Verifiable {
   case wattPerSquareMetre = 39
   case wmoCode = 40
   case partsPerMillion = 41
+  case kilogramPerCubicMetre = 42
 
-  public static var max: openmeteo_sdk_Unit { return .partsPerMillion }
+  public static var max: openmeteo_sdk_Unit { return .kilogramPerCubicMetre }
   public static var min: openmeteo_sdk_Unit { return .undefined }
 }
 
