@@ -45,7 +45,7 @@ The main `WeatherApiResponse` structure contains
 - `daily` [VariablesWithTime](#VariablesWithTime): All variables requested with `&daily=`
 - `hourly` [VariablesWithTime](#VariablesWithTime): All variables requested with `&hourly=`
 - `minutely_15` [VariablesWithTime](#VariablesWithTime): All variables requested with `&minutely_15=`
-- `monthly` [VariablesWithTime](#VariablesWithTime): All variables requested with `&monthly=`
+- `monthly` [VariablesWithMonth](#VariablesWithMonth): All variables requested with `&monthly=`
 
 ### VariablesWithTime
 All `hourly` or `daily` weather variables are grouped into the class `VariablesWithTime`. It contains the start and end time as well as the interval.
@@ -57,6 +57,15 @@ Attributes:
 - `variables` [[VariableWithValues](#VariableWithValues)]: An array of weather variables
 
 Timestamps always use unixtime in seconds. Time is always in GMT! If you want to display local time again, you can use the attribute `utc_offset_seconds` from the response structure
+
+### VariablesWithMonth
+All `hourly` or `daily` weather variables are grouped into the class `VariablesWithTime`. It contains the start and end time as well as the interval.
+
+Attributes:
+- `year` int16: The first year of the returned data. E.g. `2025`.
+- `month` int8: The first month. From 1 to 12.
+- `count` int32: The number of step for monthly data. 24 means 2 years of data is returned.
+- `variables` [[VariableWithValues](#VariableWithValues)]: An array of weather variables
 
 ### VariableWithValues
 Each weather variable is accompanied by meta data like the name of the weather variable or unit.
