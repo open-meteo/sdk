@@ -30,7 +30,7 @@ final class OpenMeteoSdkTests: XCTestCase {
             dailyOffset: Offset(offset: 22),
             hourlyOffset: Offset(offset: 33),
             minutely15Offset: Offset(offset: 44),
-            sixHourlyOffset: Offset(offset: 55)
+            monthlyOffset: Offset(offset: 55)
         )
         fbb.finish(offset: api)
         XCTAssertEqual(fbb.sizedByteArray, [36, 0, 0, 0, 32, 0, 52, 0, 48, 0, 44, 0, 40, 0, 36, 0, 0, 0, 0, 0, 32, 0, 28, 0, 24, 0, 20, 0, 16, 0, 12, 0, 8, 0, 4, 0, 32, 0, 0, 0, 21, 0, 0, 0, 28, 0, 0, 0, 35, 0, 0, 0, 42, 0, 0, 0, 49, 0, 0, 0, 28, 0, 0, 0, 32, 0, 0, 0, 16, 14, 0, 0, 104, 145, 157, 63, 0, 0, 150, 68, 0, 0, 72, 66, 0, 0, 32, 66, 3, 0, 0, 0, 67, 69, 84, 0, 13, 0, 0, 0, 69, 117, 114, 111, 112, 101, 47, 66, 101, 114, 108, 105, 110, 0, 0, 0])

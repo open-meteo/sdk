@@ -115,4 +115,5 @@ class Model(object):
   meteoswiss_icon_seamless: int
   ncep_nam_conus: int
   icon_d2_ruc: int
+  ecmwf_seas5: int
 

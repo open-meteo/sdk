@@ -121,8 +121,8 @@ class WeatherApiResponse : Table() {
             null
         }
     }
-    val sixHourly : com.openmeteo.sdk.VariablesWithTime? get() = sixHourly(com.openmeteo.sdk.VariablesWithTime())
-    fun sixHourly(obj: com.openmeteo.sdk.VariablesWithTime) : com.openmeteo.sdk.VariablesWithTime? {
+    val monthly : com.openmeteo.sdk.VariablesWithMonth? get() = monthly(com.openmeteo.sdk.VariablesWithMonth())
+    fun monthly(obj: com.openmeteo.sdk.VariablesWithMonth) : com.openmeteo.sdk.VariablesWithMonth? {
         val o = __offset(30)
         return if (o != 0) {
             obj.__assign(__indirect(o + bb_pos), bb)
@@ -137,10 +137,10 @@ class WeatherApiResponse : Table() {
             _bb.order(ByteOrder.LITTLE_ENDIAN)
             return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb))
         }
-        fun createWeatherApiResponse(builder: FlatBufferBuilder, latitude: Float, longitude: Float, elevation: Float, generationTimeMilliseconds: Float, locationId: Long, model: UByte, utcOffsetSeconds: Int, timezoneOffset: Int, timezoneAbbreviationOffset: Int, currentOffset: Int, dailyOffset: Int, hourlyOffset: Int, minutely15Offset: Int, sixHourlyOffset: Int) : Int {
+        fun createWeatherApiResponse(builder: FlatBufferBuilder, latitude: Float, longitude: Float, elevation: Float, generationTimeMilliseconds: Float, locationId: Long, model: UByte, utcOffsetSeconds: Int, timezoneOffset: Int, timezoneAbbreviationOffset: Int, currentOffset: Int, dailyOffset: Int, hourlyOffset: Int, minutely15Offset: Int, monthlyOffset: Int) : Int {
             builder.startTable(14)
             addLocationId(builder, locationId)
-            addSixHourly(builder, sixHourlyOffset)
+            addMonthly(builder, monthlyOffset)
             addMinutely15(builder, minutely15Offset)
             addHourly(builder, hourlyOffset)
             addDaily(builder, dailyOffset)
@@ -169,7 +169,7 @@ class WeatherApiResponse : Table() {
         fun addDaily(builder: FlatBufferBuilder, daily: Int) = builder.addOffset(10, daily, 0)
         fun addHourly(builder: FlatBufferBuilder, hourly: Int) = builder.addOffset(11, hourly, 0)
         fun addMinutely15(builder: FlatBufferBuilder, minutely15: Int) = builder.addOffset(12, minutely15, 0)
-        fun addSixHourly(builder: FlatBufferBuilder, sixHourly: Int) = builder.addOffset(13, sixHourly, 0)
+        fun addMonthly(builder: FlatBufferBuilder, monthly: Int) = builder.addOffset(13, monthly, 0)
         fun endWeatherApiResponse(builder: FlatBufferBuilder) : Int {
             val o = builder.endTable()
             return o

@@ -47,8 +47,9 @@ public final class Unit {
   public static final int watt_per_square_metre = 39;
   public static final int wmo_code = 40;
   public static final int parts_per_million = 41;
+  public static final int kilogram_per_cubic_metre = 42;
 
-  public static final String[] names = { "undefined", "celsius", "centimetre", "cubic_metre_per_cubic_metre", "cubic_metre_per_second", "degree_direction", "dimensionless_integer", "dimensionless", "european_air_quality_index", "fahrenheit", "feet", "fraction", "gdd_celsius", "geopotential_metre", "grains_per_cubic_metre", "gram_per_kilogram", "hectopascal", "hours", "inch", "iso8601", "joule_per_kilogram", "kelvin", "kilopascal", "kilogram_per_square_metre", "kilometres_per_hour", "knots", "megajoule_per_square_metre", "metre_per_second_not_unit_converted", "metre_per_second", "metre", "micrograms_per_cubic_metre", "miles_per_hour", "millimetre", "pascal", "per_second", "percentage", "seconds", "unix_time", "us_air_quality_index", "watt_per_square_metre", "wmo_code", "parts_per_million", };
+  public static final String[] names = { "undefined", "celsius", "centimetre", "cubic_metre_per_cubic_metre", "cubic_metre_per_second", "degree_direction", "dimensionless_integer", "dimensionless", "european_air_quality_index", "fahrenheit", "feet", "fraction", "gdd_celsius", "geopotential_metre", "grains_per_cubic_metre", "gram_per_kilogram", "hectopascal", "hours", "inch", "iso8601", "joule_per_kilogram", "kelvin", "kilopascal", "kilogram_per_square_metre", "kilometres_per_hour", "knots", "megajoule_per_square_metre", "metre_per_second_not_unit_converted", "metre_per_second", "metre", "micrograms_per_cubic_metre", "miles_per_hour", "millimetre", "pascal", "per_second", "percentage", "seconds", "unix_time", "us_air_quality_index", "watt_per_square_metre", "wmo_code", "parts_per_million", "kilogram_per_cubic_metre", };
 
   public static String name(int e) { return names[e]; }
 }

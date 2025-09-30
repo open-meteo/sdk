@@ -50,7 +50,8 @@ enum Unit : ubyte {
   us_air_quality_index,
   watt_per_square_metre,
   wmo_code,
-  parts_per_million
+  parts_per_million,
+  kilogram_per_cubic_metre
 }
 
 enum Model: ubyte {
@@ -159,7 +160,8 @@ enum Model: ubyte {
   meteoswiss_icon_ch2_ensemble,
   meteoswiss_icon_seamless,
   ncep_nam_conus,
-  icon_d2_ruc
+  icon_d2_ruc,
+  ecmwf_seas5
 }
 
 enum Variable: ubyte {
@@ -312,6 +314,15 @@ enum Variable: ubyte {
   tertiary_swell_wave_period,
   tertiary_swell_wave_peak_period,
   tertiary_swell_wave_direction,
+  wind_u_component,
+  wind_v_component,
+  temperature_max24h,
+  temperature_min24h,
+  temperature_mean24h,
+  snow_density,
+  longwave_radiation,
+  sea_ice_cover,
+  k_index
 }
 
 enum Aggregation: ubyte {
@@ -354,6 +365,13 @@ table VariablesWithTime {
   variables: [VariableWithValues];
 }
 
+table VariablesWithMonth {
+  year: int16;
+  month: int8;
+  count: int32;
+  variables: [VariableWithValues];
+}
+
 table WeatherApiResponse {
   latitude: float;
   longitude: float;
@@ -368,7 +386,7 @@ table WeatherApiResponse {
   daily: VariablesWithTime;
   hourly: VariablesWithTime;
   minutely_15: VariablesWithTime;
-  six_hourly: VariablesWithTime;
+  monthly: VariablesWithMonth;
 }
 
 root_type WeatherApiResponse;

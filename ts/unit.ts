@@ -44,5 +44,6 @@ export enum Unit {
   us_air_quality_index = 38,
   watt_per_square_metre = 39,
   wmo_code = 40,
-  parts_per_million = 41
+  parts_per_million = 41,
+  kilogram_per_cubic_metre = 42
 }
