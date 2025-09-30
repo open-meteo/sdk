@@ -167,4 +167,6 @@ class Variable(object):
   longwave_radiation: int
   sea_ice_cover: int
   k_index: int
+  roughness_length: int
+  potential_evapotranspiration: int
 

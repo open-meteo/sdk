@@ -163,5 +163,7 @@ class Variable private constructor() {
         const val longwave_radiation: UByte = 155u
         const val sea_ice_cover: UByte = 156u
         const val k_index: UByte = 157u
+        const val roughness_length: UByte = 158u
+        const val potential_evapotranspiration: UByte = 159u
     }
 }
