@@ -336,8 +336,10 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case longwaveRadiation = 155
   case seaIceCover = 156
   case kIndex = 157
+  case roughnessLength = 158
+  case potentialEvapotranspiration = 159
 
-  public static var max: openmeteo_sdk_Variable { return .kIndex }
+  public static var max: openmeteo_sdk_Variable { return .potentialEvapotranspiration }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

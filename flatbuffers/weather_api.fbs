@@ -322,7 +322,9 @@ enum Variable: ubyte {
   snow_density,
   longwave_radiation,
   sea_ice_cover,
-  k_index
+  k_index,
+  roughness_length,
+  potential_evapotranspiration
 }
 
 enum Aggregation: ubyte {

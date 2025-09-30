@@ -165,6 +165,8 @@ public enum Variable : byte
   longwave_radiation = 155,
   sea_ice_cover = 156,
   k_index = 157,
+  roughness_length = 158,
+  potential_evapotranspiration = 159,
 };
 
 
