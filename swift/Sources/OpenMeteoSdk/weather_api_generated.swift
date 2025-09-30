@@ -333,8 +333,11 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case temperatureMin24h = 152
   case temperatureMean24h = 153
   case snowDensity = 154
+  case longwaveRadiation = 155
+  case seaIceCover = 156
+  case kIndex = 157
 
-  public static var max: openmeteo_sdk_Variable { return .snowDensity }
+  public static var max: openmeteo_sdk_Variable { return .kIndex }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

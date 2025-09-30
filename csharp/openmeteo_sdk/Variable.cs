@@ -162,6 +162,9 @@ public enum Variable : byte
   temperature_min24h = 152,
   temperature_mean24h = 153,
   snow_density = 154,
+  longwave_radiation = 155,
+  sea_ice_cover = 156,
+  k_index = 157,
 };
 
 

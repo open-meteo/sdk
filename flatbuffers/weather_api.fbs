@@ -319,7 +319,10 @@ enum Variable: ubyte {
   temperature_max24h,
   temperature_min24h,
   temperature_mean24h,
-  snow_density
+  snow_density,
+  longwave_radiation,
+  sea_ice_cover,
+  k_index
 }
 
 enum Aggregation: ubyte {

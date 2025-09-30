@@ -164,4 +164,7 @@ class Variable(object):
   temperature_min24h: int
   temperature_mean24h: int
   snow_density: int
+  longwave_radiation: int
+  sea_ice_cover: int
+  k_index: int
 
