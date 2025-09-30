@@ -365,6 +365,13 @@ table VariablesWithTime {
   variables: [VariableWithValues];
 }
 
+table VariablesWithMonth {
+  year: int16;
+  month: int8;
+  count: int32;
+  variables: [VariableWithValues];
+}
+
 table WeatherApiResponse {
   latitude: float;
   longitude: float;
@@ -379,8 +386,7 @@ table WeatherApiResponse {
   daily: VariablesWithTime;
   hourly: VariablesWithTime;
   minutely_15: VariablesWithTime;
-  six_hourly: VariablesWithTime;
-  monthly: VariablesWithTime;
+  monthly: VariablesWithMonth;
 }
 
 root_type WeatherApiResponse;

@@ -5,6 +5,7 @@
 import * as flatbuffers from 'flatbuffers';
 
 import { Model } from './model.js';
+import { VariablesWithMonth } from './variables-with-month.js';
 import { VariablesWithTime } from './variables-with-time.js';
 
 
@@ -95,14 +96,9 @@ minutely15(obj?:VariablesWithTime):VariablesWithTime|null {
   return offset ? (obj || new VariablesWithTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
-sixHourly(obj?:VariablesWithTime):VariablesWithTime|null {
+monthly(obj?:VariablesWithMonth):VariablesWithMonth|null {
   const offset = this.bb!.__offset(this.bb_pos, 30);
-  return offset ? (obj || new VariablesWithTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
-}
-
-monthly(obj?:VariablesWithTime):VariablesWithTime|null {
-  const offset = this.bb!.__offset(this.bb_pos, 32);
-  return offset ? (obj || new VariablesWithTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+  return offset ? (obj || new VariablesWithMonth()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
 }

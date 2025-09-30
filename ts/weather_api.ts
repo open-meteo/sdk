@@ -7,5 +7,6 @@ export { Model } from './model.js';
 export { Unit } from './unit.js';
 export { Variable } from './variable.js';
 export { VariableWithValues } from './variable-with-values.js';
+export { VariablesWithMonth } from './variables-with-month.js';
 export { VariablesWithTime } from './variables-with-time.js';
 export { WeatherApiResponse } from './weather-api-response.js';

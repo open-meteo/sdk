@@ -50,10 +50,8 @@ public final class WeatherApiResponse extends Table {
   public  @Nullable com.openmeteo.sdk.VariablesWithTime hourly(com.openmeteo.sdk.VariablesWithTime obj) { int o = __offset(26); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
   public  @Nullable com.openmeteo.sdk.VariablesWithTime minutely15() { return minutely15(new com.openmeteo.sdk.VariablesWithTime()); }
   public  @Nullable com.openmeteo.sdk.VariablesWithTime minutely15(com.openmeteo.sdk.VariablesWithTime obj) { int o = __offset(28); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
-  public  @Nullable com.openmeteo.sdk.VariablesWithTime sixHourly() { return sixHourly(new com.openmeteo.sdk.VariablesWithTime()); }
-  public  @Nullable com.openmeteo.sdk.VariablesWithTime sixHourly(com.openmeteo.sdk.VariablesWithTime obj) { int o = __offset(30); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
-  public  @Nullable com.openmeteo.sdk.VariablesWithTime monthly() { return monthly(new com.openmeteo.sdk.VariablesWithTime()); }
-  public  @Nullable com.openmeteo.sdk.VariablesWithTime monthly(com.openmeteo.sdk.VariablesWithTime obj) { int o = __offset(32); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
+  public  @Nullable com.openmeteo.sdk.VariablesWithMonth monthly() { return monthly(new com.openmeteo.sdk.VariablesWithMonth()); }
+  public  @Nullable com.openmeteo.sdk.VariablesWithMonth monthly(com.openmeteo.sdk.VariablesWithMonth obj) { int o = __offset(30); return o != 0 ? obj.__assign(__indirect(o + bb_pos), bb) : null; }
 
   public static int createWeatherApiResponse(FlatBufferBuilder builder,
       float latitude,
@@ -69,12 +67,10 @@ public final class WeatherApiResponse extends Table {
       int dailyOffset,
       int hourlyOffset,
       int minutely15Offset,
-      int sixHourlyOffset,
       int monthlyOffset) {
-    builder.startTable(15);
+    builder.startTable(14);
     WeatherApiResponse.addLocationId(builder, locationId);
     WeatherApiResponse.addMonthly(builder, monthlyOffset);
-    WeatherApiResponse.addSixHourly(builder, sixHourlyOffset);
     WeatherApiResponse.addMinutely15(builder, minutely15Offset);
     WeatherApiResponse.addHourly(builder, hourlyOffset);
     WeatherApiResponse.addDaily(builder, dailyOffset);
@@ -90,7 +86,7 @@ public final class WeatherApiResponse extends Table {
     return WeatherApiResponse.endWeatherApiResponse(builder);
   }
 
-  public static void startWeatherApiResponse(FlatBufferBuilder builder) { builder.startTable(15); }
+  public static void startWeatherApiResponse(FlatBufferBuilder builder) { builder.startTable(14); }
   public static void addLatitude(FlatBufferBuilder builder, float latitude) { builder.addFloat(0, latitude, 0.0f); }
   public static void addLongitude(FlatBufferBuilder builder, float longitude) { builder.addFloat(1, longitude, 0.0f); }
   public static void addElevation(FlatBufferBuilder builder, float elevation) { builder.addFloat(2, elevation, 0.0f); }
@@ -104,8 +100,7 @@ public final class WeatherApiResponse extends Table {
   public static void addDaily(FlatBufferBuilder builder, int dailyOffset) { builder.addOffset(10, dailyOffset, 0); }
   public static void addHourly(FlatBufferBuilder builder, int hourlyOffset) { builder.addOffset(11, hourlyOffset, 0); }
   public static void addMinutely15(FlatBufferBuilder builder, int minutely15Offset) { builder.addOffset(12, minutely15Offset, 0); }
-  public static void addSixHourly(FlatBufferBuilder builder, int sixHourlyOffset) { builder.addOffset(13, sixHourlyOffset, 0); }
-  public static void addMonthly(FlatBufferBuilder builder, int monthlyOffset) { builder.addOffset(14, monthlyOffset, 0); }
+  public static void addMonthly(FlatBufferBuilder builder, int monthlyOffset) { builder.addOffset(13, monthlyOffset, 0); }
   public static int endWeatherApiResponse(FlatBufferBuilder builder) {
     int o = builder.endTable();
     return o;

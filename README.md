@@ -45,7 +45,7 @@ The main `WeatherApiResponse` structure contains
 - `daily` [VariablesWithTime](#VariablesWithTime): All variables requested with `&daily=`
 - `hourly` [VariablesWithTime](#VariablesWithTime): All variables requested with `&hourly=`
 - `minutely_15` [VariablesWithTime](#VariablesWithTime): All variables requested with `&minutely_15=`
-- `six_hourly` [VariablesWithTime](#VariablesWithTime): All variables requested with `&six_hourly=`
+- `monthly` [VariablesWithTime](#VariablesWithTime): All variables requested with `&monthly=`
 
 ### VariablesWithTime
 All `hourly` or `daily` weather variables are grouped into the class `VariablesWithTime`. It contains the start and end time as well as the interval.
