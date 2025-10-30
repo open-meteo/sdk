@@ -131,7 +131,7 @@ class WeatherApiResponse : Table() {
         }
     }
     companion object {
-        fun validateVersion() = Constants.FLATBUFFERS_25_9_23()
+        fun validateVersion() = Constants.FLATBUFFERS_25_2_10()
         fun getRootAsWeatherApiResponse(_bb: ByteBuffer): WeatherApiResponse = getRootAsWeatherApiResponse(_bb, WeatherApiResponse())
         fun getRootAsWeatherApiResponse(_bb: ByteBuffer, obj: WeatherApiResponse): WeatherApiResponse {
             _bb.order(ByteOrder.LITTLE_ENDIAN)
