@@ -112,7 +112,7 @@ class VariableWithValues : Table() {
             return if(o != 0) bb.get(o + bb_pos).toUByte() else 0u
         }
     companion object {
-        fun validateVersion() = Constants.FLATBUFFERS_25_9_23()
+        fun validateVersion() = Constants.FLATBUFFERS_25_2_10()
         fun getRootAsVariableWithValues(_bb: ByteBuffer): VariableWithValues = getRootAsVariableWithValues(_bb, VariableWithValues())
         fun getRootAsVariableWithValues(_bb: ByteBuffer, obj: VariableWithValues): VariableWithValues {
             _bb.order(ByteOrder.LITTLE_ENDIAN)
