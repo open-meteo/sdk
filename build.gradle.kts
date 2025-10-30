@@ -28,13 +28,14 @@ repositories {
     mavenCentral()
 }
 
+// As of 30th October, 25.9.23 was not available. Keep 25.2.10
 dependencies {
-    api("com.google.flatbuffers:flatbuffers-java:25.9.23")
+    api("com.google.flatbuffers:flatbuffers-java:25.2.10")
     api("com.google.code.findbugs:jsr305:3.0.2")
     constraints {
         add("implementation", "com.google.flatbuffers:flatbuffers-java") {
             version {
-                prefer("25.9.23")
+                prefer("25.2.10")
                 require("22.10.0")
             }
         }
