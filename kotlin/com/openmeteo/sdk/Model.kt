@@ -112,5 +112,9 @@ class Model private constructor() {
         const val ncep_nam_conus: UByte = 104u
         const val icon_d2_ruc: UByte = 105u
         const val ecmwf_seas5: UByte = 106u
+        const val ecmwf_ec46: UByte = 107u
+        const val ecmwf_seasonal_seamless: UByte = 108u
+        const val ecmwf_ifs_seamless: UByte = 109u
+        const val jma_jaxa_mtg_fci: UByte = 110u
     }
 }

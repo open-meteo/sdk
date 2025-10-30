@@ -4,6 +4,7 @@
 
 export { Aggregation } from './aggregation.js';
 export { Model } from './model.js';
+export { Probability } from './probability.js';
 export { Unit } from './unit.js';
 export { Variable } from './variable.js';
 export { VariableWithValues } from './variable-with-values.js';

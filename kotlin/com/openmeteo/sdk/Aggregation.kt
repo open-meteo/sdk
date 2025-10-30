@@ -18,5 +18,8 @@ class Aggregation private constructor() {
         const val sum: UByte = 10u
         const val spread: UByte = 11u
         const val anomaly: UByte = 12u
+        const val sot10: UByte = 13u
+        const val sot90: UByte = 14u
+        const val efi: UByte = 15u
     }
 }

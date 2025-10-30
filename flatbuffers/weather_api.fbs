@@ -161,7 +161,11 @@ enum Model: ubyte {
   meteoswiss_icon_seamless,
   ncep_nam_conus,
   icon_d2_ruc,
-  ecmwf_seas5
+  ecmwf_seas5,
+  ecmwf_ec46,
+  ecmwf_seasonal_seamless,
+  ecmwf_ifs_seamless,
+  jma_jaxa_mtg_fci
 }
 
 enum Variable: ubyte {
@@ -324,7 +328,11 @@ enum Variable: ubyte {
   sea_ice_cover,
   k_index,
   roughness_length,
-  potential_evapotranspiration
+  potential_evapotranspiration,
+  wave_peak_period,
+  temperature_max6h,
+  temperature_min6h,
+  temperature_mean6h,
 }
 
 enum Aggregation: ubyte {
@@ -340,7 +348,44 @@ enum Aggregation: ubyte {
   dominant,
   sum,
   spread,
-  anomaly
+  anomaly,
+  sot10,
+  sot90,
+  efi
+}
+
+enum Probability: ubyte {
+  none = 0,
+  gt0,
+  gt0p1,
+  gt1,
+  gt2,
+  gt3,
+  gt4,
+  gt5,
+  gt8,
+  gt10,
+  gt15,
+  gt20,
+  gt25,
+  gt50,
+  gt100,
+  lt0,
+  lt0p1,
+  lt1,
+  ltm1,
+  ltm2,
+  ltm3,
+  ltm4,
+  ltm5,
+  ltm8,
+  ltm10,
+  gt1stdev,
+  gt1p5stdev,
+  gt2stdev,
+  lt1stdev,
+  lt1p5stdev,
+  lt2stdev
 }
 
 table VariableWithValues {
@@ -358,6 +403,7 @@ table VariableWithValues {
   depth_to: int16;
   ensemble_member: int16;
   previous_day: int16;
+  probability: Probability;
 }
 
 table VariablesWithTime {

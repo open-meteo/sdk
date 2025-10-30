@@ -165,5 +165,9 @@ class Variable private constructor() {
         const val k_index: UByte = 157u
         const val roughness_length: UByte = 158u
         const val potential_evapotranspiration: UByte = 159u
+        const val wave_peak_period: UByte = 160u
+        const val temperature_max6h: UByte = 161u
+        const val temperature_min6h: UByte = 162u
+        const val temperature_mean6h: UByte = 163u
     }
 }

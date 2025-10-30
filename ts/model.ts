@@ -109,5 +109,9 @@ export enum Model {
   meteoswiss_icon_seamless = 103,
   ncep_nam_conus = 104,
   icon_d2_ruc = 105,
-  ecmwf_seas5 = 106
+  ecmwf_seas5 = 106,
+  ecmwf_ec46 = 107,
+  ecmwf_seasonal_seamless = 108,
+  ecmwf_ifs_seamless = 109,
+  jma_jaxa_mtg_fci = 110
 }

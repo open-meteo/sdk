@@ -2,6 +2,10 @@
 // swiftlint:disable all
 // swiftformat:disable all
 
+#if canImport(Common)
+import Common
+#endif
+
 import FlatBuffers
 
 public enum openmeteo_sdk_Unit: UInt8, Enum, Verifiable {
@@ -168,8 +172,12 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ncepNamConus = 104
   case iconD2Ruc = 105
   case ecmwfSeas5 = 106
+  case ecmwfEc46 = 107
+  case ecmwfSeasonalSeamless = 108
+  case ecmwfIfsSeamless = 109
+  case jmaJaxaMtgFci = 110
 
-  public static var max: openmeteo_sdk_Model { return .ecmwfSeas5 }
+  public static var max: openmeteo_sdk_Model { return .jmaJaxaMtgFci }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -338,8 +346,12 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case kIndex = 157
   case roughnessLength = 158
   case potentialEvapotranspiration = 159
+  case wavePeakPeriod = 160
+  case temperatureMax6h = 161
+  case temperatureMin6h = 162
+  case temperatureMean6h = 163
 
-  public static var max: openmeteo_sdk_Variable { return .potentialEvapotranspiration }
+  public static var max: openmeteo_sdk_Variable { return .temperatureMean6h }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 
@@ -361,15 +373,59 @@ public enum openmeteo_sdk_Aggregation: UInt8, Enum, Verifiable {
   case sum = 10
   case spread = 11
   case anomaly = 12
+  case sot10 = 13
+  case sot90 = 14
+  case efi = 15
 
-  public static var max: openmeteo_sdk_Aggregation { return .anomaly }
+  public static var max: openmeteo_sdk_Aggregation { return .efi }
   public static var min: openmeteo_sdk_Aggregation { return .none_ }
+}
+
+
+public enum openmeteo_sdk_Probability: UInt8, Enum, Verifiable {
+  public typealias T = UInt8
+  public static var byteSize: Int { return MemoryLayout<UInt8>.size }
+  public var value: UInt8 { return self.rawValue }
+  case none_ = 0
+  case gt0 = 1
+  case gt0p1 = 2
+  case gt1 = 3
+  case gt2 = 4
+  case gt3 = 5
+  case gt4 = 6
+  case gt5 = 7
+  case gt8 = 8
+  case gt10 = 9
+  case gt15 = 10
+  case gt20 = 11
+  case gt25 = 12
+  case gt50 = 13
+  case gt100 = 14
+  case lt0 = 15
+  case lt0p1 = 16
+  case lt1 = 17
+  case ltm1 = 18
+  case ltm2 = 19
+  case ltm3 = 20
+  case ltm4 = 21
+  case ltm5 = 22
+  case ltm8 = 23
+  case ltm10 = 24
+  case gt1stdev = 25
+  case gt1p5stdev = 26
+  case gt2stdev = 27
+  case lt1stdev = 28
+  case lt1p5stdev = 29
+  case lt2stdev = 30
+
+  public static var max: openmeteo_sdk_Probability { return .lt2stdev }
+  public static var min: openmeteo_sdk_Probability { return .none_ }
 }
 
 
 public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_25_2_10() }
+  static func validateVersion() { FlatBuffersVersion_25_9_23() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 
@@ -389,6 +445,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     case depthTo = 22
     case ensembleMember = 24
     case previousDay = 26
+    case probability = 28
     var v: Int32 { Int32(self.rawValue) }
     var p: VOffset { self.rawValue }
   }
@@ -400,10 +457,12 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
   public var valuesCount: Int32 { let o = _accessor.offset(VTOFFSET.values.v); return o == 0 ? 0 : _accessor.vector(count: o) }
   public func values(at index: Int32) -> Float32 { let o = _accessor.offset(VTOFFSET.values.v); return o == 0 ? 0 : _accessor.directRead(of: Float32.self, offset: _accessor.vector(at: o) + index * 4) }
   public var values: [Float32] { return _accessor.getVector(at: VTOFFSET.values.v) ?? [] }
+  public func withUnsafePointerToValues<T>(_ body: (UnsafeRawBufferPointer) throws -> T) rethrows -> T? { return try _accessor.withUnsafePointerToSlice(at: VTOFFSET.values.v, body: body) }
   public var hasValuesInt64: Bool { let o = _accessor.offset(VTOFFSET.valuesInt64.v); return o == 0 ? false : true }
   public var valuesInt64Count: Int32 { let o = _accessor.offset(VTOFFSET.valuesInt64.v); return o == 0 ? 0 : _accessor.vector(count: o) }
   public func valuesInt64(at index: Int32) -> Int64 { let o = _accessor.offset(VTOFFSET.valuesInt64.v); return o == 0 ? 0 : _accessor.directRead(of: Int64.self, offset: _accessor.vector(at: o) + index * 8) }
   public var valuesInt64: [Int64] { return _accessor.getVector(at: VTOFFSET.valuesInt64.v) ?? [] }
+  public func withUnsafePointerToValuesInt64<T>(_ body: (UnsafeRawBufferPointer) throws -> T) rethrows -> T? { return try _accessor.withUnsafePointerToSlice(at: VTOFFSET.valuesInt64.v, body: body) }
   public var altitude: Int16 { let o = _accessor.offset(VTOFFSET.altitude.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var aggregation: openmeteo_sdk_Aggregation { let o = _accessor.offset(VTOFFSET.aggregation.v); return o == 0 ? .none_ : openmeteo_sdk_Aggregation(rawValue: _accessor.readBuffer(of: UInt8.self, at: o)) ?? .none_ }
   public var pressureLevel: Int16 { let o = _accessor.offset(VTOFFSET.pressureLevel.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
@@ -411,7 +470,8 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
   public var depthTo: Int16 { let o = _accessor.offset(VTOFFSET.depthTo.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var ensembleMember: Int16 { let o = _accessor.offset(VTOFFSET.ensembleMember.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var previousDay: Int16 { let o = _accessor.offset(VTOFFSET.previousDay.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
-  public static func startVariableWithValues(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 12) }
+  public var probability: openmeteo_sdk_Probability { let o = _accessor.offset(VTOFFSET.probability.v); return o == 0 ? .none_ : openmeteo_sdk_Probability(rawValue: _accessor.readBuffer(of: UInt8.self, at: o)) ?? .none_ }
+  public static func startVariableWithValues(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 13) }
   public static func add(variable: openmeteo_sdk_Variable, _ fbb: inout FlatBufferBuilder) { fbb.add(element: variable.rawValue, def: 0, at: VTOFFSET.variable.p) }
   public static func add(unit: openmeteo_sdk_Unit, _ fbb: inout FlatBufferBuilder) { fbb.add(element: unit.rawValue, def: 0, at: VTOFFSET.unit.p) }
   public static func add(value: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: value, def: 0.0, at: VTOFFSET.value.p) }
@@ -424,6 +484,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
   public static func add(depthTo: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: depthTo, def: 0, at: VTOFFSET.depthTo.p) }
   public static func add(ensembleMember: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: ensembleMember, def: 0, at: VTOFFSET.ensembleMember.p) }
   public static func add(previousDay: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: previousDay, def: 0, at: VTOFFSET.previousDay.p) }
+  public static func add(probability: openmeteo_sdk_Probability, _ fbb: inout FlatBufferBuilder) { fbb.add(element: probability.rawValue, def: 0, at: VTOFFSET.probability.p) }
   public static func endVariableWithValues(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
   public static func createVariableWithValues(
     _ fbb: inout FlatBufferBuilder,
@@ -438,7 +499,8 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     depth: Int16 = 0,
     depthTo: Int16 = 0,
     ensembleMember: Int16 = 0,
-    previousDay: Int16 = 0
+    previousDay: Int16 = 0,
+    probability: openmeteo_sdk_Probability = .none_
   ) -> Offset {
     let __start = openmeteo_sdk_VariableWithValues.startVariableWithValues(&fbb)
     openmeteo_sdk_VariableWithValues.add(variable: variable, &fbb)
@@ -453,6 +515,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     openmeteo_sdk_VariableWithValues.add(depthTo: depthTo, &fbb)
     openmeteo_sdk_VariableWithValues.add(ensembleMember: ensembleMember, &fbb)
     openmeteo_sdk_VariableWithValues.add(previousDay: previousDay, &fbb)
+    openmeteo_sdk_VariableWithValues.add(probability: probability, &fbb)
     return openmeteo_sdk_VariableWithValues.endVariableWithValues(&fbb, start: __start)
   }
 
@@ -470,13 +533,14 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     try _v.visit(field: VTOFFSET.depthTo.p, fieldName: "depthTo", required: false, type: Int16.self)
     try _v.visit(field: VTOFFSET.ensembleMember.p, fieldName: "ensembleMember", required: false, type: Int16.self)
     try _v.visit(field: VTOFFSET.previousDay.p, fieldName: "previousDay", required: false, type: Int16.self)
+    try _v.visit(field: VTOFFSET.probability.p, fieldName: "probability", required: false, type: openmeteo_sdk_Probability.self)
     _v.finish()
   }
 }
 
 public struct openmeteo_sdk_VariablesWithTime: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_25_2_10() }
+  static func validateVersion() { FlatBuffersVersion_25_9_23() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 
@@ -531,7 +595,7 @@ public struct openmeteo_sdk_VariablesWithTime: FlatBufferObject, Verifiable {
 
 public struct openmeteo_sdk_VariablesWithMonth: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_25_2_10() }
+  static func validateVersion() { FlatBuffersVersion_25_9_23() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 
@@ -586,7 +650,7 @@ public struct openmeteo_sdk_VariablesWithMonth: FlatBufferObject, Verifiable {
 
 public struct openmeteo_sdk_WeatherApiResponse: FlatBufferObject, Verifiable {
 
-  static func validateVersion() { FlatBuffersVersion_25_2_10() }
+  static func validateVersion() { FlatBuffersVersion_25_9_23() }
   public var __buffer: ByteBuffer! { return _accessor.bb }
   private var _accessor: Table
 

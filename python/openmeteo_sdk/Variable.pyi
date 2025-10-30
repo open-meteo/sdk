@@ -3,170 +3,174 @@ from __future__ import annotations
 import flatbuffers
 import numpy as np
 
-import flatbuffers
 import typing
+from typing import cast
 
 uoffset: typing.TypeAlias = flatbuffers.number_types.UOffsetTFlags.py_type
 
 class Variable(object):
-  undefined: int
-  apparent_temperature: int
-  cape: int
-  cloud_cover: int
-  cloud_cover_high: int
-  cloud_cover_low: int
-  cloud_cover_mid: int
-  daylight_duration: int
-  dew_point: int
-  diffuse_radiation: int
-  diffuse_radiation_instant: int
-  direct_normal_irradiance: int
-  direct_normal_irradiance_instant: int
-  direct_radiation: int
-  direct_radiation_instant: int
-  et0_fao_evapotranspiration: int
-  evapotranspiration: int
-  freezing_level_height: int
-  growing_degree_days: int
-  is_day: int
-  latent_heat_flux: int
-  leaf_wetness_probability: int
-  lifted_index: int
-  lightning_potential: int
-  precipitation: int
-  precipitation_hours: int
-  precipitation_probability: int
-  pressure_msl: int
-  rain: int
-  relative_humidity: int
-  runoff: int
-  sensible_heat_flux: int
-  shortwave_radiation: int
-  shortwave_radiation_instant: int
-  showers: int
-  snow_depth: int
-  snow_height: int
-  snowfall: int
-  snowfall_height: int
-  snowfall_water_equivalent: int
-  sunrise: int
-  sunset: int
-  soil_moisture: int
-  soil_moisture_index: int
-  soil_temperature: int
-  surface_pressure: int
-  surface_temperature: int
-  temperature: int
-  terrestrial_radiation: int
-  terrestrial_radiation_instant: int
-  total_column_integrated_water_vapour: int
-  updraft: int
-  uv_index: int
-  uv_index_clear_sky: int
-  vapour_pressure_deficit: int
-  visibility: int
-  weather_code: int
-  wind_direction: int
-  wind_gusts: int
-  wind_speed: int
-  vertical_velocity: int
-  geopotential_height: int
-  wet_bulb_temperature: int
-  river_discharge: int
-  wave_height: int
-  wave_period: int
-  wave_direction: int
-  wind_wave_height: int
-  wind_wave_period: int
-  wind_wave_peak_period: int
-  wind_wave_direction: int
-  swell_wave_height: int
-  swell_wave_period: int
-  swell_wave_peak_period: int
-  swell_wave_direction: int
-  pm10: int
-  pm2p5: int
-  dust: int
-  aerosol_optical_depth: int
-  carbon_monoxide: int
-  nitrogen_dioxide: int
-  ammonia: int
-  ozone: int
-  sulphur_dioxide: int
-  alder_pollen: int
-  birch_pollen: int
-  grass_pollen: int
-  mugwort_pollen: int
-  olive_pollen: int
-  ragweed_pollen: int
-  european_aqi: int
-  european_aqi_pm2p5: int
-  european_aqi_pm10: int
-  european_aqi_nitrogen_dioxide: int
-  european_aqi_ozone: int
-  european_aqi_sulphur_dioxide: int
-  us_aqi: int
-  us_aqi_pm2p5: int
-  us_aqi_pm10: int
-  us_aqi_nitrogen_dioxide: int
-  us_aqi_ozone: int
-  us_aqi_sulphur_dioxide: int
-  us_aqi_carbon_monoxide: int
-  sunshine_duration: int
-  convective_inhibition: int
-  shortwave_radiation_clear_sky: int
-  global_tilted_irradiance: int
-  global_tilted_irradiance_instant: int
-  ocean_current_velocity: int
-  ocean_current_direction: int
-  cloud_base: int
-  cloud_top: int
-  mass_density: int
-  boundary_layer_height: int
-  formaldehyde: int
-  glyoxal: int
-  non_methane_volatile_organic_compounds: int
-  pm10_wildfires: int
-  peroxyacyl_nitrates: int
-  secondary_inorganic_aerosol: int
-  residential_elementary_carbon: int
-  total_elementary_carbon: int
-  pm2_5_total_organic_matter: int
-  sea_salt_aerosol: int
-  nitrogen_monoxide: int
-  thunderstorm_probability: int
-  rain_probability: int
-  freezing_rain_probability: int
-  ice_pellets_probability: int
-  snowfall_probability: int
-  carbon_dioxide: int
-  methane: int
-  sea_level_height_msl: int
-  sea_surface_temperature: int
-  invert_barometer_height: int
-  hail: int
-  albedo: int
-  precipitation_type: int
-  convective_cloud_base: int
-  convective_cloud_top: int
-  snow_depth_water_equivalent: int
-  secondary_swell_wave_height: int
-  secondary_swell_wave_period: int
-  secondary_swell_wave_peak_period: int
-  secondary_swell_wave_direction: int
-  tertiary_swell_wave_height: int
-  tertiary_swell_wave_period: int
-  tertiary_swell_wave_peak_period: int
-  tertiary_swell_wave_direction: int
-  wind_u_component: int
-  wind_v_component: int
-  temperature_max24h: int
-  temperature_min24h: int
-  temperature_mean24h: int
-  snow_density: int
-  longwave_radiation: int
-  sea_ice_cover: int
-  k_index: int
-  roughness_length: int
-  potential_evapotranspiration: int
+  undefined = cast(int, ...)
+  apparent_temperature = cast(int, ...)
+  cape = cast(int, ...)
+  cloud_cover = cast(int, ...)
+  cloud_cover_high = cast(int, ...)
+  cloud_cover_low = cast(int, ...)
+  cloud_cover_mid = cast(int, ...)
+  daylight_duration = cast(int, ...)
+  dew_point = cast(int, ...)
+  diffuse_radiation = cast(int, ...)
+  diffuse_radiation_instant = cast(int, ...)
+  direct_normal_irradiance = cast(int, ...)
+  direct_normal_irradiance_instant = cast(int, ...)
+  direct_radiation = cast(int, ...)
+  direct_radiation_instant = cast(int, ...)
+  et0_fao_evapotranspiration = cast(int, ...)
+  evapotranspiration = cast(int, ...)
+  freezing_level_height = cast(int, ...)
+  growing_degree_days = cast(int, ...)
+  is_day = cast(int, ...)
+  latent_heat_flux = cast(int, ...)
+  leaf_wetness_probability = cast(int, ...)
+  lifted_index = cast(int, ...)
+  lightning_potential = cast(int, ...)
+  precipitation = cast(int, ...)
+  precipitation_hours = cast(int, ...)
+  precipitation_probability = cast(int, ...)
+  pressure_msl = cast(int, ...)
+  rain = cast(int, ...)
+  relative_humidity = cast(int, ...)
+  runoff = cast(int, ...)
+  sensible_heat_flux = cast(int, ...)
+  shortwave_radiation = cast(int, ...)
+  shortwave_radiation_instant = cast(int, ...)
+  showers = cast(int, ...)
+  snow_depth = cast(int, ...)
+  snow_height = cast(int, ...)
+  snowfall = cast(int, ...)
+  snowfall_height = cast(int, ...)
+  snowfall_water_equivalent = cast(int, ...)
+  sunrise = cast(int, ...)
+  sunset = cast(int, ...)
+  soil_moisture = cast(int, ...)
+  soil_moisture_index = cast(int, ...)
+  soil_temperature = cast(int, ...)
+  surface_pressure = cast(int, ...)
+  surface_temperature = cast(int, ...)
+  temperature = cast(int, ...)
+  terrestrial_radiation = cast(int, ...)
+  terrestrial_radiation_instant = cast(int, ...)
+  total_column_integrated_water_vapour = cast(int, ...)
+  updraft = cast(int, ...)
+  uv_index = cast(int, ...)
+  uv_index_clear_sky = cast(int, ...)
+  vapour_pressure_deficit = cast(int, ...)
+  visibility = cast(int, ...)
+  weather_code = cast(int, ...)
+  wind_direction = cast(int, ...)
+  wind_gusts = cast(int, ...)
+  wind_speed = cast(int, ...)
+  vertical_velocity = cast(int, ...)
+  geopotential_height = cast(int, ...)
+  wet_bulb_temperature = cast(int, ...)
+  river_discharge = cast(int, ...)
+  wave_height = cast(int, ...)
+  wave_period = cast(int, ...)
+  wave_direction = cast(int, ...)
+  wind_wave_height = cast(int, ...)
+  wind_wave_period = cast(int, ...)
+  wind_wave_peak_period = cast(int, ...)
+  wind_wave_direction = cast(int, ...)
+  swell_wave_height = cast(int, ...)
+  swell_wave_period = cast(int, ...)
+  swell_wave_peak_period = cast(int, ...)
+  swell_wave_direction = cast(int, ...)
+  pm10 = cast(int, ...)
+  pm2p5 = cast(int, ...)
+  dust = cast(int, ...)
+  aerosol_optical_depth = cast(int, ...)
+  carbon_monoxide = cast(int, ...)
+  nitrogen_dioxide = cast(int, ...)
+  ammonia = cast(int, ...)
+  ozone = cast(int, ...)
+  sulphur_dioxide = cast(int, ...)
+  alder_pollen = cast(int, ...)
+  birch_pollen = cast(int, ...)
+  grass_pollen = cast(int, ...)
+  mugwort_pollen = cast(int, ...)
+  olive_pollen = cast(int, ...)
+  ragweed_pollen = cast(int, ...)
+  european_aqi = cast(int, ...)
+  european_aqi_pm2p5 = cast(int, ...)
+  european_aqi_pm10 = cast(int, ...)
+  european_aqi_nitrogen_dioxide = cast(int, ...)
+  european_aqi_ozone = cast(int, ...)
+  european_aqi_sulphur_dioxide = cast(int, ...)
+  us_aqi = cast(int, ...)
+  us_aqi_pm2p5 = cast(int, ...)
+  us_aqi_pm10 = cast(int, ...)
+  us_aqi_nitrogen_dioxide = cast(int, ...)
+  us_aqi_ozone = cast(int, ...)
+  us_aqi_sulphur_dioxide = cast(int, ...)
+  us_aqi_carbon_monoxide = cast(int, ...)
+  sunshine_duration = cast(int, ...)
+  convective_inhibition = cast(int, ...)
+  shortwave_radiation_clear_sky = cast(int, ...)
+  global_tilted_irradiance = cast(int, ...)
+  global_tilted_irradiance_instant = cast(int, ...)
+  ocean_current_velocity = cast(int, ...)
+  ocean_current_direction = cast(int, ...)
+  cloud_base = cast(int, ...)
+  cloud_top = cast(int, ...)
+  mass_density = cast(int, ...)
+  boundary_layer_height = cast(int, ...)
+  formaldehyde = cast(int, ...)
+  glyoxal = cast(int, ...)
+  non_methane_volatile_organic_compounds = cast(int, ...)
+  pm10_wildfires = cast(int, ...)
+  peroxyacyl_nitrates = cast(int, ...)
+  secondary_inorganic_aerosol = cast(int, ...)
+  residential_elementary_carbon = cast(int, ...)
+  total_elementary_carbon = cast(int, ...)
+  pm2_5_total_organic_matter = cast(int, ...)
+  sea_salt_aerosol = cast(int, ...)
+  nitrogen_monoxide = cast(int, ...)
+  thunderstorm_probability = cast(int, ...)
+  rain_probability = cast(int, ...)
+  freezing_rain_probability = cast(int, ...)
+  ice_pellets_probability = cast(int, ...)
+  snowfall_probability = cast(int, ...)
+  carbon_dioxide = cast(int, ...)
+  methane = cast(int, ...)
+  sea_level_height_msl = cast(int, ...)
+  sea_surface_temperature = cast(int, ...)
+  invert_barometer_height = cast(int, ...)
+  hail = cast(int, ...)
+  albedo = cast(int, ...)
+  precipitation_type = cast(int, ...)
+  convective_cloud_base = cast(int, ...)
+  convective_cloud_top = cast(int, ...)
+  snow_depth_water_equivalent = cast(int, ...)
+  secondary_swell_wave_height = cast(int, ...)
+  secondary_swell_wave_period = cast(int, ...)
+  secondary_swell_wave_peak_period = cast(int, ...)
+  secondary_swell_wave_direction = cast(int, ...)
+  tertiary_swell_wave_height = cast(int, ...)
+  tertiary_swell_wave_period = cast(int, ...)
+  tertiary_swell_wave_peak_period = cast(int, ...)
+  tertiary_swell_wave_direction = cast(int, ...)
+  wind_u_component = cast(int, ...)
+  wind_v_component = cast(int, ...)
+  temperature_max24h = cast(int, ...)
+  temperature_min24h = cast(int, ...)
+  temperature_mean24h = cast(int, ...)
+  snow_density = cast(int, ...)
+  longwave_radiation = cast(int, ...)
+  sea_ice_cover = cast(int, ...)
+  k_index = cast(int, ...)
+  roughness_length = cast(int, ...)
+  potential_evapotranspiration = cast(int, ...)
+  wave_peak_period = cast(int, ...)
+  temperature_max6h = cast(int, ...)
+  temperature_min6h = cast(int, ...)
+  temperature_mean6h = cast(int, ...)
 

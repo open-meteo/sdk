@@ -5,6 +5,7 @@
 import * as flatbuffers from 'flatbuffers';
 
 import { Aggregation } from './aggregation.js';
+import { Probability } from './probability.js';
 import { Unit } from './unit.js';
 import { Variable } from './variable.js';
 
@@ -100,6 +101,11 @@ ensembleMember():number {
 previousDay():number {
   const offset = this.bb!.__offset(this.bb_pos, 26);
   return offset ? this.bb!.readInt16(this.bb_pos + offset) : 0;
+}
+
+probability():Probability {
+  const offset = this.bb!.__offset(this.bb_pos, 28);
+  return offset ? this.bb!.readUint8(this.bb_pos + offset) : Probability.none;
 }
 
 }
