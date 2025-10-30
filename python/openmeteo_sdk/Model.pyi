@@ -3,117 +3,121 @@ from __future__ import annotations
 import flatbuffers
 import numpy as np
 
-import flatbuffers
 import typing
+from typing import cast
 
 uoffset: typing.TypeAlias = flatbuffers.number_types.UOffsetTFlags.py_type
 
 class Model(object):
-  undefined: int
-  best_match: int
-  gfs_seamless: int
-  gfs_global: int
-  gfs_hrrr: int
-  meteofrance_seamless: int
-  meteofrance_arpege_seamless: int
-  meteofrance_arpege_world: int
-  meteofrance_arpege_europe: int
-  meteofrance_arome_seamless: int
-  meteofrance_arome_france: int
-  meteofrance_arome_france_hd: int
-  jma_seamless: int
-  jma_msm: int
-  jms_gsm: int
-  jma_gsm: int
-  gem_seamless: int
-  gem_global: int
-  gem_regional: int
-  gem_hrdps_continental: int
-  icon_seamless: int
-  icon_global: int
-  icon_eu: int
-  icon_d2: int
-  ecmwf_ifs04: int
-  metno_nordic: int
-  era5_seamless: int
-  era5: int
-  cerra: int
-  era5_land: int
-  ecmwf_ifs: int
-  gwam: int
-  ewam: int
-  glofas_seamless_v3: int
-  glofas_forecast_v3: int
-  glofas_consolidated_v3: int
-  glofas_seamless_v4: int
-  glofas_forecast_v4: int
-  glofas_consolidated_v4: int
-  gfs025: int
-  gfs05: int
-  CMCC_CM2_VHR4: int
-  FGOALS_f3_H_highresSST: int
-  FGOALS_f3_H: int
-  HiRAM_SIT_HR: int
-  MRI_AGCM3_2_S: int
-  EC_Earth3P_HR: int
-  MPI_ESM1_2_XR: int
-  NICAM16_8S: int
-  cams_europe: int
-  cams_global: int
-  cfsv2: int
-  era5_ocean: int
-  cma_grapes_global: int
-  bom_access_global: int
-  bom_access_global_ensemble: int
-  arpae_cosmo_seamless: int
-  arpae_cosmo_2i: int
-  arpae_cosmo_2i_ruc: int
-  arpae_cosmo_5m: int
-  ecmwf_ifs025: int
-  ecmwf_aifs025: int
-  gfs013: int
-  gfs_graphcast025: int
-  ecmwf_wam025: int
-  meteofrance_wave: int
-  meteofrance_currents: int
-  ecmwf_wam025_ensemble: int
-  ncep_gfswave025: int
-  ncep_gefswave025: int
-  knmi_seamless: int
-  knmi_harmonie_arome_europe: int
-  knmi_harmonie_arome_netherlands: int
-  dmi_seamless: int
-  dmi_harmonie_arome_europe: int
-  metno_seamless: int
-  era5_ensemble: int
-  ecmwf_ifs_analysis: int
-  ecmwf_ifs_long_window: int
-  ecmwf_ifs_analysis_long_window: int
-  ukmo_global_deterministic_10km: int
-  ukmo_uk_deterministic_2km: int
-  ukmo_seamless: int
-  ncep_gfswave016: int
-  ncep_nbm_conus: int
-  ukmo_global_ensemble_20km: int
-  ecmwf_aifs025_single: int
-  jma_jaxa_himawari: int
-  eumetsat_sarah3: int
-  eumetsat_lsa_saf_msg: int
-  eumetsat_lsa_saf_iodc: int
-  satellite_radiation_seamless: int
-  kma_gdps: int
-  kma_ldps: int
-  kma_seamless: int
-  italia_meteo_arpae_icon_2i: int
-  ukmo_uk_ensemble_2km: int
-  meteofrance_arome_france_hd_15min: int
-  meteofrance_arome_france_15min: int
-  meteoswiss_icon_ch1: int
-  meteoswiss_icon_ch2: int
-  meteoswiss_icon_ch1_ensemble: int
-  meteoswiss_icon_ch2_ensemble: int
-  meteoswiss_icon_seamless: int
-  ncep_nam_conus: int
-  icon_d2_ruc: int
-  ecmwf_seas5: int
+  undefined = cast(int, ...)
+  best_match = cast(int, ...)
+  gfs_seamless = cast(int, ...)
+  gfs_global = cast(int, ...)
+  gfs_hrrr = cast(int, ...)
+  meteofrance_seamless = cast(int, ...)
+  meteofrance_arpege_seamless = cast(int, ...)
+  meteofrance_arpege_world = cast(int, ...)
+  meteofrance_arpege_europe = cast(int, ...)
+  meteofrance_arome_seamless = cast(int, ...)
+  meteofrance_arome_france = cast(int, ...)
+  meteofrance_arome_france_hd = cast(int, ...)
+  jma_seamless = cast(int, ...)
+  jma_msm = cast(int, ...)
+  jms_gsm = cast(int, ...)
+  jma_gsm = cast(int, ...)
+  gem_seamless = cast(int, ...)
+  gem_global = cast(int, ...)
+  gem_regional = cast(int, ...)
+  gem_hrdps_continental = cast(int, ...)
+  icon_seamless = cast(int, ...)
+  icon_global = cast(int, ...)
+  icon_eu = cast(int, ...)
+  icon_d2 = cast(int, ...)
+  ecmwf_ifs04 = cast(int, ...)
+  metno_nordic = cast(int, ...)
+  era5_seamless = cast(int, ...)
+  era5 = cast(int, ...)
+  cerra = cast(int, ...)
+  era5_land = cast(int, ...)
+  ecmwf_ifs = cast(int, ...)
+  gwam = cast(int, ...)
+  ewam = cast(int, ...)
+  glofas_seamless_v3 = cast(int, ...)
+  glofas_forecast_v3 = cast(int, ...)
+  glofas_consolidated_v3 = cast(int, ...)
+  glofas_seamless_v4 = cast(int, ...)
+  glofas_forecast_v4 = cast(int, ...)
+  glofas_consolidated_v4 = cast(int, ...)
+  gfs025 = cast(int, ...)
+  gfs05 = cast(int, ...)
+  CMCC_CM2_VHR4 = cast(int, ...)
+  FGOALS_f3_H_highresSST = cast(int, ...)
+  FGOALS_f3_H = cast(int, ...)
+  HiRAM_SIT_HR = cast(int, ...)
+  MRI_AGCM3_2_S = cast(int, ...)
+  EC_Earth3P_HR = cast(int, ...)
+  MPI_ESM1_2_XR = cast(int, ...)
+  NICAM16_8S = cast(int, ...)
+  cams_europe = cast(int, ...)
+  cams_global = cast(int, ...)
+  cfsv2 = cast(int, ...)
+  era5_ocean = cast(int, ...)
+  cma_grapes_global = cast(int, ...)
+  bom_access_global = cast(int, ...)
+  bom_access_global_ensemble = cast(int, ...)
+  arpae_cosmo_seamless = cast(int, ...)
+  arpae_cosmo_2i = cast(int, ...)
+  arpae_cosmo_2i_ruc = cast(int, ...)
+  arpae_cosmo_5m = cast(int, ...)
+  ecmwf_ifs025 = cast(int, ...)
+  ecmwf_aifs025 = cast(int, ...)
+  gfs013 = cast(int, ...)
+  gfs_graphcast025 = cast(int, ...)
+  ecmwf_wam025 = cast(int, ...)
+  meteofrance_wave = cast(int, ...)
+  meteofrance_currents = cast(int, ...)
+  ecmwf_wam025_ensemble = cast(int, ...)
+  ncep_gfswave025 = cast(int, ...)
+  ncep_gefswave025 = cast(int, ...)
+  knmi_seamless = cast(int, ...)
+  knmi_harmonie_arome_europe = cast(int, ...)
+  knmi_harmonie_arome_netherlands = cast(int, ...)
+  dmi_seamless = cast(int, ...)
+  dmi_harmonie_arome_europe = cast(int, ...)
+  metno_seamless = cast(int, ...)
+  era5_ensemble = cast(int, ...)
+  ecmwf_ifs_analysis = cast(int, ...)
+  ecmwf_ifs_long_window = cast(int, ...)
+  ecmwf_ifs_analysis_long_window = cast(int, ...)
+  ukmo_global_deterministic_10km = cast(int, ...)
+  ukmo_uk_deterministic_2km = cast(int, ...)
+  ukmo_seamless = cast(int, ...)
+  ncep_gfswave016 = cast(int, ...)
+  ncep_nbm_conus = cast(int, ...)
+  ukmo_global_ensemble_20km = cast(int, ...)
+  ecmwf_aifs025_single = cast(int, ...)
+  jma_jaxa_himawari = cast(int, ...)
+  eumetsat_sarah3 = cast(int, ...)
+  eumetsat_lsa_saf_msg = cast(int, ...)
+  eumetsat_lsa_saf_iodc = cast(int, ...)
+  satellite_radiation_seamless = cast(int, ...)
+  kma_gdps = cast(int, ...)
+  kma_ldps = cast(int, ...)
+  kma_seamless = cast(int, ...)
+  italia_meteo_arpae_icon_2i = cast(int, ...)
+  ukmo_uk_ensemble_2km = cast(int, ...)
+  meteofrance_arome_france_hd_15min = cast(int, ...)
+  meteofrance_arome_france_15min = cast(int, ...)
+  meteoswiss_icon_ch1 = cast(int, ...)
+  meteoswiss_icon_ch2 = cast(int, ...)
+  meteoswiss_icon_ch1_ensemble = cast(int, ...)
+  meteoswiss_icon_ch2_ensemble = cast(int, ...)
+  meteoswiss_icon_seamless = cast(int, ...)
+  ncep_nam_conus = cast(int, ...)
+  icon_d2_ruc = cast(int, ...)
+  ecmwf_seas5 = cast(int, ...)
+  ecmwf_ec46 = cast(int, ...)
+  ecmwf_seasonal_seamless = cast(int, ...)
+  ecmwf_ifs_seamless = cast(int, ...)
+  jma_jaxa_mtg_fci = cast(int, ...)
 

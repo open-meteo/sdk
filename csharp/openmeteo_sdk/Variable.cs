@@ -167,6 +167,9 @@ public enum Variable : byte
   k_index = 157,
   roughness_length = 158,
   potential_evapotranspiration = 159,
+  wave_peak_period = 160,
+  temperature_max6h = 161,
+  temperature_min6h = 162,
 };
 
 
