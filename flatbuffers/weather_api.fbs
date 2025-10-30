@@ -331,8 +331,7 @@ enum Variable: ubyte {
   potential_evapotranspiration,
   wave_peak_period,
   temperature_max6h,
-  temperature_min6h,
-  temperature_mean6h,
+  temperature_min6h
 }
 
 enum Aggregation: ubyte {

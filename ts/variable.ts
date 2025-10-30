@@ -165,6 +165,5 @@ export enum Variable {
   potential_evapotranspiration = 159,
   wave_peak_period = 160,
   temperature_max6h = 161,
-  temperature_min6h = 162,
-  temperature_mean6h = 163
+  temperature_min6h = 162
 }

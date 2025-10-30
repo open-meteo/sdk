@@ -172,5 +172,4 @@ class Variable(object):
   wave_peak_period = cast(int, ...)
   temperature_max6h = cast(int, ...)
   temperature_min6h = cast(int, ...)
-  temperature_mean6h = cast(int, ...)
 

@@ -349,9 +349,8 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case wavePeakPeriod = 160
   case temperatureMax6h = 161
   case temperatureMin6h = 162
-  case temperatureMean6h = 163
 
-  public static var max: openmeteo_sdk_Variable { return .temperatureMean6h }
+  public static var max: openmeteo_sdk_Variable { return .temperatureMin6h }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 
