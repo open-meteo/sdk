@@ -40,6 +40,6 @@
         "typescript": "^5.2.2"
     },
     "dependencies": {
-        "flatbuffers": "^25.2.10"
+        "flatbuffers": "^25.9.23"
     }
 }
