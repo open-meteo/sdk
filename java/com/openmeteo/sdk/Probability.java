@@ -18,26 +18,34 @@ public final class Probability {
   public static final int gt15 = 10;
   public static final int gt20 = 11;
   public static final int gt25 = 12;
-  public static final int gt50 = 13;
-  public static final int gt100 = 14;
-  public static final int lt0 = 15;
-  public static final int lt0p1 = 16;
-  public static final int lt1 = 17;
-  public static final int ltm1 = 18;
-  public static final int ltm2 = 19;
-  public static final int ltm3 = 20;
-  public static final int ltm4 = 21;
-  public static final int ltm5 = 22;
-  public static final int ltm8 = 23;
-  public static final int ltm10 = 24;
-  public static final int gt1stdev = 25;
-  public static final int gt1p5stdev = 26;
-  public static final int gt2stdev = 27;
-  public static final int lt1stdev = 28;
-  public static final int lt1p5stdev = 29;
-  public static final int lt2stdev = 30;
+  public static final int gt30 = 13;
+  public static final int gt35 = 14;
+  public static final int gt40 = 15;
+  public static final int gt50 = 16;
+  public static final int gt60 = 17;
+  public static final int gt75 = 18;
+  public static final int gt80 = 19;
+  public static final int gt100 = 20;
+  public static final int lt0 = 21;
+  public static final int lt0p1 = 22;
+  public static final int lt1 = 23;
+  public static final int ltm1 = 24;
+  public static final int ltm2 = 25;
+  public static final int ltm3 = 26;
+  public static final int ltm4 = 27;
+  public static final int ltm5 = 28;
+  public static final int ltm8 = 29;
+  public static final int ltm10 = 30;
+  public static final int ltm15 = 31;
+  public static final int ltm20 = 32;
+  public static final int gt1stdev = 33;
+  public static final int gt1p5stdev = 34;
+  public static final int gt2stdev = 35;
+  public static final int lt1stdev = 36;
+  public static final int lt1p5stdev = 37;
+  public static final int lt2stdev = 38;
 
-  public static final String[] names = { "none", "gt0", "gt0p1", "gt1", "gt2", "gt3", "gt4", "gt5", "gt8", "gt10", "gt15", "gt20", "gt25", "gt50", "gt100", "lt0", "lt0p1", "lt1", "ltm1", "ltm2", "ltm3", "ltm4", "ltm5", "ltm8", "ltm10", "gt1stdev", "gt1p5stdev", "gt2stdev", "lt1stdev", "lt1p5stdev", "lt2stdev", };
+  public static final String[] names = { "none", "gt0", "gt0p1", "gt1", "gt2", "gt3", "gt4", "gt5", "gt8", "gt10", "gt15", "gt20", "gt25", "gt30", "gt35", "gt40", "gt50", "gt60", "gt75", "gt80", "gt100", "lt0", "lt0p1", "lt1", "ltm1", "ltm2", "ltm3", "ltm4", "ltm5", "ltm8", "ltm10", "ltm15", "ltm20", "gt1stdev", "gt1p5stdev", "gt2stdev", "lt1stdev", "lt1p5stdev", "lt2stdev", };
 
   public static String name(int e) { return names[e]; }
 }
