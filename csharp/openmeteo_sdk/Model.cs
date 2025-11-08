@@ -118,6 +118,7 @@ public enum Model : byte
   ecmwf_seasonal_seamless = 108,
   ecmwf_ifs_seamless = 109,
   jma_jaxa_mtg_fci = 110,
+  gem_hrdps_west = 111,
 };
 
 

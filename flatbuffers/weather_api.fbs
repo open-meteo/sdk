@@ -165,7 +165,8 @@ enum Model: ubyte {
   ecmwf_ec46,
   ecmwf_seasonal_seamless,
   ecmwf_ifs_seamless,
-  jma_jaxa_mtg_fci
+  jma_jaxa_mtg_fci,
+  gem_hrdps_west
 }
 
 enum Variable: ubyte {
