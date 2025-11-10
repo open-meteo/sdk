@@ -120,4 +120,4 @@ class Model(object):
   ecmwf_seasonal_seamless = cast(int, ...)
   ecmwf_ifs_seamless = cast(int, ...)
   jma_jaxa_mtg_fci = cast(int, ...)
-
+  gem_hrdps_west = cast(int, ...)

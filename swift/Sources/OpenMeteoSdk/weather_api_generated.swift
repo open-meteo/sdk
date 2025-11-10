@@ -176,8 +176,9 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfSeasonalSeamless = 108
   case ecmwfIfsSeamless = 109
   case jmaJaxaMtgFci = 110
+  case gemHrdpsWest = 111
 
-  public static var max: openmeteo_sdk_Model { return .jmaJaxaMtgFci }
+  public static var max: openmeteo_sdk_Model { return .gemHrdpsWest }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
