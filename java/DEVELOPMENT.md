@@ -2,7 +2,7 @@
 
 ```bash
 brew install gradle kotlin
-brew install openjdk@11
+brew install openjdk@21
 gradle wrapper build
 
 ```

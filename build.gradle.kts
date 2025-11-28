@@ -2,11 +2,11 @@ plugins {
     `java-library`
     `maven-publish`
     signing
-    //id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
+    id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
 }
 
-//version = "1.4.0"
 group = "com.open-meteo"
+// Version is managed by semantic-release
 
 sourceSets {
     main {
@@ -20,7 +20,7 @@ java {
     withJavadocJar()
     withSourcesJar()
     toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -127,15 +127,11 @@ signing {
     }
 }
 
-/*val sonatypeUsername: String? = providers.environmentVariable("SONATYPE_USERNAME").orNull
-val sonatypePassword: String? = providers.environmentVariable("SONATYPE_PASSWORD").orNull
 nexusPublishing {
     repositories {
         sonatype {
-            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
-            username = sonatypeUsername
-            password = sonatypePassword
+            nexusUrl.set(uri("https://ossrh-staging-api.central.sonatype.com/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://central.sonatype.com/repository/maven-snapshots/"))
         }
     }
-}*/
+}
