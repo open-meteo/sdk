@@ -170,6 +170,8 @@ public enum Variable : byte
   wave_peak_period = 160,
   temperature_max6h = 161,
   temperature_min6h = 162,
+  lightning_density = 163,
+  sea_ice_thickness = 164,
 };
 
 

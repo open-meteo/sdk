@@ -57,7 +57,7 @@ class VariablesWithTime : Table() {
             val o = __offset(10); return if (o != 0) __vector_len(o) else 0
         }
     companion object {
-        fun validateVersion() = Constants.FLATBUFFERS_25_2_10()
+        fun validateVersion() = Constants.FLATBUFFERS_25_9_23()
         fun getRootAsVariablesWithTime(_bb: ByteBuffer): VariablesWithTime = getRootAsVariablesWithTime(_bb, VariablesWithTime())
         fun getRootAsVariablesWithTime(_bb: ByteBuffer, obj: VariablesWithTime): VariablesWithTime {
             _bb.order(ByteOrder.LITTLE_ENDIAN)

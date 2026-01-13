@@ -172,4 +172,6 @@ class Variable(object):
   wave_peak_period = cast(int, ...)
   temperature_max6h = cast(int, ...)
   temperature_min6h = cast(int, ...)
+  lightning_density = cast(int, ...)
+  sea_ice_thickness = cast(int, ...)
 

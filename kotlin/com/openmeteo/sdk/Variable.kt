@@ -168,5 +168,7 @@ class Variable private constructor() {
         const val wave_peak_period: UByte = 160u
         const val temperature_max6h: UByte = 161u
         const val temperature_min6h: UByte = 162u
+        const val lightning_density: UByte = 163u
+        const val sea_ice_thickness: UByte = 164u
     }
 }

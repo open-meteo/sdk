@@ -119,6 +119,10 @@ public enum Model : byte
   ecmwf_ifs_seamless = 109,
   jma_jaxa_mtg_fci = 110,
   gem_hrdps_west = 111,
+  ecmwf_wam = 112,
+  ncep_aigfs025 = 113,
+  ncep_aigefs025 = 114,
+  ncep_hgefs025_stats = 115,
 };
 
 
