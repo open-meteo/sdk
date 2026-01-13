@@ -117,5 +117,9 @@ class Model private constructor() {
         const val ecmwf_ifs_seamless: UByte = 109u
         const val jma_jaxa_mtg_fci: UByte = 110u
         const val gem_hrdps_west: UByte = 111u
+        const val ecmwf_wam: UByte = 112u
+        const val ncep_aigfs025: UByte = 113u
+        const val ncep_aigefs025: UByte = 114u
+        const val ncep_hgefs025_stats: UByte = 115u
     }
 }

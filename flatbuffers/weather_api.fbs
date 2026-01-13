@@ -166,7 +166,11 @@ enum Model: ubyte {
   ecmwf_seasonal_seamless,
   ecmwf_ifs_seamless,
   jma_jaxa_mtg_fci,
-  gem_hrdps_west
+  gem_hrdps_west,
+  ecmwf_wam,
+  ncep_aigfs025,
+  ncep_aigefs025,
+  ncep_hgefs025_stats,
 }
 
 enum Variable: ubyte {
@@ -332,7 +336,9 @@ enum Variable: ubyte {
   potential_evapotranspiration,
   wave_peak_period,
   temperature_max6h,
-  temperature_min6h
+  temperature_min6h,
+  lightning_density,
+  sea_ice_thickness
 }
 
 enum Aggregation: ubyte {

@@ -121,3 +121,8 @@ class Model(object):
   ecmwf_ifs_seamless = cast(int, ...)
   jma_jaxa_mtg_fci = cast(int, ...)
   gem_hrdps_west = cast(int, ...)
+  ecmwf_wam = cast(int, ...)
+  ncep_aigfs025 = cast(int, ...)
+  ncep_aigefs025 = cast(int, ...)
+  ncep_hgefs025_stats = cast(int, ...)
+

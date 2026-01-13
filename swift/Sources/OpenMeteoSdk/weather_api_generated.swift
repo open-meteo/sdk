@@ -177,8 +177,12 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfIfsSeamless = 109
   case jmaJaxaMtgFci = 110
   case gemHrdpsWest = 111
+  case ecmwfWam = 112
+  case ncepAigfs025 = 113
+  case ncepAigefs025 = 114
+  case ncepHgefs025Stats = 115
 
-  public static var max: openmeteo_sdk_Model { return .gemHrdpsWest }
+  public static var max: openmeteo_sdk_Model { return .ncepHgefs025Stats }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -350,8 +354,10 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case wavePeakPeriod = 160
   case temperatureMax6h = 161
   case temperatureMin6h = 162
+  case lightningDensity = 163
+  case seaIceThickness = 164
 
-  public static var max: openmeteo_sdk_Variable { return .temperatureMin6h }
+  public static var max: openmeteo_sdk_Variable { return .seaIceThickness }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 
