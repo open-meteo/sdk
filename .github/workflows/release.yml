@@ -31,7 +31,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v5
       - name: Execute Gradle build
         run: ./gradlew build
-      - uses: actions/setup-dotnet@v5.0.1
+      - uses: actions/setup-dotnet@v5.1.0
         with:
           dotnet-version: "8.0.x"
       - name: Install semantic-release
