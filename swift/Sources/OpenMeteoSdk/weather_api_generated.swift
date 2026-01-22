@@ -180,9 +180,27 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfWam = 112
   case ncepAigfs025 = 113
   case ncepAigefs025 = 114
-  case ncepHgefs025Stats = 115
+  case ncepHgefs025EnsembleMean = 115
+  case ecmwfSeasonalEnsembleMeanSeamless = 116
+  case ecmwfSeas5EnsembleMean = 117
+  case ecmwfEc46EnsembleMean = 118
+  case ncepAigefs025EnsembleMean = 119
+  case dwdIconEpsEnsembleMeanSeamless = 120
+  case dwdIconEpsEnsembleMean = 121
+  case dwdIconEuEpsEnsembleMean = 122
+  case dwdIconD2EpsEnsembleMean = 123
+  case ncepGefsEnsembleMeanSeamless = 124
+  case ncepGefs025EnsembleMean = 125
+  case ncepGefs05EnsembleMean = 126
+  case ecmwfIfs025EnsembleMean = 127
+  case ecmwfAifs025EnsembleMean = 128
+  case meteoswissIconCh1EnsembleMean = 129
+  case meteoswissIconCh2EnsembleMean = 130
+  case cmcGemGepsEnsembleMean = 131
+  case ukmoGlobalEnsembleMean20km = 132
+  case ukmoUkEnsembleMean2km = 133
 
-  public static var max: openmeteo_sdk_Model { return .ncepHgefs025Stats }
+  public static var max: openmeteo_sdk_Model { return .ukmoUkEnsembleMean2km }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
