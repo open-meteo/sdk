@@ -120,6 +120,24 @@ class Model private constructor() {
         const val ecmwf_wam: UByte = 112u
         const val ncep_aigfs025: UByte = 113u
         const val ncep_aigefs025: UByte = 114u
-        const val ncep_hgefs025_stats: UByte = 115u
+        const val ncep_hgefs025_ensemble_mean: UByte = 115u
+        const val ecmwf_seasonal_ensemble_mean_seamless: UByte = 116u
+        const val ecmwf_seas5_ensemble_mean: UByte = 117u
+        const val ecmwf_ec46_ensemble_mean: UByte = 118u
+        const val ncep_aigefs025_ensemble_mean: UByte = 119u
+        const val dwd_icon_eps_ensemble_mean_seamless: UByte = 120u
+        const val dwd_icon_eps_ensemble_mean: UByte = 121u
+        const val dwd_icon_eu_eps_ensemble_mean: UByte = 122u
+        const val dwd_icon_d2_eps_ensemble_mean: UByte = 123u
+        const val ncep_gefs_ensemble_mean_seamless: UByte = 124u
+        const val ncep_gefs025_ensemble_mean: UByte = 125u
+        const val ncep_gefs05_ensemble_mean: UByte = 126u
+        const val ecmwf_ifs025_ensemble_mean: UByte = 127u
+        const val ecmwf_aifs025_ensemble_mean: UByte = 128u
+        const val meteoswiss_icon_ch1_ensemble_mean: UByte = 129u
+        const val meteoswiss_icon_ch2_ensemble_mean: UByte = 130u
+        const val cmc_gem_geps_ensemble_mean: UByte = 131u
+        const val ukmo_global_ensemble_mean_20km: UByte = 132u
+        const val ukmo_uk_ensemble_mean_2km: UByte = 133u
     }
 }

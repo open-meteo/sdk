@@ -170,7 +170,25 @@ enum Model: ubyte {
   ecmwf_wam,
   ncep_aigfs025,
   ncep_aigefs025,
-  ncep_hgefs025_stats,
+  ncep_hgefs025_ensemble_mean,
+  ecmwf_seasonal_ensemble_mean_seamless,
+  ecmwf_seas5_ensemble_mean,
+  ecmwf_ec46_ensemble_mean,
+  ncep_aigefs025_ensemble_mean,
+  dwd_icon_eps_ensemble_mean_seamless,
+  dwd_icon_eps_ensemble_mean,
+  dwd_icon_eu_eps_ensemble_mean,
+  dwd_icon_d2_eps_ensemble_mean,
+  ncep_gefs_ensemble_mean_seamless,
+  ncep_gefs025_ensemble_mean,
+  ncep_gefs05_ensemble_mean,
+  ecmwf_ifs025_ensemble_mean,
+  ecmwf_aifs025_ensemble_mean,
+  meteoswiss_icon_ch1_ensemble_mean,
+  meteoswiss_icon_ch2_ensemble_mean,
+  cmc_gem_geps_ensemble_mean,
+  ukmo_global_ensemble_mean_20km,
+  ukmo_uk_ensemble_mean_2km
 }
 
 enum Variable: ubyte {
