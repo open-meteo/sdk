@@ -101,4 +101,9 @@ monthly(obj?:VariablesWithMonth):VariablesWithMonth|null {
   return offset ? (obj || new VariablesWithMonth()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
 }
 
+weekly(obj?:VariablesWithTime):VariablesWithTime|null {
+  const offset = this.bb!.__offset(this.bb_pos, 32);
+  return offset ? (obj || new VariablesWithTime()).__init(this.bb!.__indirect(this.bb_pos + offset), this.bb!) : null;
+}
+
 }

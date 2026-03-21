@@ -141,6 +141,11 @@ public enum Model : byte
   cmc_gem_geps_ensemble_mean = 131,
   ukmo_global_ensemble_mean_20km = 132,
   ukmo_uk_ensemble_mean_2km = 133,
+  dwd_sis_europe_africa_v4 = 134,
+  bom_access_global_ensemble_mean = 135,
+  ecmwf_wam025_ensemble_mean = 136,
+  ncep_gefswave025_ensemble_mean = 137,
+  geosphere_arome_austria = 138,
 };
 
 

@@ -188,7 +188,12 @@ enum Model: ubyte {
   meteoswiss_icon_ch2_ensemble_mean,
   cmc_gem_geps_ensemble_mean,
   ukmo_global_ensemble_mean_20km,
-  ukmo_uk_ensemble_mean_2km
+  ukmo_uk_ensemble_mean_2km,
+  dwd_sis_europe_africa_v4,
+  bom_access_global_ensemble_mean,
+  ecmwf_wam025_ensemble_mean,
+  ncep_gefswave025_ensemble_mean,
+  geosphere_arome_austria
 }
 
 enum Variable: ubyte {
@@ -356,7 +361,9 @@ enum Variable: ubyte {
   temperature_max6h,
   temperature_min6h,
   lightning_density,
-  sea_ice_thickness
+  sea_ice_thickness,
+  shortwave_radiation_clear_sky_instant,
+  sea_water_salinity
 }
 
 enum Aggregation: ubyte {
@@ -467,6 +474,7 @@ table WeatherApiResponse {
   hourly: VariablesWithTime;
   minutely_15: VariablesWithTime;
   monthly: VariablesWithMonth;
+  weekly: VariablesWithTime;
 }
 
 root_type WeatherApiResponse;

@@ -170,5 +170,7 @@ class Variable private constructor() {
         const val temperature_min6h: UByte = 162u
         const val lightning_density: UByte = 163u
         const val sea_ice_thickness: UByte = 164u
+        const val shortwave_radiation_clear_sky_instant: UByte = 165u
+        const val sea_water_salinity: UByte = 166u
     }
 }
