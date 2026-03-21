@@ -174,4 +174,6 @@ class Variable(object):
   temperature_min6h = cast(int, ...)
   lightning_density = cast(int, ...)
   sea_ice_thickness = cast(int, ...)
+  shortwave_radiation_clear_sky_instant = cast(int, ...)
+  sea_water_salinity = cast(int, ...)
 

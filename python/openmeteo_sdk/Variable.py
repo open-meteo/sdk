@@ -168,3 +168,5 @@ class Variable(object):
     temperature_min6h = 162
     lightning_density = 163
     sea_ice_thickness = 164
+    shortwave_radiation_clear_sky_instant = 165
+    sea_water_salinity = 166

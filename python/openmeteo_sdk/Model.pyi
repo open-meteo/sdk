@@ -143,4 +143,9 @@ class Model(object):
   cmc_gem_geps_ensemble_mean = cast(int, ...)
   ukmo_global_ensemble_mean_20km = cast(int, ...)
   ukmo_uk_ensemble_mean_2km = cast(int, ...)
+  dwd_sis_europe_africa_v4 = cast(int, ...)
+  bom_access_global_ensemble_mean = cast(int, ...)
+  ecmwf_wam025_ensemble_mean = cast(int, ...)
+  ncep_gefswave025_ensemble_mean = cast(int, ...)
+  geosphere_arome_austria = cast(int, ...)
 

@@ -139,5 +139,10 @@ class Model private constructor() {
         const val cmc_gem_geps_ensemble_mean: UByte = 131u
         const val ukmo_global_ensemble_mean_20km: UByte = 132u
         const val ukmo_uk_ensemble_mean_2km: UByte = 133u
+        const val dwd_sis_europe_africa_v4: UByte = 134u
+        const val bom_access_global_ensemble_mean: UByte = 135u
+        const val ecmwf_wam025_ensemble_mean: UByte = 136u
+        const val ncep_gefswave025_ensemble_mean: UByte = 137u
+        const val geosphere_arome_austria: UByte = 138u
     }
 }
