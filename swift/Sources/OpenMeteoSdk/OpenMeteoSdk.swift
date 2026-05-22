@@ -35,7 +35,7 @@ extension WeatherApiResponse {
 
 
 /// If the API throws an error, this it the JSON error format
-struct OpenMeteoErorJson: Decodable {
+struct OpenMeteoErrorJson: Decodable {
     let error: Bool
     let reason: String
 }
@@ -49,7 +49,7 @@ extension FlatBufferObject where Self: Verifiable {
     /// Thus, memory will be correctly retrained and released
     public static func from(data: Data, statusCode: Int) throws -> [Self] {
         if [400, 429].contains(statusCode) {
-            let reason = try JSONDecoder().decode(OpenMeteoErorJson.self, from: data).reason
+            let reason = try JSONDecoder().decode(OpenMeteoErrorJson.self, from: data).reason
             throw OpenMeteoSdkError.error(message: reason)
         }
         if statusCode != 200 {

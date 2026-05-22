@@ -156,7 +156,7 @@ struct WeatherApiResponse {
   let daily: VariablesWithTime?
   let hourly: VariablesWithTime?
   let minutely15: VariablesWithTime?
-  let sixHourly: VariablesWithTime?
+  let weekly: VariablesWithTime?
 }
 ```
 

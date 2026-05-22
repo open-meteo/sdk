@@ -46,20 +46,21 @@ The main `WeatherApiResponse` structure contains
 - `hourly` [VariablesWithTime](#VariablesWithTime): All variables requested with `&hourly=`
 - `minutely_15` [VariablesWithTime](#VariablesWithTime): All variables requested with `&minutely_15=`
 - `monthly` [VariablesWithMonth](#VariablesWithMonth): All variables requested with `&monthly=`
+- `weekly` [VariablesWithTime](#VariablesWithTime): All variables requested with `&weekly=`
 
 ### VariablesWithTime
 All `hourly` or `daily` weather variables are grouped into the class `VariablesWithTime`. It contains the start and end time as well as the interval.
 
 Attributes:
-- `start` int64: Unix timestamp of the first value in GMT
-- `end` int64: The last timestamp that is not included in the time-interval. Therefore one step after the last included timestep.
+- `time` int64: Unix timestamp of the first value in GMT
+- `time_end` int64: The last timestamp that is not included in the time-interval. Therefore one step after the last included timestep.
 - `interval` int32:  The number of seconds for each step. For hourly data this is `3600 seconds` and for daily data `86400 seconds`.
 - `variables` [[VariableWithValues](#VariableWithValues)]: An array of weather variables
 
 Timestamps always use unixtime in seconds. Time is always in GMT! If you want to display local time again, you can use the attribute `utc_offset_seconds` from the response structure
 
 ### VariablesWithMonth
-All `hourly` or `daily` weather variables are grouped into the class `VariablesWithTime`. It contains the start and end time as well as the interval.
+All `monthly` weather variables are grouped into the class `VariablesWithMonth`. It contains the first year and month as well as the number of steps.
 
 Attributes:
 - `year` int16: The first year of the returned data. E.g. `2025`.
@@ -82,6 +83,8 @@ Attributes:
 - `depth` int16: For soil variables this defined the upper limit. E.g. `7` in `soil_moisture_7_to_28`
 - `depth_to` int16: The lower limit. E.g. `28` in `soil_moisture_7_to_28`
 - `ensemble_member` int16: For ensemble data, the member of each ensemble is set here. `0` is mostly the control run.
+- `previous_day` int16: Number of days before the current date to include
+- `probability` [Probability](#Probability): Probability threshold for ensemble probability variables
 
 
 ### Model
@@ -111,6 +114,9 @@ The `Unit` enumeration contains all available units like `celsius` or `metre_per
 
 ### Aggregation
 The `Aggregation` enumeration contains all aggregations for daily variables like `minimum` or `maximum`.
+
+### Probability
+The `Probability` enumeration contains probability thresholds for ensemble probability variables like `gt5` (greater than 5) or `lt0` (less than 0).
 
 
 ## Selecting a single variable
@@ -152,7 +158,7 @@ The order of requested variables will be preserved. E.g. `&current=temperature_2
 
 ```python
 current = response.Current()
-timestamp = current.start()
+timestamp = current.Time()
 temperature_2m = current.Variables(0).value()
 wind_speed_10m = current.Variables(1).value()
 weather_code = current.Variables(2).value()
