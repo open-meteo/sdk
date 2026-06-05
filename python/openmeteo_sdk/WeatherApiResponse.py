@@ -4,7 +4,6 @@
 
 import flatbuffers
 from flatbuffers.compat import import_numpy
-from typing import Any
 from openmeteo_sdk.VariablesWithMonth import VariablesWithMonth
 from openmeteo_sdk.VariablesWithTime import VariablesWithTime
 from typing import Optional
