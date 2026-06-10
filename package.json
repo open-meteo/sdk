@@ -37,7 +37,7 @@
         "gradle-semantic-release-plugin": "^1.7.7",
         "semantic-release": "^25.0.1",
         "semantic-release-pypi": "^5.0.0",
-        "typescript": "^5.2.2"
+        "typescript": "^6.0.3"
     },
     "dependencies": {
         "flatbuffers": "^25.9.23"
