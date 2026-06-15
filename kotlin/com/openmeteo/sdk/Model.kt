@@ -144,5 +144,13 @@ class Model private constructor() {
         const val ecmwf_wam025_ensemble_mean: UByte = 136u
         const val ncep_gefswave025_ensemble_mean: UByte = 137u
         const val geosphere_arome_austria: UByte = 138u
+        const val geosphere_seamless: UByte = 139u
+        const val chmi_aladin_cz_1km: UByte = 140u
+        const val ecmwf_ifs_europe_ensemble: UByte = 141u
+        const val ecmwf_ifs_europe_ensemble_mean: UByte = 142u
+        const val ecmwf_aifs_europe_ensemble: UByte = 143u
+        const val ecmwf_aifs_europe_ensemble_mean: UByte = 144u
+        const val google_weathernext2_ensemble: UByte = 145u
+        const val google_weathernext2_ensemble_mean: UByte = 146u
     }
 }

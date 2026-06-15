@@ -146,6 +146,14 @@ public enum Model : byte
   ecmwf_wam025_ensemble_mean = 136,
   ncep_gefswave025_ensemble_mean = 137,
   geosphere_arome_austria = 138,
+  geosphere_seamless = 139,
+  chmi_aladin_cz_1km = 140,
+  ecmwf_ifs_europe_ensemble = 141,
+  ecmwf_ifs_europe_ensemble_mean = 142,
+  ecmwf_aifs_europe_ensemble = 143,
+  ecmwf_aifs_europe_ensemble_mean = 144,
+  google_weathernext2_ensemble = 145,
+  google_weathernext2_ensemble_mean = 146,
 };
 
 

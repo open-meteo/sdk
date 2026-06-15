@@ -148,4 +148,12 @@ class Model(object):
   ecmwf_wam025_ensemble_mean = cast(int, ...)
   ncep_gefswave025_ensemble_mean = cast(int, ...)
   geosphere_arome_austria = cast(int, ...)
+  geosphere_seamless = cast(int, ...)
+  chmi_aladin_cz_1km = cast(int, ...)
+  ecmwf_ifs_europe_ensemble = cast(int, ...)
+  ecmwf_ifs_europe_ensemble_mean = cast(int, ...)
+  ecmwf_aifs_europe_ensemble = cast(int, ...)
+  ecmwf_aifs_europe_ensemble_mean = cast(int, ...)
+  google_weathernext2_ensemble = cast(int, ...)
+  google_weathernext2_ensemble_mean = cast(int, ...)
 
