@@ -204,8 +204,16 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfWam025EnsembleMean = 136
   case ncepGefswave025EnsembleMean = 137
   case geosphereAromeAustria = 138
+  case geosphereSeamless = 139
+  case chmiAladinCz1km = 140
+  case ecmwfIfsEuropeEnsemble = 141
+  case ecmwfIfsEuropeEnsembleMean = 142
+  case ecmwfAifsEuropeEnsemble = 143
+  case ecmwfAifsEuropeEnsembleMean = 144
+  case googleWeathernext2Ensemble = 145
+  case googleWeathernext2EnsembleMean = 146
 
-  public static var max: openmeteo_sdk_Model { return .geosphereAromeAustria }
+  public static var max: openmeteo_sdk_Model { return .googleWeathernext2EnsembleMean }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -381,8 +389,10 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case seaIceThickness = 164
   case shortwaveRadiationClearSkyInstant = 165
   case seaWaterSalinity = 166
+  case totalColumnWater = 167
+  case airDensity = 168
 
-  public static var max: openmeteo_sdk_Variable { return .seaWaterSalinity }
+  public static var max: openmeteo_sdk_Variable { return .airDensity }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

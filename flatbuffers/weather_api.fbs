@@ -193,7 +193,15 @@ enum Model: ubyte {
   bom_access_global_ensemble_mean,
   ecmwf_wam025_ensemble_mean,
   ncep_gefswave025_ensemble_mean,
-  geosphere_arome_austria
+  geosphere_arome_austria,
+  geosphere_seamless,
+  chmi_aladin_cz_1km,
+  ecmwf_ifs_europe_ensemble,
+  ecmwf_ifs_europe_ensemble_mean,
+  ecmwf_aifs_europe_ensemble,
+  ecmwf_aifs_europe_ensemble_mean,
+  google_weathernext2_ensemble,
+  google_weathernext2_ensemble_mean
 }
 
 enum Variable: ubyte {
@@ -363,7 +371,9 @@ enum Variable: ubyte {
   lightning_density,
   sea_ice_thickness,
   shortwave_radiation_clear_sky_instant,
-  sea_water_salinity
+  sea_water_salinity,
+  total_column_water,
+  air_density
 }
 
 enum Aggregation: ubyte {

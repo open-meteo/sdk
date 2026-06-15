@@ -169,5 +169,7 @@ export enum Variable {
   lightning_density = 163,
   sea_ice_thickness = 164,
   shortwave_radiation_clear_sky_instant = 165,
-  sea_water_salinity = 166
+  sea_water_salinity = 166,
+  total_column_water = 167,
+  air_density = 168
 }
