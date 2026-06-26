@@ -174,5 +174,8 @@ class Variable private constructor() {
         const val sea_water_salinity: UByte = 166u
         const val total_column_water: UByte = 167u
         const val air_density: UByte = 168u
+        const val moonrise: UByte = 169u
+        const val moonset: UByte = 170u
+        const val moon_phase: UByte = 171u
     }
 }

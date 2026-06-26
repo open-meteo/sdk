@@ -172,3 +172,6 @@ class Variable(object):
     sea_water_salinity = 166
     total_column_water = 167
     air_density = 168
+    moonrise = 169
+    moonset = 170
+    moon_phase = 171
