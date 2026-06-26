@@ -373,7 +373,10 @@ enum Variable: ubyte {
   shortwave_radiation_clear_sky_instant,
   sea_water_salinity,
   total_column_water,
-  air_density
+  air_density,
+  moonrise,
+  moonset,
+  moon_phase
 }
 
 enum Aggregation: ubyte {
