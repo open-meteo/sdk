@@ -391,8 +391,11 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case seaWaterSalinity = 166
   case totalColumnWater = 167
   case airDensity = 168
+  case moonrise = 169
+  case moonset = 170
+  case moonPhase = 171
 
-  public static var max: openmeteo_sdk_Variable { return .airDensity }
+  public static var max: openmeteo_sdk_Variable { return .moonPhase }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

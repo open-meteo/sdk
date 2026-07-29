@@ -178,4 +178,7 @@ class Variable(object):
   sea_water_salinity = cast(int, ...)
   total_column_water = cast(int, ...)
   air_density = cast(int, ...)
+  moonrise = cast(int, ...)
+  moonset = cast(int, ...)
+  moon_phase = cast(int, ...)
 
