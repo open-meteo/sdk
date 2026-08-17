@@ -76,7 +76,7 @@ Attributes:
 - `unit` [Unit](#Unit): Which unit is used for the result. E.g. `celsius`
 - `value` float: For `current` values, data is stored in this field
 - `values` [float]: Any other time-series data is stored as a floating point array here
-- `values_int64` [int64]: The variables `sunrise` and `sunset` use this field to store data as unix timestamp
+- `values_int64` [int64]: The variables `sunrise`, `sunset`, `moonrise`, and `moonset` use this field to store Unix timestamps in seconds. `INT64_MAX` (`9223372036854775807`) is the missing timestamp sentinel when an event does not occur during the local calendar day.
 - `altitude` int16: The altitude of the given variable. E.g `2` for temperature on 2 meters or `10` for wind speed on 10 meters
 - `aggregation` [Aggregation](#Aggregation): The kind of aggregation for daily variables like `minimum`, `mean` or `maximum`
 - `pressure_level` int16: If a weather variable in the upper atmosphere is requested, this field contains the pressure level in hectopascal. E.g. `850` for 850 hPa.
@@ -86,6 +86,17 @@ Attributes:
 - `previous_day` int16: Number of days before the current date to include
 - `probability` [Probability](#Probability): Probability threshold for ensemble probability variables
 
+In Python, the raw sentinel can be converted to `NaT` before working with the timestamps in pandas:
+
+```python
+import numpy as np
+import pandas as pd
+
+raw = variable.ValuesInt64AsNumpy()
+timestamps = pd.array(raw, dtype="Int64")
+timestamps[raw == np.iinfo(np.int64).max] = pd.NA
+timestamps = pd.to_datetime(timestamps, unit="s", utc=True)
+```
 
 ### Model
 The `Model` enumeration contains all available models like `icon_global` or `best_match`.
