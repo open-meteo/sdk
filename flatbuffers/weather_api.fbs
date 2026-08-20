@@ -446,7 +446,10 @@ table VariableWithValues {
 
   value: float; // Only used for current conditions
   values: [float]; // Contains a time series of data
-  values_int64: [int64];  // Only for sunrise/set as a unix timestamp
+  // Unix timestamps in seconds for sunrise, sunset, moonrise, and moonset.
+  // INT64_MAX (9223372036854775807) is the missing timestamp sentinel when an
+  // event does not occur during the local calendar day.
+  values_int64: [int64];
 
   altitude: int16;
   aggregation: Aggregation;
@@ -491,4 +494,3 @@ table WeatherApiResponse {
 }
 
 root_type WeatherApiResponse;
-

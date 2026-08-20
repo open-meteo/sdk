@@ -190,7 +190,7 @@ struct VariableWithValues {
 
   let value: Float // Only used for current conditions
   let values: [Float]? // Contains a time series of data
-  let valuesInt64: [Int64]?  // Only for sunrise/set as a unix timestamp
+  let valuesInt64: [Int64]?  // Unix timestamps for sunrise, sunset, moonrise, and moonset
 
   let altitude: Int16
   let aggregation: Aggregation
@@ -205,7 +205,7 @@ Attributes:
 
 - `variable` is an enumeration comprising cases like `.temperature` or `.precipitation`. While earlier examples demonstrate straightforward access to weather variables using an index, such as `variables(at: 0)`, you can also iterate through all variables and filter for specific ones like `.temperature`.
 - The `unit` attribute provides the unit for the weather variable depending on the variable and units selected in the URL. For instance, it might return `.celsius`.
-- `value`, `values`, and `valuesInt64` contain the actual data. For current weather variables, the value field is filled with a single `Float` value. However, for time-interval data like daily information, a `Float-Array` is returned with values for each day.
+- `value`, `values`, and `valuesInt64` contain the actual data. For current weather variables, the value field is filled with a single `Float` value. However, for time-interval data like daily information, a `Float-Array` is returned with values for each day. `valuesInt64` stores Unix timestamps in seconds for sunrise, sunset, moonrise, and moonset. `Int64.max` (`9223372036854775807`) is the missing timestamp sentinel when an event does not occur during the local calendar day.
 - `aggregation` is utilized for daily data to denote whether it represents daily `maximum` or `minimum` values.
 - `altitude` indicates the elevation above ground in meters. Normally, temperature is measured at 2 meters above the ground, but the API also offers additional levels such as `80`, `120`, or `180` meters.
 - `pressureLevel`, similar to `altitude`, allows access to atmospheric levels specified in pressure levels like `850 hPa`. When dealing with multiple pressure levels, the `pressureLevel` attribute facilitates their use.
