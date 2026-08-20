@@ -15,8 +15,12 @@ For pandas, convert the raw accessor result to `NaT` like this:
 import numpy as np
 import pandas as pd
 
+missing_int64 = np.iinfo(np.int64).max
+
 raw = variable.ValuesInt64AsNumpy()
-timestamps = pd.array(raw, dtype="Int64")
-timestamps[raw == np.iinfo(np.int64).max] = pd.NA
-timestamps = pd.to_datetime(timestamps, unit="s", utc=True)
+timestamps = pd.to_datetime(
+    pd.Series(raw).mask(raw == missing_int64),
+    unit="s",
+    utc=True,
+)
 ```
