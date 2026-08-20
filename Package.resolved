@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/flatbuffers.git",
       "state" : {
-        "revision" : "187240970746d00bbd26b0f5873ed54d2477f9f3",
-        "version" : "25.9.23"
+        "revision" : "7e163021e59cca4f8e1e35a7c828b5c6b7915953",
+        "version" : "25.12.19"
       }
     }
   ],
