@@ -201,7 +201,20 @@ enum Model: ubyte {
   ecmwf_aifs_europe_ensemble,
   ecmwf_aifs_europe_ensemble_mean,
   google_weathernext2_ensemble,
-  google_weathernext2_ensemble_mean
+  google_weathernext2_ensemble_mean,
+  dwd_icon_global_native,
+  dwd_icon_eu_native,
+  dwd_icon_global_eps_native,
+  dwd_icon_eu_eps_native,
+  dwd_icon_d2_eps_native,
+  dwd_icon_d2_native,
+  chmi_aladin_central_europe_2km,
+  chmi_aladin_seamless,
+  ncep_rrfs_seamless,
+  ncep_rrfs_conus,
+  ncep_rrfs_conus_15min,
+  ncep_rrfs_conus_ensemble,
+  ncep_rrfs_north_america
 }
 
 enum Variable: ubyte {
@@ -376,7 +389,13 @@ enum Variable: ubyte {
   air_density,
   moonrise,
   moonset,
-  moon_phase
+  moon_phase,
+  temperature_max,
+  temperature_min,
+  cloud_ceiling,
+  freezing_rain,
+  radar_reflectivity,
+  categorical_freezing_rain
 }
 
 enum Aggregation: ubyte {

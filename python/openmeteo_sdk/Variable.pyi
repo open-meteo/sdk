@@ -181,4 +181,10 @@ class Variable(object):
   moonrise = cast(int, ...)
   moonset = cast(int, ...)
   moon_phase = cast(int, ...)
+  temperature_max = cast(int, ...)
+  temperature_min = cast(int, ...)
+  cloud_ceiling = cast(int, ...)
+  freezing_rain = cast(int, ...)
+  radar_reflectivity = cast(int, ...)
+  categorical_freezing_rain = cast(int, ...)
 

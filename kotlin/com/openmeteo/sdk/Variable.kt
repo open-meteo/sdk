@@ -177,5 +177,11 @@ class Variable private constructor() {
         const val moonrise: UByte = 169u
         const val moonset: UByte = 170u
         const val moon_phase: UByte = 171u
+        const val temperature_max: UByte = 172u
+        const val temperature_min: UByte = 173u
+        const val cloud_ceiling: UByte = 174u
+        const val freezing_rain: UByte = 175u
+        const val radar_reflectivity: UByte = 176u
+        const val categorical_freezing_rain: UByte = 177u
     }
 }

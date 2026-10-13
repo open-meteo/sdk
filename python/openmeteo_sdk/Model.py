@@ -150,3 +150,16 @@ class Model(object):
     ecmwf_aifs_europe_ensemble_mean = 144
     google_weathernext2_ensemble = 145
     google_weathernext2_ensemble_mean = 146
+    dwd_icon_global_native = 147
+    dwd_icon_eu_native = 148
+    dwd_icon_global_eps_native = 149
+    dwd_icon_eu_eps_native = 150
+    dwd_icon_d2_eps_native = 151
+    dwd_icon_d2_native = 152
+    chmi_aladin_central_europe_2km = 153
+    chmi_aladin_seamless = 154
+    ncep_rrfs_seamless = 155
+    ncep_rrfs_conus = 156
+    ncep_rrfs_conus_15min = 157
+    ncep_rrfs_conus_ensemble = 158
+    ncep_rrfs_north_america = 159
