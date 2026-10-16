@@ -212,8 +212,21 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfAifsEuropeEnsembleMean = 144
   case googleWeathernext2Ensemble = 145
   case googleWeathernext2EnsembleMean = 146
+  case dwdIconGlobalNative = 147
+  case dwdIconEuNative = 148
+  case dwdIconGlobalEpsNative = 149
+  case dwdIconEuEpsNative = 150
+  case dwdIconD2EpsNative = 151
+  case dwdIconD2Native = 152
+  case chmiAladinCentralEurope2km = 153
+  case chmiAladinSeamless = 154
+  case ncepRrfsSeamless = 155
+  case ncepRrfsConus = 156
+  case ncepRrfsConus15min = 157
+  case ncepRrfsConusEnsemble = 158
+  case ncepRrfsNorthAmerica = 159
 
-  public static var max: openmeteo_sdk_Model { return .googleWeathernext2EnsembleMean }
+  public static var max: openmeteo_sdk_Model { return .ncepRrfsNorthAmerica }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -394,8 +407,14 @@ public enum openmeteo_sdk_Variable: UInt8, Enum, Verifiable {
   case moonrise = 169
   case moonset = 170
   case moonPhase = 171
+  case temperatureMax = 172
+  case temperatureMin = 173
+  case cloudCeiling = 174
+  case freezingRain = 175
+  case radarReflectivity = 176
+  case categoricalFreezingRain = 177
 
-  public static var max: openmeteo_sdk_Variable { return .moonPhase }
+  public static var max: openmeteo_sdk_Variable { return .categoricalFreezingRain }
   public static var min: openmeteo_sdk_Variable { return .undefined }
 }
 

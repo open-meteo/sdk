@@ -4,6 +4,7 @@
 
 import flatbuffers
 from flatbuffers.compat import import_numpy
+from typing import Any
 np = import_numpy()
 
 class VariableWithValues(object):

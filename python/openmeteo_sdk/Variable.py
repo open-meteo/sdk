@@ -175,3 +175,9 @@ class Variable(object):
     moonrise = 169
     moonset = 170
     moon_phase = 171
+    temperature_max = 172
+    temperature_min = 173
+    cloud_ceiling = 174
+    freezing_rain = 175
+    radar_reflectivity = 176
+    categorical_freezing_rain = 177

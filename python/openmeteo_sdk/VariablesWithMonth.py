@@ -4,6 +4,7 @@
 
 import flatbuffers
 from flatbuffers.compat import import_numpy
+from typing import Any
 from openmeteo_sdk.VariableWithValues import VariableWithValues
 from typing import Optional
 np = import_numpy()

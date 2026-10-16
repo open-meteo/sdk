@@ -152,5 +152,18 @@ class Model private constructor() {
         const val ecmwf_aifs_europe_ensemble_mean: UByte = 144u
         const val google_weathernext2_ensemble: UByte = 145u
         const val google_weathernext2_ensemble_mean: UByte = 146u
+        const val dwd_icon_global_native: UByte = 147u
+        const val dwd_icon_eu_native: UByte = 148u
+        const val dwd_icon_global_eps_native: UByte = 149u
+        const val dwd_icon_eu_eps_native: UByte = 150u
+        const val dwd_icon_d2_eps_native: UByte = 151u
+        const val dwd_icon_d2_native: UByte = 152u
+        const val chmi_aladin_central_europe_2km: UByte = 153u
+        const val chmi_aladin_seamless: UByte = 154u
+        const val ncep_rrfs_seamless: UByte = 155u
+        const val ncep_rrfs_conus: UByte = 156u
+        const val ncep_rrfs_conus_15min: UByte = 157u
+        const val ncep_rrfs_conus_ensemble: UByte = 158u
+        const val ncep_rrfs_north_america: UByte = 159u
     }
 }
