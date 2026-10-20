@@ -161,7 +161,7 @@ enum Model: ubyte {
   meteoswiss_icon_ch2_ensemble,
   meteoswiss_icon_seamless,
   ncep_nam_conus,
-  icon_d2_ruc,
+  dwd_icon_d2_ruc_native,
   ecmwf_seas5,
   ecmwf_ec46,
   ecmwf_seasonal_seamless,

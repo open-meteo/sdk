@@ -171,7 +171,7 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case meteoswissIconCh2Ensemble = 102
   case meteoswissIconSeamless = 103
   case ncepNamConus = 104
-  case iconD2Ruc = 105
+  case dwdIconD2RucNative = 105
   case ecmwfSeas5 = 106
   case ecmwfEc46 = 107
   case ecmwfSeasonalSeamless = 108

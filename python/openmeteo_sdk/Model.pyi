@@ -114,7 +114,7 @@ class Model(object):
   meteoswiss_icon_ch2_ensemble = cast(int, ...)
   meteoswiss_icon_seamless = cast(int, ...)
   ncep_nam_conus = cast(int, ...)
-  icon_d2_ruc = cast(int, ...)
+  dwd_icon_d2_ruc_native = cast(int, ...)
   ecmwf_seas5 = cast(int, ...)
   ecmwf_ec46 = cast(int, ...)
   ecmwf_seasonal_seamless = cast(int, ...)
