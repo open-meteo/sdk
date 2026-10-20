@@ -45,6 +45,7 @@ extension openmeteo_sdk_Unit {
         case .fraction: return "fraction"
         case .partsPerMillion: return "ppm"
         case .kilogramPerCubicMetre: return "kg/m³"
+        case .dbz: return "dBZ"
         }
     }
     
@@ -94,6 +95,7 @@ extension openmeteo_sdk_Unit {
         case .fraction: return 3
         case .partsPerMillion: return 0
         case .kilogramPerCubicMetre: return 2
+        case .dbz: return 1
         }
     }
 }
