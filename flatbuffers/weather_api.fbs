@@ -51,7 +51,8 @@ enum Unit : ubyte {
   watt_per_square_metre,
   wmo_code,
   parts_per_million,
-  kilogram_per_cubic_metre
+  kilogram_per_cubic_metre,
+  dbz
 }
 
 enum Model: ubyte {
@@ -214,7 +215,8 @@ enum Model: ubyte {
   ncep_rrfs_conus,
   ncep_rrfs_conus_15min,
   ncep_rrfs_conus_ensemble,
-  ncep_rrfs_north_america
+  ncep_rrfs_north_america,
+  dwd_aicon_global_native
 }
 
 enum Variable: ubyte {

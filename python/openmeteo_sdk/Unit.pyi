@@ -52,4 +52,5 @@ class Unit(object):
   wmo_code = cast(int, ...)
   parts_per_million = cast(int, ...)
   kilogram_per_cubic_metre = cast(int, ...)
+  dbz = cast(int, ...)
 

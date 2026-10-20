@@ -169,4 +169,5 @@ class Model(object):
   ncep_rrfs_conus_15min = cast(int, ...)
   ncep_rrfs_conus_ensemble = cast(int, ...)
   ncep_rrfs_north_america = cast(int, ...)
+  dwd_aicon_global_native = cast(int, ...)
 

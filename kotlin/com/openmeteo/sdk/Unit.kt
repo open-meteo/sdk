@@ -48,5 +48,6 @@ class Unit private constructor() {
         const val wmo_code: UByte = 40u
         const val parts_per_million: UByte = 41u
         const val kilogram_per_cubic_metre: UByte = 42u
+        const val dbz: UByte = 43u
     }
 }

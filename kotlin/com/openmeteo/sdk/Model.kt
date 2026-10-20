@@ -165,5 +165,6 @@ class Model private constructor() {
         const val ncep_rrfs_conus_15min: UByte = 157u
         const val ncep_rrfs_conus_ensemble: UByte = 158u
         const val ncep_rrfs_north_america: UByte = 159u
+        const val dwd_aicon_global_native: UByte = 160u
     }
 }

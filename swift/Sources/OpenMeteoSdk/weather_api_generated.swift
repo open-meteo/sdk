@@ -55,8 +55,9 @@ public enum openmeteo_sdk_Unit: UInt8, Enum, Verifiable {
   case wmoCode = 40
   case partsPerMillion = 41
   case kilogramPerCubicMetre = 42
+  case dbz = 43
 
-  public static var max: openmeteo_sdk_Unit { return .kilogramPerCubicMetre }
+  public static var max: openmeteo_sdk_Unit { return .dbz }
   public static var min: openmeteo_sdk_Unit { return .undefined }
 }
 
@@ -225,8 +226,9 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ncepRrfsConus15min = 157
   case ncepRrfsConusEnsemble = 158
   case ncepRrfsNorthAmerica = 159
+  case dwdAiconGlobalNative = 160
 
-  public static var max: openmeteo_sdk_Model { return .ncepRrfsNorthAmerica }
+  public static var max: openmeteo_sdk_Model { return .dwdAiconGlobalNative }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
