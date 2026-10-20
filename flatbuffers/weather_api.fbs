@@ -51,7 +51,8 @@ enum Unit : ubyte {
   watt_per_square_metre,
   wmo_code,
   parts_per_million,
-  kilogram_per_cubic_metre
+  kilogram_per_cubic_metre,
+  dbz
 }
 
 enum Model: ubyte {
@@ -160,7 +161,7 @@ enum Model: ubyte {
   meteoswiss_icon_ch2_ensemble,
   meteoswiss_icon_seamless,
   ncep_nam_conus,
-  icon_d2_ruc,
+  dwd_icon_d2_ruc_native,
   ecmwf_seas5,
   ecmwf_ec46,
   ecmwf_seasonal_seamless,
@@ -214,7 +215,8 @@ enum Model: ubyte {
   ncep_rrfs_conus,
   ncep_rrfs_conus_15min,
   ncep_rrfs_conus_ensemble,
-  ncep_rrfs_north_america
+  ncep_rrfs_north_america,
+  dwd_aicon_global_native
 }
 
 enum Variable: ubyte {

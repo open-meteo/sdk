@@ -108,7 +108,7 @@ class Model(object):
     meteoswiss_icon_ch2_ensemble = 102
     meteoswiss_icon_seamless = 103
     ncep_nam_conus = 104
-    icon_d2_ruc = 105
+    dwd_icon_d2_ruc_native = 105
     ecmwf_seas5 = 106
     ecmwf_ec46 = 107
     ecmwf_seasonal_seamless = 108
@@ -163,3 +163,4 @@ class Model(object):
     ncep_rrfs_conus_15min = 157
     ncep_rrfs_conus_ensemble = 158
     ncep_rrfs_north_america = 159
+    dwd_aicon_global_native = 160

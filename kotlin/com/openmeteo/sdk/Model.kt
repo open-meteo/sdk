@@ -110,7 +110,7 @@ class Model private constructor() {
         const val meteoswiss_icon_ch2_ensemble: UByte = 102u
         const val meteoswiss_icon_seamless: UByte = 103u
         const val ncep_nam_conus: UByte = 104u
-        const val icon_d2_ruc: UByte = 105u
+        const val dwd_icon_d2_ruc_native: UByte = 105u
         const val ecmwf_seas5: UByte = 106u
         const val ecmwf_ec46: UByte = 107u
         const val ecmwf_seasonal_seamless: UByte = 108u
@@ -165,5 +165,6 @@ class Model private constructor() {
         const val ncep_rrfs_conus_15min: UByte = 157u
         const val ncep_rrfs_conus_ensemble: UByte = 158u
         const val ncep_rrfs_north_america: UByte = 159u
+        const val dwd_aicon_global_native: UByte = 160u
     }
 }
