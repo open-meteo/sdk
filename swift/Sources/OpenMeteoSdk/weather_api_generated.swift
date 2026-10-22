@@ -227,8 +227,9 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ncepRrfsConusEnsemble = 158
   case ncepRrfsNorthAmerica = 159
   case dwdAiconGlobalNative = 160
+  case geosphereClaefAustria = 161
 
-  public static var max: openmeteo_sdk_Model { return .dwdAiconGlobalNative }
+  public static var max: openmeteo_sdk_Model { return .geosphereClaefAustria }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 

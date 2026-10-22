@@ -170,4 +170,5 @@ class Model(object):
   ncep_rrfs_conus_ensemble = cast(int, ...)
   ncep_rrfs_north_america = cast(int, ...)
   dwd_aicon_global_native = cast(int, ...)
+  geosphere_claef_austria = cast(int, ...)
 
