@@ -216,7 +216,8 @@ enum Model: ubyte {
   ncep_rrfs_conus_15min,
   ncep_rrfs_conus_ensemble,
   ncep_rrfs_north_america,
-  dwd_aicon_global_native
+  dwd_aicon_global_native,
+  geosphere_claef_austria
 }
 
 enum Variable: ubyte {
