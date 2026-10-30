@@ -163,5 +163,6 @@ export enum Model {
   ncep_rrfs_conus_15min = 157,
   ncep_rrfs_conus_ensemble = 158,
   ncep_rrfs_north_america = 159,
-  dwd_aicon_global_native = 160
+  dwd_aicon_global_native = 160,
+  geosphere_claef_austria = 161
 }
