@@ -167,5 +167,8 @@ class Model private constructor() {
         const val ncep_rrfs_north_america: UByte = 159u
         const val dwd_aicon_global_native: UByte = 160u
         const val geosphere_claef_austria: UByte = 161u
+        const val ecmwf_ifs01: UByte = 162u
+        const val ecmwf_ifs01_ensemble_mean: UByte = 163u
+        const val ecmwf_ifs01_ensemble: UByte = 164u
     }
 }
