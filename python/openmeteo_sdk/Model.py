@@ -165,3 +165,6 @@ class Model(object):
     ncep_rrfs_north_america = 159
     dwd_aicon_global_native = 160
     geosphere_claef_austria = 161
+    ecmwf_ifs01 = 162
+    ecmwf_ifs01_ensemble_mean = 163
+    ecmwf_ifs01_ensemble = 164

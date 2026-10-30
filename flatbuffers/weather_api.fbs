@@ -217,7 +217,10 @@ enum Model: ubyte {
   ncep_rrfs_conus_ensemble,
   ncep_rrfs_north_america,
   dwd_aicon_global_native,
-  geosphere_claef_austria
+  geosphere_claef_austria,
+  ecmwf_ifs01,
+  ecmwf_ifs01_ensemble_mean,
+  ecmwf_ifs01_ensemble
 }
 
 enum Variable: ubyte {
