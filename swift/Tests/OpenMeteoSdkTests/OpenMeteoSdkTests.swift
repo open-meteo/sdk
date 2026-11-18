@@ -87,5 +87,49 @@ final class OpenMeteoSdkTests: XCTestCase {
         XCTAssertEqual(VariableWithValues.ensembleMember, 50)
         XCTAssertEqual(VariableWithValues.unit, .celsius)
         XCTAssertEqual(VariableWithValues.variable, .temperature)
+        XCTAssertEqual(VariableWithValues.percentile, .none_)
+    }
+
+    func testWeatherNext3Percentiles() throws {
+        let statistics: [(openmeteo_sdk_Aggregation, openmeteo_sdk_Percentile)] = [
+            (.none_, .none_),
+            (.none_, .p10),
+            (.none_, .p25),
+            (.none_, .p50),
+            (.none_, .p75),
+            (.none_, .p90),
+            (.spread, .none_)
+        ]
+        var fbb = FlatBufferBuilder()
+        let offsets = statistics.map { aggregation, percentile in
+            openmeteo_sdk_VariableWithValues.createVariableWithValues(
+                &fbb,
+                variable: .temperature,
+                unit: .celsius,
+                altitude: 2,
+                aggregation: aggregation,
+                percentile: percentile
+            )
+        }
+        let variables = fbb.createVector(ofOffsets: offsets)
+        let hourly = openmeteo_sdk_VariablesWithTime.createVariablesWithTime(&fbb, variablesVectorOffset: variables)
+        let api = openmeteo_sdk_WeatherApiResponse.createWeatherApiResponse(
+            &fbb, model: .googleWeathernext3EnsembleMean, hourlyOffset: hourly
+        )
+        fbb.finish(offset: api)
+
+        var bb = fbb.buffer
+        let response: WeatherApiResponse = try getCheckedRoot(byteBuffer: &bb)
+        XCTAssertEqual(response.model, .googleWeathernext3EnsembleMean)
+        XCTAssertEqual(response.model.rawValue, 165)
+        let decodedHourly = try XCTUnwrap(response.hourly)
+        XCTAssertEqual(Int(decodedHourly.variablesCount), statistics.count)
+        for (index, (aggregation, percentile)) in statistics.enumerated() {
+            let series = try XCTUnwrap(decodedHourly.variables(at: Int32(index)))
+            XCTAssertEqual(series.variable, .temperature)
+            XCTAssertEqual(series.altitude, 2)
+            XCTAssertEqual(series.aggregation, aggregation)
+            XCTAssertEqual(series.percentile, percentile)
+        }
     }
 }

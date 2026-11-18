@@ -52,6 +52,7 @@ public final class VariableWithValues extends Table {
   public short ensembleMember() { int o = __offset(24); return o != 0 ? bb.getShort(o + bb_pos) : 0; }
   public short previousDay() { int o = __offset(26); return o != 0 ? bb.getShort(o + bb_pos) : 0; }
   public int probability() { int o = __offset(28); return o != 0 ? bb.get(o + bb_pos) & 0xFF : 0; }
+  public int percentile() { int o = __offset(30); return o != 0 ? bb.get(o + bb_pos) & 0xFF : 0; }
 
   public static int createVariableWithValues(FlatBufferBuilder builder,
       int variable,
@@ -66,8 +67,9 @@ public final class VariableWithValues extends Table {
       short depthTo,
       short ensembleMember,
       short previousDay,
-      int probability) {
-    builder.startTable(13);
+      int probability,
+      int percentile) {
+    builder.startTable(14);
     VariableWithValues.addValuesInt64(builder, valuesInt64Offset);
     VariableWithValues.addValues(builder, valuesOffset);
     VariableWithValues.addValue(builder, value);
@@ -77,6 +79,7 @@ public final class VariableWithValues extends Table {
     VariableWithValues.addDepth(builder, depth);
     VariableWithValues.addPressureLevel(builder, pressureLevel);
     VariableWithValues.addAltitude(builder, altitude);
+    VariableWithValues.addPercentile(builder, percentile);
     VariableWithValues.addProbability(builder, probability);
     VariableWithValues.addAggregation(builder, aggregation);
     VariableWithValues.addUnit(builder, unit);
@@ -84,7 +87,7 @@ public final class VariableWithValues extends Table {
     return VariableWithValues.endVariableWithValues(builder);
   }
 
-  public static void startVariableWithValues(FlatBufferBuilder builder) { builder.startTable(13); }
+  public static void startVariableWithValues(FlatBufferBuilder builder) { builder.startTable(14); }
   public static void addVariable(FlatBufferBuilder builder, int variable) { builder.addByte(0, (byte) variable, (byte) 0); }
   public static void addUnit(FlatBufferBuilder builder, int unit) { builder.addByte(1, (byte) unit, (byte) 0); }
   public static void addValue(FlatBufferBuilder builder, float value) { builder.addFloat(2, value, 0.0f); }
@@ -102,6 +105,7 @@ public final class VariableWithValues extends Table {
   public static void addEnsembleMember(FlatBufferBuilder builder, short ensembleMember) { builder.addShort(10, ensembleMember, 0); }
   public static void addPreviousDay(FlatBufferBuilder builder, short previousDay) { builder.addShort(11, previousDay, 0); }
   public static void addProbability(FlatBufferBuilder builder, int probability) { builder.addByte(12, (byte) probability, (byte) 0); }
+  public static void addPercentile(FlatBufferBuilder builder, int percentile) { builder.addByte(13, (byte) percentile, (byte) 0); }
   public static int endVariableWithValues(FlatBufferBuilder builder) {
     int o = builder.endTable();
     return o;

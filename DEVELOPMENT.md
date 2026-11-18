@@ -2,6 +2,8 @@
 
 ## Compile FlatBuffers files
 
+Use flatc 25.9.23 for Swift, Python, and TypeScript and 25.2.10 for C#, Java, and Kotlin.
+
 AWK is used to remove create functions for flatbuffer messages
 
 ```bash
@@ -10,7 +12,7 @@ flatc --swift -o swift/Sources/OpenMeteoSdk/ flatbuffers/*.fbs
 flatc --csharp -o csharp/ flatbuffers/*.fbs
 
 flatc --python --python-typing -o python/ flatbuffers/*.fbs
-find python/ -name "*.py" -type f -exec sh -c "awk 'sub(/^def.*/,\"\"){f=1} {print} f{exit}' {} > {}_tmp; mv -f {}_tmp {}" \;
+find python/ \( -name "*.py" -o -name "*.pyi" \) -type f -exec sh -c "awk 'sub(/^def.*/,\"\"){f=1} {print} f{exit}' {} > {}_tmp; mv -f {}_tmp {}" \;
 
 cp -r flatbuffers/ flatbuffers_no_namespace/
 find flatbuffers_no_namespace -type f -exec sed -i '' -e "s/namespace\ openmeteo_sdk;//" {} \;

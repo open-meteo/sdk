@@ -231,8 +231,9 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfIfs01 = 162
   case ecmwfIfs01EnsembleMean = 163
   case ecmwfIfs01Ensemble = 164
+  case googleWeathernext3EnsembleMean = 165
 
-  public static var max: openmeteo_sdk_Model { return .ecmwfIfs01Ensemble }
+  public static var max: openmeteo_sdk_Model { return .googleWeathernext3EnsembleMean }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 
@@ -500,6 +501,22 @@ public enum openmeteo_sdk_Probability: UInt8, Enum, Verifiable {
 }
 
 
+public enum openmeteo_sdk_Percentile: UInt8, Enum, Verifiable {
+  public typealias T = UInt8
+  public static var byteSize: Int { return MemoryLayout<UInt8>.size }
+  public var value: UInt8 { return self.rawValue }
+  case none_ = 0
+  case p10 = 10
+  case p25 = 25
+  case p50 = 50
+  case p75 = 75
+  case p90 = 90
+
+  public static var max: openmeteo_sdk_Percentile { return .p90 }
+  public static var min: openmeteo_sdk_Percentile { return .none_ }
+}
+
+
 public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
 
   static func validateVersion() { FlatBuffersVersion_25_9_23() }
@@ -523,6 +540,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     case ensembleMember = 24
     case previousDay = 26
     case probability = 28
+    case percentile = 30
     var v: Int32 { Int32(self.rawValue) }
     var p: VOffset { self.rawValue }
   }
@@ -548,7 +566,8 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
   public var ensembleMember: Int16 { let o = _accessor.offset(VTOFFSET.ensembleMember.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var previousDay: Int16 { let o = _accessor.offset(VTOFFSET.previousDay.v); return o == 0 ? 0 : _accessor.readBuffer(of: Int16.self, at: o) }
   public var probability: openmeteo_sdk_Probability { let o = _accessor.offset(VTOFFSET.probability.v); return o == 0 ? .none_ : openmeteo_sdk_Probability(rawValue: _accessor.readBuffer(of: UInt8.self, at: o)) ?? .none_ }
-  public static func startVariableWithValues(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 13) }
+  public var percentile: openmeteo_sdk_Percentile { let o = _accessor.offset(VTOFFSET.percentile.v); return o == 0 ? .none_ : openmeteo_sdk_Percentile(rawValue: _accessor.readBuffer(of: UInt8.self, at: o)) ?? .none_ }
+  public static func startVariableWithValues(_ fbb: inout FlatBufferBuilder) -> UOffset { fbb.startTable(with: 14) }
   public static func add(variable: openmeteo_sdk_Variable, _ fbb: inout FlatBufferBuilder) { fbb.add(element: variable.rawValue, def: 0, at: VTOFFSET.variable.p) }
   public static func add(unit: openmeteo_sdk_Unit, _ fbb: inout FlatBufferBuilder) { fbb.add(element: unit.rawValue, def: 0, at: VTOFFSET.unit.p) }
   public static func add(value: Float32, _ fbb: inout FlatBufferBuilder) { fbb.add(element: value, def: 0.0, at: VTOFFSET.value.p) }
@@ -562,6 +581,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
   public static func add(ensembleMember: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: ensembleMember, def: 0, at: VTOFFSET.ensembleMember.p) }
   public static func add(previousDay: Int16, _ fbb: inout FlatBufferBuilder) { fbb.add(element: previousDay, def: 0, at: VTOFFSET.previousDay.p) }
   public static func add(probability: openmeteo_sdk_Probability, _ fbb: inout FlatBufferBuilder) { fbb.add(element: probability.rawValue, def: 0, at: VTOFFSET.probability.p) }
+  public static func add(percentile: openmeteo_sdk_Percentile, _ fbb: inout FlatBufferBuilder) { fbb.add(element: percentile.rawValue, def: 0, at: VTOFFSET.percentile.p) }
   public static func endVariableWithValues(_ fbb: inout FlatBufferBuilder, start: UOffset) -> Offset { let end = Offset(offset: fbb.endTable(at: start)); return end }
   public static func createVariableWithValues(
     _ fbb: inout FlatBufferBuilder,
@@ -577,7 +597,8 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     depthTo: Int16 = 0,
     ensembleMember: Int16 = 0,
     previousDay: Int16 = 0,
-    probability: openmeteo_sdk_Probability = .none_
+    probability: openmeteo_sdk_Probability = .none_,
+    percentile: openmeteo_sdk_Percentile = .none_
   ) -> Offset {
     let __start = openmeteo_sdk_VariableWithValues.startVariableWithValues(&fbb)
     openmeteo_sdk_VariableWithValues.add(variable: variable, &fbb)
@@ -593,6 +614,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     openmeteo_sdk_VariableWithValues.add(ensembleMember: ensembleMember, &fbb)
     openmeteo_sdk_VariableWithValues.add(previousDay: previousDay, &fbb)
     openmeteo_sdk_VariableWithValues.add(probability: probability, &fbb)
+    openmeteo_sdk_VariableWithValues.add(percentile: percentile, &fbb)
     return openmeteo_sdk_VariableWithValues.endVariableWithValues(&fbb, start: __start)
   }
 
@@ -611,6 +633,7 @@ public struct openmeteo_sdk_VariableWithValues: FlatBufferObject, Verifiable {
     try _v.visit(field: VTOFFSET.ensembleMember.p, fieldName: "ensembleMember", required: false, type: Int16.self)
     try _v.visit(field: VTOFFSET.previousDay.p, fieldName: "previousDay", required: false, type: Int16.self)
     try _v.visit(field: VTOFFSET.probability.p, fieldName: "probability", required: false, type: openmeteo_sdk_Probability.self)
+    try _v.visit(field: VTOFFSET.percentile.p, fieldName: "percentile", required: false, type: openmeteo_sdk_Percentile.self)
     _v.finish()
   }
 }

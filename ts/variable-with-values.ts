@@ -5,6 +5,7 @@
 import * as flatbuffers from 'flatbuffers';
 
 import { Aggregation } from './aggregation.js';
+import { Percentile } from './percentile.js';
 import { Probability } from './probability.js';
 import { Unit } from './unit.js';
 import { Variable } from './variable.js';
@@ -106,6 +107,11 @@ previousDay():number {
 probability():Probability {
   const offset = this.bb!.__offset(this.bb_pos, 28);
   return offset ? this.bb!.readUint8(this.bb_pos + offset) : Probability.none;
+}
+
+percentile():Percentile {
+  const offset = this.bb!.__offset(this.bb_pos, 30);
+  return offset ? this.bb!.readUint8(this.bb_pos + offset) : Percentile.none;
 }
 
 }

@@ -46,6 +46,7 @@ public struct VariableWithValues : IFlatbufferObject
   public short EnsembleMember { get { int o = __p.__offset(24); return o != 0 ? __p.bb.GetShort(o + __p.bb_pos) : (short)0; } }
   public short PreviousDay { get { int o = __p.__offset(26); return o != 0 ? __p.bb.GetShort(o + __p.bb_pos) : (short)0; } }
   public openmeteo_sdk.Probability Probability { get { int o = __p.__offset(28); return o != 0 ? (openmeteo_sdk.Probability)__p.bb.Get(o + __p.bb_pos) : openmeteo_sdk.Probability.none; } }
+  public openmeteo_sdk.Percentile Percentile { get { int o = __p.__offset(30); return o != 0 ? (openmeteo_sdk.Percentile)__p.bb.Get(o + __p.bb_pos) : openmeteo_sdk.Percentile.none; } }
 
   public static Offset<openmeteo_sdk.VariableWithValues> CreateVariableWithValues(FlatBufferBuilder builder,
       openmeteo_sdk.Variable variable = openmeteo_sdk.Variable.undefined,
@@ -60,8 +61,9 @@ public struct VariableWithValues : IFlatbufferObject
       short depth_to = 0,
       short ensemble_member = 0,
       short previous_day = 0,
-      openmeteo_sdk.Probability probability = openmeteo_sdk.Probability.none) {
-    builder.StartTable(13);
+      openmeteo_sdk.Probability probability = openmeteo_sdk.Probability.none,
+      openmeteo_sdk.Percentile percentile = openmeteo_sdk.Percentile.none) {
+    builder.StartTable(14);
     VariableWithValues.AddValuesInt64(builder, values_int64Offset);
     VariableWithValues.AddValues(builder, valuesOffset);
     VariableWithValues.AddValue(builder, value);
@@ -71,6 +73,7 @@ public struct VariableWithValues : IFlatbufferObject
     VariableWithValues.AddDepth(builder, depth);
     VariableWithValues.AddPressureLevel(builder, pressure_level);
     VariableWithValues.AddAltitude(builder, altitude);
+    VariableWithValues.AddPercentile(builder, percentile);
     VariableWithValues.AddProbability(builder, probability);
     VariableWithValues.AddAggregation(builder, aggregation);
     VariableWithValues.AddUnit(builder, unit);
@@ -78,7 +81,7 @@ public struct VariableWithValues : IFlatbufferObject
     return VariableWithValues.EndVariableWithValues(builder);
   }
 
-  public static void StartVariableWithValues(FlatBufferBuilder builder) { builder.StartTable(13); }
+  public static void StartVariableWithValues(FlatBufferBuilder builder) { builder.StartTable(14); }
   public static void AddVariable(FlatBufferBuilder builder, openmeteo_sdk.Variable variable) { builder.AddByte(0, (byte)variable, 0); }
   public static void AddUnit(FlatBufferBuilder builder, openmeteo_sdk.Unit unit) { builder.AddByte(1, (byte)unit, 0); }
   public static void AddValue(FlatBufferBuilder builder, float value) { builder.AddFloat(2, value, 0.0f); }
@@ -102,6 +105,7 @@ public struct VariableWithValues : IFlatbufferObject
   public static void AddEnsembleMember(FlatBufferBuilder builder, short ensembleMember) { builder.AddShort(10, ensembleMember, 0); }
   public static void AddPreviousDay(FlatBufferBuilder builder, short previousDay) { builder.AddShort(11, previousDay, 0); }
   public static void AddProbability(FlatBufferBuilder builder, openmeteo_sdk.Probability probability) { builder.AddByte(12, (byte)probability, 0); }
+  public static void AddPercentile(FlatBufferBuilder builder, openmeteo_sdk.Percentile percentile) { builder.AddByte(13, (byte)percentile, 0); }
   public static Offset<openmeteo_sdk.VariableWithValues> EndVariableWithValues(FlatBufferBuilder builder) {
     int o = builder.EndTable();
     return new Offset<openmeteo_sdk.VariableWithValues>(o);
@@ -127,6 +131,7 @@ static public class VariableWithValuesVerify
       && verifier.VerifyField(tablePos, 24 /*EnsembleMember*/, 2 /*short*/, 2, false)
       && verifier.VerifyField(tablePos, 26 /*PreviousDay*/, 2 /*short*/, 2, false)
       && verifier.VerifyField(tablePos, 28 /*Probability*/, 1 /*openmeteo_sdk.Probability*/, 1, false)
+      && verifier.VerifyField(tablePos, 30 /*Percentile*/, 1 /*openmeteo_sdk.Percentile*/, 1, false)
       && verifier.VerifyTableEnd(tablePos);
   }
 }

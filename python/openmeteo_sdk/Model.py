@@ -168,3 +168,4 @@ class Model(object):
     ecmwf_ifs01 = 162
     ecmwf_ifs01_ensemble_mean = 163
     ecmwf_ifs01_ensemble = 164
+    google_weathernext3_ensemble_mean = 165
