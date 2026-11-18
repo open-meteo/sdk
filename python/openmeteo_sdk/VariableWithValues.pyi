@@ -5,7 +5,6 @@ import numpy as np
 
 import typing
 from openmeteo_sdk.Aggregation import Aggregation
-from openmeteo_sdk.Percentile import Percentile
 from openmeteo_sdk.Probability import Probability
 from openmeteo_sdk.Unit import Unit
 from openmeteo_sdk.Variable import Variable
@@ -37,5 +36,4 @@ class VariableWithValues(object):
   def EnsembleMember(self) -> int: ...
   def PreviousDay(self) -> int: ...
   def Probability(self) -> typing.Literal[Probability.none, Probability.gt0, Probability.gt0p1, Probability.gt1, Probability.gt2, Probability.gt3, Probability.gt4, Probability.gt5, Probability.gt8, Probability.gt10, Probability.gt15, Probability.gt20, Probability.gt25, Probability.gt30, Probability.gt35, Probability.gt40, Probability.gt50, Probability.gt60, Probability.gt75, Probability.gt80, Probability.gt100, Probability.lt0, Probability.lt0p1, Probability.lt1, Probability.ltm1, Probability.ltm2, Probability.ltm3, Probability.ltm4, Probability.ltm5, Probability.ltm8, Probability.ltm10, Probability.ltm15, Probability.ltm20, Probability.gt1stdev, Probability.gt1p5stdev, Probability.gt2stdev, Probability.lt1stdev, Probability.lt1p5stdev, Probability.lt2stdev]: ...
-  def Percentile(self) -> typing.Literal[Percentile.none, Percentile.p10, Percentile.p25, Percentile.p50, Percentile.p75, Percentile.p90]: ...
 

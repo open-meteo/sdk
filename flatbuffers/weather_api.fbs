@@ -467,15 +467,6 @@ enum Probability: ubyte {
   lt2stdev
 }
 
-enum Percentile: ubyte {
-  none = 0,
-  p10 = 10,
-  p25 = 25,
-  p50 = 50,
-  p75 = 75,
-  p90 = 90
-}
-
 table VariableWithValues {
   variable: Variable;
   unit: Unit;
@@ -495,8 +486,6 @@ table VariableWithValues {
   ensemble_member: int16;
   previous_day: int16;
   probability: Probability;
-  // Raw ensemble percentile for the base variable. Mean and spread use none.
-  percentile: Percentile = none;
 }
 
 table VariablesWithTime {

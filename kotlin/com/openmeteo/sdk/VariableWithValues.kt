@@ -111,11 +111,6 @@ class VariableWithValues : Table() {
             val o = __offset(28)
             return if(o != 0) bb.get(o + bb_pos).toUByte() else 0u
         }
-    val percentile : UByte
-        get() {
-            val o = __offset(30)
-            return if(o != 0) bb.get(o + bb_pos).toUByte() else 0u
-        }
     companion object {
         fun validateVersion() = Constants.FLATBUFFERS_25_2_10()
         fun getRootAsVariableWithValues(_bb: ByteBuffer): VariableWithValues = getRootAsVariableWithValues(_bb, VariableWithValues())
@@ -123,8 +118,8 @@ class VariableWithValues : Table() {
             _bb.order(ByteOrder.LITTLE_ENDIAN)
             return (obj.__assign(_bb.getInt(_bb.position()) + _bb.position(), _bb))
         }
-        fun createVariableWithValues(builder: FlatBufferBuilder, variable: UByte, unit: UByte, value: Float, valuesOffset: Int, valuesInt64Offset: Int, altitude: Short, aggregation: UByte, pressureLevel: Short, depth: Short, depthTo: Short, ensembleMember: Short, previousDay: Short, probability: UByte, percentile: UByte) : Int {
-            builder.startTable(14)
+        fun createVariableWithValues(builder: FlatBufferBuilder, variable: UByte, unit: UByte, value: Float, valuesOffset: Int, valuesInt64Offset: Int, altitude: Short, aggregation: UByte, pressureLevel: Short, depth: Short, depthTo: Short, ensembleMember: Short, previousDay: Short, probability: UByte) : Int {
+            builder.startTable(13)
             addValuesInt64(builder, valuesInt64Offset)
             addValues(builder, valuesOffset)
             addValue(builder, value)
@@ -134,14 +129,13 @@ class VariableWithValues : Table() {
             addDepth(builder, depth)
             addPressureLevel(builder, pressureLevel)
             addAltitude(builder, altitude)
-            addPercentile(builder, percentile)
             addProbability(builder, probability)
             addAggregation(builder, aggregation)
             addUnit(builder, unit)
             addVariable(builder, variable)
             return endVariableWithValues(builder)
         }
-        fun startVariableWithValues(builder: FlatBufferBuilder) = builder.startTable(14)
+        fun startVariableWithValues(builder: FlatBufferBuilder) = builder.startTable(13)
         fun addVariable(builder: FlatBufferBuilder, variable: UByte) = builder.addByte(0, variable.toByte(), 0)
         fun addUnit(builder: FlatBufferBuilder, unit: UByte) = builder.addByte(1, unit.toByte(), 0)
         fun addValue(builder: FlatBufferBuilder, value: Float) = builder.addFloat(2, value, 0.0)
@@ -171,7 +165,6 @@ class VariableWithValues : Table() {
         fun addEnsembleMember(builder: FlatBufferBuilder, ensembleMember: Short) = builder.addShort(10, ensembleMember, 0)
         fun addPreviousDay(builder: FlatBufferBuilder, previousDay: Short) = builder.addShort(11, previousDay, 0)
         fun addProbability(builder: FlatBufferBuilder, probability: UByte) = builder.addByte(12, probability.toByte(), 0)
-        fun addPercentile(builder: FlatBufferBuilder, percentile: UByte) = builder.addByte(13, percentile.toByte(), 0)
         fun endVariableWithValues(builder: FlatBufferBuilder) : Int {
             val o = builder.endTable()
             return o
