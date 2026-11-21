@@ -174,4 +174,5 @@ class Model(object):
   ecmwf_ifs01 = cast(int, ...)
   ecmwf_ifs01_ensemble_mean = cast(int, ...)
   ecmwf_ifs01_ensemble = cast(int, ...)
+  google_weathernext3_ensemble_mean = cast(int, ...)
 

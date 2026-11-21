@@ -9,6 +9,7 @@ final class OpenMeteoSdkTests: XCTestCase {
     /// Test enum values. In case the order is wrongly modified, those tests will fail
     func testEnums() {
         XCTAssertEqual(openmeteo_sdk_Model.cfsv2.rawValue, 51)
+        XCTAssertEqual(openmeteo_sdk_Model.googleWeathernext3EnsembleMean.rawValue, 165)
         XCTAssertEqual(openmeteo_sdk_Unit.wmoCode.rawValue, 40)
         XCTAssertEqual(openmeteo_sdk_Variable.usAqiCarbonMonoxide.rawValue, 102)
         XCTAssertEqual(openmeteo_sdk_Aggregation.sum.rawValue, 10)

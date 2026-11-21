@@ -231,8 +231,9 @@ public enum openmeteo_sdk_Model: UInt8, Enum, Verifiable {
   case ecmwfIfs01 = 162
   case ecmwfIfs01EnsembleMean = 163
   case ecmwfIfs01Ensemble = 164
+  case googleWeathernext3EnsembleMean = 165
 
-  public static var max: openmeteo_sdk_Model { return .ecmwfIfs01Ensemble }
+  public static var max: openmeteo_sdk_Model { return .googleWeathernext3EnsembleMean }
   public static var min: openmeteo_sdk_Model { return .undefined }
 }
 

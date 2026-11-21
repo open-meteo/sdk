@@ -2,6 +2,8 @@
 
 ## Compile FlatBuffers files
 
+Use flatc 25.9.23 for Swift, Python, and TypeScript and 25.2.10 for C#, Java, and Kotlin.
+
 AWK is used to remove create functions for flatbuffer messages
 
 ```bash

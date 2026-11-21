@@ -170,5 +170,6 @@ class Model private constructor() {
         const val ecmwf_ifs01: UByte = 162u
         const val ecmwf_ifs01_ensemble_mean: UByte = 163u
         const val ecmwf_ifs01_ensemble: UByte = 164u
+        const val google_weathernext3_ensemble_mean: UByte = 165u
     }
 }
