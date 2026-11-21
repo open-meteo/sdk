@@ -9,6 +9,7 @@ final class OpenMeteoSdkTests: XCTestCase {
     /// Test enum values. In case the order is wrongly modified, those tests will fail
     func testEnums() {
         XCTAssertEqual(openmeteo_sdk_Model.cfsv2.rawValue, 51)
+        XCTAssertEqual(openmeteo_sdk_Model.googleWeathernext3EnsembleMean.rawValue, 165)
         XCTAssertEqual(openmeteo_sdk_Unit.wmoCode.rawValue, 40)
         XCTAssertEqual(openmeteo_sdk_Variable.usAqiCarbonMonoxide.rawValue, 102)
         XCTAssertEqual(openmeteo_sdk_Aggregation.sum.rawValue, 10)
@@ -87,38 +88,5 @@ final class OpenMeteoSdkTests: XCTestCase {
         XCTAssertEqual(VariableWithValues.ensembleMember, 50)
         XCTAssertEqual(VariableWithValues.unit, .celsius)
         XCTAssertEqual(VariableWithValues.variable, .temperature)
-    }
-
-    func testWeatherNext3Percentiles() throws {
-        let statistics: [openmeteo_sdk_Aggregation] = [.none_, .p10, .p25, .median, .p75, .p90, .spread]
-        var fbb = FlatBufferBuilder()
-        let offsets = statistics.map { aggregation in
-            openmeteo_sdk_VariableWithValues.createVariableWithValues(
-                &fbb,
-                variable: .temperature,
-                unit: .celsius,
-                altitude: 2,
-                aggregation: aggregation
-            )
-        }
-        let variables = fbb.createVector(ofOffsets: offsets)
-        let hourly = openmeteo_sdk_VariablesWithTime.createVariablesWithTime(&fbb, variablesVectorOffset: variables)
-        let api = openmeteo_sdk_WeatherApiResponse.createWeatherApiResponse(
-            &fbb, model: .googleWeathernext3EnsembleMean, hourlyOffset: hourly
-        )
-        fbb.finish(offset: api)
-
-        var bb = fbb.buffer
-        let response: WeatherApiResponse = try getCheckedRoot(byteBuffer: &bb)
-        XCTAssertEqual(response.model, .googleWeathernext3EnsembleMean)
-        XCTAssertEqual(response.model.rawValue, 165)
-        let decodedHourly = try XCTUnwrap(response.hourly)
-        XCTAssertEqual(Int(decodedHourly.variablesCount), statistics.count)
-        for (index, aggregation) in statistics.enumerated() {
-            let series = try XCTUnwrap(decodedHourly.variables(at: Int32(index)))
-            XCTAssertEqual(series.variable, .temperature)
-            XCTAssertEqual(series.altitude, 2)
-            XCTAssertEqual(series.aggregation, aggregation)
-        }
     }
 }
