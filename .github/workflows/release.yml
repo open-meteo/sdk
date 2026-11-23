@@ -54,7 +54,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_ACTOR: ${{ github.actor }}
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
           GRADLE_SIGNING_KEY: ${{ secrets.GRADLE_SIGNING_KEY }}
           GRADLE_SIGNING_PASSWORD: ${{ secrets.GRADLE_SIGNING_PASSWORD }}
           NUGET_TOKEN: ${{ steps.nuget_login.outputs.NUGET_API_KEY }}
