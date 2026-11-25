@@ -6,7 +6,6 @@ plugins {
     id("com.gradleup.nmcp.aggregation") version "1.6.2"
 }
 
-//version = "1.4.0"
 group = "com.open-meteo"
 
 sourceSets {
@@ -87,41 +86,7 @@ publishing {
             }
         }
     }
-    /*
-    Manuel deploy to maven central
-    - Enable repo below, set version
-    - ./gradlew publishMavenJavaPublicationToLocalRepository
-    - delete maven meta data
-    - zip com directory in ~/Download/local_repo
-    - deployment name "com.open-meteo:sdk:1.4.0"
-    */
-    /*repositories {
-        maven {
-            name = "local"
-            url = uri("file://Users/patrick/Downloads/local_repo/")
-        }
-    }*/
 }
-
-// GitHub packages requires a github token even to read packages
-// Not suitable for an easy workflow
-/*publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/open-meteo/sdk")
-            credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("GH_TOKEN")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("GH_ACTOR")
-            }
-        }
-    }
-    publications {
-        register<MavenPublication>("gpr") {
-            from(components["java"])
-        }
-    }
-}*/
 
 val signingKey: String? = providers.environmentVariable("GRADLE_SIGNING_KEY").orNull
 val signingPassword: String? = providers.environmentVariable("GRADLE_SIGNING_PASSWORD").orNull
@@ -131,7 +96,6 @@ signing {
         useInMemoryPgpKeys(signingKey, signingPassword)
         sign(configurations.archives.get())
         sign(publishing.publications["mavenJava"])
-        //sign(publishing.publications["gpr"])
     } else {
         logger.warn("The signing key and password are null. This can be ignored if this is a pull request.")
     }
