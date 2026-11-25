@@ -2,7 +2,8 @@ plugins {
     `java-library`
     `maven-publish`
     signing
-    //id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
+    id("com.gradleup.nmcp") version "1.6.2"
+    id("com.gradleup.nmcp.aggregation") version "1.6.2"
 }
 
 //version = "1.4.0"
@@ -30,6 +31,7 @@ repositories {
 
 // As of 30th October, 25.9.23 was not available. Keep 25.2.10
 dependencies {
+    nmcpAggregation(project(":"))
     api("com.google.flatbuffers:flatbuffers-java:25.2.10")
     api("com.google.code.findbugs:jsr305:3.0.2")
     constraints {
@@ -45,6 +47,14 @@ dependencies {
                 require("3.0.0")
             }
         }
+    }
+}
+
+nmcpAggregation {
+    centralPortal {
+        username = providers.environmentVariable("MAVEN_CENTRAL_USERNAME")
+        password = providers.environmentVariable("MAVEN_CENTRAL_PASSWORD")
+        publishingType = "AUTOMATIC"
     }
 }
 
@@ -126,16 +136,3 @@ signing {
         logger.warn("The signing key and password are null. This can be ignored if this is a pull request.")
     }
 }
-
-/*val sonatypeUsername: String? = providers.environmentVariable("SONATYPE_USERNAME").orNull
-val sonatypePassword: String? = providers.environmentVariable("SONATYPE_PASSWORD").orNull
-nexusPublishing {
-    repositories {
-        sonatype {
-            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
-            username = sonatypeUsername
-            password = sonatypePassword
-        }
-    }
-}*/

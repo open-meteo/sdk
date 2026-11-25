@@ -1,5 +1,14 @@
 # Development notes
 
+## Release the Java SDK
+
+The GitHub Actions **Release** workflow publishes `com.open-meteo:sdk` to Maven Central from the tag created by semantic-release. Set these secrets in the GitHub `release` environment before running the workflow:
+
+- `MAVEN_CENTRAL_USERNAME` and `MAVEN_CENTRAL_PASSWORD` hold the two values from a [Central Portal user token](https://central.sonatype.org/publish/generate-portal-token/) for an account with access to `com.open-meteo`.
+- `GRADLE_SIGNING_KEY` and `GRADLE_SIGNING_PASSWORD` hold the ASCII-armored private GPG key and its passphrase. The [corresponding public key must be available to Maven Central](https://central.sonatype.org/publish/requirements/gpg/#distributing-your-public-key).
+
+If the Maven job fails, check the deployment in the [Central Portal](https://central.sonatype.com/publishing/deployments) before rerunning the failed job in GitHub Actions. A rerun uses the same release tag and version.
+
 ## Compile FlatBuffers files
 
 Use flatc 25.9.23 for Swift, Python, and TypeScript and 25.2.10 for C#, Java, and Kotlin.
