@@ -50,7 +50,6 @@
             }
         ],
         "@droidsolutions-oss/semantic-release-nuget",
-        "gradle-semantic-release-plugin",
         "@semantic-release/github",
         "@semantic-release/npm"
     ],
