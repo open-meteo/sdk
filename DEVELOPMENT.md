@@ -9,6 +9,8 @@ The GitHub Actions **Release** workflow publishes `com.open-meteo:sdk` to Maven 
 
 If the Maven job fails, check the deployment in the [Central Portal](https://central.sonatype.com/publishing/deployments) before rerunning the failed job in GitHub Actions. A rerun uses the same release tag and version.
 
+If another release step fails after creating the tag and the Maven job is skipped, run **Release** again with that tag in `maven_tag`. This runs only the Maven job and builds the Java SDK from the tagged commit. Use a tag that includes Maven Central publishing support. Leave the field empty for a normal release.
+
 ## Compile FlatBuffers files
 
 Use flatc 25.9.23 for Swift, Python, and TypeScript and 25.2.10 for C#, Java, and Kotlin.

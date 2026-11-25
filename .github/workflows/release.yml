@@ -2,14 +2,19 @@ name: Release
 
 on:
   workflow_dispatch:
+    inputs:
+      maven_tag:
+        description: "Publish only the Java SDK from an existing release tag (vX.Y.Z). Leave empty for a normal release."
+        type: string
+        required: false
 
 jobs:
   release:
     name: Release
+    if: inputs.maven_tag == ''
     runs-on: ubuntu-latest
     environment: release
     outputs:
-      version: ${{ steps.release.outputs.version }}
       tag: ${{ steps.release.outputs.tag }}
     permissions:
       contents: write
@@ -66,24 +71,32 @@ jobs:
 
           const release = await semanticRelease();
           if (release) {
-            const { version, gitTag } = release.nextRelease;
-            appendFileSync(process.env.GITHUB_OUTPUT, `version=${version}\ntag=${gitTag}\n`);
+            appendFileSync(process.env.GITHUB_OUTPUT, `tag=${release.nextRelease.gitTag}\n`);
           }
           NODE
 
   maven-central:
     name: Publish to Maven Central
     needs: release
-    if: needs.release.outputs.tag != ''
+    if: ${{ !cancelled() && (inputs.maven_tag != '' || (needs.release.result == 'success' && needs.release.outputs.tag != '')) }}
     runs-on: ubuntu-latest
     environment: release
     permissions:
       contents: read
+    env:
+      RELEASE_TAG: ${{ inputs.maven_tag || needs.release.outputs.tag }}
     steps:
+      - name: Read version from release tag
+        run: |
+          if [[ ! "$RELEASE_TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
+            echo "Expected a release tag of the form vX.Y.Z" >&2
+            exit 1
+          fi
+          echo "RELEASE_VERSION=${RELEASE_TAG#v}" >> "$GITHUB_ENV"
       - name: Check out release tag
         uses: actions/checkout@v7
         with:
-          ref: refs/tags/${{ needs.release.outputs.tag }}
+          ref: refs/tags/${{ env.RELEASE_TAG }}
       - uses: actions/setup-java@v5
         with:
           distribution: temurin
@@ -93,7 +106,6 @@ jobs:
       - uses: gradle/actions/setup-gradle@v6
       - name: Publish signed Java SDK
         env:
-          RELEASE_VERSION: ${{ needs.release.outputs.version }}
           MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
           MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
           GRADLE_SIGNING_KEY: ${{ secrets.GRADLE_SIGNING_KEY }}
